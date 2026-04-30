@@ -1,0 +1,28 @@
+{
+  "name": "@figtree/shared",
+  "version": "0.1.0",
+  "description": "Shared utilities and types for Figtree",
+  "type": "module",
+  "keywords": [
+    "schema",
+    "types",
+    "zod",
+    "utils"
+  ],
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:*",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/node": "^25.6.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@sindresorhus/slugify": "^3.0.0",
+    "@t3-oss/env-core": "^0.13.11",
+    "libphonenumber-js": "^1.12.42",
+    "zod": "^4.4.1"
+  },
+  "exports": {
+    "./env/client": "./src/env/client.ts",
+    "./env/server": "./src/env/server.ts"
+  }
+}
