@@ -1,0 +1,38 @@
+{
+  "name": "@figtree/prisma",
+  "version": "0.1.0",
+  "description": "Database package for Figtree",
+  "type": "module",
+  "scripts": {
+    "generate": "prisma generate",
+    "push": "prisma db push",
+    "studio": "prisma studio",
+    "seed": "tsx seed.ts"
+  },
+  "keywords": [
+    "database",
+    "prismaorm"
+  ],
+  "dependencies": {
+    "@figtree/shared": "workspace:*",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "dotenv": "^17.4.2",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:*",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/node": "^24.12.2",
+    "@types/pg": "^8.20.0",
+    "prisma": "^7.8.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./prisma/schema/*": "./schema/*.prisma",
+    ".": "./index.ts",
+    "./client": "./client.ts",
+    "./browser": "./generated/prisma/browser.ts"
+  }
+}
