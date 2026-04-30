@@ -11,11 +11,11 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@workspace/ui/components",
-    "utils": "@workspace/ui/lib/utils",
-    "hooks": "@workspace/ui/hooks",
-    "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components"
+    "components": "@figtree/ui/components",
+    "utils": "@figtree/ui/lib/utils",
+    "hooks": "@figtree/ui/hooks",
+    "lib": "@figtree/ui/lib",
+    "ui": "@figtree/ui/components"
   },
   "rtl": false,
   "menuColor": "default",
