@@ -1,0 +1,10 @@
+{
+  "extends": "@figtree/typescript-config/base.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "outDir": "dist",
+    "module": "preserve",
+    "moduleResolution": "bundler"
+  },
+  "exclude": ["node_modules", "dist"]
+}

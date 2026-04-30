@@ -8,11 +8,17 @@
     "dev": "tsx watch src/index.ts -p=4000",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma generate",
+    "prisma:push": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma push",
+    "prisma:studio": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma studio",
+    "prisma:seed": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma seed"
   },
   "dependencies": {
     "@figtree/shared": "workspace:*",
     "@fastify/cors": "^11.2.0",
+    "dotenv-flow": "^4.1.0",
+    "dotenv-flow-cli": "^1.1.1",
     "fastify": "^5.8.5",
     "fastify-plugin": "^5.1.0",
     "fastify-type-provider-zod": "^6.1.0",
@@ -22,9 +28,7 @@
   "devDependencies": {
     "@figtree/eslint-config": "workspace:^",
     "@figtree/typescript-config": "workspace:*",
-    "@types/express": "^4.17.25",
     "@types/node": "^24.12.2",
-    "eslint": "^9.39.4",
     "typescript": "^5.9.3"
   }
 }
