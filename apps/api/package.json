@@ -28,9 +28,7 @@
   "devDependencies": {
     "@figtree/eslint-config": "workspace:^",
     "@figtree/typescript-config": "workspace:*",
-    "@types/express": "^4.17.25",
     "@types/node": "^24.12.2",
-    "eslint": "^9.39.4",
     "typescript": "^5.9.3"
   }
 }
