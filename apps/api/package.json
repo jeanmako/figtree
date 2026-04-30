@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "API service for Figtree",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts -p=4000",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.2.0",
+    "fastify": "^5.8.5",
+    "fastify-plugin": "^5.1.0",
+    "fastify-type-provider-zod": "^6.1.0",
+    "tsx": "^4.21.0",
+    "zod": "^4.4.1"
+  },
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:^",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/express": "^4.17.25",
+    "@types/node": "^24.12.2",
+    "eslint": "^9.39.4",
+    "typescript": "^5.9.3"
+  }
+}

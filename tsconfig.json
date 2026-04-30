@@ -1,4 +1,3 @@
 {
-  "extends": "@workspace/typescript-config/base.json"
+  "extends": "@figtree/typescript-config/base.json"
 }
-
