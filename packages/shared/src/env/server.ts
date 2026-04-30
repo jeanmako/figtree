@@ -12,6 +12,7 @@ export const serverEnv = createEnv({
     UPSTASH_REDIS_REST_TOKEN: z.string().min(1),
     BETTER_AUTH_SECRET: z.string().min(1),
     BETTER_AUTH_URL: z.url(),
+    BETTER_AUTH_SERVER_URL: z.url(),
     RESEND_API_KEY: z.string().min(1),
   },
   runtimeEnv: process.env,
