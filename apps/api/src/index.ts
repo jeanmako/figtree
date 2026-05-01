@@ -1,3 +1,4 @@
+import { serverEnv } from "@figtree/shared/env/server"
 import { buildServer } from "./server"
 
 async function main() {
@@ -5,7 +6,7 @@ async function main() {
 
   try {
     await fastify.listen({
-      port: process.env.PORT ? Number.parseInt(process.env.PORT) : 4000,
+      port: serverEnv.PORT,
     })
   } catch (err) {
     fastify.log.error(err)
