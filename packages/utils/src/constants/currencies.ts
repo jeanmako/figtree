@@ -495,27 +495,26 @@ export const currencies = {
   ZM: "ZMW",
   // Zimbabwe
   ZW: "ZWD",
-};
+}
 
-const uniqueSet = new Set(Object.values(currencies));
+const uniqueSet = new Set(Object.values(currencies))
 
-export const uniqueCurrencies = [...uniqueSet];
+export const uniqueCurrencies = [...uniqueSet]
 
 // currency-label.ts
 
-export function getCurrencyLabel(
-  currencyCode: string,
-  locale: string = navigator.language,
-) {
+export function getCurrencyLabel(currencyCode: string, locale: string) {
+  const resolvedLocale =
+    locale ?? (typeof navigator !== "undefined" ? navigator.language : "en-US")
   try {
-    const displayNames = new Intl.DisplayNames([locale], {
+    const displayNames = new Intl.DisplayNames([resolvedLocale], {
       type: "currency",
-    });
+    })
 
-    const name = displayNames.of(currencyCode);
+    const name = displayNames.of(currencyCode)
 
-    return name ? `${currencyCode} — ${name}` : currencyCode;
+    return name ? `${currencyCode} — ${name}` : currencyCode
   } catch {
-    return currencyCode; // fallback for unsupported environments
+    return currencyCode // fallback for unsupported environments
   }
 }

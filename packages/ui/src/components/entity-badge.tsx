@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { type ReactNode } from "react";
-import { Badge } from "@figtree/ui/components/badge";
-import { Icons } from "@figtree/ui/components/icons";
-import { cn } from "@figtree/ui/lib/utils";
+import { type ReactNode } from "react"
+import { Badge } from "@figtree/ui/components/badge"
+import { Icons } from "@figtree/ui/components/icons"
+import { cn } from "@figtree/ui/lib/utils"
 import {
   Popover,
   PopoverPopup,
   PopoverTrigger,
-} from "@figtree/ui/components/popover";
-import { Button } from "@figtree/ui/components/button";
+} from "@figtree/ui/components/popover"
+import { Button } from "@figtree/ui/components/button"
 
 interface EntityBadgeProps {
-  name: string;
-  onRemove?: () => void;
-  href?: string;
-  disabled?: boolean;
-  children?: ReactNode;
-  className?: string;
+  name: string
+  onRemove?: () => void
+  href?: string
+  disabled?: boolean
+  children?: ReactNode
+  className?: string
 }
 
 export function EntityBadge({
@@ -36,21 +36,24 @@ export function EntityBadge({
           <Badge
             variant="ghost"
             className={cn(
-              "flex items-center gap-1.5 cursor-pointer h-5.5 data-popup-open:ring-0!",
+              "flex h-5.5 cursor-pointer items-center gap-1.5 data-popup-open:ring-0!",
               // disabled && "cursor-not-allowed opacity-50",
-              className,
+              className
             )}
           />
         }
         disabled={disabled}
       >
-        <span className="truncate max-w-30">{name}</span>
+        <span className="max-w-30 truncate">{name}</span>
 
         {href && (
           <a
             href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${name} in new tab`}
             onClick={(e) => e.stopPropagation()}
-            className="hover:text-foreground text-quiet  duration-300 transition-colors"
+            className="text-quiet transition-colors duration-300 hover:text-foreground"
           >
             <Icons.linkExternal className="size-3" />
           </a>
@@ -69,12 +72,12 @@ export function EntityBadge({
 
       {children && (
         <PopoverPopup
-          className="p-2.5 w-80 **:data-[slot=popover-popup]:min-w-full"
+          className="w-80 p-2.5 **:data-[slot=popover-popup]:min-w-full"
           side="bottom"
           align="center"
           sideOffset={4}
         >
-          <div className="flex items-center justify-between mb-3 w-full">
+          <div className="mb-3 flex w-full items-center justify-between">
             <span className="text-sm font-medium text-foreground">{name}</span>
             {onRemove && (
               <Button
@@ -83,7 +86,7 @@ export function EntityBadge({
                 size="icon-xs"
                 variant="ghost"
               >
-                <Icons.x className="size-3.5 text-quiet" />
+                <Icons.x className="text-quiet size-3.5" />
               </Button>
             )}
           </div>
@@ -91,5 +94,5 @@ export function EntityBadge({
         </PopoverPopup>
       )}
     </Popover>
-  );
+  )
 }

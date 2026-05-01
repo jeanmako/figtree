@@ -1,9 +1,9 @@
-import React from "react";
-import { Input } from "@figtree/ui/components/input";
-import { cn } from "@figtree/ui/lib/utils";
+import React from "react"
+import { Input } from "@figtree/ui/components/input"
+import { cn } from "@figtree/ui/lib/utils"
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  url: string;
+  url: string
 }
 
 export const SlugInput = ({
@@ -15,8 +15,8 @@ export const SlugInput = ({
   ...props
 }: Props) => {
   return (
-    <div className="flex rounded-md has-focus-visible:has-aria-invalid:border-destructive has-aria-invalid:border-destructive/80">
-      <span className="inline-flex items-center rounded-s-md bg-quietest/80 px-2 text-accent-foreground text-sm">
+    <div className="flex rounded-md has-aria-invalid:border-destructive/80 has-focus-visible:has-aria-invalid:border-destructive">
+      <span className="bg-quietest/80 inline-flex items-center rounded-s-md px-2 text-sm text-accent-foreground">
         {url}
       </span>
 
@@ -25,11 +25,8 @@ export const SlugInput = ({
         id={id}
         disabled={disabled}
         placeholder={placeholder}
-        className={cn(
-          (className = "-ms-px rounded-s-none border-l shadow-none"),
-          className,
-        )}
+        className={cn("-ms-px rounded-s-none border-l shadow-none", className)}
       />
     </div>
-  );
-};
+  )
+}

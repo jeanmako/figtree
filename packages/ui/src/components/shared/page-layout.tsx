@@ -1,4 +1,4 @@
-import { cn } from "@figtree/ui/lib/utils";
+import { cn } from "@figtree/ui/lib/utils"
 
 function PageContainer({
   className,
@@ -8,34 +8,26 @@ function PageContainer({
   return (
     <div
       className={cn(
-        "mx-auto w-full min-h-full h-full max-w-[1680px] relative",
-        className,
+        "relative mx-auto h-full min-h-full w-full max-w-[1680px]",
+        className
       )}
       {...props}
     >
       {children}
     </div>
-  );
-}
-
-interface PageWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  dashboard?: boolean;
+  )
 }
 
 function PageWrapper({
   className,
   children,
-  dashboard = false,
   ...props
-}: PageWrapperProps) {
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={cn("px-8 pt-8 w-full", dashboard && "px-8", className)}
-      {...props}
-    >
+    <div className={cn("w-full px-8 pt-8", className)} {...props}>
       {children}
     </div>
-  );
+  )
 }
 
 function PageHeader({
@@ -46,14 +38,14 @@ function PageHeader({
   return (
     <div
       className={cn(
-        "max-w-full mx-6 pt-8 grid grid-cols-1 items-end",
-        className,
+        "mx-6 grid max-w-full grid-cols-1 items-end pt-8",
+        className
       )}
       {...props}
     >
       {children}
     </div>
-  );
+  )
 }
 
 function PageTitle({
@@ -63,12 +55,12 @@ function PageTitle({
   return (
     <h1
       className={cn(
-        "!leading-tight text-left text-2xl lg:text-4xl font-semibold lg:!leading-[1.1]",
-        className,
+        "text-left text-2xl !leading-tight font-semibold lg:text-4xl lg:!leading-[1.1]",
+        className
       )}
       {...props}
     />
-  );
+  )
 }
 
 function PageDescription({
@@ -78,12 +70,12 @@ function PageDescription({
   return (
     <p
       className={cn(
-        "text-quiet leading-[1.4] sm:text-base px-4 sm:px-0 text-center",
-        className,
+        "text-quiet px-4 text-center leading-[1.4] sm:px-0 sm:text-base",
+        className
       )}
       {...props}
     />
-  );
+  )
 }
 
 function PageActions({
@@ -94,11 +86,11 @@ function PageActions({
     <div
       className={cn(
         "flex w-full items-center justify-start gap-2 py-2",
-        className,
+        className
       )}
       {...props}
     />
-  );
+  )
 }
 
 export {
@@ -108,4 +100,4 @@ export {
   PageHeader,
   PageDescription,
   PageTitle,
-};
+}

@@ -192,28 +192,29 @@ export function MultiSelectValue({
     setOverflowAmount(amount);
   }, []);
 
-  const handleResize = useCallback(
-    (node: HTMLDivElement) => {
-      valueRef.current = node;
+  const handleResize = useCallback((node: HTMLDivElement | null) => {
+    valueRef.current = node;
+  }, []);
 
-      const mutationObserver = new MutationObserver(checkOverflow);
-      const observer = new ResizeObserver(debounce(checkOverflow, 100));
+  useEffect(() => {
+    if (!valueRef.current) return;
 
-      mutationObserver.observe(node, {
-        childList: true,
-        attributes: true,
-        attributeFilter: ["class", "style"],
-      });
-      observer.observe(node);
+    const node = valueRef.current;
+    const mutationObserver = new MutationObserver(checkOverflow);
+    const observer = new ResizeObserver(debounce(checkOverflow, 100));
 
-      return () => {
-        observer.disconnect();
-        mutationObserver.disconnect();
-        valueRef.current = null;
-      };
-    },
-    [checkOverflow],
-  );
+    mutationObserver.observe(node, {
+      childList: true,
+      attributes: true,
+      attributeFilter: ["class", "style"],
+    });
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
+  }, [checkOverflow]);
 
   if (selectedValues.size === 0 && placeholder) {
     return (

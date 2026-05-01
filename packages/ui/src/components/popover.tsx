@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { Popover as PopoverPrimitive } from "@base-ui/react/popover";
+import { Popover as PopoverPrimitive } from "@base-ui/react/popover"
 
-import { cn } from "@figtree/ui/lib/utils";
+import { cn } from "@figtree/ui/lib/utils"
 
-const PopoverCreateHandle = PopoverPrimitive.createHandle;
+const PopoverCreateHandle = PopoverPrimitive.createHandle
 
-const Popover = PopoverPrimitive.Root;
+const Popover = PopoverPrimitive.Root
 
 function PopoverTrigger({
   className,
@@ -15,10 +15,13 @@ function PopoverTrigger({
   return (
     <PopoverPrimitive.Trigger
       data-slot="popover-trigger"
-      className="group ring-ring data-popup-open:bg-quietest! has-focus-visible:ring-ring has-focus-visible:ring-1 data-popup-open:ring transition-colors duration-300"
+      className={cn(
+        "group data-popup-open:bg-quietest! ring-ring transition-colors duration-300 has-focus-visible:ring-1 has-focus-visible:ring-ring data-popup-open:ring",
+        className
+      )}
       {...props}
     />
-  );
+  )
 }
 
 function PopoverPopup({
@@ -28,14 +31,13 @@ function PopoverPopup({
   align = "center",
   sideOffset = 4,
   alignOffset = 0,
-  tooltipStyle = false,
   ...props
 }: PopoverPrimitive.Popup.Props & {
-  side?: PopoverPrimitive.Positioner.Props["side"];
-  align?: PopoverPrimitive.Positioner.Props["align"];
-  sideOffset?: PopoverPrimitive.Positioner.Props["sideOffset"];
-  alignOffset?: PopoverPrimitive.Positioner.Props["alignOffset"];
-  tooltipStyle?: boolean;
+  side?: PopoverPrimitive.Positioner.Props["side"]
+  align?: PopoverPrimitive.Positioner.Props["align"]
+  sideOffset?: PopoverPrimitive.Positioner.Props["sideOffset"]
+  alignOffset?: PopoverPrimitive.Positioner.Props["alignOffset"]
+  tooltipStyle?: boolean
 }) {
   return (
     <PopoverPrimitive.Portal>
@@ -49,8 +51,8 @@ function PopoverPopup({
       >
         <span
           className={cn(
-            "relative overflow-hidden flex max-h-full origin-(--transform-origin) rounded-[12px] border bg-alternative bg-clip-padding dark:shadow-combo transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:not-in-data-[slot=group]:bg-clip-border",
-            className,
+            "bg-alternative dark:shadow-combo relative flex max-h-full origin-(--transform-origin) overflow-hidden rounded-[12px] border bg-clip-padding transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:not-in-data-[slot=group]:bg-clip-border",
+            className
           )}
           data-slot="popover-positioner-child"
         >
@@ -75,21 +77,21 @@ function PopoverPopup({
         {/* </PopoverPrimitive.Viewport> */}
       </PopoverPrimitive.Positioner>
     </PopoverPrimitive.Portal>
-  );
+  )
 }
 
 function PopoverClose({ ...props }: PopoverPrimitive.Close.Props) {
-  return <PopoverPrimitive.Close data-slot="popover-close" {...props} />;
+  return <PopoverPrimitive.Close data-slot="popover-close" {...props} />
 }
 
 function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
   return (
     <PopoverPrimitive.Title
-      className={cn("font-semibold text-lg leading-none", className)}
+      className={cn("text-lg leading-none font-semibold", className)}
       data-slot="popover-title"
       {...props}
     />
-  );
+  )
 }
 
 function PopoverDescription({
@@ -102,7 +104,7 @@ function PopoverDescription({
       data-slot="popover-description"
       {...props}
     />
-  );
+  )
 }
 
 export {
@@ -114,4 +116,4 @@ export {
   PopoverTitle,
   PopoverDescription,
   PopoverClose,
-};
+}
