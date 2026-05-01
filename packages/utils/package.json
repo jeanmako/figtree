@@ -1,0 +1,25 @@
+{
+  "name": "@figtree/utils",
+  "version": "0.1.0",
+  "description": "Utility functions package",
+  "type": "module",
+  "dependencies": {
+    "base-x": "^5.0.1",
+    "date-fns": "^4.1.0",
+    "nanoid": "^5.1.11",
+    "zod": "^4.4.1"
+  },
+  "peerDependencies": {
+    "react": "^19.2.5"
+  },
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:*",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/node": "^25.6.0",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./functions/*": "./src/functions/*.ts",
+    "./constants/*": "./src/constants/*.ts"
+  }
+}
