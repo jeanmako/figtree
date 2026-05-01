@@ -6,6 +6,7 @@ export const serverEnv = createEnv({
   server: {
     ...shared,
     PORT: z.coerce.number().default(4000),
+    CLIENT_ORIGIN: z.string().default("http://localhost:3000"),
     DATABASE_URL: z.url(),
     DATABASE_PASSWORD: z.string().min(1),
     UPSTASH_REDIS_REST_URL: z.url(),
