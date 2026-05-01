@@ -896,7 +896,7 @@ export const countries = {
   MK: {
     code: "MK",
     unicode: "U+1F1F2 U+1F1F0",
-    name: "Macedonia",
+    name: "North Macedonia",
     emoji: "🇲🇰",
   },
   ML: {
@@ -1310,7 +1310,7 @@ export const countries = {
   SZ: {
     code: "SZ",
     unicode: "U+1F1F8 U+1F1FF",
-    name: "Swaziland",
+    name: "Eswatini",
     emoji: "🇸🇿",
   },
   TA: {
@@ -1547,4 +1547,4 @@ export const countries = {
     name: "Zimbabwe",
     emoji: "🇿🇼",
   },
-};
+}

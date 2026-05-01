@@ -1,15 +1,15 @@
-import { cn } from "@figtree/ui/lib/utils";
-import { cva, VariantProps } from "class-variance-authority";
+import { cn } from "@figtree/ui/lib/utils"
+import { cva } from "class-variance-authority"
 
 function HorizontalNav({ className, ...props }: React.ComponentProps<"nav">) {
   return (
     <nav
       data-slot="nav-menu"
       data-nav="menu"
-      className={cn("relative px-3 py-2 w-full min-w-0", className)}
+      className={cn("relative w-full min-w-0 px-3 py-2", className)}
       {...props}
     />
-  );
+  )
 }
 
 function HorizontalNavContent({
@@ -20,10 +20,13 @@ function HorizontalNavContent({
     <ul
       data-slot="nav-menu-content"
       data-nav="content"
-      className={cn("flex w min-w-0 flex-row items-center gap-x-2", className)}
+      className={cn(
+        "flex w-full min-w-0 flex-row items-center gap-x-2",
+        className
+      )}
       {...props}
     />
-  );
+  )
 }
 
 function HorizontalNavItem({
@@ -37,11 +40,11 @@ function HorizontalNavItem({
       className={cn("group/menu-item relative", className)}
       {...props}
     />
-  );
+  )
 }
 
 const horizontalNavButtonVariants = cva(
-  "peer/menu-button cursor-pointer flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm font-medium outline-hidden ring-sidebar-ring transition-[width,height,padding,background] duration-300 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-3.75 [&>svg]:text-duper [&>svg]:shrink-0",
+  "peer/menu-button [&>svg]:text-duper flex w-full cursor-pointer items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm font-medium ring-sidebar-ring outline-hidden transition-[width,height,padding,background] duration-300 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground [&>span:last-child]:truncate [&>svg]:size-3.75 [&>svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -59,12 +62,12 @@ const horizontalNavButtonVariants = cva(
       variant: "default",
       size: "default",
     },
-  },
-);
+  }
+)
 
 export {
   HorizontalNavContent,
   HorizontalNav,
   HorizontalNavItem,
   horizontalNavButtonVariants,
-};
+}

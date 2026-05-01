@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   Dialog,
   DialogClose,
@@ -9,24 +9,25 @@ import {
   DialogPopup,
   DialogTitle,
   DialogTrigger,
-} from "@figtree/ui/components/dialog";
+} from "@figtree/ui/components/dialog"
 
-import { Icons } from "@figtree/ui/components/icons";
-import { Button } from "@figtree/ui/components/button";
-import { cn } from "@figtree/ui/lib/utils";
+import { Icons } from "@figtree/ui/components/icons"
+import { Button } from "@figtree/ui/components/button"
+import { cn } from "@figtree/ui/lib/utils"
+import { toastManager } from "./toast.js"
 
 type Props = {
-  icon: React.ReactNode;
-  title: string;
-  triggerContent: React.ReactNode;
-  actionLabel: string;
-  actionFormId?: string;
-  action?: () => Promise<{ error: boolean; message?: string }>;
-  children: React.ReactNode;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
-  className?: string;
-};
+  icon: React.ReactNode
+  title: string
+  triggerContent: React.ReactNode
+  actionLabel: string
+  actionFormId?: string
+  action?: () => Promise<{ error: boolean; message?: string }>
+  children: React.ReactNode
+  open: boolean
+  onOpenChange: (open: boolean) => void
+  className?: string
+}
 
 export const RemasteredModal = ({
   icon,
@@ -40,28 +41,41 @@ export const RemasteredModal = ({
   className,
   children,
 }: Props) => {
+  const handleAction = async () => {
+    if (!action) return
+    const data = await action()
+    if (data.error) {
+      toastManager.add({
+        description: data.message ?? "Error",
+        title: "Something went wrong.",
+        type: "error",
+      })
+    } else {
+      onOpenChange(false)
+    }
+  }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger render={<Button size="sm" />}>
         {triggerContent}
       </DialogTrigger>
       <DialogPopup
-        className="sm:max-w-max bg-surface! p-0.75 overflow-y-visible max-h-fit w-fit"
+        className="bg-surface! max-h-fit w-fit overflow-y-visible p-0.75 sm:max-w-max"
         showCloseButton={false}
       >
         <div className="rounded-[12px] bg-background">
-          <div className="rounded-[12px] shadow-modal-inner">
+          <div className="shadow-modal-inner rounded-[12px]">
             <div className="contents">
               <div
                 className={cn(
-                  "flex flex-col overflow-y-auto h-125 max-h-[75vh] w-200 max-w-[90vw] will-change-[width,height]",
-                  className,
+                  "flex h-125 max-h-[75vh] w-200 max-w-[90vw] flex-col overflow-y-auto will-change-[width,height]",
+                  className
                 )}
               >
-                <div className="h-11 w-full sticky p-2 shadow-bottom z-10 inline-flex items-center justify-between">
-                  <div className="inline-flex items-center py-0.5 px-1 gap-x-1.5 [&_svg:not([class*='size-'])]:size-3.5 [&_svg]:pointer-events-none [&_svg]:shrink-0">
+                <div className="shadow-bottom sticky z-10 inline-flex h-11 w-full items-center justify-between p-2">
+                  <div className="inline-flex items-center gap-x-1.5 px-1 py-0.5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5">
                     {icon}
-                    <span className="text-sm font-medium leading-6 truncate tracking-snug">
+                    <span className="tracking-snug truncate text-sm leading-6 font-medium">
                       {title}
                     </span>
                   </div>
@@ -69,11 +83,11 @@ export const RemasteredModal = ({
                     <DialogClose
                       render={<Button variant="ghost" size="icon-sm" />}
                     >
-                      <Icons.x className="size-3! text-quiet" />
+                      <Icons.x className="text-quiet size-3!" />
                     </DialogClose>
                   </div>
                 </div>
-                <DialogPanel className="px-0 in-[[data-slot=dialog-popup]:not(:has([data-slot=dialog-header]))]:pt-0 pb-0 size-full flex flex-col">
+                <DialogPanel className="flex size-full flex-col px-0 pb-0 in-[[data-slot=dialog-popup]:not(:has([data-slot=dialog-header]))]:pt-0">
                   <div className="flex flex-col items-stretch justify-start gap-4 px-4 pt-4 pb-6">
                     {children}
                   </div>
@@ -86,7 +100,7 @@ export const RemasteredModal = ({
                     size="sm"
                     type="submit"
                     form={actionFormId}
-                    onClick={action}
+                    onClick={handleAction}
                   >
                     {actionLabel}
                   </Button>
@@ -97,5 +111,5 @@ export const RemasteredModal = ({
         </div>
       </DialogPopup>
     </Dialog>
-  );
-};
+  )
+}

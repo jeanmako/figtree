@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { countries } from "@figtree/utils/constants/countries"
 import {
   Combobox,
@@ -47,10 +48,9 @@ export function CountrySelector({
       (country) => country.code === defaultValue
     )
     if (newDefaultCountry?.name !== value) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setValue(newDefaultCountry?.name || "")
     }
-  }, [defaultValue, value])
+  }, [defaultValue])
 
   return (
     <Combobox
@@ -91,14 +91,7 @@ export function CountrySelector({
         <ComboboxEmpty>{emptyMessage}</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
-            <ComboboxItem
-              key={item.code}
-              value={item.name}
-              onSelect={() => {
-                setValue(item.name)
-                onSelect?.(item.code, item.name)
-              }}
-            >
+            <ComboboxItem key={item.code} value={item.name}>
               {item.name}
             </ComboboxItem>
           )}

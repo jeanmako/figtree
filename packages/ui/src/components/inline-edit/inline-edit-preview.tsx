@@ -1,5 +1,5 @@
-import { cn } from "@figtree/ui/lib/utils";
-import { useInlineEditContext } from "@figtree/ui/components/inline-edit/inline-edit";
+import { cn } from "@figtree/ui/lib/utils"
+import { useInlineEditContext } from "@figtree/ui/components/inline-edit/inline-edit"
 
 export function InlineEditPreview<T>() {
   const {
@@ -9,22 +9,31 @@ export function InlineEditPreview<T>() {
     placeholder,
     displayValue,
     disabled,
-  } = useInlineEditContext<T>();
+  } = useInlineEditContext<T>()
 
-  if (isEditing) return null;
+  if (isEditing) return null
 
   const text =
     value === null || value === undefined || value === ""
       ? placeholder
-      : (displayValue?.(value) ?? String(value));
+      : (displayValue?.(value) ?? String(value))
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (disabled) return
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      startEditing()
+    }
+  }
 
   return (
     <div
       onClick={startEditing}
+      onKeyDown={handleKeyDown}
       className={cn(
-        "cursor-pointer rounded-md px-2 py-1.5 transition-colors duration-300 w-full h-8 max-h-8 inline-flex items-center justify-start",
+        "inline-flex h-8 max-h-8 w-full cursor-pointer items-center justify-start rounded-md px-2 py-1.5 transition-colors duration-300",
         "hover:bg-subtlest",
-        disabled && "opacity-50 cursor-not-allowed",
+        disabled && "cursor-not-allowed opacity-50"
       )}
       role="button"
       tabIndex={disabled ? undefined : 0}
@@ -33,13 +42,13 @@ export function InlineEditPreview<T>() {
     >
       <span
         className={cn(
-          "text-sm font-medium leading-5 text-foreground truncate",
+          "truncate text-sm leading-5 font-medium text-foreground",
           (value === null || value === undefined || value === "") &&
-            "text-quieter",
+            "text-quieter"
         )}
       >
         {text}
       </span>
     </div>
-  );
+  )
 }
