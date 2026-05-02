@@ -7,8 +7,144 @@ datasource db {
   provider = "postgresql"
 }
 
+enum SystemRole {
+  freelancer  // A workspace owner or member
+  portal_user // A client contact with portal access
+  admin       // Figtree staff (internal)
+}
+
+enum IdentityProvider {
+  sso
+  google
+  github
+  figtree
+}
+
 model User {
-  id    String @id @default(uuid())
-  name  String
-  email String @unique
+  id                                     String                                 @id @default(cuid())
+  name                                   String
+  email                                  String                                 @unique
+  image                                  String?
+  role                                   SystemRole?                            @default(freelancer)
+  identityProvider                       IdentityProvider?                      @default(figtree)
+  twoFactorEnabled                       Boolean                                @default(true) @map("two_factor_enabled")
+
+  banned                                 Boolean                                @default(false)
+  banReason                              String?                                @map("ban_reason")
+  banExpires                             DateTime?                              @map("ban_expires")
+
+  emailVerified                          Boolean                                @default(false) @map("email_verified")
+  
+  invalidLoginAttempts                   Int                                    @default(0) @map("invalid_login_attempts")
+  lockedAt                               DateTime?                              @map("locked_at")
+  lastLoginTime                          DateTime?                              @map("last_login_time")
+  lastActive                             DateTime?                              @map("last_active")
+
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+  deletedAt                              DateTime?                              @map("deleted_at") // soft delete
+                             
+  accounts                               Account[]
+  sessions                               Session[]
+  secrets                                TwoFactor[]
+  emails                                 Email[]
+
+  metadata                               Json?                                  @default("{}")
+
+  @@index([banned])
+  @@index([invalidLoginAttempts])
+  @@index([lastActive])
+  @@index([email])
+
+  @@map("users")
+}
+
+model Session {
+  id                                     String                                 @id @default(cuid())
+  userId                                 String                                 @map("user_id")
+
+  expiresAt                              DateTime                               @map("expires_at")
+  token                                  String                                 @unique
+  ipAddress                              String?                                @map("ip_address")
+  userAgent                              String?                                @map("user_agent")
+  impersonatedBy                         String?                                @map("impersonated_by")
+
+  context                                Json                                   @default("{}")
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model Account {
+  id                                     String                                 @id @default(cuid())
+  userId                                 String                                 @map("user_id")
+  accountId                              String                                 @map("account_id") // For multi-account providers (e.g., Google, GitHub)
+
+  password                               String?
+  providerId                             String                                 @map("provider_id") // e.g., "google", "github", "sso", "figtree"
+  accessToken                            String?                                @map("access_token")
+  refreshToken                           String?                                @map("refresh_token")
+  idToken                                String?                                @map("id_token")
+  accessTokenExpiresAt                   DateTime?                              @map("access_token_expires_at")
+  refreshTokenExpiresAt                  DateTime?                              @map("refresh_token_expires_at")
+  scope                                  String?                                @map("scope")
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, userId])
+  @@index([userId])
+  @@index([password])
+
+  @@map("accounts")
+}
+
+model Verification {
+  id                                     String                                 @id @default(cuid())
+
+  identifier                             String
+  value                                  String
+  expiresAt                              DateTime                               @map("expires_at")
+  createdAt                              DateTime?                              @default(now()) @map("created_at")
+  updatedAt                              DateTime?                              @updatedAt @map("updated_at")
+
+  @@index([identifier])
+  @@index([expiresAt])
+  @@index([value])
+
+  @@map("verifications")
+}
+
+model TwoFactor {
+  id                                     String                                 @id @default(cuid())
+  secret                                 String?
+  backupCodes                            String?                                @map("backup_codes")
+
+  userId                                 String                                 @unique @map("user_id")
+  user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("two_factor")
+}
+
+model Email {
+  id                                     String                                 @id @default(cuid())
+  userId                                 String                                 @map("user_id")
+  email                                  String
+  verified                               Boolean                                @default(false)
+  isPrimary                              Boolean                                @default(false) @map("is_primary")
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([email])
+  @@unique([userId, email])
+  @@index([userId])
+  @@index([email, verified])
+
+  @@map("emails")
 }
