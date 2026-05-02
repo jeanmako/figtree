@@ -8,8 +8,8 @@ datasource db {
 }
 
 enum SystemRole {
-  freelancer  // A workspace owner or member
-  portal_user // A client contact with portal access
+  internal  // A workspace owner or member
+  client // A client contact with portal access
   admin       // Figtree staff (internal)
 }
 
@@ -25,7 +25,7 @@ model User {
   name                                   String
   email                                  String                                 @unique
   image                                  String?
-  role                                   SystemRole?                            @default(freelancer)
+  role                                   SystemRole?                            @default(internal)
   identityProvider                       IdentityProvider?                      @default(figtree)
   twoFactorEnabled                       Boolean                                @default(true) @map("two_factor_enabled")
 
