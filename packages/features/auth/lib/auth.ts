@@ -54,4 +54,14 @@ export const auth = betterAuth({
       },
     }),
   ],
+  user: {
+    additionalFields: {
+      role: {
+        type: ["internal", "client", "admin"], // TODO: Pass in the roles from a shared package instead of hardcoding them here
+        required: false,
+        defaultValue: "internal",
+        input: false, // don't allow user to set role
+      },
+    },
+  },
 })

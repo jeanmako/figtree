@@ -15,6 +15,7 @@
     "prisma:seed": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma seed"
   },
   "dependencies": {
+    "@figtree/features": "workspace:*",
     "@figtree/prisma": "workspace:*",
     "@figtree/shared": "workspace:*",
     "@figtree/utils": "workspace:*",

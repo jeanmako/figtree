@@ -10,8 +10,8 @@
 */
 
 export const SystemRole = {
-  freelancer: 'freelancer',
-  portal_user: 'portal_user',
+  internal: 'internal',
+  client: 'client',
   admin: 'admin'
 } as const
 
