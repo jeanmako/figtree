@@ -4,7 +4,12 @@ import { prisma } from "@figtree/prisma"
 import { serverEnv } from "@figtree/shared/env/server"
 import { clientEnv } from "@figtree/shared/env/client"
 import { hashPassword, validatePassword } from "./password"
-import { PASSWORD_RESET_TOKEN_EXPIRY } from "./constants"
+import {
+  TOTP_CODE_LENGTH,
+  TOTP_EXPIRY_IN,
+  PASSWORD_RESET_TOKEN_EXPIRY,
+} from "./constants"
+import { twoFactor } from "better-auth/plugins"
 
 export const auth = betterAuth({
   appName: clientEnv.NEXT_PUBLIC_APP_NAME,
@@ -40,4 +45,13 @@ export const auth = betterAuth({
       sameSite: "lax",
     },
   },
+  plugins: [
+    twoFactor({
+      issuer: clientEnv.NEXT_PUBLIC_APP_NAME,
+      totpOptions: {
+        period: TOTP_EXPIRY_IN,
+        digits: TOTP_CODE_LENGTH,
+      },
+    }),
+  ],
 })
