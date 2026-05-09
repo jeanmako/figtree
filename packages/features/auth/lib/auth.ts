@@ -19,13 +19,6 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
-
-    /*
-    Better user experience to not require email verification on sign up.
-    We will instead ask them to verify their email when they try to do a major action like adding a payment method,
-    changing their password, sending a proposal, inviting a client to a portal, etc. 
-    This way they can get started right away and we can still ensure that they verify their email before doing anything important.
-    */
     requireEmailVerification: false,
     revokeSessionsOnPasswordReset: true,
     resetPasswordTokenExpiresIn: PASSWORD_RESET_TOKEN_EXPIRY,
@@ -33,6 +26,16 @@ export const auth = betterAuth({
     password: {
       hash: hashPassword,
       verify: validatePassword,
+    },
+  },
+  socialProviders: {
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+    },
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
   },
   advanced: {

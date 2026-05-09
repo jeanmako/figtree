@@ -56,6 +56,7 @@ export const SignUpEmailForm = (): ReactElement => {
       <form.AppField name="password">
         {(field) => (
           <field.Password
+            size="lg"
             withChecker
             disabled={loading}
             placeholder="Enter your password..."
@@ -68,11 +69,11 @@ export const SignUpEmailForm = (): ReactElement => {
         variant="secondary"
         className="w-full"
         size="lg"
-        disabled={!loading}
+        disabled={loading}
         form={formId}
       >
         Continue
-        {!loading && <Spinner />}
+        {loading && <Spinner />}
       </Button>
     </form>
   )

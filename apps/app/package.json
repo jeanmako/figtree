@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@figtree/features": "workspace:*",
+    "@figtree/lib": "workspace:*",
     "@figtree/shared": "workspace:*",
     "@figtree/ui": "workspace:*",
     "@figtree/utils": "workspace:*",

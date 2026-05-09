@@ -1,0 +1,29 @@
+{
+  "name": "@figtree/lib",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint . --ext .ts,.js,.tsx,.jsx",
+    "lint:fix": "eslint . --ext .ts,.js,.tsx,.jsx --fix"
+  },
+  "dependencies": {
+    "@figtree/utils": "workspace:*",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.37.0",
+    "next": "^16.2.4",
+    "react": "^19.2.5",
+    "resend": "6.6.0"
+  },
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:*",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/node": "^25.6.0",
+    "@types/react": "^19.2.14",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./*": "./*.ts",
+    "./upstash": "./upstash/index.ts"
+  }
+}

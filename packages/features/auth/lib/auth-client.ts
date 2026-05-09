@@ -5,7 +5,7 @@ import { twoFactorClient } from "better-auth/plugins"
 import { emailOTPClient } from "better-auth/client/plugins"
 
 export const authClient = createAuthClient({
-  baseURL: clientEnv.NEXT_PUBLIC_SERVER_URL,
+  baseURL: "http://localhost:4000",
   plugins: [
     emailOTPClient(),
     twoFactorClient({
