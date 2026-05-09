@@ -1,31 +1,24 @@
 import { betterAuth } from "better-auth"
 import { prismaAdapter } from "better-auth/adapters/prisma"
 import { prisma } from "@figtree/prisma"
-import { serverEnv } from "@figtree/shared/env/server"
-import { clientEnv } from "@figtree/shared/env/client"
 import { hashPassword, validatePassword } from "./password"
 import {
   TOTP_CODE_LENGTH,
   TOTP_EXPIRY_IN,
   PASSWORD_RESET_TOKEN_EXPIRY,
 } from "./constants"
-import { twoFactor } from "better-auth/plugins"
+import { twoFactor, emailOTP } from "better-auth/plugins"
+import { createAuthMiddleware } from "better-auth/api"
+import { serverEnv } from "@figtree/shared/env/server"
 
 export const auth = betterAuth({
-  appName: clientEnv.NEXT_PUBLIC_APP_NAME,
-  trustedOrigins: [serverEnv.CLIENT_ORIGIN],
+  appName: "Figtree",
+  trustedOrigins: ["http://localhost:3000"],
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
   emailAndPassword: {
     enabled: true,
-
-    /*
-    Better user experience to not require email verification on sign up.
-    We will instead ask them to verify their email when they try to do a major action like adding a payment method,
-    changing their password, sending a proposal, inviting a client to a portal, etc. 
-    This way they can get started right away and we can still ensure that they verify their email before doing anything important.
-    */
     requireEmailVerification: false,
     revokeSessionsOnPasswordReset: true,
     resetPasswordTokenExpiresIn: PASSWORD_RESET_TOKEN_EXPIRY,
@@ -35,25 +28,66 @@ export const auth = betterAuth({
       verify: validatePassword,
     },
   },
+  socialProviders: {
+    github: {
+      clientId: process.env.GITHUB_CLIENT_ID as string,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+    },
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
+  },
   advanced: {
     cookiePrefix:
-      serverEnv.NODE_ENV === "production" ? "__Secure-figtree" : "figtree",
-    useSecureCookies: serverEnv.NODE_ENV === "production",
+      process.env.NODE_ENV === "production" ? "__Secure-figtree" : "figtree",
+    useSecureCookies: process.env.NODE_ENV === "production",
     defaultCookieAttributes: {
       httpOnly: true,
-      secure: serverEnv.NODE_ENV === "production",
+      secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
     },
   },
   plugins: [
     twoFactor({
-      issuer: clientEnv.NEXT_PUBLIC_APP_NAME,
+      issuer: "Figtree",
       totpOptions: {
         period: TOTP_EXPIRY_IN,
         digits: TOTP_CODE_LENGTH,
       },
     }),
+    emailOTP({
+      overrideDefaultEmailVerification: true,
+      sendVerificationOnSignUp: true,
+      expiresIn: 300,
+      async sendVerificationOTP({ email, otp, type }) {
+        if (type === "email-verification") {
+          serverEnv.NODE_ENV === "production"
+            ? {}
+            : console.log("Your verification code: ", otp)
+        } else if (type === "forget-password") {
+          // Send the OTP for email verification
+        } else {
+          return
+        }
+      },
+    }),
   ],
+  hooks: {
+    before: createAuthMiddleware(async (ctx) => {
+      if (ctx.path === "/sign-up/email") {
+        return {
+          context: {
+            ...ctx,
+            body: {
+              ...ctx.body,
+              image: `https://api.dicebear.com/9.x/thumbs/svg?seed=${ctx.body.email}`, // generate a unique avatar based on the user's email using Dicebear's API
+            },
+          },
+        }
+      }
+    }),
+  },
   user: {
     additionalFields: {
       role: {

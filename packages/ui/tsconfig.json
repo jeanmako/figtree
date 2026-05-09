@@ -2,6 +2,8 @@
   "extends": "@figtree/typescript-config/react-library.json",
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@figtree/ui/*": ["./src/*"]

@@ -1,77 +1,67 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { OTPInput, OTPInputContext } from "input-otp";
-import { MinusIcon } from "lucide-react";
+import { OTPFieldPreview as OTPFieldPrimitive } from "@base-ui/react/otp-field"
+import type * as React from "react"
+import { cn } from "@figtree/ui/lib/utils"
+import { Separator } from "@figtree/ui/components/separator"
 
-import { cn } from "@figtree/ui/lib/utils";
-
-function InputOTP({
+export function OTPField({
   className,
-  containerClassName,
+  size = "default",
   ...props
-}: React.ComponentProps<typeof OTPInput> & {
-  containerClassName?: string;
-}) {
+}: React.ComponentProps<typeof OTPFieldPrimitive.Root> & {
+  size?: "default" | "lg"
+}): React.ReactElement {
   return (
-    <OTPInput
-      data-slot="input-otp"
-      containerClassName={cn(
-        "flex items-center gap-2 has-disabled:opacity-50",
-        containerClassName,
-      )}
-      className={cn("disabled:cursor-not-allowed", className)}
-      {...props}
-    />
-  );
-}
-
-function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="input-otp-group"
-      className={cn("flex items-center", className)}
-      {...props}
-    />
-  );
-}
-
-function InputOTPSlot({
-  index,
-  className,
-  ...props
-}: React.ComponentProps<"div"> & {
-  index: number;
-}) {
-  const inputOTPContext = React.useContext(OTPInputContext);
-  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {};
-
-  return (
-    <div
-      data-slot="input-otp-slot"
-      data-active={isActive}
+    <OTPFieldPrimitive.Root
       className={cn(
-        "data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive dark:bg-alternative border-input relative flex h-9 w-9 items-center justify-center border-y border-r text-sm shadow-xs transition-all outline-none first:rounded-l-md first:border-l last:rounded-r-md data-[active=true]:z-10 data-[active=true]:ring-[3px]",
-        className,
+        "flex items-center gap-2 has-disabled:opacity-64 has-disabled:**:data-[slot=otp-field-input]:shadow-none has-disabled:**:data-[slot=otp-field-input]:before:shadow-none!",
+        "has-aria-invalid:**:data-[slot=[otp-field-input]::placeholder]:text-destructive/70 has-aria-invalid:**:data-[slot=otp-field-input]:border-destructive-chill has-aria-invalid:**:data-[slot=otp-field-input]:text-destructive has-focus-visible:has-aria-invalid:**:data-[slot=otp-field-input]:ring-destructive/40 dark:has-focus-visible:has-aria-invalid:**:data-[slot=otp-field-input]:ring-destructive-foreground/50",
+        className
       )}
+      data-size={size}
+      data-slot="otp-field"
       {...props}
-    >
-      {char}
-      {hasFakeCaret && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
-        </div>
-      )}
-    </div>
-  );
+    />
+  )
 }
 
-function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+export function OTPFieldInput({
+  className,
+  ...props
+}: React.ComponentProps<typeof OTPFieldPrimitive.Input>): React.ReactElement {
   return (
-    <div data-slot="input-otp-separator" role="separator" {...props}>
-      <MinusIcon />
-    </div>
-  );
+    <OTPFieldPrimitive.Input
+      className={cn(
+        "relative size-9 min-w-0 rounded-md bg-quietest text-center text-base leading-9 text-foreground ring-ring transition-shadow outline-none not-dark:bg-clip-padding placeholder:text-quieter focus-visible:z-10 focus-visible:shadow-none focus-visible:ring-1 focus-visible:placeholder:text-transparent in-[[data-slot=otp-field][data-size=lg]]:size-9 in-[[data-slot=otp-field][data-size=lg]]:text-lg in-[[data-slot=otp-field][data-size=lg]]:leading-10 aria-invalid:shadow-none sm:size-8 sm:text-sm sm:leading-8 sm:in-[[data-slot=otp-field][data-size=lg]]:size-11 sm:in-[[data-slot=otp-field][data-size=lg]]:text-base sm:in-[[data-slot=otp-field][data-size=lg]]:leading-9",
+
+        className
+      )}
+      data-slot="otp-field-input"
+      spellCheck={false}
+      {...props}
+    />
+  )
 }
 
-export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator };
+export function OTPFieldSeparator({
+  className,
+  ...props
+}: React.ComponentProps<typeof Separator>): React.ReactElement {
+  return (
+    <OTPFieldPrimitive.Separator
+      render={
+        <Separator
+          className={cn(
+            "rounded-full bg-input data-[orientation=horizontal]:h-0.5 data-[orientation=horizontal]:w-3",
+            className
+          )}
+          orientation="horizontal"
+          {...props}
+        />
+      }
+    />
+  )
+}
+
+export { OTPFieldPrimitive }
