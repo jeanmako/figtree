@@ -1,7 +1,7 @@
 import fp from "fastify-plugin"
 import { Prisma } from "@figtree/prisma/client"
 import { hasZodFastifySchemaValidationErrors } from "fastify-type-provider-zod"
-import { ErrorCodeKey, FigtreeApiError } from "@figtree/utils/functions/errors"
+import { ErrorCodeKey, FigtreeApiError } from "@figtree/lib/errors"
 import { serverEnv } from "@figtree/shared/env/server"
 
 function mapPrismaError(error: Prisma.PrismaClientKnownRequestError): {

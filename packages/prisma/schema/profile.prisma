@@ -1,0 +1,22 @@
+model Profile {
+  id                                     String                                 @id @default(cuid())
+  userId                                 String                                 @unique @map("user_id")
+
+  locale                                 String                                 @default("en")
+  weekStartsOnMonday                     Boolean                                @default(false) @map("week_starts_on_monday")
+
+  timezone                               String                                 @default("UTC")
+  timezoneAutoSync                       Boolean                                @default(false) @map("timezone_auto_sync")
+  timeFormat                             Int                                    @default(24) @map("time_format")
+  dateFormat                             String?                                @map("date_format")
+
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([locale])
+
+  @@map("profiles")
+}

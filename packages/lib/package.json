@@ -13,7 +13,8 @@
     "@upstash/redis": "^1.37.0",
     "next": "^16.2.4",
     "react": "^19.2.5",
-    "resend": "6.6.0"
+    "resend": "6.6.0",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@figtree/eslint-config": "workspace:*",
