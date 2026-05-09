@@ -15,11 +15,12 @@
     "prisma:seed": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma seed"
   },
   "dependencies": {
+    "@fastify/cors": "^11.2.0",
     "@figtree/features": "workspace:*",
     "@figtree/prisma": "workspace:*",
     "@figtree/shared": "workspace:*",
     "@figtree/utils": "workspace:*",
-    "@fastify/cors": "^11.2.0",
+    "dotenv": "^17.4.2",
     "dotenv-flow": "^4.1.0",
     "dotenv-flow-cli": "^1.1.1",
     "fastify": "^5.8.5",

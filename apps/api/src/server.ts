@@ -1,4 +1,5 @@
 import Fastify from "fastify"
+import { serverEnv } from "@figtree/shared/env/server"
 import {
   serializerCompiler,
   validatorCompiler,
@@ -7,7 +8,7 @@ import {
 import fastifyCors from "@fastify/cors"
 import { prismaPlugin } from "./plugins/prisma"
 import { errorHandlerPlugin } from "./plugins/error-handler"
-import { serverEnv } from "@figtree/shared/env/server"
+import authRoutes from "./routes/auth/route"
 
 export async function buildServer() {
   const fastify = Fastify({
@@ -24,13 +25,18 @@ export async function buildServer() {
 
   await fastify.register(errorHandlerPlugin)
 
+  console.log(serverEnv.CLIENT_ORIGIN)
+
   await fastify.register(fastifyCors, {
-    origin: [serverEnv.CLIENT_ORIGIN],
+    origin: ["http://localhost:3000"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
     credentials: true,
     maxAge: 86400,
   })
+
+  // Layer 4 — Public routes
+  await fastify.register(authRoutes, { prefix: "/api/auth" })
 
   return fastify
 }

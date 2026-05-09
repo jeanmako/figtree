@@ -12,13 +12,19 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@figtree/ui": "workspace:*",
+    "@figtree/features": "workspace:*",
     "@figtree/shared": "workspace:*",
+    "@figtree/ui": "workspace:*",
+    "@figtree/utils": "workspace:*",
+    "@hookform/resolvers": "^5.2.2",
+    "@tanstack/react-query": "^5.100.9",
     "lucide-react": "^1.14.0",
     "next": "16.1.6",
     "next-themes": "^0.4.6",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-hook-form": "^7.73.1",
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@figtree/eslint-config": "workspace:^",

@@ -15,5 +15,16 @@ export const serverEnv = createEnv({
     BETTER_AUTH_URL: z.url(),
     RESEND_API_KEY: z.string().min(1),
   },
-  runtimeEnv: process.env,
+  runtimeEnv: {
+    NODE_ENV: process.env.NODE_ENV,
+    PORT: process.env.PORT,
+    CLIENT_ORIGIN: process.env.CLIENT_ORIGIN,
+    DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
+    UPSTASH_REDIS_REST_URL: process.env.UPSTASH_REDIS_REST_URL,
+    UPSTASH_REDIS_REST_TOKEN: process.env.UPSTASH_REDIS_REST_TOKEN,
+    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
+    BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+  },
 })

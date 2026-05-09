@@ -2,6 +2,29 @@
 
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import { ToastProvider } from "@figtree/ui/components/toast"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+
+// declare module "@tanstack/react-query" {
+//   interface Register {
+//     defaultError: FetchError;
+//   }
+// }
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 30 * 60 * 1000,
+      // retry: (failureCount, error) => {
+      //   const fetchError = error as FetchError;
+      //   // Never retry 4xx errors ::: they won't resolve themselves
+      //   if (fetchError.status >= 400 && fetchError.status < 500) return false;
+      //   // Retry server errors up to 2 times
+      //   return failureCount < 2;
+      // },
+    },
+  },
+})
 
 function ThemeProvider({
   children,
@@ -16,7 +39,11 @@ function ThemeProvider({
       {...props}
     >
       <ThemeHotkey />
-      {children}
+      <ToastProvider>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </ToastProvider>
     </NextThemesProvider>
   )
 }
