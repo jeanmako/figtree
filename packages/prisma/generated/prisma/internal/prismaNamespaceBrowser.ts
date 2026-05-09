@@ -51,6 +51,7 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
+  Profile: 'Profile',
   User: 'User',
   Session: 'Session',
   Account: 'Account',
@@ -75,6 +76,22 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+export const ProfileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  locale: 'locale',
+  weekStartsOnMonday: 'weekStartsOnMonday',
+  timezone: 'timezone',
+  timezoneAutoSync: 'timezoneAutoSync',
+  timeFormat: 'timeFormat',
+  dateFormat: 'dateFormat',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ProfileScalarFieldEnum = (typeof ProfileScalarFieldEnum)[keyof typeof ProfileScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
@@ -89,7 +106,6 @@ export const UserScalarFieldEnum = {
   emailVerified: 'emailVerified',
   invalidLoginAttempts: 'invalidLoginAttempts',
   lockedAt: 'lockedAt',
-  lastLoginTime: 'lastLoginTime',
   lastActive: 'lastActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -201,6 +217,14 @@ export const QueryMode = {
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+export const NullsOrder = {
+  first: 'first',
+  last: 'last'
+} as const
+
+export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
 export const JsonNullValueFilter = {
   DbNull: DbNull,
   JsonNull: JsonNull,
@@ -208,12 +232,4 @@ export const JsonNullValueFilter = {
 } as const
 
 export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
-
-
-export const NullsOrder = {
-  first: 'first',
-  last: 'last'
-} as const
-
-export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
