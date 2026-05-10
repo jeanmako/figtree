@@ -76,3 +76,18 @@ export type TwoFactor = Prisma.TwoFactorModel
  * 
  */
 export type Email = Prisma.EmailModel
+/**
+ * Model Workspace
+ * 
+ */
+export type Workspace = Prisma.WorkspaceModel
+/**
+ * Model WorkspaceMember
+ * 
+ */
+export type WorkspaceMember = Prisma.WorkspaceMemberModel
+/**
+ * Model WorkspaceInvite
+ * 
+ */
+export type WorkspaceInvite = Prisma.WorkspaceInviteModel

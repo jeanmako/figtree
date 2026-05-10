@@ -57,7 +57,10 @@ export const ModelName = {
   Account: 'Account',
   Verification: 'Verification',
   TwoFactor: 'TwoFactor',
-  Email: 'Email'
+  Email: 'Email',
+  Workspace: 'Workspace',
+  WorkspaceMember: 'WorkspaceMember',
+  WorkspaceInvite: 'WorkspaceInvite'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -184,6 +187,83 @@ export const EmailScalarFieldEnum = {
 } as const
 
 export type EmailScalarFieldEnum = (typeof EmailScalarFieldEnum)[keyof typeof EmailScalarFieldEnum]
+
+
+export const WorkspaceScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  name: 'name',
+  plan: 'plan',
+  vertical: 'vertical',
+  workspaceUrl: 'workspaceUrl',
+  customUrl: 'customUrl',
+  inviteCode: 'inviteCode',
+  country: 'country',
+  headcount: 'headcount',
+  billingName: 'billingName',
+  billingEmail: 'billingEmail',
+  billingAddress: 'billingAddress',
+  vatNumber: 'vatNumber',
+  logoIconUrl: 'logoIconUrl',
+  logoWordmarkUrl: 'logoWordmarkUrl',
+  stripeAccountId: 'stripeAccountId',
+  stripeConnected: 'stripeConnected',
+  wiseProfileId: 'wiseProfileId',
+  wiseConnected: 'wiseConnected',
+  wiseEmail: 'wiseEmail',
+  trialEndsAt: 'trialEndsAt',
+  billingCycleStart: 'billingCycleStart',
+  paymentTerms: 'paymentTerms',
+  currency: 'currency',
+  invoicePrefix: 'invoicePrefix',
+  taxRate: 'taxRate',
+  lateFeeRate: 'lateFeeRate',
+  revisionRounds: 'revisionRounds',
+  validDays: 'validDays',
+  scopeProtectionEnabled: 'scopeProtectionEnabled',
+  effectiveRateMin: 'effectiveRateMin',
+  lastIntelligenceRunAt: 'lastIntelligenceRunAt',
+  exportSettings: 'exportSettings',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt',
+  metadata: 'metadata'
+} as const
+
+export type WorkspaceScalarFieldEnum = (typeof WorkspaceScalarFieldEnum)[keyof typeof WorkspaceScalarFieldEnum]
+
+
+export const WorkspaceMemberScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  profileId: 'profileId',
+  title: 'title',
+  role: 'role',
+  canManageBilling: 'canManageBilling',
+  canManageTeam: 'canManageTeam',
+  canViewIntelligence: 'canViewIntelligence',
+  canManageStore: 'canManageStore',
+  joinedAt: 'joinedAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type WorkspaceMemberScalarFieldEnum = (typeof WorkspaceMemberScalarFieldEnum)[keyof typeof WorkspaceMemberScalarFieldEnum]
+
+
+export const WorkspaceInviteScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  email: 'email',
+  role: 'role',
+  tokenHash: 'tokenHash',
+  expiresAt: 'expiresAt',
+  acceptedAt: 'acceptedAt',
+  revokedAt: 'revokedAt',
+  invitedBy: 'invitedBy',
+  createdAt: 'createdAt'
+} as const
+
+export type WorkspaceInviteScalarFieldEnum = (typeof WorkspaceInviteScalarFieldEnum)[keyof typeof WorkspaceInviteScalarFieldEnum]
 
 
 export const SortOrder = {
