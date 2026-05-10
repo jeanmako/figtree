@@ -14,6 +14,7 @@ model Profile {
   updatedAt                              DateTime                               @updatedAt @map("updated_at")
 
   user                                   User                                   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspaceMemberships                   WorkspaceMember[]                      
 
   @@index([userId])
   @@index([locale])

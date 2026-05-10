@@ -26,3 +26,50 @@ export const IdentityProvider = {
 } as const
 
 export type IdentityProvider = (typeof IdentityProvider)[keyof typeof IdentityProvider]
+
+
+export const WorkspacePlan = {
+  trial: 'trial',
+  solo: 'solo',
+  pro: 'pro',
+  studio: 'studio',
+  agency: 'agency'
+} as const
+
+export type WorkspacePlan = (typeof WorkspacePlan)[keyof typeof WorkspacePlan]
+
+
+export const Headcount = {
+  solo: 'solo',
+  micro: 'micro',
+  small: 'small',
+  mid: 'mid',
+  large: 'large',
+  enterprise: 'enterprise'
+} as const
+
+export type Headcount = (typeof Headcount)[keyof typeof Headcount]
+
+
+export const WorkspaceVertical = {
+  design_development: 'design_development',
+  web_dev: 'web_dev',
+  web_design: 'web_design',
+  graphic_design: 'graphic_design',
+  software_dev: 'software_dev',
+  game_dev: 'game_dev',
+  illustration: 'illustration',
+  photography: 'photography'
+} as const
+
+export type WorkspaceVertical = (typeof WorkspaceVertical)[keyof typeof WorkspaceVertical]
+
+
+export const WorkspaceMemberRole = {
+  owner: 'owner',
+  admin: 'admin',
+  member: 'member',
+  viewer: 'viewer'
+} as const
+
+export type WorkspaceMemberRole = (typeof WorkspaceMemberRole)[keyof typeof WorkspaceMemberRole]

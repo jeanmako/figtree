@@ -1,0 +1,149 @@
+enum WorkspacePlan {
+  trial
+  solo
+  pro
+  studio
+  agency
+}
+
+enum Headcount {
+  solo
+  micro
+  small
+  mid
+  large
+  enterprise
+}
+
+enum WorkspaceVertical {
+  design_development
+  web_dev
+  web_design
+  graphic_design
+  software_dev
+  game_dev
+  illustration
+  photography
+}
+
+enum WorkspaceMemberRole {
+  owner   // Full access, billing, cannot be removed
+  admin   // Full access, no billing
+  member  // Project-scoped access
+  viewer  // Read-only
+}
+
+model Workspace {
+  id                                     String                                 @id @default(cuid())
+  slug                                   String                                 @unique                   
+
+  name                                   String
+  plan                                   WorkspacePlan                          @default(trial)
+  vertical                               WorkspaceVertical                      @default(design_development)
+  workspaceUrl                           String?                                @unique @map("workspace_url") // the workspace url in the app
+  customUrl                              String?                                @map("custom_url") // the custom domain set by the user
+  inviteCode                             String?                                @unique @map("invite_code")
+
+  // Business details
+  country                                String?                                @default("US")
+  headcount                              Headcount?
+  billingName                            String?                                @map("billing_name")
+  billingEmail                           String?                                @map("billing_email")
+  billingAddress                         Json?                                  @default("{}") @map("billing_address")
+  vatNumber                              String?                                @map("vat_number")
+  logoIconUrl                            String?                                @map("logo_icon_url")
+  logoWordmarkUrl                        String?                                @map("logo_wordmark_url")                          
+
+  // Payment integrations
+  stripeAccountId                        String?                                @map("stripe_account_id")
+  stripeConnected                        Boolean                                @default(false)
+  wiseProfileId                          String?
+  wiseConnected                          Boolean                                @default(false)
+  wiseEmail                              String?
+  trialEndsAt                            DateTime?                              @map("trial_ends_at")
+  billingCycleStart                      Int                                    @map("billing_cycle_start") // day of the month
+
+  // Invoice defaults
+  paymentTerms                           String                                 @default("net_14") @map("payment_terms")
+  currency                               String                                 @default("USD") @map("currency")
+  invoicePrefix                          String                                 @default("INV") @map("invoice_prefix")
+  taxRate                                Decimal                                @default(0) @db.Decimal(5, 4) @map("tax_rate")
+  lateFeeRate                            Decimal                                @default(0.015) @db.Decimal(5, 4) @map("late_fee_rate") // 1.5% per month
+
+  // Proposal defaults
+  revisionRounds                         Int                                    @default(3) @map("revision_rounds")
+  validDays                              Int                                    @default(30) @map("valid_days")
+
+  // Scope protection
+  scopeProtectionEnabled                 Boolean                                @default(true) @map("scope_protection_enabled")
+  effectiveRateMin                       Decimal?                               @db.Decimal(10, 2) @map("effective_rate_min")
+
+  // Intelligence
+  lastIntelligenceRunAt                  DateTime?                              @map("last_intelligence_run_at")
+  exportSettings                         Json?                                  @default("{}") @map("export_settings") // which data points to include in exports
+
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+  deletedAt                              DateTime?                              @map("deleted_at")
+
+  // TODO: Maybe add limitations on the number of projects, clients, etc based on the plan?
+
+  metadata                               Json?                                  @default("{}") // unsupported vertical, pallette, branding, etc
+
+  members                                WorkspaceMember[]
+  invites                                WorkspaceInvite[]
+
+  @@index([slug])
+  @@map("workspaces")
+}
+
+model WorkspaceMember {
+  id                                     String                                 @id @default(cuid())
+  workspaceId                            String                                 @map("workspace_id")
+  profileId                              String                                 @map("profile_id")
+
+  title                                  String?                                // e.g. "Lead Designer", "Project Manager"
+
+  role                                   WorkspaceMemberRole                    @default(member)
+
+  // Granular permissions
+  canManageBilling                       Boolean                                @default(false) @map("can_manage_billing")
+  canManageTeam                          Boolean                                @default(false) @map("can_manage_team")
+  canViewIntelligence                    Boolean                                @default(true) @map("can_view_intelligence")
+  canManageStore                         Boolean                                @default(true) @map("can_manage_store")
+
+  joinedAt                               DateTime                               @default(now()) @map("joined_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  profile                                Profile                                @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  workspace                              Workspace                              @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  
+  @@unique([workspaceId, profileId])
+  @@index([workspaceId])
+  @@index([profileId])
+  @@index([role])
+
+  @@map("workspace_members")
+}
+
+model WorkspaceInvite {
+  id                                     String                                 @id @default(cuid())
+  workspaceId                            String                                 @map("workspace_id")
+
+  email                                  String
+  role                                   WorkspaceMemberRole                    @default(member)
+  tokenHash                              String                                 @unique @map("token_hash")
+  expiresAt                              DateTime                               @map("expires_at")
+  acceptedAt                             DateTime?                              @map("accepted_at")
+  revokedAt                              DateTime?                              @map("revoked_at")
+
+  invitedBy                              String                                 @map("invited_by")
+
+  createdAt                              DateTime                               @default(now())
+ 
+  workspace                              Workspace                              @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@unique([email, workspaceId])
+  @@index([workspaceId])
+  @@map("workspace_invites")
+}
