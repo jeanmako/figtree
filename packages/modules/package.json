@@ -1,0 +1,22 @@
+{
+  "name": "@figtree/modules",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared modules for Figtree",
+  "dependencies": {
+    "@figtree/prisma": "workspace:*",
+    "@figtree/shared": "workspace:*",
+    "@figtree/lib": "workspace:*"
+  },
+  "devDependencies": {
+    "@figtree/eslint-config": "workspace:^",
+    "@figtree/typescript-config": "workspace:*",
+    "@types/node": "^25.6.0",
+    "typescript": "^5.9.3"
+  },
+  "exports": {
+    "./workspace": "./workspace/index.ts",
+    "./identity/profile": "./identity/profile/index.ts"
+  }
+}

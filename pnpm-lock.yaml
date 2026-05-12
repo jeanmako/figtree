@@ -38,6 +38,9 @@ importers:
       '@figtree/lib':
         specifier: workspace:*
         version: link:../../packages/lib
+      '@figtree/modules':
+        specifier: workspace:*
+        version: link:../../packages/modules
       '@figtree/prisma':
         specifier: workspace:*
         version: link:../../packages/prisma
@@ -267,6 +270,31 @@ importers:
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
+  packages/modules:
+    dependencies:
+      '@figtree/lib':
+        specifier: workspace:*
+        version: link:../lib
+      '@figtree/prisma':
+        specifier: workspace:*
+        version: link:../prisma
+      '@figtree/shared':
+        specifier: workspace:*
+        version: link:../shared
+    devDependencies:
+      '@figtree/eslint-config':
+        specifier: workspace:^
+        version: link:../eslint-config
+      '@figtree/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: ^25.6.0
+        version: 25.6.0
       typescript:
         specifier: ^5.9.3
         version: 5.9.3

@@ -9,6 +9,10 @@ import fastifyCors from "@fastify/cors"
 import { prismaPlugin } from "./plugins/prisma"
 import { errorHandlerPlugin } from "./plugins/error-handler"
 import authRoutes from "./routes/auth/route"
+import { authPlugin } from "./plugins/auth"
+import { workspacePlugin } from "./plugins/workspace"
+import { profileRepository } from "@figtree/modules/identity/profile"
+import { workspaceRepository } from "@figtree/modules/workspace"
 
 export async function buildServer() {
   const fastify = Fastify({
@@ -33,6 +37,21 @@ export async function buildServer() {
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
     credentials: true,
     maxAge: 86400,
+  })
+
+  // Layer 2 — Auth
+  // Registers fastify.authenticate decorator
+  await fastify.register(authPlugin)
+
+  const profileRepo = profileRepository(fastify.prisma)
+  const workspaceRepo = workspaceRepository(fastify.prisma)
+
+  // Layer 3 — Workspace
+  // Registers fastify.resolveWorkspace decorator
+  // Must be after authPlugin — resolveWorkspace depends on req.user
+  await fastify.register(workspacePlugin, {
+    profileRepo,
+    workspaceRepo,
   })
 
   // Layer 4 — Public routes

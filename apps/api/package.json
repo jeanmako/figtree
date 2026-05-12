@@ -18,6 +18,7 @@
     "@fastify/cors": "^11.2.0",
     "@figtree/features": "workspace:*",
     "@figtree/lib": "workspace:*",
+    "@figtree/modules": "workspace:*",
     "@figtree/prisma": "workspace:*",
     "@figtree/shared": "workspace:*",
     "@figtree/utils": "workspace:*",
