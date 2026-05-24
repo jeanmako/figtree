@@ -8,6 +8,11 @@ import {
   FormCheckbox,
   FormPasswordInput,
   FormOTPField,
+  FormSlugInput,
+  FormCountrySelector,
+  FormToggleGroupSelector,
+  FormMultiToggleGroupSelector,
+  FormCurrencySelector,
 } from "@figtree/ui/components/shared/form"
 
 const { fieldContext, formContext, useFieldContext, useFormContext } =
@@ -21,6 +26,11 @@ const { useAppForm } = createFormHook({
     Checkbox: FormCheckbox,
     Password: FormPasswordInput,
     OTP: FormOTPField,
+    SlugInput: FormSlugInput,
+    CountrySelector: FormCountrySelector,
+    ToggleGroupSelector: FormToggleGroupSelector,
+    MultiToggleGroupSelector: FormMultiToggleGroupSelector,
+    CurrencySelector: FormCurrencySelector,
   },
   formComponents: {},
   fieldContext,

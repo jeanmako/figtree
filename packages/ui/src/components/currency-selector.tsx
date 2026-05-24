@@ -1,6 +1,7 @@
 "use client"
 
 import {
+  CurrencyCode,
   getCurrencyLabel,
   uniqueCurrencies,
 } from "@figtree/utils/constants/currencies"
@@ -18,18 +19,29 @@ import * as React from "react"
 import { useEffect } from "react"
 import { Button } from "@figtree/ui/components/button"
 import { ChevronsUpDownIcon, SearchIcon } from "lucide-react"
+import { cn } from "../lib/utils"
 
 type Props = {
-  value?: string
+  id?: string
+  name: string
+  value?: CurrencyCode
   className?: string
   currencies?: string[]
-  onChange?: (value: string) => void
+  onValueChange: (value: CurrencyCode) => void
+  onBlur?: () => void
+  disabled?: boolean
+  isInvalid?: boolean
 }
 
 export function CurrencySelector({
+  id,
+  name,
+  disabled,
+  isInvalid,
   value: propValue,
   currencies: currenciesProp,
-  onChange,
+  onValueChange,
+  onBlur,
   className,
 }: Props) {
   const currencyCodes = (
@@ -57,21 +69,24 @@ export function CurrencySelector({
       onValueChange={(item) => {
         const newValue = item?.value ?? ""
         setValue(newValue)
-        onChange?.(newValue)
+        onValueChange?.(newValue as CurrencyCode)
       }}
+      name={name}
     >
       <ComboboxTrigger
         render={
           <Button
-            className={`bg-quietest w-full justify-between text-foreground ${
-              className ?? ""
-            }`}
-            variant="outline"
+            className={cn("w-full justify-between bg-quietest px-2", className)}
+            variant="secondary"
           />
         }
+        id={id}
+        disabled={disabled}
+        onBlur={onBlur}
+        aria-invalid={isInvalid}
       >
-        <ComboboxValue />
-        <ChevronsUpDownIcon className="text-quiet -me-1" />
+        <ComboboxValue placeholder="Select currency" />
+        <ChevronsUpDownIcon className="text-quiet" />
       </ComboboxTrigger>
       <ComboboxPopup aria-label="Select currency">
         <div className="border-b p-2">
@@ -85,7 +100,7 @@ export function CurrencySelector({
           />
         </div>
 
-        <ComboboxEmpty>No results found.</ComboboxEmpty>
+        <ComboboxEmpty>No currency found.</ComboboxEmpty>
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item.value} value={item}>

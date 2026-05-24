@@ -18,5 +18,9 @@ declare module "fastify" {
     prisma: PrismaClient
     authenticate: (req: FastifyRequest, reply: FastifyReply) => Promise<void>
     requireAdmin: (req: FastifyRequest, reply: FastifyReply) => Promise<void>
+    resolveWorkspace: (
+      req: FastifyRequest,
+      reply: FastifyReply
+    ) => Promise<void>
   }
 }

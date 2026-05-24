@@ -200,6 +200,8 @@ export const WorkspaceScalarFieldEnum = {
   inviteCode: 'inviteCode',
   country: 'country',
   headcount: 'headcount',
+  typicalClients: 'typicalClients',
+  timezone: 'timezone',
   billingName: 'billingName',
   billingEmail: 'billingEmail',
   billingAddress: 'billingAddress',

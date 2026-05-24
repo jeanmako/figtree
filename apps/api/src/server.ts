@@ -13,6 +13,7 @@ import { authPlugin } from "./plugins/auth"
 import { workspacePlugin } from "./plugins/workspace"
 import { profileRepository } from "@figtree/modules/identity/profile"
 import { workspaceRepository } from "@figtree/modules/workspace"
+import { protectedRoutes } from "./routes/withAuth.routes"
 
 export async function buildServer() {
   const fastify = Fastify({
@@ -56,6 +57,8 @@ export async function buildServer() {
 
   // Layer 4 — Public routes
   await fastify.register(authRoutes, { prefix: "/api/auth" })
+
+  await fastify.register(protectedRoutes, { prefix: "/api/v1" })
 
   return fastify
 }

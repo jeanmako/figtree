@@ -14,6 +14,7 @@ export type FormControlProps = {
   size?: "default" | "sm" | "lg" | number
   disabled?: boolean
   placeholder?: string
+  htmlFor?: string
 }
 
 type FormBaseProps = FormControlProps & {
@@ -28,15 +29,15 @@ export function FormBase({
   description,
   controlFirst,
   horizontal,
+  htmlFor,
 }: FormBaseProps) {
   const field = useFieldContext()
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
   const labelElement = (
-    <>
-      <FieldLabel htmlFor={field.name}>{label}</FieldLabel>
-      {description && <FieldDescription>{description}</FieldDescription>}
-    </>
+    <FieldLabel htmlFor={htmlFor ?? field.name}>{label}</FieldLabel>
   )
+
+  const descriptionElement = <FieldDescription>{description}</FieldDescription>
 
   const normalizeFieldErrors = (errors: unknown) => {
     if (typeof errors === "string") {
@@ -90,6 +91,7 @@ export function FormBase({
           {label && labelElement}
           {children}
           {errorElem}
+          {description && descriptionElement}
         </>
       )}
     </Field>

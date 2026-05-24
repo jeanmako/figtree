@@ -25,10 +25,11 @@ export function FormSelect({
       <Select
         onValueChange={(e) => field.handleChange(e ?? "")}
         value={field.state.value}
+        name={field.name}
       >
         <SelectTrigger
           aria-invalid={isInvalid}
-          id={field.name}
+          id={props.id ?? field.name}
           onBlur={field.handleBlur}
         >
           <SelectValue />
