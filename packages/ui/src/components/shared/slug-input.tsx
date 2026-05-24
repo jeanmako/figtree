@@ -1,13 +1,18 @@
-import React from "react"
-import { Input } from "@figtree/ui/components/input"
+import { Input, InputProps } from "@figtree/ui/components/input"
+
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@figtree/ui/components/input-group"
 import { cn } from "@figtree/ui/lib/utils"
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  url: string
+interface Props extends InputProps {
+  addOn: string
 }
 
 export const SlugInput = ({
-  url,
+  addOn,
   id,
   placeholder,
   className,
@@ -15,18 +20,15 @@ export const SlugInput = ({
   ...props
 }: Props) => {
   return (
-    <div className="flex rounded-md has-aria-invalid:border-destructive/80 has-focus-visible:has-aria-invalid:border-destructive">
-      <span className="bg-quietest/80 inline-flex items-center rounded-s-md px-2 text-sm text-accent-foreground">
-        {url}
-      </span>
-
-      <Input
+    <InputGroup>
+      <InputGroupInput
         {...props}
         id={id}
         disabled={disabled}
         placeholder={placeholder}
-        className={cn("-ms-px rounded-s-none border-l shadow-none", className)}
+        className={cn("*:[input]:ps-1!", className)}
       />
-    </div>
+      <InputGroupAddon className="text-quiet">{addOn}</InputGroupAddon>
+    </InputGroup>
   )
 }

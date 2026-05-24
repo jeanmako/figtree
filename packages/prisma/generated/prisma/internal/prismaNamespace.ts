@@ -1313,6 +1313,8 @@ export const WorkspaceScalarFieldEnum = {
   inviteCode: 'inviteCode',
   country: 'country',
   headcount: 'headcount',
+  typicalClients: 'typicalClients',
+  timezone: 'timezone',
   billingName: 'billingName',
   billingEmail: 'billingEmail',
   billingAddress: 'billingAddress',
@@ -1563,6 +1565,20 @@ export type EnumHeadcountFieldRefInput<$PrismaModel> = FieldRefInputType<$Prisma
  * Reference to a field of type 'Headcount[]'
  */
 export type ListEnumHeadcountFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Headcount[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ClientType[]'
+ */
+export type ListEnumClientTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ClientType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ClientType'
+ */
+export type EnumClientTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ClientType'>
     
 
 

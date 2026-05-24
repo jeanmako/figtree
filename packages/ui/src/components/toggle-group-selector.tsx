@@ -1,25 +1,26 @@
-"use client";
+"use client"
 
-import { cn } from "@figtree/ui/lib/utils";
+import { cn } from "@figtree/ui/lib/utils"
 import {
   ToggleGroup,
   ToggleGroupItem,
-} from "@figtree/ui/components/toggle-group";
+} from "@figtree/ui/components/toggle-group"
+import { ToggleGroup as ToggleGroupPrimitive } from "@base-ui/react/toggle-group"
+import { VariantProps } from "class-variance-authority"
+import { toggleVariants } from "@figtree/ui/components/toggle"
 
 export type Option = {
-  name: string;
-  slug: string;
-};
+  name: string
+  slug: string
+}
 
-type Props = {
-  options: Option[];
-  value?: string | null;
-  onChange: (slug: string | null) => void;
-  className?: string;
-  size?: "sm" | "default" | "lg";
-  variant?: "default" | "outline" | "secondary";
-  allowDeselect?: boolean;
-};
+type Props = Omit<ToggleGroupPrimitive.Props, "value" | "onChange"> &
+  VariantProps<typeof toggleVariants> & {
+    options: Option[]
+    value?: string | null
+    onChange: (slug: string | null) => void
+    allowDeselect?: boolean
+  }
 
 export function ToggleGroupSelector({
   options,
@@ -35,10 +36,10 @@ export function ToggleGroupSelector({
       value={value ? [value] : []}
       onValueChange={(next) => {
         if (!next || next.length === 0) {
-          if (allowDeselect) onChange(null);
-          return;
+          if (allowDeselect) onChange(null)
+          return
         }
-        onChange(next[0]!);
+        onChange(next[0]!)
       }}
       className={cn("flex-wrap gap-1.25", className)}
       size={size}
@@ -46,7 +47,7 @@ export function ToggleGroupSelector({
     >
       {options.map((option) => (
         <ToggleGroupItem
-          className="sm:text-tiny tracking-snug"
+          className="tracking-snug sm:text-tiny"
           key={option.slug}
           value={option.slug}
         >
@@ -54,5 +55,50 @@ export function ToggleGroupSelector({
         </ToggleGroupItem>
       ))}
     </ToggleGroup>
-  );
+  )
+}
+
+type MultipleProps = Omit<ToggleGroupPrimitive.Props, "onValueChange"> &
+  VariantProps<typeof toggleVariants> & {
+    options: Option[]
+    value?: string[]
+    onValueChange: (value: string[]) => void
+    max?: number
+  }
+
+export function MultiToggleGroupSelector({
+  options,
+  value = [],
+  onValueChange,
+  className,
+  size = "default",
+  variant = "default",
+  max,
+}: MultipleProps) {
+  return (
+    <ToggleGroup
+      multiple
+      value={value}
+      onValueChange={(next) => {
+        if (max && next.length > max) {
+          return
+        }
+
+        onValueChange(next)
+      }}
+      className={cn("flex-wrap gap-1.25", className)}
+      size={size}
+      variant={variant}
+    >
+      {options.map((option) => (
+        <ToggleGroupItem
+          key={option.slug}
+          value={option.slug}
+          className="tracking-snug sm:text-tiny"
+        >
+          {option.name}
+        </ToggleGroupItem>
+      ))}
+    </ToggleGroup>
+  )
 }

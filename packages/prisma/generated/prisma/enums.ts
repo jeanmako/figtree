@@ -51,6 +51,22 @@ export const Headcount = {
 export type Headcount = (typeof Headcount)[keyof typeof Headcount]
 
 
+export const ClientType = {
+  startups: 'startups',
+  smb: 'smb',
+  agencies: 'agencies',
+  creators: 'creators',
+  saas: 'saas',
+  ecommerce: 'ecommerce',
+  enterprises: 'enterprises',
+  nonprofits: 'nonprofits',
+  local_businesses: 'local_businesses',
+  personal_brands: 'personal_brands'
+} as const
+
+export type ClientType = (typeof ClientType)[keyof typeof ClientType]
+
+
 export const WorkspaceVertical = {
   design_development: 'design_development',
   web_dev: 'web_dev',
@@ -59,7 +75,8 @@ export const WorkspaceVertical = {
   software_dev: 'software_dev',
   game_dev: 'game_dev',
   illustration: 'illustration',
-  photography: 'photography'
+  photography: 'photography',
+  other: 'other'
 } as const
 
 export type WorkspaceVertical = (typeof WorkspaceVertical)[keyof typeof WorkspaceVertical]

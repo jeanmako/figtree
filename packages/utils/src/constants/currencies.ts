@@ -495,15 +495,22 @@ export const currencies = {
   ZM: "ZMW",
   // Zimbabwe
   ZW: "ZWD",
-}
+} as const
 
 const uniqueSet = new Set(Object.values(currencies))
 
+export const currencyList = Object.values(currencies)
+
+export type CurrencyCode = (typeof currencies)[keyof typeof currencies]
+
+export const currencyCodes = [...new Set(Object.values(currencies))] as [
+  CurrencyCode,
+  ...CurrencyCode[],
+]
+
 export const uniqueCurrencies = [...uniqueSet]
 
-// currency-label.ts
-
-export function getCurrencyLabel(currencyCode: string, locale: string) {
+export function getCurrencyLabel(currencyCode: string, locale?: string) {
   const resolvedLocale =
     locale ?? (typeof navigator !== "undefined" ? navigator.language : "en-US")
   try {

@@ -117,6 +117,9 @@ importers:
       next:
         specifier: 16.1.6
         version: 16.1.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      next-safe-action:
+        specifier: ^8.5.2
+        version: 8.5.2(next@16.1.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -236,6 +239,9 @@ importers:
 
   packages/lib:
     dependencies:
+      '@figtree/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@figtree/utils':
         specifier: workspace:*
         version: link:../utils
@@ -285,6 +291,9 @@ importers:
       '@figtree/shared':
         specifier: workspace:*
         version: link:../shared
+      '@figtree/utils':
+        specifier: workspace:*
+        version: link:../utils
     devDependencies:
       '@figtree/eslint-config':
         specifier: workspace:^
@@ -341,6 +350,9 @@ importers:
 
   packages/shared:
     dependencies:
+      '@figtree/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@sindresorhus/slugify':
         specifier: ^3.0.0
         version: 3.0.0
@@ -3835,6 +3847,14 @@ packages:
         optional: true
       nodemailer:
         optional: true
+
+  next-safe-action@8.5.2:
+    resolution: {integrity: sha512-M127lWo8FwbeIz8dO7h/hjCxIDe1hFZIo1Dw0tTqtR3xlRnxCA0Df1DojxFLB94/jPn/0AtdOp6wpckjvyyA3g==}
+    engines: {node: '>=18.17'}
+    peerDependencies:
+      next: '>= 14.0.0'
+      react: '>= 18.2.0'
+      react-dom: '>= 18.2.0'
 
   next-themes@0.4.6:
     resolution: {integrity: sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==}
@@ -8258,6 +8278,13 @@ snapshots:
       react: 19.2.5
       react-dom: 19.2.5(react@19.2.5)
       uuid: 8.3.2
+
+  next-safe-action@8.5.2(next@16.1.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5))(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
+    dependencies:
+      deepmerge-ts: 7.1.5
+      next: 16.1.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      react: 19.2.5
+      react-dom: 19.2.5(react@19.2.5)
 
   next-themes@0.4.6(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
     dependencies:

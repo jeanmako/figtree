@@ -15,6 +15,19 @@ enum Headcount {
   enterprise
 }
 
+enum ClientType {
+  startups
+  smb
+  agencies
+  creators
+  saas
+  ecommerce
+  enterprises
+  nonprofits
+  local_businesses
+  personal_brands
+}
+
 enum WorkspaceVertical {
   design_development
   web_dev
@@ -24,6 +37,7 @@ enum WorkspaceVertical {
   game_dev
   illustration
   photography
+  other
 }
 
 enum WorkspaceMemberRole {
@@ -39,7 +53,7 @@ model Workspace {
 
   name                                   String
   plan                                   WorkspacePlan                          @default(trial)
-  vertical                               WorkspaceVertical                      @default(design_development)
+  vertical                               WorkspaceVertical?
   workspaceUrl                           String?                                @unique @map("workspace_url") // the workspace url in the app
   customUrl                              String?                                @map("custom_url") // the custom domain set by the user
   inviteCode                             String?                                @unique @map("invite_code")
@@ -47,6 +61,8 @@ model Workspace {
   // Business details
   country                                String?                                @default("US")
   headcount                              Headcount?
+  typicalClients                         ClientType[]                           @map("typical_clients")
+  timezone                               String?                                // Workspace-specific timezone
   billingName                            String?                                @map("billing_name")
   billingEmail                           String?                                @map("billing_email")
   billingAddress                         Json?                                  @default("{}") @map("billing_address")
@@ -65,7 +81,7 @@ model Workspace {
 
   // Invoice defaults
   paymentTerms                           String                                 @default("net_14") @map("payment_terms")
-  currency                               String                                 @default("USD") @map("currency")
+  currency                               String                                 @default("USD")
   invoicePrefix                          String                                 @default("INV") @map("invoice_prefix")
   taxRate                                Decimal                                @default(0) @db.Decimal(5, 4) @map("tax_rate")
   lateFeeRate                            Decimal                                @default(0.015) @db.Decimal(5, 4) @map("late_fee_rate") // 1.5% per month

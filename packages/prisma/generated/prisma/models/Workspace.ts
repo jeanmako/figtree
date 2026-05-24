@@ -55,6 +55,7 @@ export type WorkspaceMinAggregateOutputType = {
   inviteCode: string | null
   country: string | null
   headcount: $Enums.Headcount | null
+  timezone: string | null
   billingName: string | null
   billingEmail: string | null
   vatNumber: string | null
@@ -93,6 +94,7 @@ export type WorkspaceMaxAggregateOutputType = {
   inviteCode: string | null
   country: string | null
   headcount: $Enums.Headcount | null
+  timezone: string | null
   billingName: string | null
   billingEmail: string | null
   vatNumber: string | null
@@ -131,6 +133,8 @@ export type WorkspaceCountAggregateOutputType = {
   inviteCode: number
   country: number
   headcount: number
+  typicalClients: number
+  timezone: number
   billingName: number
   billingEmail: number
   billingAddress: number
@@ -192,6 +196,7 @@ export type WorkspaceMinAggregateInputType = {
   inviteCode?: true
   country?: true
   headcount?: true
+  timezone?: true
   billingName?: true
   billingEmail?: true
   vatNumber?: true
@@ -230,6 +235,7 @@ export type WorkspaceMaxAggregateInputType = {
   inviteCode?: true
   country?: true
   headcount?: true
+  timezone?: true
   billingName?: true
   billingEmail?: true
   vatNumber?: true
@@ -268,6 +274,8 @@ export type WorkspaceCountAggregateInputType = {
   inviteCode?: true
   country?: true
   headcount?: true
+  typicalClients?: true
+  timezone?: true
   billingName?: true
   billingEmail?: true
   billingAddress?: true
@@ -390,12 +398,14 @@ export type WorkspaceGroupByOutputType = {
   slug: string
   name: string
   plan: $Enums.WorkspacePlan
-  vertical: $Enums.WorkspaceVertical
+  vertical: $Enums.WorkspaceVertical | null
   workspaceUrl: string | null
   customUrl: string | null
   inviteCode: string | null
   country: string | null
   headcount: $Enums.Headcount | null
+  typicalClients: $Enums.ClientType[]
+  timezone: string | null
   billingName: string | null
   billingEmail: string | null
   billingAddress: runtime.JsonValue | null
@@ -454,12 +464,14 @@ export type WorkspaceWhereInput = {
   slug?: Prisma.StringFilter<"Workspace"> | string
   name?: Prisma.StringFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFilter<"Workspace"> | $Enums.WorkspaceVertical
+  vertical?: Prisma.EnumWorkspaceVerticalNullableFilter<"Workspace"> | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   customUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   inviteCode?: Prisma.StringNullableFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableFilter<"Workspace"> | string | null
   headcount?: Prisma.EnumHeadcountNullableFilter<"Workspace"> | $Enums.Headcount | null
+  typicalClients?: Prisma.EnumClientTypeNullableListFilter<"Workspace">
+  timezone?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingName?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingEmail?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingAddress?: Prisma.JsonNullableFilter<"Workspace">
@@ -497,12 +509,14 @@ export type WorkspaceOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrder
+  vertical?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   customUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   inviteCode?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   headcount?: Prisma.SortOrderInput | Prisma.SortOrder
+  typicalClients?: Prisma.SortOrder
+  timezone?: Prisma.SortOrderInput | Prisma.SortOrder
   billingName?: Prisma.SortOrderInput | Prisma.SortOrder
   billingEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   billingAddress?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -545,10 +559,12 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.WorkspaceWhereInput | Prisma.WorkspaceWhereInput[]
   name?: Prisma.StringFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFilter<"Workspace"> | $Enums.WorkspaceVertical
+  vertical?: Prisma.EnumWorkspaceVerticalNullableFilter<"Workspace"> | $Enums.WorkspaceVertical | null
   customUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableFilter<"Workspace"> | string | null
   headcount?: Prisma.EnumHeadcountNullableFilter<"Workspace"> | $Enums.Headcount | null
+  typicalClients?: Prisma.EnumClientTypeNullableListFilter<"Workspace">
+  timezone?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingName?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingEmail?: Prisma.StringNullableFilter<"Workspace"> | string | null
   billingAddress?: Prisma.JsonNullableFilter<"Workspace">
@@ -586,12 +602,14 @@ export type WorkspaceOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrder
+  vertical?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   customUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   inviteCode?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
   headcount?: Prisma.SortOrderInput | Prisma.SortOrder
+  typicalClients?: Prisma.SortOrder
+  timezone?: Prisma.SortOrderInput | Prisma.SortOrder
   billingName?: Prisma.SortOrderInput | Prisma.SortOrder
   billingEmail?: Prisma.SortOrderInput | Prisma.SortOrder
   billingAddress?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -635,12 +653,14 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   name?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanWithAggregatesFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceVertical
+  vertical?: Prisma.EnumWorkspaceVerticalNullableWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   customUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   inviteCode?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   headcount?: Prisma.EnumHeadcountNullableWithAggregatesFilter<"Workspace"> | $Enums.Headcount | null
+  typicalClients?: Prisma.EnumClientTypeNullableListFilter<"Workspace">
+  timezone?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   billingName?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   billingEmail?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   billingAddress?: Prisma.JsonNullableWithAggregatesFilter<"Workspace">
@@ -676,12 +696,14 @@ export type WorkspaceCreateInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -719,12 +741,14 @@ export type WorkspaceUncheckedCreateInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -762,12 +786,14 @@ export type WorkspaceUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -805,12 +831,14 @@ export type WorkspaceUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -848,12 +876,14 @@ export type WorkspaceCreateManyInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -889,12 +919,14 @@ export type WorkspaceUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -930,12 +962,14 @@ export type WorkspaceUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -966,6 +1000,14 @@ export type WorkspaceUncheckedUpdateManyInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
 }
 
+export type EnumClientTypeNullableListFilter<$PrismaModel = never> = {
+  equals?: $Enums.ClientType[] | Prisma.ListEnumClientTypeFieldRefInput<$PrismaModel> | null
+  has?: $Enums.ClientType | Prisma.EnumClientTypeFieldRefInput<$PrismaModel> | null
+  hasEvery?: $Enums.ClientType[] | Prisma.ListEnumClientTypeFieldRefInput<$PrismaModel>
+  hasSome?: $Enums.ClientType[] | Prisma.ListEnumClientTypeFieldRefInput<$PrismaModel>
+  isEmpty?: boolean
+}
+
 export type WorkspaceCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   slug?: Prisma.SortOrder
@@ -977,6 +1019,8 @@ export type WorkspaceCountOrderByAggregateInput = {
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
   headcount?: Prisma.SortOrder
+  typicalClients?: Prisma.SortOrder
+  timezone?: Prisma.SortOrder
   billingName?: Prisma.SortOrder
   billingEmail?: Prisma.SortOrder
   billingAddress?: Prisma.SortOrder
@@ -1027,6 +1071,7 @@ export type WorkspaceMaxOrderByAggregateInput = {
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
   headcount?: Prisma.SortOrder
+  timezone?: Prisma.SortOrder
   billingName?: Prisma.SortOrder
   billingEmail?: Prisma.SortOrder
   vatNumber?: Prisma.SortOrder
@@ -1065,6 +1110,7 @@ export type WorkspaceMinOrderByAggregateInput = {
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
   headcount?: Prisma.SortOrder
+  timezone?: Prisma.SortOrder
   billingName?: Prisma.SortOrder
   billingEmail?: Prisma.SortOrder
   vatNumber?: Prisma.SortOrder
@@ -1106,16 +1152,25 @@ export type WorkspaceScalarRelationFilter = {
   isNot?: Prisma.WorkspaceWhereInput
 }
 
+export type WorkspaceCreatetypicalClientsInput = {
+  set: $Enums.ClientType[]
+}
+
 export type EnumWorkspacePlanFieldUpdateOperationsInput = {
   set?: $Enums.WorkspacePlan
 }
 
-export type EnumWorkspaceVerticalFieldUpdateOperationsInput = {
-  set?: $Enums.WorkspaceVertical
+export type NullableEnumWorkspaceVerticalFieldUpdateOperationsInput = {
+  set?: $Enums.WorkspaceVertical | null
 }
 
 export type NullableEnumHeadcountFieldUpdateOperationsInput = {
   set?: $Enums.Headcount | null
+}
+
+export type WorkspaceUpdatetypicalClientsInput = {
+  set?: $Enums.ClientType[]
+  push?: $Enums.ClientType | $Enums.ClientType[]
 }
 
 export type DecimalFieldUpdateOperationsInput = {
@@ -1167,12 +1222,14 @@ export type WorkspaceCreateWithoutMembersInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1209,12 +1266,14 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1267,12 +1326,14 @@ export type WorkspaceUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1309,12 +1370,14 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1351,12 +1414,14 @@ export type WorkspaceCreateWithoutInvitesInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1393,12 +1458,14 @@ export type WorkspaceUncheckedCreateWithoutInvitesInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical
+  vertical?: $Enums.WorkspaceVertical | null
   workspaceUrl?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
   headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
   billingName?: string | null
   billingEmail?: string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1451,12 +1518,14 @@ export type WorkspaceUpdateWithoutInvitesInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1493,12 +1562,14 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical
+  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
@@ -1581,6 +1652,8 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   inviteCode?: boolean
   country?: boolean
   headcount?: boolean
+  typicalClients?: boolean
+  timezone?: boolean
   billingName?: boolean
   billingEmail?: boolean
   billingAddress?: boolean
@@ -1625,6 +1698,8 @@ export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   inviteCode?: boolean
   country?: boolean
   headcount?: boolean
+  typicalClients?: boolean
+  timezone?: boolean
   billingName?: boolean
   billingEmail?: boolean
   billingAddress?: boolean
@@ -1666,6 +1741,8 @@ export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   inviteCode?: boolean
   country?: boolean
   headcount?: boolean
+  typicalClients?: boolean
+  timezone?: boolean
   billingName?: boolean
   billingEmail?: boolean
   billingAddress?: boolean
@@ -1707,6 +1784,8 @@ export type WorkspaceSelectScalar = {
   inviteCode?: boolean
   country?: boolean
   headcount?: boolean
+  typicalClients?: boolean
+  timezone?: boolean
   billingName?: boolean
   billingEmail?: boolean
   billingAddress?: boolean
@@ -1737,7 +1816,7 @@ export type WorkspaceSelectScalar = {
   metadata?: boolean
 }
 
-export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "plan" | "vertical" | "workspaceUrl" | "customUrl" | "inviteCode" | "country" | "headcount" | "billingName" | "billingEmail" | "billingAddress" | "vatNumber" | "logoIconUrl" | "logoWordmarkUrl" | "stripeAccountId" | "stripeConnected" | "wiseProfileId" | "wiseConnected" | "wiseEmail" | "trialEndsAt" | "billingCycleStart" | "paymentTerms" | "currency" | "invoicePrefix" | "taxRate" | "lateFeeRate" | "revisionRounds" | "validDays" | "scopeProtectionEnabled" | "effectiveRateMin" | "lastIntelligenceRunAt" | "exportSettings" | "createdAt" | "updatedAt" | "deletedAt" | "metadata", ExtArgs["result"]["workspace"]>
+export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "plan" | "vertical" | "workspaceUrl" | "customUrl" | "inviteCode" | "country" | "headcount" | "typicalClients" | "timezone" | "billingName" | "billingEmail" | "billingAddress" | "vatNumber" | "logoIconUrl" | "logoWordmarkUrl" | "stripeAccountId" | "stripeConnected" | "wiseProfileId" | "wiseConnected" | "wiseEmail" | "trialEndsAt" | "billingCycleStart" | "paymentTerms" | "currency" | "invoicePrefix" | "taxRate" | "lateFeeRate" | "revisionRounds" | "validDays" | "scopeProtectionEnabled" | "effectiveRateMin" | "lastIntelligenceRunAt" | "exportSettings" | "createdAt" | "updatedAt" | "deletedAt" | "metadata", ExtArgs["result"]["workspace"]>
 export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   invites?: boolean | Prisma.Workspace$invitesArgs<ExtArgs>
@@ -1757,12 +1836,14 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     slug: string
     name: string
     plan: $Enums.WorkspacePlan
-    vertical: $Enums.WorkspaceVertical
+    vertical: $Enums.WorkspaceVertical | null
     workspaceUrl: string | null
     customUrl: string | null
     inviteCode: string | null
     country: string | null
     headcount: $Enums.Headcount | null
+    typicalClients: $Enums.ClientType[]
+    timezone: string | null
     billingName: string | null
     billingEmail: string | null
     billingAddress: runtime.JsonValue | null
@@ -2226,6 +2307,8 @@ export interface WorkspaceFieldRefs {
   readonly inviteCode: Prisma.FieldRef<"Workspace", 'String'>
   readonly country: Prisma.FieldRef<"Workspace", 'String'>
   readonly headcount: Prisma.FieldRef<"Workspace", 'Headcount'>
+  readonly typicalClients: Prisma.FieldRef<"Workspace", 'ClientType[]'>
+  readonly timezone: Prisma.FieldRef<"Workspace", 'String'>
   readonly billingName: Prisma.FieldRef<"Workspace", 'String'>
   readonly billingEmail: Prisma.FieldRef<"Workspace", 'String'>
   readonly billingAddress: Prisma.FieldRef<"Workspace", 'Json'>
