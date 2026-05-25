@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import { authClient } from "@figtree/features/auth/auth-client"
+import { emailOtp } from "@figtree/features/auth/auth-client"
 
 export const useResendVerificationOtpMutation = ({
   email,
@@ -8,7 +8,7 @@ export const useResendVerificationOtpMutation = ({
 }) => {
   return useMutation({
     mutationFn: async () =>
-      await authClient.emailOtp.sendVerificationOtp({
+      await emailOtp.sendVerificationOtp({
         email: email,
         type: "email-verification",
       }),

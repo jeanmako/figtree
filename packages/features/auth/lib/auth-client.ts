@@ -4,7 +4,7 @@ import { AuthClient } from "better-auth/client"
 import { twoFactorClient } from "better-auth/plugins"
 import { emailOTPClient } from "better-auth/client/plugins"
 
-export const authClient = createAuthClient({
+const authClient = createAuthClient({
   baseURL: "http://localhost:4000",
   plugins: [
     emailOTPClient(),
@@ -16,3 +16,20 @@ export const authClient = createAuthClient({
     }),
   ],
 })
+
+export const {
+  signIn,
+  signUp,
+  signOut,
+  useSession,
+  getSession,
+  listSessions,
+  revokeOtherSessions,
+  revokeSession,
+  revokeSessions,
+  emailOtp,
+  sendVerificationEmail,
+  forgetPassword,
+  resetPassword,
+  updateUser,
+} = authClient

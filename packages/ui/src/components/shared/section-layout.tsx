@@ -92,20 +92,31 @@ function Section({ title, description, className }: Props) {
   )
 }
 
-function Header({ title, description, className }: Props) {
+function Header({
+  title,
+  description,
+  className,
+  withGap = true,
+}: Props & { withGap?: boolean }) {
   return (
-    <div className={cn("flex flex-col", className)}>
-      <h2 className="mb-2 text-center font-semibold tracking-snug text-balance lg:text-3xl lg:leading-tight">
+    <div
+      className={cn(
+        "flex w-full flex-col items-stretch justify-start gap-1 overflow-hidden",
+        className
+      )}
+    >
+      <h2 className="text-left font-semibold tracking-snug text-balance lg:text-2xl lg:leading-7">
         {title}
       </h2>
       {description &&
         (description instanceof String || typeof description === "string" ? (
-          <p className="text-center text-base font-normal tracking-snug text-quiet">
+          <p className="text-left text-sm leading-5 font-medium tracking-snug text-quiet">
             {description}
           </p>
         ) : (
           description
         ))}
+      {withGap && <span className="h-8 w-full shrink-0" />}
     </div>
   )
 }

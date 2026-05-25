@@ -4,7 +4,7 @@ import { Button } from "@figtree/ui/components/button"
 import { useRouter, useSearchParams } from "next/navigation"
 import { loginSchema, LoginPayload } from "@figtree/shared/schemas/auth"
 import { useLoginContext } from "@/modules/auth/login/components/login-context"
-import { authClient } from "@figtree/features/auth/auth-client"
+import { signIn } from "@figtree/features/auth/auth-client"
 import { toastManager } from "@figtree/ui/components/toast"
 import { useAppForm } from "@figtree/ui/hooks/form-hook"
 
@@ -30,7 +30,7 @@ export const LoginEmailForm = () => {
       onSubmit: loginSchema,
     },
     onSubmit: async ({ value: payload }) => {
-      await authClient.signIn.email(
+      await signIn.email(
         {
           email: payload.email,
           password: payload.password as string,

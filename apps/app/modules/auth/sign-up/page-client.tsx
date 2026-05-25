@@ -14,9 +14,7 @@ import { VerifyEmailForm } from "./components/verify-email-form"
 
 export function SignUpPageClient() {
   return (
-    <SignUpProvider
-      initialValues={{ email: "jeanmako117@proton.me", name: "", password: "" }}
-    >
+    <SignUpProvider initialValues={{ email: "", name: "", password: "" }}>
       <SignUpFlow />
     </SignUpProvider>
   )

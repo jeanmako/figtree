@@ -5,8 +5,9 @@ import { useWorkspaceSlug } from "./workspace-slug"
 import { workspacesApi } from "@/modules/workspace/lib/api"
 import { WorkspaceResponse } from "@figtree/shared/schemas/workspace"
 import { workspaceKeys } from "../lib/keys"
+import { useSession } from "@figtree/features/auth/auth-client"
 
-export function useWorkspaceQuery() {
+export const useWorkspaceQuery = () => {
   const slug = useWorkspaceSlug()
 
   const {
@@ -30,5 +31,26 @@ export function useWorkspaceQuery() {
     loading,
     error,
     refetch,
+  }
+}
+
+export const useWorkspacesQuery = () => {
+  const { data: session } = useSession()
+
+  const {
+    data: workspaces,
+    error,
+    isLoading: loading,
+    refetch,
+  } = useQuery<WorkspaceResponse[]>({
+    queryKey: workspaceKeys.list(),
+    queryFn: () => workspacesApi.list(),
+    enabled: !!session && !!session.user.id,
+  })
+  return {
+    workspaces,
+    loading,
+    refetch,
+    error,
   }
 }

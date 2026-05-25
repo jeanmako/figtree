@@ -1,6 +1,6 @@
 "use client"
 
-import { authClient } from "@figtree/features/auth/auth-client"
+import { signIn } from "@figtree/features/auth/auth-client"
 import { useSearchParams } from "next/navigation"
 import { Icons } from "@figtree/ui/components/icons"
 import { AuthActionButton } from "@/components/auth/auth-action-button"
@@ -34,7 +34,7 @@ export const SignUpOAuth = ({
         <AuthActionButton
           action={async () => {
             setClickedGoogle(true)
-            await authClient.signIn.social({
+            await signIn.social({
               provider: "google",
               ...(next && next.length > 0 ? { callbackURL: next } : {}),
             })
@@ -52,7 +52,7 @@ export const SignUpOAuth = ({
           action={async () => {
             setClickedGithub(true)
 
-            await authClient.signIn.social({
+            await signIn.social({
               provider: "github",
               ...(next && next.length > 0 ? { callbackURL: next } : {}),
             })
