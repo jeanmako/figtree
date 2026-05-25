@@ -26,7 +26,7 @@ const queryClient = new QueryClient({
   },
 })
 
-function ThemeProvider({
+export function Providers({
   children,
   ...props
 }: React.ComponentProps<typeof NextThemesProvider>) {
@@ -94,5 +94,3 @@ function ThemeHotkey() {
 
   return null
 }
-
-export { ThemeProvider }

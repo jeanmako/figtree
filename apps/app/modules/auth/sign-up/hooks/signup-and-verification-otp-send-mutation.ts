@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query"
-import { authClient } from "@figtree/features/auth/auth-client"
+import { signUp, emailOtp } from "@figtree/features/auth/auth-client"
 import { SignUpPayload } from "@figtree/shared/schemas/auth"
 import { toastManager } from "@figtree/ui/components/toast"
 import { useSignUpContext } from "@/modules/auth/sign-up/components/sign-up-context"
@@ -9,12 +9,12 @@ export const useSignupAndSendVerificationOtpMutation = () => {
 
   return useMutation({
     mutationFn: async (payload: SignUpPayload) => {
-      await authClient.signUp.email({
+      await signUp.email({
         ...payload,
         callbackURL: "/",
       })
 
-      await authClient.emailOtp.sendVerificationOtp({
+      await emailOtp.sendVerificationOtp({
         email: payload.email,
         type: "email-verification",
       })

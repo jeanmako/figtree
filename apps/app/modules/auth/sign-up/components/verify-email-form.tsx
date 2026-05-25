@@ -9,7 +9,7 @@ import {
   otpVerificationSchema,
   OTPVerificationPayload,
 } from "@figtree/shared/schemas/auth"
-import { authClient } from "@figtree/features/auth/auth-client"
+import { emailOtp } from "@figtree/features/auth/auth-client"
 import { useRouter, useSearchParams } from "next/navigation"
 import { getValidInternalRedirectPath } from "@/lib/middleware/utils/is-valid-internal-redirect"
 import { ResendVerificationOtp } from "./resend-verification-otp"
@@ -28,7 +28,7 @@ export const VerifyEmailForm = (): ReactElement => {
       onSubmit: otpVerificationSchema,
     },
     onSubmit: async ({ value: payload }) => {
-      await authClient.emailOtp.verifyEmail(
+      await emailOtp.verifyEmail(
         {
           email: formValues.email,
           otp: payload.otp,
