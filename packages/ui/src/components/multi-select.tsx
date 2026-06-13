@@ -124,7 +124,7 @@ export function MultiSelectTrigger({
         <Button
           ref={ref}
           className={cn(
-            "bg-quietest has-aria-expanded:bg-quietest w-full py-0",
+            "w-full bg-quietest py-0 has-aria-expanded:bg-quietest",
             className
           )}
           variant={props.variant ?? "secondary"}
@@ -151,7 +151,7 @@ export function MultiSelectValue({
 }: {
   placeholder?: string
   clickToRemove?: boolean
-  overflowBehavior?: "wrap" | "wrap-when-open" | "overflow"
+  overflowBehavior?: "wrap" | "wrap-when-open" | "cutoff"
   customBadge?: (
     value: string,
     label: React.ReactNode,
@@ -220,7 +220,7 @@ export function MultiSelectValue({
     return (
       <span
         className={cn(
-          "text-tiny text-quieter min-w-0 overflow-hidden font-medium",
+          "min-w-0 overflow-hidden text-tiny font-medium text-quieter",
           customBadge && "text-sm"
         )}
       >

@@ -15,7 +15,7 @@ export const useUpdateWorkspaceDetailsMutation = () => {
 
   return useMutation({
     mutationFn: (data: WorkspaceBusinessSetupPayload) =>
-      workspacesApi.updateDetails(workspaceSlug as string, data),
+      workspacesApi.update(workspaceSlug as string, data),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: workspaceKeys.userWorkspaces(),

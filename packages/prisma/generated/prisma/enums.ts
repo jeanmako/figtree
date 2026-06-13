@@ -67,7 +67,7 @@ export const ClientType = {
 export type ClientType = (typeof ClientType)[keyof typeof ClientType]
 
 
-export const WorkspaceVertical = {
+export const WorkspaceIndustry = {
   design_development: 'design_development',
   web_dev: 'web_dev',
   web_design: 'web_design',
@@ -79,7 +79,7 @@ export const WorkspaceVertical = {
   other: 'other'
 } as const
 
-export type WorkspaceVertical = (typeof WorkspaceVertical)[keyof typeof WorkspaceVertical]
+export type WorkspaceIndustry = (typeof WorkspaceIndustry)[keyof typeof WorkspaceIndustry]
 
 
 export const WorkspaceMemberRole = {

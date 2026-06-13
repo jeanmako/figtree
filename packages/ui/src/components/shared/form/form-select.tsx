@@ -15,8 +15,13 @@ import {
 
 export function FormSelect({
   children,
+  className,
+  items,
   ...props
-}: FormControlProps & { children: ReactNode }) {
+}: FormControlProps & {
+  children: ReactNode
+  items?: React.ComponentProps<typeof Select>["items"]
+}) {
   const field = useFieldContext<string>()
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
 
@@ -26,11 +31,14 @@ export function FormSelect({
         onValueChange={(e) => field.handleChange(e ?? "")}
         value={field.state.value}
         name={field.name}
+        items={items}
       >
         <SelectTrigger
           aria-invalid={isInvalid}
           id={props.id ?? field.name}
           onBlur={field.handleBlur}
+          className={className}
+          size={props.size as "sm" | "default" | "lg"}
         >
           <SelectValue />
         </SelectTrigger>

@@ -1,13 +1,11 @@
 "use client"
 
-import { Input } from "@figtree/ui/components/input"
 import {
   FormBase,
   FormControlProps,
 } from "@figtree/ui/components/shared/form/form-base"
 import { useFieldContext } from "@figtree/ui/hooks/form-hook"
 import { OTPField, OTPFieldInput } from "@figtree/ui/components/input-otp"
-import { cn } from "@figtree/ui/lib/utils"
 
 const OTP_LENGTH = 6
 
@@ -32,6 +30,7 @@ export function FormOTPField(props: FormControlProps) {
         value={field.state.value}
         onBlur={field.handleBlur}
         onValueChange={(e) => field.handleChange(e ?? "")}
+        className={props.className}
       >
         {OTP_SLOT_KEYS.map((slotKey, index) => (
           <OTPFieldInput

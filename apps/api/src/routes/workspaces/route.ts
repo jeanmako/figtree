@@ -52,7 +52,7 @@ export const workspaceRoutesWithContext: FastifyPluginAsyncZod = async (
       },
     },
     handler: async (req, reply) => {
-      const workspace = await service.findById(
+      const workspace = await service.findBySlug(
         req.params.workspaceSlug,
         req.user?.id as string
       )

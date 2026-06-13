@@ -4,14 +4,14 @@ import {
   ClientType,
   headcount,
   Headcount,
-  vertical,
-  Vertical,
+  industry,
+  Industry,
 } from "@figtree/shared/schemas/workspace"
 
 export const formId = (prefix: string): string =>
   `workspace-onboarding-${prefix}-form`
 
-export const verticalLabels: Record<Vertical, string> = {
+export const industryLabels: Record<Industry, string> = {
   design_development: "Design and Development",
   web_design: "Web Design",
   photography: "Photography",
@@ -23,9 +23,9 @@ export const verticalLabels: Record<Vertical, string> = {
   other: "Other",
 }
 
-export const verticals: Option[] = vertical.map((slug) => ({
+export const industries: Option[] = industry.map((slug) => ({
   slug,
-  name: verticalLabels[slug],
+  name: industryLabels[slug],
 }))
 
 export const headcountLabels: Record<Headcount, string> = {
@@ -59,3 +59,23 @@ export const clientTypes: Option[] = clientType.map((slug) => ({
   slug,
   name: clientTypeLabels[slug],
 }))
+
+type MonthOption = {
+  slug: number
+  name: string
+}
+
+export const monthOptions: MonthOption[] = [
+  { slug: 1, name: "January" },
+  { slug: 2, name: "February" },
+  { slug: 3, name: "March" },
+  { slug: 4, name: "April" },
+  { slug: 5, name: "May" },
+  { slug: 6, name: "June" },
+  { slug: 7, name: "July" },
+  { slug: 8, name: "August" },
+  { slug: 9, name: "September" },
+  { slug: 10, name: "October" },
+  { slug: 11, name: "November" },
+  { slug: 12, name: "December" },
+]

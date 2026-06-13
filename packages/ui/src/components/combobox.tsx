@@ -106,7 +106,7 @@ function ComboboxInput({
             sizeValue === "sm" ? "inset-e-0" : "inset-e-0.5"
           )}
         >
-          <Icons.chevronSelector className="text-quiet! size-4" />
+          <Icons.chevronSelector className="size-4 text-quiet!" />
         </ComboboxTrigger>
       )}
       {showClear && (
@@ -154,7 +154,10 @@ function ComboboxTrigger({
 }: ComboboxPrimitive.Trigger.Props) {
   return (
     <ComboboxPrimitive.Trigger
-      className={className}
+      className={cn(
+        "overflow-hidden **:data-[slot=combobox-value]:truncate",
+        className
+      )}
       data-slot="combobox-trigger"
       {...props}
     />
@@ -187,7 +190,7 @@ function ComboboxPopup({
       >
         <span
           className={cn(
-            "bg-alternative dark:shadow-combo relative flex max-h-full origin-(--transform-origin) rounded-[12px] border bg-clip-padding transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:not-in-data-[slot=group]:bg-clip-border",
+            "relative flex max-h-full origin-(--transform-origin) rounded-[12px] border bg-alternative bg-clip-padding transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:shadow-combo dark:not-in-data-[slot=group]:bg-clip-border",
             className
           )}
         >
@@ -212,13 +215,13 @@ function ComboboxItem({
   return (
     <ComboboxPrimitive.Item
       className={cn(
-        "data-highlighted:bg-alternative-foreground grid min-h-8 cursor-default grid-cols-[1fr_1rem] items-center gap-2 rounded-md py-1 ps-2 pe-4 text-sm font-medium outline-none in-data-[side=none]:min-w-[calc(var(--anchor-width)+1.25rem)] data-disabled:pointer-events-none data-disabled:opacity-64 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-3.75",
+        "grid min-h-8 cursor-default grid-cols-[1fr_1rem] items-center gap-2 overflow-hidden rounded-md py-1 ps-2 pe-4 text-sm font-medium outline-none in-data-[side=none]:min-w-[calc(var(--anchor-width)+1.25rem)] data-disabled:pointer-events-none data-disabled:opacity-64 data-highlighted:bg-alternative-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-3.75",
         className
       )}
       data-slot="combobox-item"
       {...props}
     >
-      <div className="col-start-1 flex w-full">{children}</div>
+      <div className="col-start-1 w-full truncate!">{children}</div>
       <ComboboxPrimitive.ItemIndicator className="col-start-2">
         <Icons.checkFill />
       </ComboboxPrimitive.ItemIndicator>
@@ -255,7 +258,7 @@ function ComboboxGroupLabel({
 }: ComboboxPrimitive.GroupLabel.Props) {
   return (
     <ComboboxPrimitive.GroupLabel
-      className={cn("text-quiet px-2 py-1.5 text-xs font-medium", className)}
+      className={cn("px-2 py-1.5 text-xs font-medium text-quiet", className)}
       data-slot="combobox-group-label"
       {...props}
     />
@@ -266,7 +269,7 @@ function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
   return (
     <ComboboxPrimitive.Empty
       className={cn(
-        "text-quiet text-center text-base not-empty:p-2 sm:text-sm",
+        "text-center text-base text-quiet not-empty:p-2 sm:text-sm",
         className
       )}
       data-slot="combobox-empty"
@@ -286,7 +289,11 @@ function ComboboxRow({ className, ...props }: ComboboxPrimitive.Row.Props) {
 }
 
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
-  return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />
+  return (
+    <span className="min-w-0 flex-1 truncate text-left">
+      <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />
+    </span>
+  )
 }
 
 function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
@@ -321,7 +328,7 @@ function ComboboxStatus({
   return (
     <ComboboxPrimitive.Status
       className={cn(
-        "text-quiet px-3 py-2 text-xs font-medium empty:m-0 empty:p-0",
+        "px-3 py-2 text-xs font-medium text-quiet empty:m-0 empty:p-0",
         className
       )}
       data-slot="combobox-status"

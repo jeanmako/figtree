@@ -1,11 +1,15 @@
-import { ReactNode } from "react"
+import { ReactNode, useEffect, useRef } from "react"
+
 import { useFieldContext } from "@figtree/ui/hooks/form-hook"
+
 import {
   Field,
   FieldDescription,
   FieldError,
   FieldLabel,
 } from "@figtree/ui/components/field"
+
+import { toastManager } from "../../toast"
 
 export type FormControlProps = {
   label?: string
@@ -15,6 +19,8 @@ export type FormControlProps = {
   disabled?: boolean
   placeholder?: string
   htmlFor?: string
+  className?: string
+  withToastError?: boolean
 }
 
 type FormBaseProps = FormControlProps & {
@@ -30,22 +36,22 @@ export function FormBase({
   controlFirst,
   horizontal,
   htmlFor,
+  withToastError = false,
 }: FormBaseProps) {
   const field = useFieldContext()
+
+  const previousErrorRef = useRef<string | null>(null)
+
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
-  const labelElement = (
-    <FieldLabel htmlFor={htmlFor ?? field.name}>{label}</FieldLabel>
-  )
 
-  const descriptionElement = <FieldDescription>{description}</FieldDescription>
-
-  const normalizeFieldErrors = (errors: unknown) => {
+  const normalizeFieldErrors = (errors: unknown): string => {
     if (typeof errors === "string") {
       return errors
     }
 
     if (Array.isArray(errors) && errors.length > 0) {
       const firstError = errors[0]
+
       if (typeof firstError === "string") {
         return firstError
       }
@@ -69,9 +75,41 @@ export function FormBase({
   }
 
   const errorContent = normalizeFieldErrors(field.state.meta.errors)
-  const errorElem = isInvalid && (
-    <FieldError match={isInvalid}>{errorContent}</FieldError>
+
+  useEffect(() => {
+    if (!withToastError) return
+
+    if (!isInvalid) {
+      previousErrorRef.current = null
+
+      return
+    }
+
+    if (!errorContent) return
+
+    // Prevent duplicate toasts
+    if (previousErrorRef.current === errorContent) {
+      return
+    }
+
+    previousErrorRef.current = errorContent
+
+    toastManager.add({
+      title: errorContent,
+      type: "error",
+    })
+  }, [errorContent, isInvalid, withToastError])
+
+  const labelElement = (
+    <FieldLabel htmlFor={htmlFor ?? field.name}>{label}</FieldLabel>
   )
+
+  const descriptionElement = <FieldDescription>{description}</FieldDescription>
+
+  const errorElem =
+    isInvalid && !withToastError ? (
+      <FieldError match={isInvalid}>{errorContent}</FieldError>
+    ) : null
 
   return (
     <Field
@@ -81,6 +119,7 @@ export function FormBase({
       {controlFirst ? (
         <>
           {children}
+
           <div>
             {labelElement}
             {errorElem}
@@ -89,8 +128,11 @@ export function FormBase({
       ) : (
         <>
           {label && labelElement}
+
           {children}
+
           {errorElem}
+
           {description && descriptionElement}
         </>
       )}

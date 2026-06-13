@@ -1,5 +1,8 @@
 import { Prisma, PrismaClient } from "@figtree/prisma/client"
-import { WorkspaceUpdateToOneWithWhereWithoutInvitesInput } from "../../prisma/generated/prisma/models/Workspace"
+import {
+  CreateWorkspaceResponseSchema,
+  WorkspaceSchema,
+} from "@figtree/shared/schemas/workspace"
 
 export const workspaceRepository = (prisma: PrismaClient) => {
   const create = async (
@@ -15,13 +18,15 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         country: true,
         currency: true,
         plan: true,
-        vertical: true,
+        industry: true,
         logoIconUrl: true,
         workspaceUrl: true,
         logoWordmarkUrl: true,
         inviteCode: true,
         headcount: true,
         billingCycleStart: true,
+        fiscalYearStartMonth: true,
+        typicalClients: true,
         trialEndsAt: true,
         createdAt: true,
         members: {
@@ -37,7 +42,7 @@ export const workspaceRepository = (prisma: PrismaClient) => {
       },
     })
 
-    return workspace
+    return CreateWorkspaceResponseSchema.parse(workspace)
   }
 
   const update = async (
@@ -47,7 +52,7 @@ export const workspaceRepository = (prisma: PrismaClient) => {
       | Prisma.WorkspaceUpdateWithoutInvitesInput
       | Prisma.WorkspaceUpdateWithoutMembersInput
   ) => {
-    return await prisma.workspace.update({
+    const workspace = await prisma.workspace.update({
       where: { id },
       data: payload,
       select: {
@@ -57,13 +62,16 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         country: true,
         currency: true,
         plan: true,
-        vertical: true,
+        industry: true,
         logoIconUrl: true,
         workspaceUrl: true,
+        website: true,
         logoWordmarkUrl: true,
         inviteCode: true,
         headcount: true,
         billingCycleStart: true,
+        fiscalYearStartMonth: true,
+        typicalClients: true,
         trialEndsAt: true,
         createdAt: true,
         members: {
@@ -78,13 +86,14 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         },
       },
     })
+    return CreateWorkspaceResponseSchema.parse(workspace)
   }
 
   // <QUERIES>
 
   // TODO: Reduce the response since this will be mostly used for check ups.
   const findBySlug = async (slug: string, profileId: string) => {
-    return await prisma.workspace.findUnique({
+    const foundWorkspace = await prisma.workspace.findUnique({
       where: {
         slug,
         deletedAt: null,
@@ -100,9 +109,11 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         },
       },
     })
+
+    return WorkspaceSchema.parse(foundWorkspace)
   }
   const findById = async (id: string, profileId: string) => {
-    return await prisma.workspace.findUnique({
+    const foundWorkspace = await prisma.workspace.findUnique({
       where: {
         id,
         deletedAt: null,
@@ -118,6 +129,8 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         },
       },
     })
+
+    return WorkspaceSchema.parse(foundWorkspace)
   }
 
   const findBySlugWithMember = async (slug: string, profileId: string) => {
@@ -152,7 +165,7 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         name: true,
         id: true,
         plan: true,
-        vertical: true,
+        industry: true,
         headcount: true,
       },
     })

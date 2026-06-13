@@ -34,7 +34,7 @@ function Input({
       <InputPrimitive
         className={cn(
           "h-8 w-full min-w-0 rounded-[inherit] px-2 outline-none placeholder:text-quieter",
-          size === "sm" && "h-7 text-tiny",
+          size === "sm" && "h-7.5 text-sm",
           size === "lg" && "h-9",
           props.type === "search" &&
             "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",

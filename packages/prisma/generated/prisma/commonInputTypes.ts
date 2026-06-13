@@ -318,11 +318,11 @@ export type EnumWorkspacePlanFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumWorkspacePlanFilter<$PrismaModel> | $Enums.WorkspacePlan
 }
 
-export type EnumWorkspaceVerticalNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.WorkspaceVertical | Prisma.EnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  in?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel> | $Enums.WorkspaceVertical | null
+export type EnumWorkspaceIndustryNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkspaceIndustry | Prisma.EnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  in?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel> | $Enums.WorkspaceIndustry | null
 }
 
 export type EnumHeadcountNullableFilter<$PrismaModel = never> = {
@@ -330,6 +330,17 @@ export type EnumHeadcountNullableFilter<$PrismaModel = never> = {
   in?: $Enums.Headcount[] | Prisma.ListEnumHeadcountFieldRefInput<$PrismaModel> | null
   notIn?: $Enums.Headcount[] | Prisma.ListEnumHeadcountFieldRefInput<$PrismaModel> | null
   not?: Prisma.NestedEnumHeadcountNullableFilter<$PrismaModel> | $Enums.Headcount | null
+}
+
+export type IntNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableFilter<$PrismaModel> | number | null
 }
 
 export type DecimalFilter<$PrismaModel = never> = {
@@ -364,14 +375,14 @@ export type EnumWorkspacePlanWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedEnumWorkspacePlanFilter<$PrismaModel>
 }
 
-export type EnumWorkspaceVerticalNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.WorkspaceVertical | Prisma.EnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  in?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumWorkspaceVerticalNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkspaceVertical | null
+export type EnumWorkspaceIndustryNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkspaceIndustry | Prisma.EnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  in?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumWorkspaceIndustryNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkspaceIndustry | null
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel>
 }
 
 export type EnumHeadcountNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -382,6 +393,22 @@ export type EnumHeadcountNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumHeadcountNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumHeadcountNullableFilter<$PrismaModel>
+}
+
+export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
 }
 
 export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
@@ -696,11 +723,11 @@ export type NestedEnumWorkspacePlanFilter<$PrismaModel = never> = {
   not?: Prisma.NestedEnumWorkspacePlanFilter<$PrismaModel> | $Enums.WorkspacePlan
 }
 
-export type NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.WorkspaceVertical | Prisma.EnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  in?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel> | $Enums.WorkspaceVertical | null
+export type NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkspaceIndustry | Prisma.EnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  in?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel> | $Enums.WorkspaceIndustry | null
 }
 
 export type NestedEnumHeadcountNullableFilter<$PrismaModel = never> = {
@@ -742,14 +769,14 @@ export type NestedEnumWorkspacePlanWithAggregatesFilter<$PrismaModel = never> = 
   _max?: Prisma.NestedEnumWorkspacePlanFilter<$PrismaModel>
 }
 
-export type NestedEnumWorkspaceVerticalNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.WorkspaceVertical | Prisma.EnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  in?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.WorkspaceVertical[] | Prisma.ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumWorkspaceVerticalNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkspaceVertical | null
+export type NestedEnumWorkspaceIndustryNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WorkspaceIndustry | Prisma.EnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  in?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.WorkspaceIndustry[] | Prisma.ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumWorkspaceIndustryNullableWithAggregatesFilter<$PrismaModel> | $Enums.WorkspaceIndustry | null
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumWorkspaceVerticalNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWorkspaceIndustryNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumHeadcountNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -760,6 +787,33 @@ export type NestedEnumHeadcountNullableWithAggregatesFilter<$PrismaModel = never
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedEnumHeadcountNullableFilter<$PrismaModel>
   _max?: Prisma.NestedEnumHeadcountNullableFilter<$PrismaModel>
+}
+
+export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
+}
+
+export type NestedFloatNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
 }
 
 export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {

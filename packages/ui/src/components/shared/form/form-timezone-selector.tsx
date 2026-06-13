@@ -5,25 +5,20 @@ import {
   FormControlProps,
 } from "@figtree/ui/components/shared/form/form-base"
 
-import { CountrySelector } from "@figtree/ui/components/country-selector"
+import { TimezoneSelector } from "@figtree/ui/components/timezone-selector"
 
 import { useFieldContext } from "@figtree/ui/hooks/form-hook"
+import { Timezone } from "@figtree/utils/constants/timezones"
 
-import type { CountryCode } from "@figtree/utils/constants/countries"
-
-type CountrySelectorProps = FormControlProps & {
-  searchPlaceholder?: string
-  emptyMessage?: string
-  popupClassName?: string
-}
-
-export function FormCountrySelector(props: CountrySelectorProps) {
-  const field = useFieldContext<CountryCode>()
+export function FormTimezoneSelector(
+  props: FormControlProps & { popupClassName?: string }
+) {
+  const field = useFieldContext<Timezone>()
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
 
   return (
     <FormBase {...props}>
-      <CountrySelector
+      <TimezoneSelector
         name={field.name}
         id={props.id ?? field.name}
         disabled={props.disabled}

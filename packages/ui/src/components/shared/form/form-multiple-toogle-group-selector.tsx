@@ -41,6 +41,7 @@ export function FormMultiToggleGroupSelector({
         size={size}
         variant={variant}
         max={max}
+        className={props.className}
       />
     </FormBase>
   )

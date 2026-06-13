@@ -19,7 +19,7 @@ import * as React from "react"
 import { useEffect } from "react"
 import { Button } from "@figtree/ui/components/button"
 import { ChevronsUpDownIcon, SearchIcon } from "lucide-react"
-import { cn } from "../lib/utils"
+import { cn } from "@figtree/ui/lib/utils"
 
 type Props = {
   id?: string
@@ -31,6 +31,7 @@ type Props = {
   onBlur?: () => void
   disabled?: boolean
   isInvalid?: boolean
+  popupClassName?: string
 }
 
 export function CurrencySelector({
@@ -43,6 +44,7 @@ export function CurrencySelector({
   onValueChange,
   onBlur,
   className,
+  popupClassName,
 }: Props) {
   const currencyCodes = (
     currenciesProp && currenciesProp.length ? currenciesProp : uniqueCurrencies
@@ -88,7 +90,7 @@ export function CurrencySelector({
         <ComboboxValue placeholder="Select currency" />
         <ChevronsUpDownIcon className="text-quiet" />
       </ComboboxTrigger>
-      <ComboboxPopup aria-label="Select currency">
+      <ComboboxPopup aria-label="Select currency" className={popupClassName}>
         <div className="border-b p-2">
           <ComboboxInput
             className="w-full border-none focus:ring-0"

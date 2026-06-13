@@ -1,19 +1,19 @@
-"use client";
-import { Button } from "@figtree/ui/components/button";
-import { useSidebar } from "@figtree/ui/components/sidebar";
-import { Icons } from "@figtree/ui/components/icons";
-import { cn } from "@figtree/ui/lib/utils";
+"use client"
+import { Button } from "@figtree/ui/components/button"
+import { useSidebar } from "@figtree/ui/components/sidebar"
+import { Icons } from "@figtree/ui/components/icons"
+import { cn } from "@figtree/ui/lib/utils"
 
 type Props = {
-  isOutside?: boolean;
-  className?: string;
-};
+  isOutside?: boolean
+  className?: string
+}
 
 export const SidebarBtnTrigger = ({
   isOutside = true,
   className,
 }: Props): React.ReactElement => {
-  const { state, toggleSidebar } = useSidebar();
+  const { state, toggleSidebar } = useSidebar()
 
   return (
     <div className="flex">
@@ -24,8 +24,8 @@ export const SidebarBtnTrigger = ({
             size="icon"
             onClick={toggleSidebar}
             className={cn(
-              "hover:bg-transparent size-6 transition-transform [&>svg]:size-4.5! [&>svg]:text-quiet [&>svg]:shrink-0",
-              className,
+              "size-6 transition-transform hover:bg-transparent [&>svg]:size-4.5! [&>svg]:shrink-0 [&>svg]:text-quiet",
+              className
             )}
             aria-label={"Expand sidebar"}
             aria-expanded={!(state === "collapsed")}
@@ -39,17 +39,17 @@ export const SidebarBtnTrigger = ({
           size="icon"
           onClick={toggleSidebar}
           className={cn(
-            "hover:bg-transparent size-6 transition-transform [&>svg]:size-4.5! [&>svg]:text-quiet [&>svg]:shrink-0",
-            className,
+            "size-6 transition-transform hover:bg-transparent [&>svg]:size-4.5! [&>svg]:shrink-0 [&>svg]:text-quiet",
+            className
           )}
           aria-label={
             state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"
           }
           aria-expanded={!(state === "collapsed")}
         >
-          {state === "expanded" ? <Icons.panelClosed /> : <Icons.panelOpen />}
+          {state === "expanded" ? <Icons.panelClose /> : <Icons.panelOpen />}
         </Button>
       )}
     </div>
-  );
-};
+  )
+}

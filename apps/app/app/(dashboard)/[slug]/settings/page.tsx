@@ -1,5 +1,5 @@
 import { PageContent } from "@/components/layout/page-content"
-import { SettingsPageClient } from "@/modules/workspace/settings/page-client"
+import { SettingsPageClient } from "@/modules/workspace/settings/general/page-client"
 import { Icons } from "@figtree/ui/components/icons"
 
 const WorkspaceSettingsPage = () => {

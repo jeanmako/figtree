@@ -27,7 +27,7 @@ export const useWorkspaceQuery = () => {
     isOwner: workspace?.members && workspace.members[0]?.role === "owner",
     isAdmin: workspace?.members && workspace.members[0]?.role === "admin",
     plan: workspace?.plan,
-    vertical: workspace?.vertical,
+    industry: workspace?.industry,
     loading,
     error,
     refetch,

@@ -28,7 +28,7 @@ enum ClientType {
   personal_brands
 }
 
-enum WorkspaceVertical {
+enum WorkspaceIndustry {
   design_development
   web_dev
   web_design
@@ -53,8 +53,9 @@ model Workspace {
 
   name                                   String
   plan                                   WorkspacePlan                          @default(trial)
-  vertical                               WorkspaceVertical?
+  industry                               WorkspaceIndustry?
   workspaceUrl                           String?                                @unique @map("workspace_url") // the workspace url in the app
+  website                                String?                                
   customUrl                              String?                                @map("custom_url") // the custom domain set by the user
   inviteCode                             String?                                @unique @map("invite_code")
 
@@ -68,8 +69,8 @@ model Workspace {
   billingAddress                         Json?                                  @default("{}") @map("billing_address")
   vatNumber                              String?                                @map("vat_number")
   logoIconUrl                            String?                                @map("logo_icon_url")
-  logoWordmarkUrl                        String?                                @map("logo_wordmark_url")                          
-
+  logoWordmarkUrl                        String?                                @map("logo_wordmark_url")
+  fiscalYearStartMonth                   Int?                                   // 1-12 for months
   // Payment integrations
   stripeAccountId                        String?                                @map("stripe_account_id")
   stripeConnected                        Boolean                                @default(false)

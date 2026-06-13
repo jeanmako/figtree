@@ -27,6 +27,7 @@ export type AggregateWorkspace = {
 }
 
 export type WorkspaceAvgAggregateOutputType = {
+  fiscalYearStartMonth: number | null
   billingCycleStart: number | null
   taxRate: runtime.Decimal | null
   lateFeeRate: runtime.Decimal | null
@@ -36,6 +37,7 @@ export type WorkspaceAvgAggregateOutputType = {
 }
 
 export type WorkspaceSumAggregateOutputType = {
+  fiscalYearStartMonth: number | null
   billingCycleStart: number | null
   taxRate: runtime.Decimal | null
   lateFeeRate: runtime.Decimal | null
@@ -49,8 +51,9 @@ export type WorkspaceMinAggregateOutputType = {
   slug: string | null
   name: string | null
   plan: $Enums.WorkspacePlan | null
-  vertical: $Enums.WorkspaceVertical | null
+  industry: $Enums.WorkspaceIndustry | null
   workspaceUrl: string | null
+  website: string | null
   customUrl: string | null
   inviteCode: string | null
   country: string | null
@@ -61,6 +64,7 @@ export type WorkspaceMinAggregateOutputType = {
   vatNumber: string | null
   logoIconUrl: string | null
   logoWordmarkUrl: string | null
+  fiscalYearStartMonth: number | null
   stripeAccountId: string | null
   stripeConnected: boolean | null
   wiseProfileId: string | null
@@ -88,8 +92,9 @@ export type WorkspaceMaxAggregateOutputType = {
   slug: string | null
   name: string | null
   plan: $Enums.WorkspacePlan | null
-  vertical: $Enums.WorkspaceVertical | null
+  industry: $Enums.WorkspaceIndustry | null
   workspaceUrl: string | null
+  website: string | null
   customUrl: string | null
   inviteCode: string | null
   country: string | null
@@ -100,6 +105,7 @@ export type WorkspaceMaxAggregateOutputType = {
   vatNumber: string | null
   logoIconUrl: string | null
   logoWordmarkUrl: string | null
+  fiscalYearStartMonth: number | null
   stripeAccountId: string | null
   stripeConnected: boolean | null
   wiseProfileId: string | null
@@ -127,8 +133,9 @@ export type WorkspaceCountAggregateOutputType = {
   slug: number
   name: number
   plan: number
-  vertical: number
+  industry: number
   workspaceUrl: number
+  website: number
   customUrl: number
   inviteCode: number
   country: number
@@ -141,6 +148,7 @@ export type WorkspaceCountAggregateOutputType = {
   vatNumber: number
   logoIconUrl: number
   logoWordmarkUrl: number
+  fiscalYearStartMonth: number
   stripeAccountId: number
   stripeConnected: number
   wiseProfileId: number
@@ -168,6 +176,7 @@ export type WorkspaceCountAggregateOutputType = {
 
 
 export type WorkspaceAvgAggregateInputType = {
+  fiscalYearStartMonth?: true
   billingCycleStart?: true
   taxRate?: true
   lateFeeRate?: true
@@ -177,6 +186,7 @@ export type WorkspaceAvgAggregateInputType = {
 }
 
 export type WorkspaceSumAggregateInputType = {
+  fiscalYearStartMonth?: true
   billingCycleStart?: true
   taxRate?: true
   lateFeeRate?: true
@@ -190,8 +200,9 @@ export type WorkspaceMinAggregateInputType = {
   slug?: true
   name?: true
   plan?: true
-  vertical?: true
+  industry?: true
   workspaceUrl?: true
+  website?: true
   customUrl?: true
   inviteCode?: true
   country?: true
@@ -202,6 +213,7 @@ export type WorkspaceMinAggregateInputType = {
   vatNumber?: true
   logoIconUrl?: true
   logoWordmarkUrl?: true
+  fiscalYearStartMonth?: true
   stripeAccountId?: true
   stripeConnected?: true
   wiseProfileId?: true
@@ -229,8 +241,9 @@ export type WorkspaceMaxAggregateInputType = {
   slug?: true
   name?: true
   plan?: true
-  vertical?: true
+  industry?: true
   workspaceUrl?: true
+  website?: true
   customUrl?: true
   inviteCode?: true
   country?: true
@@ -241,6 +254,7 @@ export type WorkspaceMaxAggregateInputType = {
   vatNumber?: true
   logoIconUrl?: true
   logoWordmarkUrl?: true
+  fiscalYearStartMonth?: true
   stripeAccountId?: true
   stripeConnected?: true
   wiseProfileId?: true
@@ -268,8 +282,9 @@ export type WorkspaceCountAggregateInputType = {
   slug?: true
   name?: true
   plan?: true
-  vertical?: true
+  industry?: true
   workspaceUrl?: true
+  website?: true
   customUrl?: true
   inviteCode?: true
   country?: true
@@ -282,6 +297,7 @@ export type WorkspaceCountAggregateInputType = {
   vatNumber?: true
   logoIconUrl?: true
   logoWordmarkUrl?: true
+  fiscalYearStartMonth?: true
   stripeAccountId?: true
   stripeConnected?: true
   wiseProfileId?: true
@@ -398,8 +414,9 @@ export type WorkspaceGroupByOutputType = {
   slug: string
   name: string
   plan: $Enums.WorkspacePlan
-  vertical: $Enums.WorkspaceVertical | null
+  industry: $Enums.WorkspaceIndustry | null
   workspaceUrl: string | null
+  website: string | null
   customUrl: string | null
   inviteCode: string | null
   country: string | null
@@ -412,6 +429,7 @@ export type WorkspaceGroupByOutputType = {
   vatNumber: string | null
   logoIconUrl: string | null
   logoWordmarkUrl: string | null
+  fiscalYearStartMonth: number | null
   stripeAccountId: string | null
   stripeConnected: boolean
   wiseProfileId: string | null
@@ -464,8 +482,9 @@ export type WorkspaceWhereInput = {
   slug?: Prisma.StringFilter<"Workspace"> | string
   name?: Prisma.StringFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalNullableFilter<"Workspace"> | $Enums.WorkspaceVertical | null
+  industry?: Prisma.EnumWorkspaceIndustryNullableFilter<"Workspace"> | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  website?: Prisma.StringNullableFilter<"Workspace"> | string | null
   customUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   inviteCode?: Prisma.StringNullableFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableFilter<"Workspace"> | string | null
@@ -478,6 +497,7 @@ export type WorkspaceWhereInput = {
   vatNumber?: Prisma.StringNullableFilter<"Workspace"> | string | null
   logoIconUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   logoWordmarkUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  fiscalYearStartMonth?: Prisma.IntNullableFilter<"Workspace"> | number | null
   stripeAccountId?: Prisma.StringNullableFilter<"Workspace"> | string | null
   stripeConnected?: Prisma.BoolFilter<"Workspace"> | boolean
   wiseProfileId?: Prisma.StringNullableFilter<"Workspace"> | string | null
@@ -509,8 +529,9 @@ export type WorkspaceOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrderInput | Prisma.SortOrder
+  industry?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  website?: Prisma.SortOrderInput | Prisma.SortOrder
   customUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   inviteCode?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -523,6 +544,7 @@ export type WorkspaceOrderByWithRelationInput = {
   vatNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   logoIconUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   logoWordmarkUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  fiscalYearStartMonth?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeConnected?: Prisma.SortOrder
   wiseProfileId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -559,7 +581,8 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.WorkspaceWhereInput | Prisma.WorkspaceWhereInput[]
   name?: Prisma.StringFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalNullableFilter<"Workspace"> | $Enums.WorkspaceVertical | null
+  industry?: Prisma.EnumWorkspaceIndustryNullableFilter<"Workspace"> | $Enums.WorkspaceIndustry | null
+  website?: Prisma.StringNullableFilter<"Workspace"> | string | null
   customUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableFilter<"Workspace"> | string | null
   headcount?: Prisma.EnumHeadcountNullableFilter<"Workspace"> | $Enums.Headcount | null
@@ -571,6 +594,7 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   vatNumber?: Prisma.StringNullableFilter<"Workspace"> | string | null
   logoIconUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
   logoWordmarkUrl?: Prisma.StringNullableFilter<"Workspace"> | string | null
+  fiscalYearStartMonth?: Prisma.IntNullableFilter<"Workspace"> | number | null
   stripeAccountId?: Prisma.StringNullableFilter<"Workspace"> | string | null
   stripeConnected?: Prisma.BoolFilter<"Workspace"> | boolean
   wiseProfileId?: Prisma.StringNullableFilter<"Workspace"> | string | null
@@ -602,8 +626,9 @@ export type WorkspaceOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrderInput | Prisma.SortOrder
+  industry?: Prisma.SortOrderInput | Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  website?: Prisma.SortOrderInput | Prisma.SortOrder
   customUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   inviteCode?: Prisma.SortOrderInput | Prisma.SortOrder
   country?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -616,6 +641,7 @@ export type WorkspaceOrderByWithAggregationInput = {
   vatNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   logoIconUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   logoWordmarkUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  fiscalYearStartMonth?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeAccountId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeConnected?: Prisma.SortOrder
   wiseProfileId?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -653,8 +679,9 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   name?: Prisma.StringWithAggregatesFilter<"Workspace"> | string
   plan?: Prisma.EnumWorkspacePlanWithAggregatesFilter<"Workspace"> | $Enums.WorkspacePlan
-  vertical?: Prisma.EnumWorkspaceVerticalNullableWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceVertical | null
+  industry?: Prisma.EnumWorkspaceIndustryNullableWithAggregatesFilter<"Workspace"> | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  website?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   customUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   inviteCode?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   country?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
@@ -667,6 +694,7 @@ export type WorkspaceScalarWhereWithAggregatesInput = {
   vatNumber?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   logoIconUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   logoWordmarkUrl?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
+  fiscalYearStartMonth?: Prisma.IntNullableWithAggregatesFilter<"Workspace"> | number | null
   stripeAccountId?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
   stripeConnected?: Prisma.BoolWithAggregatesFilter<"Workspace"> | boolean
   wiseProfileId?: Prisma.StringNullableWithAggregatesFilter<"Workspace"> | string | null
@@ -696,8 +724,9 @@ export type WorkspaceCreateInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -710,6 +739,7 @@ export type WorkspaceCreateInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -741,8 +771,9 @@ export type WorkspaceUncheckedCreateInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -755,6 +786,7 @@ export type WorkspaceUncheckedCreateInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -786,8 +818,9 @@ export type WorkspaceUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -800,6 +833,7 @@ export type WorkspaceUpdateInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -831,8 +865,9 @@ export type WorkspaceUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -845,6 +880,7 @@ export type WorkspaceUncheckedUpdateInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -876,8 +912,9 @@ export type WorkspaceCreateManyInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -890,6 +927,7 @@ export type WorkspaceCreateManyInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -919,8 +957,9 @@ export type WorkspaceUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -933,6 +972,7 @@ export type WorkspaceUpdateManyMutationInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -962,8 +1002,9 @@ export type WorkspaceUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -976,6 +1017,7 @@ export type WorkspaceUncheckedUpdateManyInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1013,8 +1055,9 @@ export type WorkspaceCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrder
+  industry?: Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrder
+  website?: Prisma.SortOrder
   customUrl?: Prisma.SortOrder
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
@@ -1027,6 +1070,7 @@ export type WorkspaceCountOrderByAggregateInput = {
   vatNumber?: Prisma.SortOrder
   logoIconUrl?: Prisma.SortOrder
   logoWordmarkUrl?: Prisma.SortOrder
+  fiscalYearStartMonth?: Prisma.SortOrder
   stripeAccountId?: Prisma.SortOrder
   stripeConnected?: Prisma.SortOrder
   wiseProfileId?: Prisma.SortOrder
@@ -1052,6 +1096,7 @@ export type WorkspaceCountOrderByAggregateInput = {
 }
 
 export type WorkspaceAvgOrderByAggregateInput = {
+  fiscalYearStartMonth?: Prisma.SortOrder
   billingCycleStart?: Prisma.SortOrder
   taxRate?: Prisma.SortOrder
   lateFeeRate?: Prisma.SortOrder
@@ -1065,8 +1110,9 @@ export type WorkspaceMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrder
+  industry?: Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrder
+  website?: Prisma.SortOrder
   customUrl?: Prisma.SortOrder
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
@@ -1077,6 +1123,7 @@ export type WorkspaceMaxOrderByAggregateInput = {
   vatNumber?: Prisma.SortOrder
   logoIconUrl?: Prisma.SortOrder
   logoWordmarkUrl?: Prisma.SortOrder
+  fiscalYearStartMonth?: Prisma.SortOrder
   stripeAccountId?: Prisma.SortOrder
   stripeConnected?: Prisma.SortOrder
   wiseProfileId?: Prisma.SortOrder
@@ -1104,8 +1151,9 @@ export type WorkspaceMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   name?: Prisma.SortOrder
   plan?: Prisma.SortOrder
-  vertical?: Prisma.SortOrder
+  industry?: Prisma.SortOrder
   workspaceUrl?: Prisma.SortOrder
+  website?: Prisma.SortOrder
   customUrl?: Prisma.SortOrder
   inviteCode?: Prisma.SortOrder
   country?: Prisma.SortOrder
@@ -1116,6 +1164,7 @@ export type WorkspaceMinOrderByAggregateInput = {
   vatNumber?: Prisma.SortOrder
   logoIconUrl?: Prisma.SortOrder
   logoWordmarkUrl?: Prisma.SortOrder
+  fiscalYearStartMonth?: Prisma.SortOrder
   stripeAccountId?: Prisma.SortOrder
   stripeConnected?: Prisma.SortOrder
   wiseProfileId?: Prisma.SortOrder
@@ -1139,6 +1188,7 @@ export type WorkspaceMinOrderByAggregateInput = {
 }
 
 export type WorkspaceSumOrderByAggregateInput = {
+  fiscalYearStartMonth?: Prisma.SortOrder
   billingCycleStart?: Prisma.SortOrder
   taxRate?: Prisma.SortOrder
   lateFeeRate?: Prisma.SortOrder
@@ -1160,8 +1210,8 @@ export type EnumWorkspacePlanFieldUpdateOperationsInput = {
   set?: $Enums.WorkspacePlan
 }
 
-export type NullableEnumWorkspaceVerticalFieldUpdateOperationsInput = {
-  set?: $Enums.WorkspaceVertical | null
+export type NullableEnumWorkspaceIndustryFieldUpdateOperationsInput = {
+  set?: $Enums.WorkspaceIndustry | null
 }
 
 export type NullableEnumHeadcountFieldUpdateOperationsInput = {
@@ -1171,6 +1221,14 @@ export type NullableEnumHeadcountFieldUpdateOperationsInput = {
 export type WorkspaceUpdatetypicalClientsInput = {
   set?: $Enums.ClientType[]
   push?: $Enums.ClientType | $Enums.ClientType[]
+}
+
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
 }
 
 export type DecimalFieldUpdateOperationsInput = {
@@ -1222,8 +1280,9 @@ export type WorkspaceCreateWithoutMembersInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -1236,6 +1295,7 @@ export type WorkspaceCreateWithoutMembersInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -1266,8 +1326,9 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -1280,6 +1341,7 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -1326,8 +1388,9 @@ export type WorkspaceUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1340,6 +1403,7 @@ export type WorkspaceUpdateWithoutMembersInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1370,8 +1434,9 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1384,6 +1449,7 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1414,8 +1480,9 @@ export type WorkspaceCreateWithoutInvitesInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -1428,6 +1495,7 @@ export type WorkspaceCreateWithoutInvitesInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -1458,8 +1526,9 @@ export type WorkspaceUncheckedCreateWithoutInvitesInput = {
   slug: string
   name: string
   plan?: $Enums.WorkspacePlan
-  vertical?: $Enums.WorkspaceVertical | null
+  industry?: $Enums.WorkspaceIndustry | null
   workspaceUrl?: string | null
+  website?: string | null
   customUrl?: string | null
   inviteCode?: string | null
   country?: string | null
@@ -1472,6 +1541,7 @@ export type WorkspaceUncheckedCreateWithoutInvitesInput = {
   vatNumber?: string | null
   logoIconUrl?: string | null
   logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
   stripeAccountId?: string | null
   stripeConnected?: boolean
   wiseProfileId?: string | null
@@ -1518,8 +1588,9 @@ export type WorkspaceUpdateWithoutInvitesInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1532,6 +1603,7 @@ export type WorkspaceUpdateWithoutInvitesInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1562,8 +1634,9 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
-  vertical?: Prisma.NullableEnumWorkspaceVerticalFieldUpdateOperationsInput | $Enums.WorkspaceVertical | null
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
   workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1576,6 +1649,7 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
   vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
   wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1646,8 +1720,9 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   slug?: boolean
   name?: boolean
   plan?: boolean
-  vertical?: boolean
+  industry?: boolean
   workspaceUrl?: boolean
+  website?: boolean
   customUrl?: boolean
   inviteCode?: boolean
   country?: boolean
@@ -1660,6 +1735,7 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   vatNumber?: boolean
   logoIconUrl?: boolean
   logoWordmarkUrl?: boolean
+  fiscalYearStartMonth?: boolean
   stripeAccountId?: boolean
   stripeConnected?: boolean
   wiseProfileId?: boolean
@@ -1692,8 +1768,9 @@ export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   slug?: boolean
   name?: boolean
   plan?: boolean
-  vertical?: boolean
+  industry?: boolean
   workspaceUrl?: boolean
+  website?: boolean
   customUrl?: boolean
   inviteCode?: boolean
   country?: boolean
@@ -1706,6 +1783,7 @@ export type WorkspaceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   vatNumber?: boolean
   logoIconUrl?: boolean
   logoWordmarkUrl?: boolean
+  fiscalYearStartMonth?: boolean
   stripeAccountId?: boolean
   stripeConnected?: boolean
   wiseProfileId?: boolean
@@ -1735,8 +1813,9 @@ export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   slug?: boolean
   name?: boolean
   plan?: boolean
-  vertical?: boolean
+  industry?: boolean
   workspaceUrl?: boolean
+  website?: boolean
   customUrl?: boolean
   inviteCode?: boolean
   country?: boolean
@@ -1749,6 +1828,7 @@ export type WorkspaceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   vatNumber?: boolean
   logoIconUrl?: boolean
   logoWordmarkUrl?: boolean
+  fiscalYearStartMonth?: boolean
   stripeAccountId?: boolean
   stripeConnected?: boolean
   wiseProfileId?: boolean
@@ -1778,8 +1858,9 @@ export type WorkspaceSelectScalar = {
   slug?: boolean
   name?: boolean
   plan?: boolean
-  vertical?: boolean
+  industry?: boolean
   workspaceUrl?: boolean
+  website?: boolean
   customUrl?: boolean
   inviteCode?: boolean
   country?: boolean
@@ -1792,6 +1873,7 @@ export type WorkspaceSelectScalar = {
   vatNumber?: boolean
   logoIconUrl?: boolean
   logoWordmarkUrl?: boolean
+  fiscalYearStartMonth?: boolean
   stripeAccountId?: boolean
   stripeConnected?: boolean
   wiseProfileId?: boolean
@@ -1816,7 +1898,7 @@ export type WorkspaceSelectScalar = {
   metadata?: boolean
 }
 
-export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "plan" | "vertical" | "workspaceUrl" | "customUrl" | "inviteCode" | "country" | "headcount" | "typicalClients" | "timezone" | "billingName" | "billingEmail" | "billingAddress" | "vatNumber" | "logoIconUrl" | "logoWordmarkUrl" | "stripeAccountId" | "stripeConnected" | "wiseProfileId" | "wiseConnected" | "wiseEmail" | "trialEndsAt" | "billingCycleStart" | "paymentTerms" | "currency" | "invoicePrefix" | "taxRate" | "lateFeeRate" | "revisionRounds" | "validDays" | "scopeProtectionEnabled" | "effectiveRateMin" | "lastIntelligenceRunAt" | "exportSettings" | "createdAt" | "updatedAt" | "deletedAt" | "metadata", ExtArgs["result"]["workspace"]>
+export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "name" | "plan" | "industry" | "workspaceUrl" | "website" | "customUrl" | "inviteCode" | "country" | "headcount" | "typicalClients" | "timezone" | "billingName" | "billingEmail" | "billingAddress" | "vatNumber" | "logoIconUrl" | "logoWordmarkUrl" | "fiscalYearStartMonth" | "stripeAccountId" | "stripeConnected" | "wiseProfileId" | "wiseConnected" | "wiseEmail" | "trialEndsAt" | "billingCycleStart" | "paymentTerms" | "currency" | "invoicePrefix" | "taxRate" | "lateFeeRate" | "revisionRounds" | "validDays" | "scopeProtectionEnabled" | "effectiveRateMin" | "lastIntelligenceRunAt" | "exportSettings" | "createdAt" | "updatedAt" | "deletedAt" | "metadata", ExtArgs["result"]["workspace"]>
 export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   invites?: boolean | Prisma.Workspace$invitesArgs<ExtArgs>
@@ -1836,8 +1918,9 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     slug: string
     name: string
     plan: $Enums.WorkspacePlan
-    vertical: $Enums.WorkspaceVertical | null
+    industry: $Enums.WorkspaceIndustry | null
     workspaceUrl: string | null
+    website: string | null
     customUrl: string | null
     inviteCode: string | null
     country: string | null
@@ -1850,6 +1933,7 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
     vatNumber: string | null
     logoIconUrl: string | null
     logoWordmarkUrl: string | null
+    fiscalYearStartMonth: number | null
     stripeAccountId: string | null
     stripeConnected: boolean
     wiseProfileId: string | null
@@ -2301,8 +2385,9 @@ export interface WorkspaceFieldRefs {
   readonly slug: Prisma.FieldRef<"Workspace", 'String'>
   readonly name: Prisma.FieldRef<"Workspace", 'String'>
   readonly plan: Prisma.FieldRef<"Workspace", 'WorkspacePlan'>
-  readonly vertical: Prisma.FieldRef<"Workspace", 'WorkspaceVertical'>
+  readonly industry: Prisma.FieldRef<"Workspace", 'WorkspaceIndustry'>
   readonly workspaceUrl: Prisma.FieldRef<"Workspace", 'String'>
+  readonly website: Prisma.FieldRef<"Workspace", 'String'>
   readonly customUrl: Prisma.FieldRef<"Workspace", 'String'>
   readonly inviteCode: Prisma.FieldRef<"Workspace", 'String'>
   readonly country: Prisma.FieldRef<"Workspace", 'String'>
@@ -2315,6 +2400,7 @@ export interface WorkspaceFieldRefs {
   readonly vatNumber: Prisma.FieldRef<"Workspace", 'String'>
   readonly logoIconUrl: Prisma.FieldRef<"Workspace", 'String'>
   readonly logoWordmarkUrl: Prisma.FieldRef<"Workspace", 'String'>
+  readonly fiscalYearStartMonth: Prisma.FieldRef<"Workspace", 'Int'>
   readonly stripeAccountId: Prisma.FieldRef<"Workspace", 'String'>
   readonly stripeConnected: Prisma.FieldRef<"Workspace", 'Boolean'>
   readonly wiseProfileId: Prisma.FieldRef<"Workspace", 'String'>

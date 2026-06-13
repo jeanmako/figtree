@@ -28,7 +28,7 @@ export const headcount = [
 
 export type Headcount = (typeof headcount)[number]
 
-export const vertical = [
+export const industry = [
   "web_dev",
   "web_design",
   "photography",
@@ -40,7 +40,7 @@ export const vertical = [
   "other",
 ] as const
 
-export type Vertical = (typeof vertical)[number]
+export type Industry = (typeof industry)[number]
 
 export const plans = ["trial", "solo", "pro", "studio", "agency"] as const
 
@@ -66,6 +66,7 @@ export type CreateWorkspacePayload = z.infer<typeof createWorkspaceSchema>
 export type WorkspaceCreateResponse = z.infer<
   typeof CreateWorkspaceResponseSchema
 >
+export type WorkspaceUpdateResponse = z.infer<typeof updateWorkspaceSchema>
 
 export type UpdateWorkspacePayload = z.infer<typeof updateWorkspaceSchema>
 export type WorkspaceBusinessSetupPayload = z.infer<
