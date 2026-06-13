@@ -1,4 +1,4 @@
-import { Input, InputProps } from "@figtree/ui/components/input"
+import { InputProps } from "@figtree/ui/components/input"
 
 import {
   InputGroup,
@@ -20,13 +20,13 @@ export const SlugInput = ({
   ...props
 }: Props) => {
   return (
-    <InputGroup>
+    <InputGroup className={cn("w-full", className)}>
       <InputGroupInput
         {...props}
         id={id}
         disabled={disabled}
         placeholder={placeholder}
-        className={cn("*:[input]:ps-1!", className)}
+        className="*:[input]:ps-1!"
       />
       <InputGroupAddon className="text-quiet">{addOn}</InputGroupAddon>
     </InputGroup>

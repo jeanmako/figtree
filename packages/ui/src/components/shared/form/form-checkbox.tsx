@@ -21,6 +21,7 @@ export function FormCheckbox(props: FormControlProps) {
         onCheckedChange={(e) => field.handleChange(e === true)}
         aria-invalid={isInvalid}
         disabled={props.disabled}
+        className={props.className}
       />
     </FormBase>
   )

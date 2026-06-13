@@ -8,7 +8,7 @@ import {
   clientTypes,
   formId,
   headcounts,
-  verticals,
+  industries,
 } from "@/modules/workspace/onboarding/lib/misc"
 import { useOnboardingProgress } from "@/modules/workspace/onboarding/hooks/use-onboarding-progress"
 import { useUpdateWorkspaceDetailsMutation } from "@/modules/workspace/onboarding/hooks/workspace-details-update-mutation"
@@ -20,10 +20,10 @@ export const BusinessOnboardingStep = () => {
     useUpdateWorkspaceDetailsMutation()
   const form = useAppForm({
     defaultValues: {
-      vertical: "design_development",
+      industry: "design_development",
       headcount: "solo",
       metadata: {
-        customVertical: "",
+        customIndustry: "",
       },
       typicalClients: [],
     } satisfies WorkspaceBusinessSetupPayload as WorkspaceBusinessSetupPayload,
@@ -64,11 +64,11 @@ export const BusinessOnboardingStep = () => {
             />
           )}
         </form.AppField>
-        <form.AppField name="vertical">
+        <form.AppField name="industry">
           {(field) => (
             <field.ToggleGroupSelector
               description="This helps us tailor your experience."
-              options={verticals}
+              options={industries}
               id={`${id}-${field.name}`}
               htmlFor={`${id}-${field.name}`}
               label="What kind of work does your business do?"

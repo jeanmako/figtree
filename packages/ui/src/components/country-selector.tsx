@@ -24,6 +24,7 @@ type Props = {
   isInvalid?: boolean
   placeholder?: string
   className?: string
+  popupClassName?: string
   searchPlaceholder?: string
   emptyMessage?: string
 }
@@ -40,6 +41,7 @@ export function CountrySelector({
   className,
   searchPlaceholder = "Search...",
   emptyMessage = "No country found.",
+  popupClassName,
 }: Props) {
   return (
     <Combobox
@@ -76,7 +78,7 @@ export function CountrySelector({
         <Icons.chevronSelector className="text-quiet" />
       </ComboboxTrigger>
 
-      <ComboboxPopup aria-label={placeholder}>
+      <ComboboxPopup aria-label={placeholder} className={popupClassName}>
         <div className="border-b p-2">
           <ComboboxInput
             className="w-full border-none focus:ring-0"

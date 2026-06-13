@@ -29,6 +29,7 @@ export function FormPasswordInput(
           onChange={(e) => field.handleChange(e.target.value)}
           aria-invalid={isInvalid}
           disabled={props.disabled}
+          className={props.className}
         >
           <PasswordInputStrengthChecker />
         </PasswordInput>
@@ -43,6 +44,7 @@ export function FormPasswordInput(
           onChange={(e) => field.handleChange(e.target.value)}
           aria-invalid={isInvalid}
           disabled={props.disabled}
+          className={props.className}
         />
       )}
     </FormBase>

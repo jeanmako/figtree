@@ -1307,8 +1307,9 @@ export const WorkspaceScalarFieldEnum = {
   slug: 'slug',
   name: 'name',
   plan: 'plan',
-  vertical: 'vertical',
+  industry: 'industry',
   workspaceUrl: 'workspaceUrl',
+  website: 'website',
   customUrl: 'customUrl',
   inviteCode: 'inviteCode',
   country: 'country',
@@ -1321,6 +1322,7 @@ export const WorkspaceScalarFieldEnum = {
   vatNumber: 'vatNumber',
   logoIconUrl: 'logoIconUrl',
   logoWordmarkUrl: 'logoWordmarkUrl',
+  fiscalYearStartMonth: 'fiscalYearStartMonth',
   stripeAccountId: 'stripeAccountId',
   stripeConnected: 'stripeConnected',
   wiseProfileId: 'wiseProfileId',
@@ -1541,16 +1543,16 @@ export type ListEnumWorkspacePlanFieldRefInput<$PrismaModel> = FieldRefInputType
 
 
 /**
- * Reference to a field of type 'WorkspaceVertical'
+ * Reference to a field of type 'WorkspaceIndustry'
  */
-export type EnumWorkspaceVerticalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceVertical'>
+export type EnumWorkspaceIndustryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceIndustry'>
     
 
 
 /**
- * Reference to a field of type 'WorkspaceVertical[]'
+ * Reference to a field of type 'WorkspaceIndustry[]'
  */
-export type ListEnumWorkspaceVerticalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceVertical[]'>
+export type ListEnumWorkspaceIndustryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WorkspaceIndustry[]'>
     
 
 

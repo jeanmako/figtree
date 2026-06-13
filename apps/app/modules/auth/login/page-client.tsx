@@ -22,7 +22,7 @@ export function LoginPageClient({
       <Header
         title="Sign in to Figtree"
         description="Welcome back! Please sign in to continue"
-        className="mx-auto mb-6 w-full max-w-md md:max-w-xl"
+        className="mx-auto w-full max-w-md md:max-w-xl [&_h2]:text-center [&_p]:text-center"
       />
       <div className="mx-auto flex w-full max-w-sm flex-col">
         <div className="mx-auto w-[90%]">

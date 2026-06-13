@@ -3,13 +3,14 @@ import {
   headcount,
   plans,
   workspaceRolesEnum,
-  vertical,
+  industry,
   clientType,
 } from "./types"
 import slugify from "@sindresorhus/slugify"
 import { ClientTypeSchema, validSlugRegex } from "../misc"
 import { countryCodes } from "@figtree/utils/constants/countries"
 import { currencyCodes } from "@figtree/utils/constants/currencies"
+import { timezoneValues } from "@figtree/utils/constants/timezones"
 
 export const workspaceQueryWithSlug = z.object({
   workspaceSlug: z.string(),
@@ -27,14 +28,22 @@ export const WorkspaceSchema = z.object({
   id: z.string().describe("The unique ID of the workspace."),
   name: z.string().describe("The name of the workspace."),
   slug: z.string().describe("The slug of the workspace."),
-  country: z.string().describe("The country the business is in.").nullable(),
-  currency: z.string().describe("The currency the business uses.").nullable(),
+  country: z
+    .enum(countryCodes)
+    .describe("The country the business is in.")
+    .nullable(),
+  currency: z.enum(currencyCodes).describe("The currency the business uses."),
+  timezone: z
+    .enum(timezoneValues)
+    .describe("The timezone specific to the workspace.")
+    .nullish(),
   plan: z.enum(plans).default("solo").describe("The plan of the workspace."),
-  vertical: z
-    .enum(vertical)
+  website: z.string().nullable().describe("The URL of the company's website."),
+  industry: z
+    .enum(industry)
     .nullable()
     .default("design_development")
-    .describe("The vertical of the workspace."),
+    .describe("The industry the company primarily operates in."),
   logoIconUrl: z
     .string()
     .nullable()
@@ -61,6 +70,16 @@ export const WorkspaceSchema = z.object({
   //   .record(z.string(), z.string())
   //   .nullable()
   //   .describe("The address on the workspace's billing account."),
+  typicalClients: z
+    .array(ClientTypeSchema)
+    .describe("The types of clients the business primarily serves."),
+  fiscalYearStartMonth: z
+    .number()
+    .int()
+    .min(1)
+    .max(12)
+    .nullable()
+    .describe("The month the fiscal year starts for the workspace."),
   stripeAccountId: z
     .string()
     .nullable()
@@ -144,13 +163,15 @@ export const updateWorkspaceSchema = z
       .min(2, "Workspace name must be at least 2 characters.")
       .max(48, "Workspace name must be less than 48 characters."),
     plan: z.enum(plans),
-    vertical: z.enum(vertical),
-    country: z.enum(countryCodes),
+    industry: z.enum(industry).nullable(),
+    country: z.enum(countryCodes).nullable(),
     currency: z.enum(currencyCodes),
+    timezone: z.enum(timezoneValues).nullable(),
+    website: z.url().or(z.literal("")).nullable(),
     metadata: z.object({
-      customVertical: z.string().trim().optional(), // TODO: Turn this into an enum for better validation.
+      customIndustry: z.string().trim().optional(), // TODO: Turn this into an enum for better validation.
     }),
-    headcount: z.enum(headcount),
+    headcount: z.enum(headcount).nullable(),
     typicalClients: z
       .array(ClientTypeSchema)
       .min(1, { message: "Select at least one client type." }),
@@ -180,15 +201,25 @@ export const updateWorkspaceSchema = z
     scopeProtectionEnabled: z.boolean(),
     effectiveRateMin: z.number().positive(),
     wiseEmail: z.string().nullish(),
+    fiscalYearStartMonth: z.int().lte(12).positive(),
+  })
+  .partial()
+
+export const updateWorkspaceBusinessSettingsSchema = updateWorkspaceSchema
+  .pick({
+    industry: true,
+    headcount: true,
+    typicalClients: true,
+    website: true,
   })
   .partial()
 
 export const workspaceBusinessSetupSchema = z
   .object({
-    vertical: z.enum(vertical).default("design_development").nonoptional(),
+    industry: z.enum(industry).default("design_development").nonoptional(),
 
     metadata: z.object({
-      customVertical: z.string().trim().optional(), // TODO: Turn this into an enum for better validation.
+      customIndustry: z.string().trim().optional(), // TODO: Turn this into an enum for better validation.
     }),
     headcount: z.enum(headcount),
     typicalClients: z
@@ -197,13 +228,13 @@ export const workspaceBusinessSetupSchema = z
   })
   .superRefine((data, ctx) => {
     if (
-      data.vertical === "other" &&
-      (!data.metadata.customVertical || data.metadata.customVertical.length < 2)
+      data.industry === "other" &&
+      (!data.metadata.customIndustry || data.metadata.customIndustry.length < 2)
     ) {
       ctx.addIssue({
         code: "custom",
-        path: ["metadata", "customVertical"],
-        message: "Please specify the vertical.",
+        path: ["metadata", "customIndustry"],
+        message: "Please specify the industry.",
       })
     }
   })

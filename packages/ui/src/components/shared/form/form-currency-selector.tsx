@@ -10,7 +10,9 @@ import { CurrencySelector } from "@figtree/ui/components/currency-selector"
 import { useFieldContext } from "@figtree/ui/hooks/form-hook"
 import { CurrencyCode } from "@figtree/utils/constants/currencies"
 
-export function FormCurrencySelector(props: FormControlProps) {
+export function FormCurrencySelector(
+  props: FormControlProps & { popupClassName?: string }
+) {
   const field = useFieldContext<CurrencyCode>()
   const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
 
@@ -24,6 +26,8 @@ export function FormCurrencySelector(props: FormControlProps) {
         value={field.state.value}
         onValueChange={field.handleChange}
         onBlur={field.handleBlur}
+        className={props.className}
+        popupClassName={props.popupClassName}
       />
     </FormBase>
   )

@@ -4,12 +4,13 @@ import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
 import { ToastProvider } from "@figtree/ui/components/toast"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { FetchError } from "@figtree/lib/fetcher"
 
-// declare module "@tanstack/react-query" {
-//   interface Register {
-//     defaultError: FetchError;
-//   }
-// }
+declare module "@tanstack/react-query" {
+  interface Register {
+    defaultError: FetchError
+  }
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {

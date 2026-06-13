@@ -97,7 +97,7 @@ export const WorkspaceService = (
     return workspace
   }
 
-  const findById = async (id: string, userId: string) => {
+  const findBySlug = async (id: string, userId: string) => {
     const existingProfile = await IdRepo?.findByUserId(userId)
     const foundWorkspace = await repo.findBySlug(
       id,
@@ -130,7 +130,7 @@ export const WorkspaceService = (
   }
 
   return {
-    findById,
+    findBySlug,
     findBySlugWithMember,
     create,
     update,

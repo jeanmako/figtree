@@ -2,9 +2,9 @@ import { API_BASE } from "@/lib/api"
 import { fetcher } from "@figtree/lib/fetcher"
 import {
   CreateWorkspacePayload,
-  WorkspaceBusinessSetupPayload,
   WorkspaceResponse,
   WorkspaceCreateResponse,
+  UpdateWorkspacePayload,
 } from "@figtree/shared/schemas/workspace"
 import { type FetchError } from "@figtree/lib/fetcher"
 
@@ -24,10 +24,7 @@ export const workspacesApi = {
       method: "POST",
       body: JSON.stringify(payload),
     }),
-  updateDetails: (
-    workspaceSlug: string,
-    payload: WorkspaceBusinessSetupPayload
-  ) =>
+  update: (workspaceSlug: string, payload: UpdateWorkspacePayload) =>
     fetcher<WorkspaceCreateResponse>(
       `${API_BASE}/v1/workspaces/${workspaceSlug}`,
       {

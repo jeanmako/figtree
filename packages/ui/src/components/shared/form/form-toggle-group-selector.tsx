@@ -38,6 +38,7 @@ export function FormToggleGroupSelector({
         allowDeselect={allowDeselect}
         size={size}
         variant={variant}
+        className={props.className}
       />
     </FormBase>
   )

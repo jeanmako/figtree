@@ -1,34 +1,34 @@
-import { Icons } from "@figtree/ui/components/icons";
+import { Icons } from "@figtree/ui/components/icons"
 
-export type NavAreaKey = "main" | "settings";
+export type NavAreaKey = "main" | "settings"
 
 export type NavItem = {
-  name: string;
-  href: string;
-  icon?: React.ReactNode;
-  badge?: number | string;
-  exact?: boolean;
-  isActive?: (pathname: string, href: string) => boolean;
-};
+  name: string
+  href: string
+  icon?: React.ReactNode
+  badge?: number | string
+  exact?: boolean
+  isActive?: (pathname: string, href: string) => boolean
+}
 
 export type NavGroup = {
-  name?: string;
-  items: NavItem[];
-};
+  name?: string
+  items: NavItem[]
+}
 
 export type NavArea = {
-  title: string;
-  backHref?: string;
-  content: NavGroup[];
-};
+  title: string
+  backHref?: string
+  content: NavGroup[]
+}
 
 export type NavAreaData = {
-  slug: string;
-  pathname: string;
-  inboxCount?: number;
-};
+  slug: string
+  pathname: string
+  inboxCount?: number
+}
 
-export type NavAreas = Record<NavAreaKey, (data: NavAreaData) => NavArea>;
+export type NavAreas = Record<NavAreaKey, (data: NavAreaData) => NavArea>
 
 export const NAV_AREAS: NavAreas = {
   main: ({ slug, inboxCount }) => ({
@@ -133,19 +133,49 @@ export const NAV_AREAS: NavAreas = {
             exact: true,
           },
           {
-            name: "Members",
-            href: `/${slug}/settings/members`,
-            icon: <Icons.users />,
-          },
-          {
             name: "Billing",
             href: `/${slug}/settings/billing`,
             icon: <Icons.dollar />,
           },
           {
+            name: "Services",
+            href: `/${slug}/settings/services`,
+            icon: <Icons.dollar />,
+          },
+          {
+            name: "Scope engine",
+            href: `/${slug}/settings/scope`,
+            icon: <Icons.users />,
+          },
+          {
+            name: "Members",
+            href: `/${slug}/settings/members`,
+            icon: <Icons.users />,
+          },
+          {
             name: "Plans",
             href: `/${slug}/settings/plans`,
             icon: <Icons.diamond />,
+          },
+          {
+            name: "Notifications",
+            href: `/${slug}/settings/notifications`,
+            icon: <Icons.info />,
+          },
+          {
+            name: "Applications",
+            href: `/${slug}/settings/apps`,
+            icon: <Icons.grid />,
+          },
+          {
+            name: "Security",
+            href: `/${slug}/settings/security`,
+            icon: <Icons.fingerprint />,
+          },
+          {
+            name: "Advanced",
+            href: `/${slug}/settings/advanced`,
+            icon: <Icons.info />,
           },
         ],
       },
@@ -164,26 +194,6 @@ export const NAV_AREAS: NavAreas = {
           },
         ],
       },
-      {
-        name: "Integrations",
-        items: [
-          {
-            name: "Apps",
-            href: `/${slug}/settings/apps`,
-            icon: <Icons.grid />,
-          },
-          {
-            name: "Security",
-            href: `/${slug}/settings/security`,
-            icon: <Icons.fingerprint />,
-          },
-          {
-            name: "Import",
-            href: `/${slug}/settings/import`,
-            icon: <Icons.upload />,
-          },
-        ],
-      },
     ],
   }),
-};
+}

@@ -28,6 +28,7 @@ export function FormSlugInput(props: InputSlugProps) {
         onChange={(e) => field.handleChange(e.target.value)}
         aria-invalid={isInvalid}
         disabled={props.disabled}
+        className={props.className}
       />
     </FormBase>
   )
