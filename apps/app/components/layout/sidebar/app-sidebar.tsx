@@ -37,13 +37,17 @@ export function AppSidebar(): React.ReactElement {
       <SidebarHeader>
         {isSettings ? (
           <div className="inline-flex h-12 items-center px-3">
-            <Link href={`/${slug}`}>
-              <Button variant="ghost" size="icon-sm">
+            <Link href={area.backHref as string}>
+              <Button
+                variant="ghost"
+                size="icon-sm"
+                className="hover:bg-secondary"
+              >
                 <Icons.chevronLeft />
               </Button>
             </Link>
             <span className="ml-3 truncate text-base font-semibold">
-              Settings
+              {area.title}
             </span>
           </div>
         ) : (
@@ -72,7 +76,6 @@ export function AppSidebar(): React.ReactElement {
           </SidebarGroup>
         ))}
       </SidebarContent>
-
       <SidebarRail />
     </Sidebar>
   )
