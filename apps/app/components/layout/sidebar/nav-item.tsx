@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { cn } from "@figtree/ui/lib/utils";
-import { NavItem as NavItemType } from "./nav-areas";
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { cn } from "@figtree/ui/lib/utils"
+import { NavItem as NavItemType } from "./nav-areas"
 
 export function NavItem({ item }: { item: NavItemType }): React.ReactElement {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   const isActive = item.isActive
     ? item.isActive(pathname, item.href)
     : item.exact
       ? pathname === item.href
-      : pathname.startsWith(item.href);
+      : pathname.startsWith(item.href)
 
   return (
     <Link
@@ -22,11 +22,11 @@ export function NavItem({ item }: { item: NavItemType }): React.ReactElement {
         "flex h-7.5 items-center gap-2 rounded-md px-2 text-sm font-medium",
         "text-sidebar-foreground transition-colors duration-100",
         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-        isActive && "bg-sidebar-accent text-sidebar-accent-foreground",
+        isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
       )}
     >
       {item.icon && (
-        <span className="size-3.5 shrink-0 [&>svg]:size-full text-duper">
+        <span className="size-3.75 shrink-0 text-duper [&>svg]:size-full">
           {item.icon}
         </span>
       )}
@@ -39,5 +39,5 @@ export function NavItem({ item }: { item: NavItemType }): React.ReactElement {
         </span>
       )}
     </Link>
-  );
+  )
 }

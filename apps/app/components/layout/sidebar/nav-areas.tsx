@@ -121,7 +121,7 @@ export const NAV_AREAS: NavAreas = {
 
   settings: ({ slug }) => ({
     title: "Settings",
-    backHref: `/${slug}`,
+    backHref: `/${slug}/home`,
     content: [
       {
         name: "Workspace",
@@ -140,12 +140,12 @@ export const NAV_AREAS: NavAreas = {
           {
             name: "Services",
             href: `/${slug}/settings/services`,
-            icon: <Icons.dollar />,
+            icon: <Icons.briefcase />,
           },
           {
             name: "Scope engine",
             href: `/${slug}/settings/scope`,
-            icon: <Icons.users />,
+            icon: <Icons.squareDashed />,
           },
           {
             name: "Members",
