@@ -53,6 +53,26 @@ export type TwoFactor = Prisma.TwoFactorModel
  */
 export type Email = Prisma.EmailModel
 /**
+ * Model ServicePackage
+ * 
+ */
+export type ServicePackage = Prisma.ServicePackageModel
+/**
+ * Model ServiceAddOn
+ * 
+ */
+export type ServiceAddOn = Prisma.ServiceAddOnModel
+/**
+ * Model ServicePurchase
+ * 
+ */
+export type ServicePurchase = Prisma.ServicePurchaseModel
+/**
+ * Model ServicePurchaseAddOn
+ * 
+ */
+export type ServicePurchaseAddOn = Prisma.ServicePurchaseAddOnModel
+/**
  * Model Workspace
  * 
  */

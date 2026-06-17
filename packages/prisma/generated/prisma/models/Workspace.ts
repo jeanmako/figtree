@@ -522,6 +522,8 @@ export type WorkspaceWhereInput = {
   metadata?: Prisma.JsonNullableFilter<"Workspace">
   members?: Prisma.WorkspaceMemberListRelationFilter
   invites?: Prisma.WorkspaceInviteListRelationFilter
+  services?: Prisma.ServicePackageListRelationFilter
+  servicePurchases?: Prisma.ServicePurchaseListRelationFilter
 }
 
 export type WorkspaceOrderByWithRelationInput = {
@@ -569,6 +571,8 @@ export type WorkspaceOrderByWithRelationInput = {
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   members?: Prisma.WorkspaceMemberOrderByRelationAggregateInput
   invites?: Prisma.WorkspaceInviteOrderByRelationAggregateInput
+  services?: Prisma.ServicePackageOrderByRelationAggregateInput
+  servicePurchases?: Prisma.ServicePurchaseOrderByRelationAggregateInput
 }
 
 export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
@@ -619,6 +623,8 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   metadata?: Prisma.JsonNullableFilter<"Workspace">
   members?: Prisma.WorkspaceMemberListRelationFilter
   invites?: Prisma.WorkspaceInviteListRelationFilter
+  services?: Prisma.ServicePackageListRelationFilter
+  servicePurchases?: Prisma.ServicePurchaseListRelationFilter
 }, "id" | "slug" | "workspaceUrl" | "inviteCode">
 
 export type WorkspaceOrderByWithAggregationInput = {
@@ -764,6 +770,8 @@ export type WorkspaceCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateInput = {
@@ -811,6 +819,8 @@ export type WorkspaceUncheckedCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUpdateInput = {
@@ -858,6 +868,8 @@ export type WorkspaceUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateInput = {
@@ -905,6 +917,8 @@ export type WorkspaceUncheckedUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateManyInput = {
@@ -1040,6 +1054,11 @@ export type WorkspaceUncheckedUpdateManyInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+}
+
+export type WorkspaceScalarRelationFilter = {
+  is?: Prisma.WorkspaceWhereInput
+  isNot?: Prisma.WorkspaceWhereInput
 }
 
 export type EnumClientTypeNullableListFilter<$PrismaModel = never> = {
@@ -1197,9 +1216,32 @@ export type WorkspaceSumOrderByAggregateInput = {
   effectiveRateMin?: Prisma.SortOrder
 }
 
-export type WorkspaceScalarRelationFilter = {
-  is?: Prisma.WorkspaceWhereInput
-  isNot?: Prisma.WorkspaceWhereInput
+export type WorkspaceCreateNestedOneWithoutServicesInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicesInput, Prisma.WorkspaceUncheckedCreateWithoutServicesInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutServicesInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutServicesNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicesInput, Prisma.WorkspaceUncheckedCreateWithoutServicesInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutServicesInput
+  upsert?: Prisma.WorkspaceUpsertWithoutServicesInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutServicesInput, Prisma.WorkspaceUpdateWithoutServicesInput>, Prisma.WorkspaceUncheckedUpdateWithoutServicesInput>
+}
+
+export type WorkspaceCreateNestedOneWithoutServicePurchasesInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedCreateWithoutServicePurchasesInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutServicePurchasesInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+}
+
+export type WorkspaceUpdateOneRequiredWithoutServicePurchasesNestedInput = {
+  create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedCreateWithoutServicePurchasesInput>
+  connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutServicePurchasesInput
+  upsert?: Prisma.WorkspaceUpsertWithoutServicePurchasesInput
+  connect?: Prisma.WorkspaceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutServicePurchasesInput, Prisma.WorkspaceUpdateWithoutServicePurchasesInput>, Prisma.WorkspaceUncheckedUpdateWithoutServicePurchasesInput>
 }
 
 export type WorkspaceCreatetypicalClientsInput = {
@@ -1221,22 +1263,6 @@ export type NullableEnumHeadcountFieldUpdateOperationsInput = {
 export type WorkspaceUpdatetypicalClientsInput = {
   set?: $Enums.ClientType[]
   push?: $Enums.ClientType | $Enums.ClientType[]
-}
-
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
-export type DecimalFieldUpdateOperationsInput = {
-  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type NullableDecimalFieldUpdateOperationsInput = {
@@ -1273,6 +1299,422 @@ export type WorkspaceUpdateOneRequiredWithoutInvitesNestedInput = {
   upsert?: Prisma.WorkspaceUpsertWithoutInvitesInput
   connect?: Prisma.WorkspaceWhereUniqueInput
   update?: Prisma.XOR<Prisma.XOR<Prisma.WorkspaceUpdateToOneWithWhereWithoutInvitesInput, Prisma.WorkspaceUpdateWithoutInvitesInput>, Prisma.WorkspaceUncheckedUpdateWithoutInvitesInput>
+}
+
+export type WorkspaceCreateWithoutServicesInput = {
+  id?: string
+  slug: string
+  name: string
+  plan?: $Enums.WorkspacePlan
+  industry?: $Enums.WorkspaceIndustry | null
+  workspaceUrl?: string | null
+  website?: string | null
+  customUrl?: string | null
+  inviteCode?: string | null
+  country?: string | null
+  headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
+  billingName?: string | null
+  billingEmail?: string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: string | null
+  logoIconUrl?: string | null
+  logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
+  stripeAccountId?: string | null
+  stripeConnected?: boolean
+  wiseProfileId?: string | null
+  wiseConnected?: boolean
+  wiseEmail?: string | null
+  trialEndsAt?: Date | string | null
+  billingCycleStart: number
+  paymentTerms?: string
+  currency?: string
+  invoicePrefix?: string
+  taxRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: number
+  validDays?: number
+  scopeProtectionEnabled?: boolean
+  effectiveRateMin?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutServicesInput = {
+  id?: string
+  slug: string
+  name: string
+  plan?: $Enums.WorkspacePlan
+  industry?: $Enums.WorkspaceIndustry | null
+  workspaceUrl?: string | null
+  website?: string | null
+  customUrl?: string | null
+  inviteCode?: string | null
+  country?: string | null
+  headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
+  billingName?: string | null
+  billingEmail?: string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: string | null
+  logoIconUrl?: string | null
+  logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
+  stripeAccountId?: string | null
+  stripeConnected?: boolean
+  wiseProfileId?: string | null
+  wiseConnected?: boolean
+  wiseEmail?: string | null
+  trialEndsAt?: Date | string | null
+  billingCycleStart: number
+  paymentTerms?: string
+  currency?: string
+  invoicePrefix?: string
+  taxRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: number
+  validDays?: number
+  scopeProtectionEnabled?: boolean
+  effectiveRateMin?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutServicesInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicesInput, Prisma.WorkspaceUncheckedCreateWithoutServicesInput>
+}
+
+export type WorkspaceUpsertWithoutServicesInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutServicesInput, Prisma.WorkspaceUncheckedUpdateWithoutServicesInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicesInput, Prisma.WorkspaceUncheckedCreateWithoutServicesInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutServicesInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutServicesInput, Prisma.WorkspaceUncheckedUpdateWithoutServicesInput>
+}
+
+export type WorkspaceUpdateWithoutServicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
+  workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trialEndsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billingCycleStart?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentTerms?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  invoicePrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  taxRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: Prisma.IntFieldUpdateOperationsInput | number
+  validDays?: Prisma.IntFieldUpdateOperationsInput | number
+  scopeProtectionEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  effectiveRateMin?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutServicesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
+  workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trialEndsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billingCycleStart?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentTerms?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  invoicePrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  taxRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: Prisma.IntFieldUpdateOperationsInput | number
+  validDays?: Prisma.IntFieldUpdateOperationsInput | number
+  scopeProtectionEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  effectiveRateMin?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceCreateWithoutServicePurchasesInput = {
+  id?: string
+  slug: string
+  name: string
+  plan?: $Enums.WorkspacePlan
+  industry?: $Enums.WorkspaceIndustry | null
+  workspaceUrl?: string | null
+  website?: string | null
+  customUrl?: string | null
+  inviteCode?: string | null
+  country?: string | null
+  headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
+  billingName?: string | null
+  billingEmail?: string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: string | null
+  logoIconUrl?: string | null
+  logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
+  stripeAccountId?: string | null
+  stripeConnected?: boolean
+  wiseProfileId?: string | null
+  wiseConnected?: boolean
+  wiseEmail?: string | null
+  trialEndsAt?: Date | string | null
+  billingCycleStart: number
+  paymentTerms?: string
+  currency?: string
+  invoicePrefix?: string
+  taxRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: number
+  validDays?: number
+  scopeProtectionEnabled?: boolean
+  effectiveRateMin?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceUncheckedCreateWithoutServicePurchasesInput = {
+  id?: string
+  slug: string
+  name: string
+  plan?: $Enums.WorkspacePlan
+  industry?: $Enums.WorkspaceIndustry | null
+  workspaceUrl?: string | null
+  website?: string | null
+  customUrl?: string | null
+  inviteCode?: string | null
+  country?: string | null
+  headcount?: $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceCreatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: string | null
+  billingName?: string | null
+  billingEmail?: string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: string | null
+  logoIconUrl?: string | null
+  logoWordmarkUrl?: string | null
+  fiscalYearStartMonth?: number | null
+  stripeAccountId?: string | null
+  stripeConnected?: boolean
+  wiseProfileId?: string | null
+  wiseConnected?: boolean
+  wiseEmail?: string | null
+  trialEndsAt?: Date | string | null
+  billingCycleStart: number
+  paymentTerms?: string
+  currency?: string
+  invoicePrefix?: string
+  taxRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: number
+  validDays?: number
+  scopeProtectionEnabled?: boolean
+  effectiveRateMin?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+}
+
+export type WorkspaceCreateOrConnectWithoutServicePurchasesInput = {
+  where: Prisma.WorkspaceWhereUniqueInput
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedCreateWithoutServicePurchasesInput>
+}
+
+export type WorkspaceUpsertWithoutServicePurchasesInput = {
+  update: Prisma.XOR<Prisma.WorkspaceUpdateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedUpdateWithoutServicePurchasesInput>
+  create: Prisma.XOR<Prisma.WorkspaceCreateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedCreateWithoutServicePurchasesInput>
+  where?: Prisma.WorkspaceWhereInput
+}
+
+export type WorkspaceUpdateToOneWithWhereWithoutServicePurchasesInput = {
+  where?: Prisma.WorkspaceWhereInput
+  data: Prisma.XOR<Prisma.WorkspaceUpdateWithoutServicePurchasesInput, Prisma.WorkspaceUncheckedUpdateWithoutServicePurchasesInput>
+}
+
+export type WorkspaceUpdateWithoutServicePurchasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
+  workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trialEndsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billingCycleStart?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentTerms?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  invoicePrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  taxRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: Prisma.IntFieldUpdateOperationsInput | number
+  validDays?: Prisma.IntFieldUpdateOperationsInput | number
+  scopeProtectionEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  effectiveRateMin?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+}
+
+export type WorkspaceUncheckedUpdateWithoutServicePurchasesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  plan?: Prisma.EnumWorkspacePlanFieldUpdateOperationsInput | $Enums.WorkspacePlan
+  industry?: Prisma.NullableEnumWorkspaceIndustryFieldUpdateOperationsInput | $Enums.WorkspaceIndustry | null
+  workspaceUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  website?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  customUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  inviteCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  country?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  headcount?: Prisma.NullableEnumHeadcountFieldUpdateOperationsInput | $Enums.Headcount | null
+  typicalClients?: Prisma.WorkspaceUpdatetypicalClientsInput | $Enums.ClientType[]
+  timezone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  billingAddress?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  vatNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoIconUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  logoWordmarkUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  fiscalYearStartMonth?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  stripeAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseProfileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConnected?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  wiseEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  trialEndsAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  billingCycleStart?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentTerms?: Prisma.StringFieldUpdateOperationsInput | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  invoicePrefix?: Prisma.StringFieldUpdateOperationsInput | string
+  taxRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  lateFeeRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  revisionRounds?: Prisma.IntFieldUpdateOperationsInput | number
+  validDays?: Prisma.IntFieldUpdateOperationsInput | number
+  scopeProtectionEnabled?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  effectiveRateMin?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  lastIntelligenceRunAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  exportSettings?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutMembersInput = {
@@ -1319,6 +1761,8 @@ export type WorkspaceCreateWithoutMembersInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutMembersInput = {
@@ -1365,6 +1809,8 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutMembersInput = {
@@ -1427,6 +1873,8 @@ export type WorkspaceUpdateWithoutMembersInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutMembersInput = {
@@ -1473,6 +1921,8 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutInvitesInput = {
@@ -1519,6 +1969,8 @@ export type WorkspaceCreateWithoutInvitesInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutInvitesInput = {
@@ -1565,6 +2017,8 @@ export type WorkspaceUncheckedCreateWithoutInvitesInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutInvitesInput = {
@@ -1627,6 +2081,8 @@ export type WorkspaceUpdateWithoutInvitesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
@@ -1673,6 +2129,8 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 
@@ -1683,11 +2141,15 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
 export type WorkspaceCountOutputType = {
   members: number
   invites: number
+  services: number
+  servicePurchases: number
 }
 
 export type WorkspaceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | WorkspaceCountOutputTypeCountMembersArgs
   invites?: boolean | WorkspaceCountOutputTypeCountInvitesArgs
+  services?: boolean | WorkspaceCountOutputTypeCountServicesArgs
+  servicePurchases?: boolean | WorkspaceCountOutputTypeCountServicePurchasesArgs
 }
 
 /**
@@ -1712,6 +2174,20 @@ export type WorkspaceCountOutputTypeCountMembersArgs<ExtArgs extends runtime.Typ
  */
 export type WorkspaceCountOutputTypeCountInvitesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.WorkspaceInviteWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountServicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServicePackageWhereInput
+}
+
+/**
+ * WorkspaceCountOutputType without action
+ */
+export type WorkspaceCountOutputTypeCountServicePurchasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServicePurchaseWhereInput
 }
 
 
@@ -1760,6 +2236,8 @@ export type WorkspaceSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   metadata?: boolean
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   invites?: boolean | Prisma.Workspace$invitesArgs<ExtArgs>
+  services?: boolean | Prisma.Workspace$servicesArgs<ExtArgs>
+  servicePurchases?: boolean | Prisma.Workspace$servicePurchasesArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["workspace"]>
 
@@ -1902,6 +2380,8 @@ export type WorkspaceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type WorkspaceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   members?: boolean | Prisma.Workspace$membersArgs<ExtArgs>
   invites?: boolean | Prisma.Workspace$invitesArgs<ExtArgs>
+  services?: boolean | Prisma.Workspace$servicesArgs<ExtArgs>
+  servicePurchases?: boolean | Prisma.Workspace$servicePurchasesArgs<ExtArgs>
   _count?: boolean | Prisma.WorkspaceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type WorkspaceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1912,6 +2392,8 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
   objects: {
     members: Prisma.$WorkspaceMemberPayload<ExtArgs>[]
     invites: Prisma.$WorkspaceInvitePayload<ExtArgs>[]
+    services: Prisma.$ServicePackagePayload<ExtArgs>[]
+    servicePurchases: Prisma.$ServicePurchasePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -2352,6 +2834,8 @@ export interface Prisma__WorkspaceClient<T, Null = never, ExtArgs extends runtim
   readonly [Symbol.toStringTag]: "PrismaPromise"
   members<T extends Prisma.Workspace$membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkspaceMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invites<T extends Prisma.Workspace$invitesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkspaceInvitePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  services<T extends Prisma.Workspace$servicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  servicePurchases<T extends Prisma.Workspace$servicePurchasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$servicePurchasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePurchasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2861,6 +3345,54 @@ export type Workspace$invitesArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.WorkspaceInviteScalarFieldEnum | Prisma.WorkspaceInviteScalarFieldEnum[]
+}
+
+/**
+ * Workspace.services
+ */
+export type Workspace$servicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServicePackage
+   */
+  select?: Prisma.ServicePackageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServicePackage
+   */
+  omit?: Prisma.ServicePackageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServicePackageInclude<ExtArgs> | null
+  where?: Prisma.ServicePackageWhereInput
+  orderBy?: Prisma.ServicePackageOrderByWithRelationInput | Prisma.ServicePackageOrderByWithRelationInput[]
+  cursor?: Prisma.ServicePackageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ServicePackageScalarFieldEnum | Prisma.ServicePackageScalarFieldEnum[]
+}
+
+/**
+ * Workspace.servicePurchases
+ */
+export type Workspace$servicePurchasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServicePurchase
+   */
+  select?: Prisma.ServicePurchaseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServicePurchase
+   */
+  omit?: Prisma.ServicePurchaseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServicePurchaseInclude<ExtArgs> | null
+  where?: Prisma.ServicePurchaseWhereInput
+  orderBy?: Prisma.ServicePurchaseOrderByWithRelationInput | Prisma.ServicePurchaseOrderByWithRelationInput[]
+  cursor?: Prisma.ServicePurchaseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ServicePurchaseScalarFieldEnum | Prisma.ServicePurchaseScalarFieldEnum[]
 }
 
 /**

@@ -1,0 +1,211 @@
+enum PricingType {
+  one_time
+  instalment
+  recurring     // ◄ Triggers the Retainer layer
+}
+
+enum ServiceStatus {
+  draft
+  published
+  archived
+}
+
+enum ServiceVisibility {
+  public
+  portal_only
+  link_only
+  draft
+}
+
+enum PurchaseStatus {
+  pending
+  processing
+  active
+  complete
+  cancelled
+  failed
+  refunded
+}
+
+enum PaymentProvider {
+  stripe
+  wise
+  bank_transfer
+}
+
+enum BillingCadence {
+  day
+  week
+  month
+  year
+}
+
+// Using the SCOPE framework from https://youtu.be/it0g33UQxqM?si=8keI274e4S0pX34D.
+
+
+model ServicePackage {
+  id                                     String                                 @id @default(cuid())
+  workspaceId                            String                                 @map("workspace_id")
+  
+  // 1. IDENTITY & MERCHANDISING
+  name                                   String
+  slug                                   String                                 @unique  // Generate from name automatically.            
+  tagline                                String?
+  description                            String?                                @db.Text
+  category                               String?
+  icon                                   String?
+  avatar                                 String?
+
+  // 2. THE CORE FINANCIAL ENGINE
+  type                                   PricingType                            @map("pricing_model")
+  price                                  Decimal                                @db.Decimal(10, 2)
+  currency                               String                                 @default("USD")
+  // If recurring
+  interval                               BillingCadence?                                                         
+  intervalCount                          Int?                                   @map("interval_count")
+
+  // For display purposes, not necessarily the actual billing cadence (which can be more complex and is captured in paymentSchedule)
+  turnaroundValue                        Int?                                   @map("turnaround_value")
+  turnaroundUnit                         String?                                @map("turnaround_unit") // days | weeks | months
+
+  isPublishedToStore                     Boolean                                @default(false) @map("is_published_to_store")
+  status                                 ServiceStatus                          @default(draft)
+  visibility                             ServiceVisibility                      @default(draft)
+  featured                               Boolean                                @default(false)
+  sortOrder                              Int                                    @default(0) @map("sort_order")
+
+  // Only executes via Public Storefront checkout
+  autoCreateProject                      Boolean                                @default(true) @map("auto_create_project")
+  autoCreateCompany                      Boolean                                @default(true) @map("auto_create_company")
+  autoSendBriefForm                      Boolean                                @default(true) @map("auto_send_brief_form")
+  autoSendPortalInvite                   Boolean                                @default(true) @map("auto_send_portal_invite")
+  briefFormId                            String?                                @map("brief_form_id")
+
+  paymentPreferences                     Json?                                 @map("payment_preferences") @default("{}") // Flexible JSON field for extensible payment options
+  /* Structured breakdown of deliverables for invoicing and scope clarity.
+  Maps to the Proposal Pricing node.
+  Format: [{label, type, quantity, unitAmount, unit, amount}]
+  */
+  lineItems                              Json?                                 @map("line_items") @default("[]")
+
+  /* Deliverables Matrix: A structured representation of what's in vs. out of scope, 
+  used for both client clarity and internal fulfillment guidance.
+  Format:[{}]
+  */
+  deliverables                           Json?                                 @default("[]")
+
+  /*
+Timeline Blueprint: A phased execution roadmap that can trigger automated billing milestones.
+Format: [{phaseName, description, paymentPercentage, invoiceTrigger}]
+  */
+
+  timeline                               Json?                                 @map("timeline") @default("[]")
+
+   // Flexible JSON field for complex payment terms (e.g., instalments, milestones)
+
+  paymentSchedule                        Json?                                 @map("payment_schedule") @default("[]")
+
+  legalClauses                           Json?                                 @map("legal_clauses") @default("[]")
+
+   // Structured policy for revisions (e.g., number of rounds, turnaround time, unit (per project, per deliverable, etc) etc.)
+
+  revisionPolicy                         Json?                                 @map("revision_policy") @default("[]")
+
+  autoApplyRevisionPolicy                Boolean                               @default(true) @map("auto_apply_revision_policy")
+  autoApplyPaymentSchedule               Boolean                               @default(true) @map("auto_apply_payment_schedule")
+  autoApplyLegalClauses                  Boolean                               @default(true) @map("auto_apply_legal_clauses")
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+
+  addOns                                 ServiceAddOn[]                        // Upsell items available at checkout
+  purchases                              ServicePurchase[]                     // Historical ledger of direct purchases
+  workspace                              Workspace                             @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+
+  @@index([workspaceId])
+  @@index([isPublishedToStore])
+  @@index([status, visibility, featured, sortOrder])
+  @@unique([workspaceId, slug])
+  @@unique([workspaceId, sortOrder])
+
+  @@map("service_packages")
+}
+
+model ServiceAddOn {
+  id                                     String                                 @id @default(cuid())
+  servicePackageId                       String                                 @map("service_package_id")
+  name                                   String
+  description                            String?                                @db.Text
+  price                                  Decimal                                @db.Decimal(10, 2)
+  currency                               String                                 @default("USD")
+  sortOrder                              Int                                    @default(0) @map("sort_order")
+  stripePriceId                          String?                                @map("stripe_price_id")
+
+
+  servicePackage                         ServicePackage                         @relation(fields: [servicePackageId], references: [id], onDelete: Cascade)
+  purchases                              ServicePurchaseAddOn[]
+
+
+  @@index([servicePackageId])
+  @@map("service_add_ons")
+}
+
+model ServicePurchase {
+  id                                     String                                 @id @default(cuid())
+  workspaceId                            String
+  serviceId                              String
+  status                                 PurchaseStatus                         @default(pending)
+  provider                               PaymentProvider
+
+  buyerName                              String
+  buyerEmail                             String
+  buyerCompany                           String?
+
+  // Created entity references
+  companyId                              String?
+  clientId                               String?
+  projectId                              String?
+  retainerId                             String?
+  invoiceId                              String?
+
+  baseAmount                             Decimal                                @db.Decimal(10, 2)
+  addOnsAmount                           Decimal                                @default(0) @db.Decimal(10, 2)
+  totalAmount                            Decimal                                @db.Decimal(10, 2)
+  currency                               String
+
+  stripePaymentIntentId                  String?                                @unique
+  stripeSubscriptionId                   String?                                @unique
+  stripeCustomerId                       String?
+
+  wisePaymentReference                   String?                                @unique
+  wiseConfirmedAt                        DateTime?
+
+  automationStartedAt                    DateTime?
+  automationCompletedAt                  DateTime?
+  automationErrors                       String[]
+
+  purchasedAt                            DateTime                               @default(now())
+  cancelledAt                            DateTime?
+  refundedAt                             DateTime?
+
+  item                                   ServicePackage                         @relation(fields: [serviceId], references: [id])
+  addOns                                 ServicePurchaseAddOn[]
+  workspace                              Workspace                              @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+ 
+  @@index([workspaceId])
+  @@index([buyerEmail])
+  @@index([status])
+  @@map("service_purchases")
+}
+
+model ServicePurchaseAddOn {
+  id                                     String                                 @id @default(cuid())
+  purchaseId                             String
+  addOnId                                String
+  price                                  Decimal                                @db.Decimal(10, 2)
+
+  addOn                                  ServiceAddOn                           @relation(fields: [addOnId], references: [id])
+  purchase                               ServicePurchase                        @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  @@index([purchaseId])
+  @@map("service_purchase_add_ons")
+}

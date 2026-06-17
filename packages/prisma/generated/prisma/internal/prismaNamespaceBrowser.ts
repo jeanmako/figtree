@@ -58,6 +58,10 @@ export const ModelName = {
   Verification: 'Verification',
   TwoFactor: 'TwoFactor',
   Email: 'Email',
+  ServicePackage: 'ServicePackage',
+  ServiceAddOn: 'ServiceAddOn',
+  ServicePurchase: 'ServicePurchase',
+  ServicePurchaseAddOn: 'ServicePurchaseAddOn',
   Workspace: 'Workspace',
   WorkspaceMember: 'WorkspaceMember',
   WorkspaceInvite: 'WorkspaceInvite'
@@ -187,6 +191,108 @@ export const EmailScalarFieldEnum = {
 } as const
 
 export type EmailScalarFieldEnum = (typeof EmailScalarFieldEnum)[keyof typeof EmailScalarFieldEnum]
+
+
+export const ServicePackageScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  name: 'name',
+  slug: 'slug',
+  tagline: 'tagline',
+  description: 'description',
+  category: 'category',
+  icon: 'icon',
+  avatar: 'avatar',
+  type: 'type',
+  price: 'price',
+  currency: 'currency',
+  interval: 'interval',
+  intervalCount: 'intervalCount',
+  turnaroundValue: 'turnaroundValue',
+  turnaroundUnit: 'turnaroundUnit',
+  isPublishedToStore: 'isPublishedToStore',
+  status: 'status',
+  visibility: 'visibility',
+  featured: 'featured',
+  sortOrder: 'sortOrder',
+  autoCreateProject: 'autoCreateProject',
+  autoCreateCompany: 'autoCreateCompany',
+  autoSendBriefForm: 'autoSendBriefForm',
+  autoSendPortalInvite: 'autoSendPortalInvite',
+  briefFormId: 'briefFormId',
+  paymentPreferences: 'paymentPreferences',
+  lineItems: 'lineItems',
+  deliverables: 'deliverables',
+  timeline: 'timeline',
+  paymentSchedule: 'paymentSchedule',
+  legalClauses: 'legalClauses',
+  revisionPolicy: 'revisionPolicy',
+  autoApplyRevisionPolicy: 'autoApplyRevisionPolicy',
+  autoApplyPaymentSchedule: 'autoApplyPaymentSchedule',
+  autoApplyLegalClauses: 'autoApplyLegalClauses',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ServicePackageScalarFieldEnum = (typeof ServicePackageScalarFieldEnum)[keyof typeof ServicePackageScalarFieldEnum]
+
+
+export const ServiceAddOnScalarFieldEnum = {
+  id: 'id',
+  servicePackageId: 'servicePackageId',
+  name: 'name',
+  description: 'description',
+  price: 'price',
+  currency: 'currency',
+  sortOrder: 'sortOrder',
+  stripePriceId: 'stripePriceId'
+} as const
+
+export type ServiceAddOnScalarFieldEnum = (typeof ServiceAddOnScalarFieldEnum)[keyof typeof ServiceAddOnScalarFieldEnum]
+
+
+export const ServicePurchaseScalarFieldEnum = {
+  id: 'id',
+  workspaceId: 'workspaceId',
+  serviceId: 'serviceId',
+  status: 'status',
+  provider: 'provider',
+  buyerName: 'buyerName',
+  buyerEmail: 'buyerEmail',
+  buyerCompany: 'buyerCompany',
+  companyId: 'companyId',
+  clientId: 'clientId',
+  projectId: 'projectId',
+  retainerId: 'retainerId',
+  invoiceId: 'invoiceId',
+  baseAmount: 'baseAmount',
+  addOnsAmount: 'addOnsAmount',
+  totalAmount: 'totalAmount',
+  currency: 'currency',
+  stripePaymentIntentId: 'stripePaymentIntentId',
+  stripeSubscriptionId: 'stripeSubscriptionId',
+  stripeCustomerId: 'stripeCustomerId',
+  wisePaymentReference: 'wisePaymentReference',
+  wiseConfirmedAt: 'wiseConfirmedAt',
+  automationStartedAt: 'automationStartedAt',
+  automationCompletedAt: 'automationCompletedAt',
+  automationErrors: 'automationErrors',
+  purchasedAt: 'purchasedAt',
+  cancelledAt: 'cancelledAt',
+  refundedAt: 'refundedAt'
+} as const
+
+export type ServicePurchaseScalarFieldEnum = (typeof ServicePurchaseScalarFieldEnum)[keyof typeof ServicePurchaseScalarFieldEnum]
+
+
+export const ServicePurchaseAddOnScalarFieldEnum = {
+  id: 'id',
+  purchaseId: 'purchaseId',
+  addOnId: 'addOnId',
+  price: 'price'
+} as const
+
+export type ServicePurchaseAddOnScalarFieldEnum = (typeof ServicePurchaseAddOnScalarFieldEnum)[keyof typeof ServicePurchaseAddOnScalarFieldEnum]
 
 
 export const WorkspaceScalarFieldEnum = {
