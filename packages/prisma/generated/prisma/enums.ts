@@ -28,6 +28,66 @@ export const IdentityProvider = {
 export type IdentityProvider = (typeof IdentityProvider)[keyof typeof IdentityProvider]
 
 
+export const PricingType = {
+  one_time: 'one_time',
+  instalment: 'instalment',
+  recurring: 'recurring'
+} as const
+
+export type PricingType = (typeof PricingType)[keyof typeof PricingType]
+
+
+export const ServiceStatus = {
+  draft: 'draft',
+  published: 'published',
+  archived: 'archived'
+} as const
+
+export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus]
+
+
+export const ServiceVisibility = {
+  public: 'public',
+  portal_only: 'portal_only',
+  link_only: 'link_only',
+  draft: 'draft'
+} as const
+
+export type ServiceVisibility = (typeof ServiceVisibility)[keyof typeof ServiceVisibility]
+
+
+export const PurchaseStatus = {
+  pending: 'pending',
+  processing: 'processing',
+  active: 'active',
+  complete: 'complete',
+  cancelled: 'cancelled',
+  failed: 'failed',
+  refunded: 'refunded'
+} as const
+
+export type PurchaseStatus = (typeof PurchaseStatus)[keyof typeof PurchaseStatus]
+
+
+export const PaymentProvider = {
+  stripe: 'stripe',
+  wise: 'wise',
+  bank_transfer: 'bank_transfer'
+} as const
+
+export type PaymentProvider = (typeof PaymentProvider)[keyof typeof PaymentProvider]
+
+
+export const BillingCadence = {
+  day: 'day',
+  week: 'week',
+  month: 'month',
+  year: 'year'
+} as const
+
+export type BillingCadence = (typeof BillingCadence)[keyof typeof BillingCadence]
+
+
 export const WorkspacePlan = {
   trial: 'trial',
   solo: 'solo',

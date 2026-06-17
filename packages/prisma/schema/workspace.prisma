@@ -109,6 +109,8 @@ model Workspace {
 
   members                                WorkspaceMember[]
   invites                                WorkspaceInvite[]
+  services                               ServicePackage[]
+  servicePurchases                       ServicePurchase[]
 
   @@index([slug])
   @@map("workspaces")
