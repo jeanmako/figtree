@@ -19,14 +19,15 @@ export function NavItem({ item }: { item: NavItemType }): React.ReactElement {
       href={item.href}
       data-active={isActive}
       className={cn(
-        "flex h-7.5 items-center gap-2 rounded-md px-2 text-sm font-medium",
-        "text-sidebar-foreground transition-colors duration-100",
+        "flex h-7 w-full items-center gap-2 rounded-md ps-2 pe-1 text-tiny! leading-tight font-semimedium tracking-normal",
+        "text-sidebar-foreground transition-colors duration-300",
         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-        isActive && "bg-sidebar-accent text-sidebar-accent-foreground"
+        isActive &&
+          "bg-sidebar-primary text-sidebar-primary-foreground hover:bg-sidebar-primary hover:text-sidebar-primary-foreground"
       )}
     >
       {item.icon && (
-        <span className="size-3.75 shrink-0 text-duper [&>svg]:size-full">
+        <span className="size-4 shrink-0 text-duper [&>svg]:size-4">
           {item.icon}
         </span>
       )}
