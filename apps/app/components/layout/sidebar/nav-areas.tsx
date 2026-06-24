@@ -37,27 +37,21 @@ export const NAV_AREAS: NavAreas = {
       {
         items: [
           {
-            name: "Overview",
+            name: "Home",
             href: `/${slug}/home`,
-            icon: <Icons.grid />,
+            icon: <Icons.home />,
             exact: true,
-          },
-          {
-            name: "Focus",
-            href: `/${slug}/focus`,
-            icon: <Icons.crosshair />,
           },
           {
             name: "Inbox",
             href: `/${slug}/inbox`,
-            // icon: <Icons.inbox />,
-            badge: inboxCount,
+            icon: <Icons.inbox />,
           },
-        ],
-      },
-      {
-        name: "Work",
-        items: [
+          {
+            name: "Priorities",
+            href: `/${slug}/priorities`,
+            icon: <Icons.crosshair />,
+          },
           {
             name: "Projects",
             href: `/${slug}/projects`,
@@ -73,17 +67,6 @@ export const NAV_AREAS: NavAreas = {
             href: `/${slug}/contracts`,
             icon: <Icons.contract />,
           },
-
-          {
-            name: "Deals",
-            href: `/${slug}/deals`,
-            icon: <Icons.dollar />,
-          },
-        ],
-      },
-      {
-        name: "Clients",
-        items: [
           {
             name: "Contacts",
             href: `/${slug}/clients`,
@@ -94,33 +77,95 @@ export const NAV_AREAS: NavAreas = {
             href: `/${slug}/companies`,
             icon: <Icons.building />,
           },
-        ],
-      },
-      {
-        name: "Finance",
-        items: [
+          {
+            name: "Pipeline",
+            href: `/${slug}/pipeline`,
+            icon: <Icons.kanban />,
+          },
+          {
+            name: "Services",
+            href: `/${slug}/products`,
+            icon: <Icons.briefcase />,
+          },
           {
             name: "Invoices",
             href: `/${slug}/invoices`,
             icon: <Icons.invoice />,
           },
           {
-            name: "Retainers",
-            href: `/${slug}/retainers`,
-            icon: <Icons.dollar />,
-          },
-          {
-            name: "Expenses",
-            href: `/${slug}/expenses`,
-            icon: <Icons.wallet />,
+            name: "Analytics",
+            href: `/${slug}/analytics`,
+            icon: <Icons.chartDonut />,
           },
         ],
       },
+      // {
+      //   name: "Work",
+      //   items: [
+      //     {
+      //       name: "Projects",
+      //       href: `/${slug}/projects`,
+      //       icon: <Icons.folder />,
+      //     },
+      //     {
+      //       name: "Proposals",
+      //       href: `/${slug}/proposals`,
+      //       icon: <Icons.paperPlane />,
+      //     },
+      //     {
+      //       name: "Contracts",
+      //       href: `/${slug}/contracts`,
+      //       icon: <Icons.contract />,
+      //     },
+
+      //     {
+      //       name: "Pipeline",
+      //       href: `/${slug}/pipeline`,
+      //       icon: <Icons.dollar />,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "Clients",
+      //   items: [
+      //     {
+      //       name: "Contacts",
+      //       href: `/${slug}/clients`,
+      //       icon: <Icons.users />,
+      //     },
+      //     {
+      //       name: "Companies",
+      //       href: `/${slug}/companies`,
+      //       icon: <Icons.building />,
+      //     },
+      //   ],
+      // },
+      // {
+      //   name: "Finance",
+      //   items: [
+      //     {
+      //       name: "Products & Services",
+      //       href: `/${slug}/products`,
+      //       icon: <Icons.briefcase />,
+      //     },
+      //     {
+      //       name: "Invoices",
+      //       href: `/${slug}/invoices`,
+      //       icon: <Icons.invoice />,
+      //     },
+
+      //     {
+      //       name: "Expenses",
+      //       href: `/${slug}/expenses`,
+      //       icon: <Icons.wallet />,
+      //     },
+      //   ],
+      // },
     ],
   }),
 
   settings: ({ slug }) => ({
-    title: "Settings",
+    title: "Back to app",
     backHref: `/${slug}/home`,
     content: [
       {

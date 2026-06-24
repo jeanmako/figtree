@@ -16,9 +16,25 @@ export const SidebarBtnTrigger = ({
   const { state, toggleSidebar } = useSidebar()
 
   return (
-    <div className="flex">
-      {isOutside ? (
-        state === "collapsed" && (
+    <>
+      <div className="flex">
+        {isOutside ? (
+          state === "collapsed" && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleSidebar}
+              className={cn(
+                "size-6 transition-transform hover:bg-transparent [&>svg]:size-4.5! [&>svg]:shrink-0 [&>svg]:text-quiet",
+                className
+              )}
+              aria-label={"Expand sidebar"}
+              aria-expanded={!(state === "collapsed")}
+            >
+              <Icons.panelOpen />
+            </Button>
+          )
+        ) : (
           <Button
             variant="ghost"
             size="icon"
@@ -27,29 +43,15 @@ export const SidebarBtnTrigger = ({
               "size-6 transition-transform hover:bg-transparent [&>svg]:size-4.5! [&>svg]:shrink-0 [&>svg]:text-quiet",
               className
             )}
-            aria-label={"Expand sidebar"}
+            aria-label={
+              state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"
+            }
             aria-expanded={!(state === "collapsed")}
           >
-            <Icons.panelOpen />
+            {state === "expanded" ? <Icons.panelClose /> : <Icons.panelOpen />}
           </Button>
-        )
-      ) : (
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={toggleSidebar}
-          className={cn(
-            "size-6 transition-transform hover:bg-transparent [&>svg]:size-4.5! [&>svg]:shrink-0 [&>svg]:text-quiet",
-            className
-          )}
-          aria-label={
-            state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"
-          }
-          aria-expanded={!(state === "collapsed")}
-        >
-          {state === "expanded" ? <Icons.panelClose /> : <Icons.panelOpen />}
-        </Button>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   )
 }

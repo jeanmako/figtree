@@ -13,12 +13,12 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
   SidebarRail,
+  SidebarFooter,
 } from "@figtree/ui/components/sidebar"
-import { WorkspaceMenu } from "@/components/layout/sidebar/workspace-menu"
-import { SidebarBtnTrigger } from "@/components/layout/sidebar/sidebar-trigger"
 import Link from "next/link"
-import { Button } from "@figtree/ui/components/button"
+import { buttonVariants } from "@figtree/ui/components/button"
 import { Icons } from "@figtree/ui/components/icons"
+import { cn } from "../../../../../packages/ui/src/lib/utils"
 
 export function AppSidebar(): React.ReactElement {
   const { slug } = useParams<{ slug: string }>()
@@ -33,32 +33,27 @@ export function AppSidebar(): React.ReactElement {
   })
 
   return (
-    <Sidebar collapsible={isSettings ? "none" : "offcanvas"}>
-      <SidebarHeader>
-        {isSettings ? (
+    <Sidebar
+      collapsible="none"
+      className="fixed inset-y-0 top-14 h-[calc(100%-3.5rem)] rounded-ss-[12px] group-data-[side=left]:border-r-0"
+    >
+      {isSettings && (
+        <SidebarHeader>
           <div className="inline-flex h-12 items-center px-3">
-            <Link href={area.backHref as string}>
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                className="hover:bg-secondary"
-              >
-                <Icons.chevronLeft />
-              </Button>
+            <div className="flex flex-initial flex-row"></div>
+            <Link
+              href={area.backHref as string}
+              className={cn(
+                buttonVariants({ size: "sm", variant: "ghost" }),
+                "hover:bg-sidebar-primary"
+              )}
+            >
+              <Icons.chevronLeft />
+              <span className="truncate font-semibold">{area.title}</span>
             </Link>
-            <span className="ml-3 truncate text-base font-semibold">
-              {area.title}
-            </span>
           </div>
-        ) : (
-          <>
-            <WorkspaceMenu />
-            <div className="absolute top-1/2 right-3 -translate-y-1/2">
-              <SidebarBtnTrigger isOutside={false} />
-            </div>
-          </>
-        )}
-      </SidebarHeader>
+        </SidebarHeader>
+      )}
 
       <SidebarContent>
         {area.content.map((group, i) => (
@@ -68,7 +63,9 @@ export function AppSidebar(): React.ReactElement {
               <SidebarMenu>
                 {group.items.map((item) => (
                   <SidebarMenuItem key={item.name}>
-                    <NavItem item={item} />
+                    <div className="flex w-full px-3">
+                      <NavItem item={item} />
+                    </div>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
@@ -76,6 +73,34 @@ export function AppSidebar(): React.ReactElement {
           </SidebarGroup>
         ))}
       </SidebarContent>
+      <div className="sticky bottom-0 z-1 bg-sidebar py-3">
+        <SidebarFooter className="gap-0 p-0">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <div className="flex w-full px-3">
+                <NavItem
+                  item={{
+                    name: "Settings",
+                    icon: <Icons.settings />,
+                    href: `/${slug}/settings`,
+                  }}
+                />
+              </div>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <div className="flex w-full px-3">
+                <NavItem
+                  item={{
+                    name: "Invite your team",
+                    icon: <Icons.users />,
+                    href: `/${slug}/members`,
+                  }}
+                />
+              </div>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarFooter>
+      </div>
       <SidebarRail />
     </Sidebar>
   )

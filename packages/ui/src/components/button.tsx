@@ -18,11 +18,12 @@ const buttonVariants = cva(
         icon: "size-7.5 rounded-md",
         "icon-lg": "size-8",
         "icon-sm": "size-7 rounded-md",
-        "icon-xl": "size-10 [&_svg:not([class*='size-'])]:size-4.5",
+        "icon-xl":
+          "size-9 rounded-[12px] [&_svg:not([class*='size-'])]:size-4.5",
         "icon-xs": "size-6 rounded-sm",
         lg: "h-8 px-3.5 py-2 text-[15px]",
         sm: "h-7 gap-1.5 px-1.5 py-1 text-tiny!",
-        xl: "h-10 rounded-[12px] px-4 py-2 text-base [&_svg:not([class*='size-'])]:size-4.5",
+        xl: "h-9 rounded-[12px] px-4 py-2 text-base [&_svg:not([class*='size-'])]:size-4.5",
         xs: "h-6 gap-1 rounded-md px-2 py-1 text-xs before:rounded-md [&_svg:not([class*='size-'])]:size-3",
       },
       variant: {
@@ -38,6 +39,8 @@ const buttonVariants = cva(
           "bg-background shadow-square dark:not-in-data-[slot=group]:bg-clip-border [&:is(:disabled,:active,[data-pressed])]:shadow-none [&:is(:hover,[data-pressed])]:bg-subtlest",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 data-pressed:bg-secondary/80",
+        inverse:
+          "text-input [:hover,:active,[data-pressed]]:bg-subtle [:hover,:active,[data-pressed]]:shadow-box",
       },
     },
   }

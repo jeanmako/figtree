@@ -1,23 +1,25 @@
-import { cn } from "@figtree/ui/lib/utils";
-import { ReactNode } from "react";
-import { PageWidthWrapper } from "./page-width-wrapper";
-import { Button } from "@figtree/ui/components/button";
+import { cn } from "@figtree/ui/lib/utils"
+import { ReactNode } from "react"
+import { PageWidthWrapper } from "./page-width-wrapper"
+import { Button } from "@figtree/ui/components/button"
 import {
   Tooltip,
   TooltipPopup,
   TooltipTrigger,
-} from "@figtree/ui/components/tooltip";
-import { Icons } from "@figtree/ui/components/icons";
-import { SidebarBtnTrigger } from "../sidebar/sidebar-trigger";
+} from "@figtree/ui/components/tooltip"
+import { Icons } from "@figtree/ui/components/icons"
+import { SidebarBtnTrigger } from "../sidebar/sidebar-trigger"
+import PageContentTab, { PageContentTabItem } from "./page-content-tab"
 
 export type PageContentHeaderProps = {
-  title?: ReactNode;
-  icon?: ReactNode;
-  titleInfo?: ReactNode | { title: string; href?: string };
-  controls?: ReactNode;
-  headerContent?: ReactNode;
-  withAskFig?: boolean;
-};
+  title?: ReactNode
+  icon?: ReactNode
+  titleInfo?: ReactNode | { title: string; href?: string }
+  controls?: ReactNode
+  headerContent?: ReactNode
+  withAskFig?: boolean
+  tabs?: PageContentTabItem[]
+}
 
 export function PageContentHeader({
   title,
@@ -26,6 +28,7 @@ export function PageContentHeader({
   controls,
   headerContent,
   withAskFig = true,
+  tabs,
 }: PageContentHeaderProps): React.ReactElement {
   // Generate titleInfo from object if provided
   const finalTitleInfo =
@@ -42,32 +45,34 @@ export function PageContentHeader({
       </Tooltip>
     ) : (
       titleInfo
-    );
+    )
 
   return (
     <div
       className={cn(
-        "relative min-h-12 shadow-bottom! flex flex-row items-center justify-start gap-1.5 flex-[1_1_auto] px-3 py-2.5 overflow-hidden",
+        "relative flex min-h-12 flex-[1_1_auto] flex-row items-center justify-start gap-1.5 overflow-hidden px-3 py-2.5 shadow-bottom!"
       )}
     >
       <PageWidthWrapper>
         <div
           className={cn(
-            "flex h-full items-center justify-between gap-4",
+            "flex h-full items-center justify-between gap-4"
             // hasHeaderContent ? "sm:h-16" : "sm:h-0",
           )}
         >
           <div className="flex min-w-0 items-center gap-x-1">
             <SidebarBtnTrigger />
-            {title && icon && (
-              <div className="flex min-w-0 items-center gap-1.5 px-1.5 [&>svg]:size-3.75 [&>svg]:text-foreground [&>svg]:shrink-0">
+            {tabs ? (
+              <PageContentTab tabs={tabs} />
+            ) : title && icon ? (
+              <div className="flex min-w-0 items-center gap-1.5 px-1.5 [&>svg]:size-3.75 [&>svg]:shrink-0 [&>svg]:text-foreground">
                 {icon}
-                <h1 className="text-sm font-medium text-foreground leading-5">
+                <h1 className="text-sm leading-5 font-medium text-foreground">
                   {title}
                 </h1>
                 {finalTitleInfo}
               </div>
-            )}
+            ) : null}
           </div>
           {controls && (
             <div className="flex items-center gap-2">{controls}</div>
@@ -79,8 +84,8 @@ export function PageContentHeader({
             </Button>
           )}
         </div>
-        {headerContent && <div className="pb-3 pt-1">{headerContent}</div>}
+        {headerContent && <div className="pt-1 pb-3">{headerContent}</div>}
       </PageWidthWrapper>
     </div>
-  );
+  )
 }
