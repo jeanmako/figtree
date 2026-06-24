@@ -26,7 +26,7 @@ import { mergeProps, useRender } from "@base-ui/react"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16.25rem"
+const SIDEBAR_WIDTH = "15rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
 
@@ -201,7 +201,8 @@ function Sidebar({
       <div
         data-slot="sidebar"
         className={cn(
-          "flex h-full w-(--sidebar-width) flex-col border-r bg-sidebar text-sidebar-foreground",
+          "flex h-full w-(--sidebar-width) flex-col bg-sidebar text-sidebar-foreground",
+
           className
         )}
         {...props}
@@ -294,7 +295,7 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
-          className="flex h-full w-full flex-col overflow-hidden rounded-[inherit] bg-sidebar"
+          className="relative flex h-full w-full flex-col overflow-hidden rounded-[inherit] bg-sidebar"
         >
           {/* Expand trigger - only shown during hover-peek */}
 
@@ -427,7 +428,7 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="sidebar-content"
       data-sidebar="content"
       className={cn(
-        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto py-2 group-data-[state=collapsed]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 overflow-auto pt-3 group-data-[state=collapsed]:overflow-hidden",
         className
       )}
       {...props}
@@ -440,7 +441,7 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-group"
       data-sidebar="group"
-      className={cn("relative flex w-full min-w-0 flex-col px-2", className)}
+      className={cn("relative flex w-full min-w-0 flex-col pb-3", className)}
       {...props}
     />
   )
@@ -505,7 +506,7 @@ function SidebarGroupContent({
     <div
       data-slot="sidebar-group-content"
       data-sidebar="group-content"
-      className={cn("w-full text-sm", className)}
+      className={cn("w-full", className)}
       {...props}
     />
   )
@@ -530,7 +531,10 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
     <li
       data-slot="sidebar-menu-item"
       data-sidebar="menu-item"
-      className={cn("group/menu-item relative w-full", className)}
+      className={cn(
+        "group/menu-item relative flex w-full flex-wrap",
+        className
+      )}
       {...props}
     />
   )

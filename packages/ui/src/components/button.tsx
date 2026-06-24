@@ -18,16 +18,22 @@ const buttonVariants = cva(
         icon: "size-8 rounded-md",
         "icon-lg": "size-9",
         "icon-sm": "size-7 rounded-md",
-        "icon-xl": "size-10 [&_svg:not([class*='size-'])]:size-4.5",
+        "icon-xl": "size-9 rounded-[12px] [&_svg:not([class*='size-'])]:size-4",
         "icon-xs": "size-6 rounded-sm",
+<<<<<<< Updated upstream
         lg: "h-9 px-3.5 py-2 text-[15px]",
         sm: "h-7.5 gap-1.5 px-1.5 py-1",
         xl: "h-10 rounded-[12px] px-4 py-2 text-base [&_svg:not([class*='size-'])]:size-4.5",
+=======
+        lg: "h-8 px-3.5 py-2 text-[15px]",
+        sm: "h-7 gap-1.5 px-1.5 py-1 text-tiny!",
+        xl: "h-9 rounded-[12px] px-4 py-2 text-base [&_svg:not([class*='size-'])]:size-4.5",
+>>>>>>> Stashed changes
         xs: "h-6 gap-1 rounded-md px-2 py-1 text-xs before:rounded-md [&_svg:not([class*='size-'])]:size-3",
       },
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-primary/24 shadow-primary hover:bg-primary/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
+          "bg-primary text-primary-foreground shadow-button hover:bg-primary/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
         destructive:
           "bg-destructive text-white shadow-destructive/24 shadow-xs hover:bg-destructive/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
         "destructive-outline":
@@ -35,9 +41,15 @@ const buttonVariants = cva(
         ghost: "border-transparent hover:bg-subtlest data-pressed:bg-subtlest",
         link: "border-transparent underline-offset-4 hover:underline",
         outline:
+<<<<<<< Updated upstream
           "shadow-square bg-background dark:not-in-data-[slot=group]:bg-clip-border [&:is(:disabled,:active,[data-pressed])]:shadow-none [&:is(:hover,[data-pressed])]:bg-subtlest",
+=======
+          "bg-surface shadow-outline dark:not-in-data-[slot=group]:bg-clip-border [&:is(:disabled,:active,[data-pressed])]:shadow-none [&:is(:hover,[data-pressed])]:bg-surface/80",
+>>>>>>> Stashed changes
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 data-pressed:bg-secondary/80",
+        inverse:
+          "text-input [:hover,:active,[data-pressed]]:bg-subtle [:hover,:active,[data-pressed]]:shadow-box",
       },
     },
   },
