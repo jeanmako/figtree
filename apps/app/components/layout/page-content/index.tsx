@@ -1,7 +1,7 @@
 import { cn } from "@figtree/ui/lib/utils"
 import { PropsWithChildren } from "react"
 import {
-  // PageContentHeader,
+  PageContentHeader,
   PageContentHeaderProps,
 } from "./page-content-header"
 import { ScrollArea } from "@figtree/ui/components/scroll-area"
@@ -13,7 +13,7 @@ export function PageContent({
   className,
   contentClassName,
   children,
-  // ...headerProps
+  ...headerProps
 }: PropsWithChildren<
   {
     className?: string
@@ -27,10 +27,15 @@ export function PageContent({
         className
       )}
     >
-      {/* <PageContentHeader {...headerProps} /> */}
       <div className="relative flex h-full w-full flex-col items-stretch justify-start overflow-hidden">
         <ScrollArea className={cn("h-full", contentClassName)}>
-          {children}
+          <PageContentHeader {...headerProps} />
+          <div
+            data-slot="child-parent"
+            className={cn("h-full w-full", headerProps.title && "mt-2.5 px-4")}
+          >
+            {children}
+          </div>
         </ScrollArea>
       </div>
     </div>

@@ -15,7 +15,7 @@ export const DashboardHeader = () => {
             </div>
           </div>
         </div>
-        <div className="flex h-full w-2xl items-center justify-center">
+        <div className="flex h-full flex-1 items-center justify-center">
           <ActivityControl />
         </div>
         <div className="flex h-full flex-1 items-center justify-end gap-x-2">

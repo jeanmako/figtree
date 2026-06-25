@@ -22,13 +22,13 @@ const buttonVariants = cva(
           "size-9 rounded-[12px] [&_svg:not([class*='size-'])]:size-4.5",
         "icon-xs": "size-6 rounded-sm",
         lg: "h-8 px-3.5 py-2 text-[15px]",
-        sm: "h-7 gap-1.5 px-1.5 py-1 text-tiny!",
+        sm: "h-7 gap-1.5 px-2.5 py-1 text-tiny!",
         xl: "h-9 rounded-[12px] px-4 py-2 text-base [&_svg:not([class*='size-'])]:size-4.5",
         xs: "h-6 gap-1 rounded-md px-2 py-1 text-xs before:rounded-md [&_svg:not([class*='size-'])]:size-3",
       },
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-primary/24 shadow-primary hover:bg-primary/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
+          "bg-primary text-primary-foreground shadow-button hover:bg-primary/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
         destructive:
           "bg-destructive text-white shadow-xs shadow-destructive/24 hover:bg-destructive/90 [&:is(:disabled,:active,[data-pressed])]:shadow-none",
         "destructive-outline":

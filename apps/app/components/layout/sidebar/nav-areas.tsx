@@ -46,6 +46,7 @@ export const NAV_AREAS: NavAreas = {
             name: "Inbox",
             href: `/${slug}/inbox`,
             icon: <Icons.inbox />,
+            badge: inboxCount,
           },
           {
             name: "Priorities",
@@ -55,7 +56,7 @@ export const NAV_AREAS: NavAreas = {
           {
             name: "Projects",
             href: `/${slug}/projects`,
-            icon: <Icons.folder />,
+            icon: <Icons.box />,
           },
           {
             name: "Proposals",
@@ -84,7 +85,7 @@ export const NAV_AREAS: NavAreas = {
           },
           {
             name: "Services",
-            href: `/${slug}/products`,
+            href: `/${slug}/services`,
             icon: <Icons.briefcase />,
           },
           {
