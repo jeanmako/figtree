@@ -12,6 +12,7 @@
     "prisma:generate": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma generate",
     "prisma:push": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma push",
     "prisma:studio": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma studio",
+    "prisma:validate": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma validate",
     "prisma:seed": "dotenv-flow -e .env -- pnpm --filter=@figtree/prisma seed"
   },
   "dependencies": {

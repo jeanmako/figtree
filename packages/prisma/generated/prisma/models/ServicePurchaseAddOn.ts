@@ -53,6 +53,7 @@ export type ServicePurchaseAddOnCountAggregateOutputType = {
   purchaseId: number
   addOnId: number
   price: number
+  snapshot: number
   _all: number
 }
 
@@ -84,6 +85,7 @@ export type ServicePurchaseAddOnCountAggregateInputType = {
   purchaseId?: true
   addOnId?: true
   price?: true
+  snapshot?: true
   _all?: true
 }
 
@@ -178,6 +180,7 @@ export type ServicePurchaseAddOnGroupByOutputType = {
   purchaseId: string
   addOnId: string
   price: runtime.Decimal
+  snapshot: runtime.JsonValue
   _count: ServicePurchaseAddOnCountAggregateOutputType | null
   _avg: ServicePurchaseAddOnAvgAggregateOutputType | null
   _sum: ServicePurchaseAddOnSumAggregateOutputType | null
@@ -208,6 +211,7 @@ export type ServicePurchaseAddOnWhereInput = {
   purchaseId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   addOnId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   price?: Prisma.DecimalFilter<"ServicePurchaseAddOn"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonFilter<"ServicePurchaseAddOn">
   addOn?: Prisma.XOR<Prisma.ServiceAddOnScalarRelationFilter, Prisma.ServiceAddOnWhereInput>
   purchase?: Prisma.XOR<Prisma.ServicePurchaseScalarRelationFilter, Prisma.ServicePurchaseWhereInput>
 }
@@ -217,6 +221,7 @@ export type ServicePurchaseAddOnOrderByWithRelationInput = {
   purchaseId?: Prisma.SortOrder
   addOnId?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  snapshot?: Prisma.SortOrder
   addOn?: Prisma.ServiceAddOnOrderByWithRelationInput
   purchase?: Prisma.ServicePurchaseOrderByWithRelationInput
 }
@@ -229,6 +234,7 @@ export type ServicePurchaseAddOnWhereUniqueInput = Prisma.AtLeast<{
   purchaseId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   addOnId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   price?: Prisma.DecimalFilter<"ServicePurchaseAddOn"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonFilter<"ServicePurchaseAddOn">
   addOn?: Prisma.XOR<Prisma.ServiceAddOnScalarRelationFilter, Prisma.ServiceAddOnWhereInput>
   purchase?: Prisma.XOR<Prisma.ServicePurchaseScalarRelationFilter, Prisma.ServicePurchaseWhereInput>
 }, "id">
@@ -238,6 +244,7 @@ export type ServicePurchaseAddOnOrderByWithAggregationInput = {
   purchaseId?: Prisma.SortOrder
   addOnId?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  snapshot?: Prisma.SortOrder
   _count?: Prisma.ServicePurchaseAddOnCountOrderByAggregateInput
   _avg?: Prisma.ServicePurchaseAddOnAvgOrderByAggregateInput
   _max?: Prisma.ServicePurchaseAddOnMaxOrderByAggregateInput
@@ -253,11 +260,13 @@ export type ServicePurchaseAddOnScalarWhereWithAggregatesInput = {
   purchaseId?: Prisma.StringWithAggregatesFilter<"ServicePurchaseAddOn"> | string
   addOnId?: Prisma.StringWithAggregatesFilter<"ServicePurchaseAddOn"> | string
   price?: Prisma.DecimalWithAggregatesFilter<"ServicePurchaseAddOn"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonWithAggregatesFilter<"ServicePurchaseAddOn">
 }
 
 export type ServicePurchaseAddOnCreateInput = {
   id?: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   addOn: Prisma.ServiceAddOnCreateNestedOneWithoutPurchasesInput
   purchase: Prisma.ServicePurchaseCreateNestedOneWithoutAddOnsInput
 }
@@ -267,11 +276,13 @@ export type ServicePurchaseAddOnUncheckedCreateInput = {
   purchaseId: string
   addOnId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   addOn?: Prisma.ServiceAddOnUpdateOneRequiredWithoutPurchasesNestedInput
   purchase?: Prisma.ServicePurchaseUpdateOneRequiredWithoutAddOnsNestedInput
 }
@@ -281,6 +292,7 @@ export type ServicePurchaseAddOnUncheckedUpdateInput = {
   purchaseId?: Prisma.StringFieldUpdateOperationsInput | string
   addOnId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnCreateManyInput = {
@@ -288,11 +300,13 @@ export type ServicePurchaseAddOnCreateManyInput = {
   purchaseId: string
   addOnId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUncheckedUpdateManyInput = {
@@ -300,6 +314,7 @@ export type ServicePurchaseAddOnUncheckedUpdateManyInput = {
   purchaseId?: Prisma.StringFieldUpdateOperationsInput | string
   addOnId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnListRelationFilter = {
@@ -317,6 +332,7 @@ export type ServicePurchaseAddOnCountOrderByAggregateInput = {
   purchaseId?: Prisma.SortOrder
   addOnId?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  snapshot?: Prisma.SortOrder
 }
 
 export type ServicePurchaseAddOnAvgOrderByAggregateInput = {
@@ -428,6 +444,7 @@ export type ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseNestedInput = 
 export type ServicePurchaseAddOnCreateWithoutAddOnInput = {
   id?: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   purchase: Prisma.ServicePurchaseCreateNestedOneWithoutAddOnsInput
 }
 
@@ -435,6 +452,7 @@ export type ServicePurchaseAddOnUncheckedCreateWithoutAddOnInput = {
   id?: string
   purchaseId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnCreateOrConnectWithoutAddOnInput = {
@@ -471,11 +489,13 @@ export type ServicePurchaseAddOnScalarWhereInput = {
   purchaseId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   addOnId?: Prisma.StringFilter<"ServicePurchaseAddOn"> | string
   price?: Prisma.DecimalFilter<"ServicePurchaseAddOn"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonFilter<"ServicePurchaseAddOn">
 }
 
 export type ServicePurchaseAddOnCreateWithoutPurchaseInput = {
   id?: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   addOn: Prisma.ServiceAddOnCreateNestedOneWithoutPurchasesInput
 }
 
@@ -483,6 +503,7 @@ export type ServicePurchaseAddOnUncheckedCreateWithoutPurchaseInput = {
   id?: string
   addOnId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnCreateOrConnectWithoutPurchaseInput = {
@@ -515,11 +536,13 @@ export type ServicePurchaseAddOnCreateManyAddOnInput = {
   id?: string
   purchaseId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUpdateWithoutAddOnInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   purchase?: Prisma.ServicePurchaseUpdateOneRequiredWithoutAddOnsNestedInput
 }
 
@@ -527,23 +550,27 @@ export type ServicePurchaseAddOnUncheckedUpdateWithoutAddOnInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUncheckedUpdateManyWithoutAddOnInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnCreateManyPurchaseInput = {
   id?: string
   addOnId: string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUpdateWithoutPurchaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   addOn?: Prisma.ServiceAddOnUpdateOneRequiredWithoutPurchasesNestedInput
 }
 
@@ -551,12 +578,14 @@ export type ServicePurchaseAddOnUncheckedUpdateWithoutPurchaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   addOnId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 export type ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   addOnId?: Prisma.StringFieldUpdateOperationsInput | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  snapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
 }
 
 
@@ -566,6 +595,7 @@ export type ServicePurchaseAddOnSelect<ExtArgs extends runtime.Types.Extensions.
   purchaseId?: boolean
   addOnId?: boolean
   price?: boolean
+  snapshot?: boolean
   addOn?: boolean | Prisma.ServiceAddOnDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.ServicePurchaseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchaseAddOn"]>
@@ -575,6 +605,7 @@ export type ServicePurchaseAddOnSelectCreateManyAndReturn<ExtArgs extends runtim
   purchaseId?: boolean
   addOnId?: boolean
   price?: boolean
+  snapshot?: boolean
   addOn?: boolean | Prisma.ServiceAddOnDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.ServicePurchaseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchaseAddOn"]>
@@ -584,6 +615,7 @@ export type ServicePurchaseAddOnSelectUpdateManyAndReturn<ExtArgs extends runtim
   purchaseId?: boolean
   addOnId?: boolean
   price?: boolean
+  snapshot?: boolean
   addOn?: boolean | Prisma.ServiceAddOnDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.ServicePurchaseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchaseAddOn"]>
@@ -593,9 +625,10 @@ export type ServicePurchaseAddOnSelectScalar = {
   purchaseId?: boolean
   addOnId?: boolean
   price?: boolean
+  snapshot?: boolean
 }
 
-export type ServicePurchaseAddOnOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchaseId" | "addOnId" | "price", ExtArgs["result"]["servicePurchaseAddOn"]>
+export type ServicePurchaseAddOnOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "purchaseId" | "addOnId" | "price" | "snapshot", ExtArgs["result"]["servicePurchaseAddOn"]>
 export type ServicePurchaseAddOnInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   addOn?: boolean | Prisma.ServiceAddOnDefaultArgs<ExtArgs>
   purchase?: boolean | Prisma.ServicePurchaseDefaultArgs<ExtArgs>
@@ -620,6 +653,7 @@ export type $ServicePurchaseAddOnPayload<ExtArgs extends runtime.Types.Extension
     purchaseId: string
     addOnId: string
     price: runtime.Decimal
+    snapshot: runtime.JsonValue
   }, ExtArgs["result"]["servicePurchaseAddOn"]>
   composites: {}
 }
@@ -1049,6 +1083,7 @@ export interface ServicePurchaseAddOnFieldRefs {
   readonly purchaseId: Prisma.FieldRef<"ServicePurchaseAddOn", 'String'>
   readonly addOnId: Prisma.FieldRef<"ServicePurchaseAddOn", 'String'>
   readonly price: Prisma.FieldRef<"ServicePurchaseAddOn", 'Decimal'>
+  readonly snapshot: Prisma.FieldRef<"ServicePurchaseAddOn", 'Json'>
 }
     
 

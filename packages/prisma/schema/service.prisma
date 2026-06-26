@@ -14,7 +14,6 @@ enum ServiceVisibility {
   public
   portal_only
   link_only
-  draft
 }
 
 enum PurchaseStatus {
@@ -30,7 +29,7 @@ enum PurchaseStatus {
 enum PaymentProvider {
   stripe
   wise
-  bank_transfer
+  manual
 }
 
 enum BillingCadence {
@@ -42,8 +41,7 @@ enum BillingCadence {
 
 // Using the SCOPE framework from https://youtu.be/it0g33UQxqM?si=8keI274e4S0pX34D.
 
-
-model ServicePackage {
+model Service {
   id                                     String                                 @id @default(cuid())
   workspaceId                            String                                 @map("workspace_id")
   
@@ -53,26 +51,66 @@ model ServicePackage {
   tagline                                String?
   description                            String?                                @db.Text
   category                               String?
-  icon                                   String?
   avatar                                 String?
+  coverImage                             String?                                @map("cover_image")
+  status                                 ServiceStatus                          @default(draft)
+  visibility                             ServiceVisibility                      @default(public)
 
-  // 2. THE CORE FINANCIAL ENGINE
-  type                                   PricingType                            @map("pricing_model")
-  price                                  Decimal                                @db.Decimal(10, 2)
+  active                                 Boolean                                @default(true)
+  featured                               Boolean                                @default(false)
+
+
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+  deletedAt                              DateTime?                              @map("deleted_at")
+
+  workspace                              Workspace                              @relation(fields: [workspaceId], references: [id])
+  packages                               ServicePackage[]
+  addOns                                 ServiceAddOn[]
+  purchases                              ServicePurchase[]
+
+  @@unique([workspaceId, slug])
+  @@map("services")
+}
+
+model ServicePackage {
+  id                                     String                                 @id @default(cuid())
+  serviceId                              String                                 @map("service_id")
+  name                                   String
+  slug                                   String
+  description                            String?                                @db.Text
+
+  price                                  Decimal?                               @db.Decimal(10,2)
   currency                               String                                 @default("USD")
-  // If recurring
+
+  pricingType                            PricingType                            @default(one_time)
+
+  sortOrder                              Int                                    @default(0)
+
+    // If recurring
   interval                               BillingCadence?                                                         
   intervalCount                          Int?                                   @map("interval_count")
 
-  // For display purposes, not necessarily the actual billing cadence (which can be more complex and is captured in paymentSchedule)
-  turnaroundValue                        Int?                                   @map("turnaround_value")
-  turnaroundUnit                         String?                                @map("turnaround_unit") // days | weeks | months
-
-  isPublishedToStore                     Boolean                                @default(false) @map("is_published_to_store")
-  status                                 ServiceStatus                          @default(draft)
-  visibility                             ServiceVisibility                      @default(draft)
   featured                               Boolean                                @default(false)
-  sortOrder                              Int                                    @default(0) @map("sort_order")
+  active                                 Boolean                                @default(true)
+
+  // Proposal generation
+  lineItems                              Json?                                  @map("line_items") @default("[]")
+
+  deliverables                           Json?                                  @default("[]")
+
+  timeline                               Json?                                  @map("timeline") @default("[]")
+
+   // Flexible JSON field for complex payment terms (e.g., instalments, milestones)
+
+  paymentSchedule                        Json?                                  @map("payment_schedule") @default("[]")
+
+  legalClauses                           Json?                                  @map("legal_clauses") @default("[]")
+
+  // Structured policy for revisions (e.g., number of rounds, turnaround time, unit (per project, per deliverable, etc) etc.)
+
+  revisionPolicy                         Json?                                  @map("revision_policy") @default("[]")
+  paymentPreferences                     Json?                                  @map("payment_preferences") @default("{}") // Flexible JSON field for extensible payment options
 
   // Only executes via Public Storefront checkout
   autoCreateProject                      Boolean                                @default(true) @map("auto_create_project")
@@ -81,120 +119,103 @@ model ServicePackage {
   autoSendPortalInvite                   Boolean                                @default(true) @map("auto_send_portal_invite")
   briefFormId                            String?                                @map("brief_form_id")
 
-  paymentPreferences                     Json?                                 @map("payment_preferences") @default("{}") // Flexible JSON field for extensible payment options
-  /* Structured breakdown of deliverables for invoicing and scope clarity.
-  Maps to the Proposal Pricing node.
-  Format: [{label, type, quantity, unitAmount, unit, amount}]
-  */
-  lineItems                              Json?                                 @map("line_items") @default("[]")
+  autoApplyRevisionPolicy                Boolean                                @default(true) @map("auto_apply_revision_policy")
+  autoApplyPaymentSchedule               Boolean                                @default(true) @map("auto_apply_payment_schedule")
+  autoApplyLegalClauses                  Boolean                                @default(true) @map("auto_apply_legal_clauses")
 
-  /* Deliverables Matrix: A structured representation of what's in vs. out of scope, 
-  used for both client clarity and internal fulfillment guidance.
-  Format:[{}]
-  */
-  deliverables                           Json?                                 @default("[]")
-
-  /*
-Timeline Blueprint: A phased execution roadmap that can trigger automated billing milestones.
-Format: [{phaseName, description, paymentPercentage, invoiceTrigger}]
-  */
-
-  timeline                               Json?                                 @map("timeline") @default("[]")
-
-   // Flexible JSON field for complex payment terms (e.g., instalments, milestones)
-
-  paymentSchedule                        Json?                                 @map("payment_schedule") @default("[]")
-
-  legalClauses                           Json?                                 @map("legal_clauses") @default("[]")
-
-   // Structured policy for revisions (e.g., number of rounds, turnaround time, unit (per project, per deliverable, etc) etc.)
-
-  revisionPolicy                         Json?                                 @map("revision_policy") @default("[]")
-
-  autoApplyRevisionPolicy                Boolean                               @default(true) @map("auto_apply_revision_policy")
-  autoApplyPaymentSchedule               Boolean                               @default(true) @map("auto_apply_payment_schedule")
-  autoApplyLegalClauses                  Boolean                               @default(true) @map("auto_apply_legal_clauses")
   createdAt                              DateTime                               @default(now()) @map("created_at")
   updatedAt                              DateTime                               @updatedAt @map("updated_at")
+  deletedAt                              DateTime?                              @map("deleted_at")
 
-  addOns                                 ServiceAddOn[]                        // Upsell items available at checkout
-  purchases                              ServicePurchase[]                     // Historical ledger of direct purchases
-  workspace                              Workspace                             @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  service                                Service                                @relation(fields: [serviceId], references: [id])
+  purchases                              ServicePurchase[]
+  addOns                                 ServicePackageAddOn[]
 
-
-  @@index([workspaceId])
-  @@index([isPublishedToStore])
-  @@index([status, visibility, featured, sortOrder])
-  @@unique([workspaceId, slug])
-  @@unique([workspaceId, sortOrder])
-
+  @@unique([serviceId, slug])
   @@map("service_packages")
 }
 
+
 model ServiceAddOn {
   id                                     String                                 @id @default(cuid())
-  servicePackageId                       String                                 @map("service_package_id")
+  serviceId                              String                                 @map("service_package_id")
   name                                   String
   description                            String?                                @db.Text
   price                                  Decimal                                @db.Decimal(10, 2)
   currency                               String                                 @default("USD")
   sortOrder                              Int                                    @default(0) @map("sort_order")
   stripePriceId                          String?                                @map("stripe_price_id")
+  active                                 Boolean                                @default(true)
 
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
+  deletedAt                              DateTime?                              @map("deleted_at")
 
-  servicePackage                         ServicePackage                         @relation(fields: [servicePackageId], references: [id], onDelete: Cascade)
+  service                                Service                                @relation(fields: [serviceId], references: [id])
   purchases                              ServicePurchaseAddOn[]
+  packages                               ServicePackageAddOn[]
 
 
-  @@index([servicePackageId])
+  @@index([serviceId])
   @@map("service_add_ons")
+}
+
+model ServicePackageAddOn {
+  packageId                              String
+  addOnId                                String
+
+  package                                ServicePackage                         @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  addOn                                  ServiceAddOn                           @relation(fields: [addOnId], references: [id], onDelete: Cascade)
+
+  @@id([packageId, addOnId])
 }
 
 model ServicePurchase {
   id                                     String                                 @id @default(cuid())
-  workspaceId                            String
-  serviceId                              String
+  workspaceId                            String                                 @map("workspace_id")
+  serviceId                              String                                 @map("service_id")
+  packageId                              String                                 @map("package_id")
+  buyerName                              String                                 @map("buyer_name")
+  buyerEmail                             String                                 @map("buyer_email")
+  buyerCompany                           String?                                @map("buyer_company")
+  companyId                              String?                                @map("company_id")
+  contactId                              String?                                @map("contact_id")
+  projectId                              String?                                @map("project_id")
+  retainerId                             String?                                @map("retainer_id")
+  invoiceId                              String?                                @map("invoice_id")
   status                                 PurchaseStatus                         @default(pending)
-  provider                               PaymentProvider
-
-  buyerName                              String
-  buyerEmail                             String
-  buyerCompany                           String?
-
-  // Created entity references
-  companyId                              String?
-  clientId                               String?
-  projectId                              String?
-  retainerId                             String?
-  invoiceId                              String?
-
-  baseAmount                             Decimal                                @db.Decimal(10, 2)
-  addOnsAmount                           Decimal                                @default(0) @db.Decimal(10, 2)
-  totalAmount                            Decimal                                @db.Decimal(10, 2)
-  currency                               String
-
-  stripePaymentIntentId                  String?                                @unique
-  stripeSubscriptionId                   String?                                @unique
-  stripeCustomerId                       String?
-
-  wisePaymentReference                   String?                                @unique
-  wiseConfirmedAt                        DateTime?
-
-  automationStartedAt                    DateTime?
-  automationCompletedAt                  DateTime?
-  automationErrors                       String[]
-
-  purchasedAt                            DateTime                               @default(now())
-  cancelledAt                            DateTime?
-  refundedAt                             DateTime?
-
-  item                                   ServicePackage                         @relation(fields: [serviceId], references: [id])
-  addOns                                 ServicePurchaseAddOn[]
+  provider                               PaymentProvider?                       @map("provider")
+  serviceSnapshot                        Json                                   @default("{}") @map("service_snapshot")
+  packageSnapshot                        Json                                   @default("{}") @map("package_snapshot")
+  baseAmount                             Decimal                                @map("base_amount") @db.Decimal(10, 2)
+  addOnsAmount                           Decimal                                @default(0) @map("add_ons_amount") @db.Decimal(10, 2)
+  discountAmount                         Decimal                                @default(0) @map("discount_amount") @db.Decimal(10, 2)
+  taxAmount                              Decimal                                @default(0) @map("tax_amount") @db.Decimal(10, 2)
+  totalAmount                            Decimal                                @map("total_amount") @db.Decimal(10, 2)
+  currency                               String                                 @default("USD") @db.VarChar(3)
+  stripeCustomerId                       String?                                @map("stripe_customer_id")
+  stripePaymentIntentId                  String?                                @unique @map("stripe_payment_intent_id")
+  stripeSubscriptionId                   String?                                @unique @map("stripe_subscription_id")
+  wisePaymentReference                   String?                                @unique @map("wise_payment_reference")
+  wiseConfirmedAt                        DateTime?                              @map("wise_confirmed_at")
+  purchasedAt                            DateTime                               @default(now()) @map("purchased_at")
+  cancelledAt                            DateTime?                              @map("cancelled_at")
+  refundedAt                             DateTime?                              @map("refunded_at")
+  createdAt                              DateTime                               @default(now()) @map("created_at")
+  updatedAt                              DateTime                               @updatedAt @map("updated_at")
   workspace                              Workspace                              @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
- 
+  service                                Service                                @relation(fields: [serviceId], references: [id])
+  package                                ServicePackage                         @relation(fields: [packageId], references: [id])
+  addOns                                 ServicePurchaseAddOn[]
+
   @@index([workspaceId])
+  @@index([serviceId])
+  @@index([packageId])
+
   @@index([buyerEmail])
+
   @@index([status])
+
   @@map("service_purchases")
 }
 
@@ -204,6 +225,7 @@ model ServicePurchaseAddOn {
   addOnId                                String
   price                                  Decimal                                @db.Decimal(10, 2)
 
+  snapshot                               Json                                   @default("{}")
   addOn                                  ServiceAddOn                           @relation(fields: [addOnId], references: [id])
   purchase                               ServicePurchase                        @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
   @@index([purchaseId])
