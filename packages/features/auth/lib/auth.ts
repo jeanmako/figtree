@@ -10,10 +10,16 @@ import {
 import { twoFactor, emailOTP } from "better-auth/plugins"
 import { createAuthMiddleware } from "better-auth/api"
 import { serverEnv } from "@figtree/shared/env/server"
+import { clientEnv } from "@figtree/shared/env/client"
+import { nextCookies } from "better-auth/next-js"
+import { createId } from "@figtree/utils/functions/id-factory"
+
+const APP_URL = clientEnv.NEXT_PUBLIC_APP_URL!
+const IS_PROD = serverEnv.NODE_ENV === "production"
 
 export const auth = betterAuth({
   appName: "Figtree",
-  trustedOrigins: ["http://localhost:3000"],
+  trustedOrigins: [APP_URL],
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
@@ -30,22 +36,29 @@ export const auth = betterAuth({
   },
   socialProviders: {
     github: {
-      clientId: process.env.GITHUB_CLIENT_ID as string,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
+      clientId: serverEnv.GITHUB_CLIENT_ID as string,
+      clientSecret: serverEnv.GITHUB_CLIENT_SECRET as string,
     },
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      clientId: serverEnv.GOOGLE_CLIENT_ID as string,
+      clientSecret: serverEnv.GOOGLE_CLIENT_SECRET as string,
     },
   },
   advanced: {
-    cookiePrefix:
-      process.env.NODE_ENV === "production" ? "__Secure-figtree" : "figtree",
-    useSecureCookies: process.env.NODE_ENV === "production",
+    cookiePrefix: IS_PROD ? "__Secure-figtree" : "figtree",
+    useSecureCookies: IS_PROD,
     defaultCookieAttributes: {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: IS_PROD,
       sameSite: "lax",
+    },
+  },
+  session: {
+    expiresIn: 60 * 60 * 24 * 7, // 7 days
+    updateAge: 60 * 60 * 24, // slide the window once per day
+    cookieCache: {
+      enabled: true,
+      maxAge: 5 * 60, // 5-min client-side cache → fewer DB round-trips
     },
   },
   plugins: [
@@ -72,7 +85,43 @@ export const auth = betterAuth({
         }
       },
     }),
+    nextCookies(),
   ],
+  databaseHooks: {
+    user: {
+      create: {
+        after: async (user) => {
+          try {
+            // upsert → safe to retry / replay (e.g. webhook re-delivery)
+            await prisma.profile.upsert({
+              where: { userId: user.id },
+              update: {},
+              create: {
+                id: createId(),
+                userId: user.id,
+                // Default to UTC; let the client update this on first load
+                // via PATCH /api/profile  (see profile-router.ts)
+                timezone: "UTC",
+              },
+            })
+
+            console.info("[auth] Profile created", { userId: user.id }) // TODO: Implement Pino or Axiom for logging
+          } catch (error) {
+            console.error(
+              "[auth] Profile creation failed — user has no profile",
+              {
+                userId: user.id,
+                error,
+              }
+            )
+            // Re-throw so Better Auth rolls back the user row and returns a
+            // 500 to the client rather than silently creating a broken account.
+            throw error
+          }
+        },
+      },
+    },
+  },
   hooks: {
     before: createAuthMiddleware(async (ctx) => {
       if (ctx.path === "/sign-up/email") {

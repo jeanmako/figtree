@@ -12,7 +12,7 @@
     "@figtree/shared": "workspace:*",
     "@figtree/utils": "workspace:*",
     "@next-auth/prisma-adapter": "1.0.7",
-    "bcryptjs": "^3.0.3",
+    "@node-rs/argon2": "^2.0.2",
     "better-auth": "^1.6.9"
   },
   "devDependencies": {
