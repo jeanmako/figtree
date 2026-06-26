@@ -16,7 +16,7 @@ function PopoverTrigger({
     <PopoverPrimitive.Trigger
       data-slot="popover-trigger"
       className={cn(
-        "group data-popup-open:bg-quietest! ring-ring transition-colors duration-300 has-focus-visible:ring-1 has-focus-visible:ring-ring data-popup-open:ring",
+        "group ring-ring transition-colors duration-300 has-focus-visible:ring-1 has-focus-visible:ring-ring data-popup-open:bg-quietest! data-popup-open:ring",
         className
       )}
       {...props}
@@ -51,7 +51,7 @@ function PopoverPopup({
       >
         <span
           className={cn(
-            "bg-alternative dark:shadow-combo relative flex max-h-full origin-(--transform-origin) overflow-hidden rounded-[12px] border bg-clip-padding transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:not-in-data-[slot=group]:bg-clip-border",
+            "relative flex max-h-full origin-(--transform-origin) overflow-hidden rounded-[12px] border bg-alternative bg-clip-padding transition-[scale,opacity] has-data-starting-style:scale-98 has-data-starting-style:opacity-0 dark:shadow-combo dark:not-in-data-[slot=group]:bg-clip-border",
             className
           )}
           data-slot="popover-positioner-child"
@@ -100,7 +100,7 @@ function PopoverDescription({
 }: PopoverPrimitive.Description.Props) {
   return (
     <PopoverPrimitive.Description
-      className={cn("text-quiet text-sm", className)}
+      className={cn("text-sm text-quiet", className)}
       data-slot="popover-description"
       {...props}
     />

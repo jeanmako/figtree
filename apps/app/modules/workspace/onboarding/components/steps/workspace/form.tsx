@@ -68,6 +68,7 @@ export const OnboardingWorkspaceForm = ({ onSuccess }: Props) => {
               label="What will your workspace handle be?"
               disabled={loading}
               placeholder="acme-corp"
+              className="h-7.5"
             />
           )}
         </form.AppField>

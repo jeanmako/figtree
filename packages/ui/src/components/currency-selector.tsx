@@ -78,8 +78,8 @@ export function CurrencySelector({
       <ComboboxTrigger
         render={
           <Button
-            className={cn("w-full justify-between bg-quietest px-2", className)}
-            variant="secondary"
+            className={cn("w-full justify-between px-2", className)}
+            variant="outline"
           />
         }
         id={id}

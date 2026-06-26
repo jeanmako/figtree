@@ -26,7 +26,7 @@ export const SlugInput = ({
         id={id}
         disabled={disabled}
         placeholder={placeholder}
-        className="*:[input]:ps-1!"
+        className="h-full *:[input]:ps-1!"
       />
       <InputGroupAddon className="text-quiet">{addOn}</InputGroupAddon>
     </InputGroup>

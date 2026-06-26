@@ -24,7 +24,7 @@ function Input({
       className={
         cn(
           !unstyled &&
-            "relative inline-flex w-full rounded-md bg-quietest text-sm font-medium ring ring-quiet transition-shadow has-focus-visible:ring-1 has-focus-visible:ring-ring has-disabled:opacity-64 has-aria-invalid:bg-destructive-chill has-aria-invalid:text-destructive has-focus-visible:has-aria-invalid:ring-destructive/40 has-[:disabled,:focus-visible,[aria-invalid]]:shadow-none dark:not-in-data-[slot=group]:bg-clip-border dark:has-aria-invalid:ring-destructive-foreground/50 has-aria-invalid:[&_[data-slot=input]::placeholder]:text-destructive/70",
+            "relative inline-flex w-full rounded-md bg-quietest text-sm font-medium ring ring-border transition-shadow has-focus-visible:ring-1 has-focus-visible:ring-ring has-disabled:opacity-64 has-aria-invalid:bg-destructive-chill has-aria-invalid:text-destructive has-focus-visible:has-aria-invalid:ring-destructive/40 has-[:disabled,:focus-visible,[aria-invalid]]:shadow-none dark:not-in-data-[slot=group]:bg-clip-border dark:has-aria-invalid:ring-destructive-foreground/50 has-aria-invalid:[&_[data-slot=input]::placeholder]:text-destructive/70",
           className
         ) || undefined
       }
@@ -33,8 +33,8 @@ function Input({
     >
       <InputPrimitive
         className={cn(
-          "h-8 w-full min-w-0 rounded-[inherit] px-2 outline-none placeholder:text-quieter",
-          size === "sm" && "h-7.5 text-sm",
+          "h-7.5 w-full min-w-0 rounded-[inherit] px-2 outline-none placeholder:text-quieter",
+          size === "sm" && "h-7 text-sm",
           size === "lg" && "h-9",
           props.type === "search" &&
             "[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none",

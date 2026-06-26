@@ -17,6 +17,7 @@ export const workspaceRepository = (prisma: PrismaClient) => {
         name: true,
         country: true,
         currency: true,
+        website: true,
         plan: true,
         industry: true,
         logoIconUrl: true,

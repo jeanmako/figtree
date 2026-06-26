@@ -38,7 +38,7 @@ export const NAV_AREAS: NavAreas = {
         items: [
           {
             name: "Home",
-            href: `/${slug}/home`,
+            href: `/${slug}`,
             icon: <Icons.home />,
             exact: true,
           },
@@ -167,7 +167,7 @@ export const NAV_AREAS: NavAreas = {
 
   settings: ({ slug }) => ({
     title: "Back to app",
-    backHref: `/${slug}/home`,
+    backHref: `/${slug}`,
     content: [
       {
         name: "Workspace",

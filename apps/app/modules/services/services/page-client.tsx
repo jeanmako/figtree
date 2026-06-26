@@ -13,7 +13,7 @@ export const ServicesPageClient = () => {
   const slug = useWorkspaceSlug()
   return (
     <PageContent title="Services" icon={<Icons.briefcase2 />}>
-      <div className="w-full rounded-xl bg-surface p-20 shadow-square">
+      <div className="w-full rounded-xl bg-background p-20 shadow-square">
         <div className="flex flex-col items-center">
           <div className="flex w-full max-w-sm flex-initial flex-col items-center gap-y-6">
             <div className="flex justify-start">

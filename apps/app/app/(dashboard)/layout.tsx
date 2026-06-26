@@ -11,7 +11,7 @@ const layout = async ({ children }: Props) => {
         <DashboardHeader />
         <div className="fixed h-full w-full overflow-clip">
           <AppSidebar />
-          <main className="mt-14 flex h-full min-w-0 flex-[1_1_auto] items-stretch overflow-hidden rounded-t-[12px] bg-background ps-60">
+          <main className="mt-14 flex h-full min-w-0 flex-[1_1_auto] items-stretch overflow-hidden rounded-t-[12px] bg-surface ps-60">
             <div className="flex h-full w-full">{children}</div>
           </main>
         </div>
