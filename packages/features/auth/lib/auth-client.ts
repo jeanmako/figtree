@@ -1,8 +1,7 @@
 import { createAuthClient } from "better-auth/react"
-import { clientEnv } from "@figtree/shared/env/client"
-import { AuthClient } from "better-auth/client"
 import { twoFactorClient } from "better-auth/plugins"
 import { emailOTPClient } from "better-auth/client/plugins"
+import { AuthClient } from "better-auth/client"
 
 const authClient = createAuthClient({
   baseURL: "http://localhost:4000",
