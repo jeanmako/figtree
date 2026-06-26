@@ -10,11 +10,10 @@ import {
 import { twoFactor, emailOTP } from "better-auth/plugins"
 import { createAuthMiddleware } from "better-auth/api"
 import { serverEnv } from "@figtree/shared/env/server"
-import { clientEnv } from "@figtree/shared/env/client"
 import { nextCookies } from "better-auth/next-js"
 import { createId } from "@figtree/utils/functions/id-factory"
 
-const APP_URL = clientEnv.NEXT_PUBLIC_APP_URL!
+const APP_URL = serverEnv.CLIENT_ORIGIN!
 const IS_PROD = serverEnv.NODE_ENV === "production"
 
 export const auth = betterAuth({
