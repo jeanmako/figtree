@@ -34,7 +34,7 @@ export const LoginEmailForm = () => {
         {
           email: payload.email,
           password: payload.password as string,
-          callbackURL: callbackUrl || "/workspaces",
+          callbackURL: callbackUrl || "/onboarding/workspace",
         },
 
         {

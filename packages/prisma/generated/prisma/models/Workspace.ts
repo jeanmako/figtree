@@ -522,7 +522,7 @@ export type WorkspaceWhereInput = {
   metadata?: Prisma.JsonNullableFilter<"Workspace">
   members?: Prisma.WorkspaceMemberListRelationFilter
   invites?: Prisma.WorkspaceInviteListRelationFilter
-  services?: Prisma.ServicePackageListRelationFilter
+  services?: Prisma.ServiceListRelationFilter
   servicePurchases?: Prisma.ServicePurchaseListRelationFilter
 }
 
@@ -571,7 +571,7 @@ export type WorkspaceOrderByWithRelationInput = {
   metadata?: Prisma.SortOrderInput | Prisma.SortOrder
   members?: Prisma.WorkspaceMemberOrderByRelationAggregateInput
   invites?: Prisma.WorkspaceInviteOrderByRelationAggregateInput
-  services?: Prisma.ServicePackageOrderByRelationAggregateInput
+  services?: Prisma.ServiceOrderByRelationAggregateInput
   servicePurchases?: Prisma.ServicePurchaseOrderByRelationAggregateInput
 }
 
@@ -623,7 +623,7 @@ export type WorkspaceWhereUniqueInput = Prisma.AtLeast<{
   metadata?: Prisma.JsonNullableFilter<"Workspace">
   members?: Prisma.WorkspaceMemberListRelationFilter
   invites?: Prisma.WorkspaceInviteListRelationFilter
-  services?: Prisma.ServicePackageListRelationFilter
+  services?: Prisma.ServiceListRelationFilter
   servicePurchases?: Prisma.ServicePurchaseListRelationFilter
 }, "id" | "slug" | "workspaceUrl" | "inviteCode">
 
@@ -770,7 +770,7 @@ export type WorkspaceCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -819,7 +819,7 @@ export type WorkspaceUncheckedCreateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceUncheckedCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -868,7 +868,7 @@ export type WorkspaceUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -917,7 +917,7 @@ export type WorkspaceUncheckedUpdateInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUncheckedUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -1265,14 +1265,6 @@ export type WorkspaceUpdatetypicalClientsInput = {
   push?: $Enums.ClientType | $Enums.ClientType[]
 }
 
-export type NullableDecimalFieldUpdateOperationsInput = {
-  set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
-  increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
-  divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
-}
-
 export type WorkspaceCreateNestedOneWithoutMembersInput = {
   create?: Prisma.XOR<Prisma.WorkspaceCreateWithoutMembersInput, Prisma.WorkspaceUncheckedCreateWithoutMembersInput>
   connectOrCreate?: Prisma.WorkspaceCreateOrConnectWithoutMembersInput
@@ -1554,7 +1546,7 @@ export type WorkspaceCreateWithoutServicePurchasesInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceUncheckedCreateWithoutServicePurchasesInput = {
@@ -1602,7 +1594,7 @@ export type WorkspaceUncheckedCreateWithoutServicePurchasesInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
   invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
 export type WorkspaceCreateOrConnectWithoutServicePurchasesInput = {
@@ -1666,7 +1658,7 @@ export type WorkspaceUpdateWithoutServicePurchasesInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceUncheckedUpdateWithoutServicePurchasesInput = {
@@ -1714,7 +1706,7 @@ export type WorkspaceUncheckedUpdateWithoutServicePurchasesInput = {
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
   invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
 export type WorkspaceCreateWithoutMembersInput = {
@@ -1761,7 +1753,7 @@ export type WorkspaceCreateWithoutMembersInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -1809,7 +1801,7 @@ export type WorkspaceUncheckedCreateWithoutMembersInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUncheckedCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceUncheckedCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -1873,7 +1865,7 @@ export type WorkspaceUpdateWithoutMembersInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -1921,7 +1913,7 @@ export type WorkspaceUncheckedUpdateWithoutMembersInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   invites?: Prisma.WorkspaceInviteUncheckedUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUncheckedUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -1969,7 +1961,7 @@ export type WorkspaceCreateWithoutInvitesInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -2017,7 +2009,7 @@ export type WorkspaceUncheckedCreateWithoutInvitesInput = {
   deletedAt?: Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedCreateNestedManyWithoutWorkspaceInput
-  services?: Prisma.ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput
+  services?: Prisma.ServiceUncheckedCreateNestedManyWithoutWorkspaceInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutWorkspaceInput
 }
 
@@ -2081,7 +2073,7 @@ export type WorkspaceUpdateWithoutInvitesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -2129,7 +2121,7 @@ export type WorkspaceUncheckedUpdateWithoutInvitesInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   metadata?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   members?: Prisma.WorkspaceMemberUncheckedUpdateManyWithoutWorkspaceNestedInput
-  services?: Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput
+  services?: Prisma.ServiceUncheckedUpdateManyWithoutWorkspaceNestedInput
   servicePurchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput
 }
 
@@ -2180,7 +2172,7 @@ export type WorkspaceCountOutputTypeCountInvitesArgs<ExtArgs extends runtime.Typ
  * WorkspaceCountOutputType without action
  */
 export type WorkspaceCountOutputTypeCountServicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ServicePackageWhereInput
+  where?: Prisma.ServiceWhereInput
 }
 
 /**
@@ -2392,7 +2384,7 @@ export type $WorkspacePayload<ExtArgs extends runtime.Types.Extensions.InternalA
   objects: {
     members: Prisma.$WorkspaceMemberPayload<ExtArgs>[]
     invites: Prisma.$WorkspaceInvitePayload<ExtArgs>[]
-    services: Prisma.$ServicePackagePayload<ExtArgs>[]
+    services: Prisma.$ServicePayload<ExtArgs>[]
     servicePurchases: Prisma.$ServicePurchasePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -2834,7 +2826,7 @@ export interface Prisma__WorkspaceClient<T, Null = never, ExtArgs extends runtim
   readonly [Symbol.toStringTag]: "PrismaPromise"
   members<T extends Prisma.Workspace$membersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$membersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkspaceMemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   invites<T extends Prisma.Workspace$invitesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$invitesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$WorkspaceInvitePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  services<T extends Prisma.Workspace$servicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePackagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  services<T extends Prisma.Workspace$servicesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$servicesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   servicePurchases<T extends Prisma.Workspace$servicePurchasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Workspace$servicePurchasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePurchasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3352,23 +3344,23 @@ export type Workspace$invitesArgs<ExtArgs extends runtime.Types.Extensions.Inter
  */
 export type Workspace$servicesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the ServicePackage
+   * Select specific fields to fetch from the Service
    */
-  select?: Prisma.ServicePackageSelect<ExtArgs> | null
+  select?: Prisma.ServiceSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the ServicePackage
+   * Omit specific fields from the Service
    */
-  omit?: Prisma.ServicePackageOmit<ExtArgs> | null
+  omit?: Prisma.ServiceOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.ServicePackageInclude<ExtArgs> | null
-  where?: Prisma.ServicePackageWhereInput
-  orderBy?: Prisma.ServicePackageOrderByWithRelationInput | Prisma.ServicePackageOrderByWithRelationInput[]
-  cursor?: Prisma.ServicePackageWhereUniqueInput
+  include?: Prisma.ServiceInclude<ExtArgs> | null
+  where?: Prisma.ServiceWhereInput
+  orderBy?: Prisma.ServiceOrderByWithRelationInput | Prisma.ServiceOrderByWithRelationInput[]
+  cursor?: Prisma.ServiceWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.ServicePackageScalarFieldEnum | Prisma.ServicePackageScalarFieldEnum[]
+  distinct?: Prisma.ServiceScalarFieldEnum | Prisma.ServiceScalarFieldEnum[]
 }
 
 /**

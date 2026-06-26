@@ -109,7 +109,7 @@ model Workspace {
 
   members                                WorkspaceMember[]
   invites                                WorkspaceInvite[]
-  services                               ServicePackage[]
+  services                               Service[]
   servicePurchases                       ServicePurchase[]
 
   @@index([slug])

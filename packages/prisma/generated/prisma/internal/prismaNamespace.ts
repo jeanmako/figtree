@@ -391,8 +391,10 @@ export const ModelName = {
   Verification: 'Verification',
   TwoFactor: 'TwoFactor',
   Email: 'Email',
+  Service: 'Service',
   ServicePackage: 'ServicePackage',
   ServiceAddOn: 'ServiceAddOn',
+  ServicePackageAddOn: 'ServicePackageAddOn',
   ServicePurchase: 'ServicePurchase',
   ServicePurchaseAddOn: 'ServicePurchaseAddOn',
   Workspace: 'Workspace',
@@ -413,7 +415,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "profile" | "user" | "session" | "account" | "verification" | "twoFactor" | "email" | "servicePackage" | "serviceAddOn" | "servicePurchase" | "servicePurchaseAddOn" | "workspace" | "workspaceMember" | "workspaceInvite"
+    modelProps: "profile" | "user" | "session" | "account" | "verification" | "twoFactor" | "email" | "service" | "servicePackage" | "serviceAddOn" | "servicePackageAddOn" | "servicePurchase" | "servicePurchaseAddOn" | "workspace" | "workspaceMember" | "workspaceInvite"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -935,6 +937,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Service: {
+      payload: Prisma.$ServicePayload<ExtArgs>
+      fields: Prisma.ServiceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ServiceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ServiceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        findFirst: {
+          args: Prisma.ServiceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ServiceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        findMany: {
+          args: Prisma.ServiceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        create: {
+          args: Prisma.ServiceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        createMany: {
+          args: Prisma.ServiceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ServiceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        delete: {
+          args: Prisma.ServiceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        update: {
+          args: Prisma.ServiceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        deleteMany: {
+          args: Prisma.ServiceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ServiceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ServiceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>[]
+        }
+        upsert: {
+          args: Prisma.ServiceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePayload>
+        }
+        aggregate: {
+          args: Prisma.ServiceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateService>
+        }
+        groupBy: {
+          args: Prisma.ServiceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ServiceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServiceCountAggregateOutputType> | number
+        }
+      }
+    }
     ServicePackage: {
       payload: Prisma.$ServicePackagePayload<ExtArgs>
       fields: Prisma.ServicePackageFieldRefs
@@ -1080,6 +1156,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.ServiceAddOnCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.ServiceAddOnCountAggregateOutputType> | number
+        }
+      }
+    }
+    ServicePackageAddOn: {
+      payload: Prisma.$ServicePackageAddOnPayload<ExtArgs>
+      fields: Prisma.ServicePackageAddOnFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ServicePackageAddOnFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ServicePackageAddOnFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        findFirst: {
+          args: Prisma.ServicePackageAddOnFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ServicePackageAddOnFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        findMany: {
+          args: Prisma.ServicePackageAddOnFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>[]
+        }
+        create: {
+          args: Prisma.ServicePackageAddOnCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        createMany: {
+          args: Prisma.ServicePackageAddOnCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ServicePackageAddOnCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>[]
+        }
+        delete: {
+          args: Prisma.ServicePackageAddOnDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        update: {
+          args: Prisma.ServicePackageAddOnUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        deleteMany: {
+          args: Prisma.ServicePackageAddOnDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ServicePackageAddOnUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ServicePackageAddOnUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>[]
+        }
+        upsert: {
+          args: Prisma.ServicePackageAddOnUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ServicePackageAddOnPayload>
+        }
+        aggregate: {
+          args: Prisma.ServicePackageAddOnAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateServicePackageAddOn>
+        }
+        groupBy: {
+          args: Prisma.ServicePackageAddOnGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServicePackageAddOnGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ServicePackageAddOnCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ServicePackageAddOnCountAggregateOutputType> | number
         }
       }
     }
@@ -1602,7 +1752,7 @@ export const EmailScalarFieldEnum = {
 export type EmailScalarFieldEnum = (typeof EmailScalarFieldEnum)[keyof typeof EmailScalarFieldEnum]
 
 
-export const ServicePackageScalarFieldEnum = {
+export const ServiceScalarFieldEnum = {
   id: 'id',
   workspaceId: 'workspaceId',
   name: 'name',
@@ -1610,37 +1760,52 @@ export const ServicePackageScalarFieldEnum = {
   tagline: 'tagline',
   description: 'description',
   category: 'category',
-  icon: 'icon',
   avatar: 'avatar',
-  type: 'type',
-  price: 'price',
-  currency: 'currency',
-  interval: 'interval',
-  intervalCount: 'intervalCount',
-  turnaroundValue: 'turnaroundValue',
-  turnaroundUnit: 'turnaroundUnit',
-  isPublishedToStore: 'isPublishedToStore',
+  coverImage: 'coverImage',
   status: 'status',
   visibility: 'visibility',
+  active: 'active',
   featured: 'featured',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+} as const
+
+export type ServiceScalarFieldEnum = (typeof ServiceScalarFieldEnum)[keyof typeof ServiceScalarFieldEnum]
+
+
+export const ServicePackageScalarFieldEnum = {
+  id: 'id',
+  serviceId: 'serviceId',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  price: 'price',
+  currency: 'currency',
+  pricingType: 'pricingType',
   sortOrder: 'sortOrder',
-  autoCreateProject: 'autoCreateProject',
-  autoCreateCompany: 'autoCreateCompany',
-  autoSendBriefForm: 'autoSendBriefForm',
-  autoSendPortalInvite: 'autoSendPortalInvite',
-  briefFormId: 'briefFormId',
-  paymentPreferences: 'paymentPreferences',
+  interval: 'interval',
+  intervalCount: 'intervalCount',
+  featured: 'featured',
+  active: 'active',
   lineItems: 'lineItems',
   deliverables: 'deliverables',
   timeline: 'timeline',
   paymentSchedule: 'paymentSchedule',
   legalClauses: 'legalClauses',
   revisionPolicy: 'revisionPolicy',
+  paymentPreferences: 'paymentPreferences',
+  autoCreateProject: 'autoCreateProject',
+  autoCreateCompany: 'autoCreateCompany',
+  autoSendBriefForm: 'autoSendBriefForm',
+  autoSendPortalInvite: 'autoSendPortalInvite',
+  briefFormId: 'briefFormId',
   autoApplyRevisionPolicy: 'autoApplyRevisionPolicy',
   autoApplyPaymentSchedule: 'autoApplyPaymentSchedule',
   autoApplyLegalClauses: 'autoApplyLegalClauses',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
 } as const
 
 export type ServicePackageScalarFieldEnum = (typeof ServicePackageScalarFieldEnum)[keyof typeof ServicePackageScalarFieldEnum]
@@ -1648,47 +1813,63 @@ export type ServicePackageScalarFieldEnum = (typeof ServicePackageScalarFieldEnu
 
 export const ServiceAddOnScalarFieldEnum = {
   id: 'id',
-  servicePackageId: 'servicePackageId',
+  serviceId: 'serviceId',
   name: 'name',
   description: 'description',
   price: 'price',
   currency: 'currency',
   sortOrder: 'sortOrder',
-  stripePriceId: 'stripePriceId'
+  stripePriceId: 'stripePriceId',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
 } as const
 
 export type ServiceAddOnScalarFieldEnum = (typeof ServiceAddOnScalarFieldEnum)[keyof typeof ServiceAddOnScalarFieldEnum]
+
+
+export const ServicePackageAddOnScalarFieldEnum = {
+  packageId: 'packageId',
+  addOnId: 'addOnId'
+} as const
+
+export type ServicePackageAddOnScalarFieldEnum = (typeof ServicePackageAddOnScalarFieldEnum)[keyof typeof ServicePackageAddOnScalarFieldEnum]
 
 
 export const ServicePurchaseScalarFieldEnum = {
   id: 'id',
   workspaceId: 'workspaceId',
   serviceId: 'serviceId',
-  status: 'status',
-  provider: 'provider',
+  packageId: 'packageId',
   buyerName: 'buyerName',
   buyerEmail: 'buyerEmail',
   buyerCompany: 'buyerCompany',
   companyId: 'companyId',
-  clientId: 'clientId',
+  contactId: 'contactId',
   projectId: 'projectId',
   retainerId: 'retainerId',
   invoiceId: 'invoiceId',
+  status: 'status',
+  provider: 'provider',
+  serviceSnapshot: 'serviceSnapshot',
+  packageSnapshot: 'packageSnapshot',
   baseAmount: 'baseAmount',
   addOnsAmount: 'addOnsAmount',
+  discountAmount: 'discountAmount',
+  taxAmount: 'taxAmount',
   totalAmount: 'totalAmount',
   currency: 'currency',
+  stripeCustomerId: 'stripeCustomerId',
   stripePaymentIntentId: 'stripePaymentIntentId',
   stripeSubscriptionId: 'stripeSubscriptionId',
-  stripeCustomerId: 'stripeCustomerId',
   wisePaymentReference: 'wisePaymentReference',
   wiseConfirmedAt: 'wiseConfirmedAt',
-  automationStartedAt: 'automationStartedAt',
-  automationCompletedAt: 'automationCompletedAt',
-  automationErrors: 'automationErrors',
   purchasedAt: 'purchasedAt',
   cancelledAt: 'cancelledAt',
-  refundedAt: 'refundedAt'
+  refundedAt: 'refundedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type ServicePurchaseScalarFieldEnum = (typeof ServicePurchaseScalarFieldEnum)[keyof typeof ServicePurchaseScalarFieldEnum]
@@ -1698,7 +1879,8 @@ export const ServicePurchaseAddOnScalarFieldEnum = {
   id: 'id',
   purchaseId: 'purchaseId',
   addOnId: 'addOnId',
-  price: 'price'
+  price: 'price',
+  snapshot: 'snapshot'
 } as const
 
 export type ServicePurchaseAddOnScalarFieldEnum = (typeof ServicePurchaseAddOnScalarFieldEnum)[keyof typeof ServicePurchaseAddOnScalarFieldEnum]
@@ -1931,48 +2113,6 @@ export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$Prisma
 
 
 /**
- * Reference to a field of type 'PricingType'
- */
-export type EnumPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PricingType'>
-    
-
-
-/**
- * Reference to a field of type 'PricingType[]'
- */
-export type ListEnumPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PricingType[]'>
-    
-
-
-/**
- * Reference to a field of type 'Decimal'
- */
-export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
-    
-
-
-/**
- * Reference to a field of type 'Decimal[]'
- */
-export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
-    
-
-
-/**
- * Reference to a field of type 'BillingCadence'
- */
-export type EnumBillingCadenceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingCadence'>
-    
-
-
-/**
- * Reference to a field of type 'BillingCadence[]'
- */
-export type ListEnumBillingCadenceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingCadence[]'>
-    
-
-
-/**
  * Reference to a field of type 'ServiceStatus'
  */
 export type EnumServiceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceStatus'>
@@ -1997,6 +2137,48 @@ export type EnumServiceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType
  * Reference to a field of type 'ServiceVisibility[]'
  */
 export type ListEnumServiceVisibilityFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ServiceVisibility[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal'
+ */
+export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+/**
+ * Reference to a field of type 'Decimal[]'
+ */
+export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+/**
+ * Reference to a field of type 'PricingType'
+ */
+export type EnumPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PricingType'>
+    
+
+
+/**
+ * Reference to a field of type 'PricingType[]'
+ */
+export type ListEnumPricingTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PricingType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'BillingCadence'
+ */
+export type EnumBillingCadenceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingCadence'>
+    
+
+
+/**
+ * Reference to a field of type 'BillingCadence[]'
+ */
+export type ListEnumBillingCadenceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BillingCadence[]'>
     
 
 
@@ -2228,8 +2410,10 @@ export type GlobalOmitConfig = {
   verification?: Prisma.VerificationOmit
   twoFactor?: Prisma.TwoFactorOmit
   email?: Prisma.EmailOmit
+  service?: Prisma.ServiceOmit
   servicePackage?: Prisma.ServicePackageOmit
   serviceAddOn?: Prisma.ServiceAddOnOmit
+  servicePackageAddOn?: Prisma.ServicePackageAddOnOmit
   servicePurchase?: Prisma.ServicePurchaseOmit
   servicePurchaseAddOn?: Prisma.ServicePurchaseAddOnOmit
   workspace?: Prisma.WorkspaceOmit

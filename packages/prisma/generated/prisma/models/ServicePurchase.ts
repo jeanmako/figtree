@@ -29,12 +29,16 @@ export type AggregateServicePurchase = {
 export type ServicePurchaseAvgAggregateOutputType = {
   baseAmount: runtime.Decimal | null
   addOnsAmount: runtime.Decimal | null
+  discountAmount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
   totalAmount: runtime.Decimal | null
 }
 
 export type ServicePurchaseSumAggregateOutputType = {
   baseAmount: runtime.Decimal | null
   addOnsAmount: runtime.Decimal | null
+  discountAmount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
   totalAmount: runtime.Decimal | null
 }
 
@@ -42,91 +46,101 @@ export type ServicePurchaseMinAggregateOutputType = {
   id: string | null
   workspaceId: string | null
   serviceId: string | null
-  status: $Enums.PurchaseStatus | null
-  provider: $Enums.PaymentProvider | null
+  packageId: string | null
   buyerName: string | null
   buyerEmail: string | null
   buyerCompany: string | null
   companyId: string | null
-  clientId: string | null
+  contactId: string | null
   projectId: string | null
   retainerId: string | null
   invoiceId: string | null
+  status: $Enums.PurchaseStatus | null
+  provider: $Enums.PaymentProvider | null
   baseAmount: runtime.Decimal | null
   addOnsAmount: runtime.Decimal | null
+  discountAmount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
   totalAmount: runtime.Decimal | null
   currency: string | null
+  stripeCustomerId: string | null
   stripePaymentIntentId: string | null
   stripeSubscriptionId: string | null
-  stripeCustomerId: string | null
   wisePaymentReference: string | null
   wiseConfirmedAt: Date | null
-  automationStartedAt: Date | null
-  automationCompletedAt: Date | null
   purchasedAt: Date | null
   cancelledAt: Date | null
   refundedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ServicePurchaseMaxAggregateOutputType = {
   id: string | null
   workspaceId: string | null
   serviceId: string | null
-  status: $Enums.PurchaseStatus | null
-  provider: $Enums.PaymentProvider | null
+  packageId: string | null
   buyerName: string | null
   buyerEmail: string | null
   buyerCompany: string | null
   companyId: string | null
-  clientId: string | null
+  contactId: string | null
   projectId: string | null
   retainerId: string | null
   invoiceId: string | null
+  status: $Enums.PurchaseStatus | null
+  provider: $Enums.PaymentProvider | null
   baseAmount: runtime.Decimal | null
   addOnsAmount: runtime.Decimal | null
+  discountAmount: runtime.Decimal | null
+  taxAmount: runtime.Decimal | null
   totalAmount: runtime.Decimal | null
   currency: string | null
+  stripeCustomerId: string | null
   stripePaymentIntentId: string | null
   stripeSubscriptionId: string | null
-  stripeCustomerId: string | null
   wisePaymentReference: string | null
   wiseConfirmedAt: Date | null
-  automationStartedAt: Date | null
-  automationCompletedAt: Date | null
   purchasedAt: Date | null
   cancelledAt: Date | null
   refundedAt: Date | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ServicePurchaseCountAggregateOutputType = {
   id: number
   workspaceId: number
   serviceId: number
-  status: number
-  provider: number
+  packageId: number
   buyerName: number
   buyerEmail: number
   buyerCompany: number
   companyId: number
-  clientId: number
+  contactId: number
   projectId: number
   retainerId: number
   invoiceId: number
+  status: number
+  provider: number
+  serviceSnapshot: number
+  packageSnapshot: number
   baseAmount: number
   addOnsAmount: number
+  discountAmount: number
+  taxAmount: number
   totalAmount: number
   currency: number
+  stripeCustomerId: number
   stripePaymentIntentId: number
   stripeSubscriptionId: number
-  stripeCustomerId: number
   wisePaymentReference: number
   wiseConfirmedAt: number
-  automationStartedAt: number
-  automationCompletedAt: number
-  automationErrors: number
   purchasedAt: number
   cancelledAt: number
   refundedAt: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
@@ -134,12 +148,16 @@ export type ServicePurchaseCountAggregateOutputType = {
 export type ServicePurchaseAvgAggregateInputType = {
   baseAmount?: true
   addOnsAmount?: true
+  discountAmount?: true
+  taxAmount?: true
   totalAmount?: true
 }
 
 export type ServicePurchaseSumAggregateInputType = {
   baseAmount?: true
   addOnsAmount?: true
+  discountAmount?: true
+  taxAmount?: true
   totalAmount?: true
 }
 
@@ -147,91 +165,101 @@ export type ServicePurchaseMinAggregateInputType = {
   id?: true
   workspaceId?: true
   serviceId?: true
-  status?: true
-  provider?: true
+  packageId?: true
   buyerName?: true
   buyerEmail?: true
   buyerCompany?: true
   companyId?: true
-  clientId?: true
+  contactId?: true
   projectId?: true
   retainerId?: true
   invoiceId?: true
+  status?: true
+  provider?: true
   baseAmount?: true
   addOnsAmount?: true
+  discountAmount?: true
+  taxAmount?: true
   totalAmount?: true
   currency?: true
+  stripeCustomerId?: true
   stripePaymentIntentId?: true
   stripeSubscriptionId?: true
-  stripeCustomerId?: true
   wisePaymentReference?: true
   wiseConfirmedAt?: true
-  automationStartedAt?: true
-  automationCompletedAt?: true
   purchasedAt?: true
   cancelledAt?: true
   refundedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ServicePurchaseMaxAggregateInputType = {
   id?: true
   workspaceId?: true
   serviceId?: true
-  status?: true
-  provider?: true
+  packageId?: true
   buyerName?: true
   buyerEmail?: true
   buyerCompany?: true
   companyId?: true
-  clientId?: true
+  contactId?: true
   projectId?: true
   retainerId?: true
   invoiceId?: true
+  status?: true
+  provider?: true
   baseAmount?: true
   addOnsAmount?: true
+  discountAmount?: true
+  taxAmount?: true
   totalAmount?: true
   currency?: true
+  stripeCustomerId?: true
   stripePaymentIntentId?: true
   stripeSubscriptionId?: true
-  stripeCustomerId?: true
   wisePaymentReference?: true
   wiseConfirmedAt?: true
-  automationStartedAt?: true
-  automationCompletedAt?: true
   purchasedAt?: true
   cancelledAt?: true
   refundedAt?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ServicePurchaseCountAggregateInputType = {
   id?: true
   workspaceId?: true
   serviceId?: true
-  status?: true
-  provider?: true
+  packageId?: true
   buyerName?: true
   buyerEmail?: true
   buyerCompany?: true
   companyId?: true
-  clientId?: true
+  contactId?: true
   projectId?: true
   retainerId?: true
   invoiceId?: true
+  status?: true
+  provider?: true
+  serviceSnapshot?: true
+  packageSnapshot?: true
   baseAmount?: true
   addOnsAmount?: true
+  discountAmount?: true
+  taxAmount?: true
   totalAmount?: true
   currency?: true
+  stripeCustomerId?: true
   stripePaymentIntentId?: true
   stripeSubscriptionId?: true
-  stripeCustomerId?: true
   wisePaymentReference?: true
   wiseConfirmedAt?: true
-  automationStartedAt?: true
-  automationCompletedAt?: true
-  automationErrors?: true
   purchasedAt?: true
   cancelledAt?: true
   refundedAt?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -325,31 +353,35 @@ export type ServicePurchaseGroupByOutputType = {
   id: string
   workspaceId: string
   serviceId: string
-  status: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany: string | null
   companyId: string | null
-  clientId: string | null
+  contactId: string | null
   projectId: string | null
   retainerId: string | null
   invoiceId: string | null
+  status: $Enums.PurchaseStatus
+  provider: $Enums.PaymentProvider | null
+  serviceSnapshot: runtime.JsonValue
+  packageSnapshot: runtime.JsonValue
   baseAmount: runtime.Decimal
   addOnsAmount: runtime.Decimal
+  discountAmount: runtime.Decimal
+  taxAmount: runtime.Decimal
   totalAmount: runtime.Decimal
   currency: string
+  stripeCustomerId: string | null
   stripePaymentIntentId: string | null
   stripeSubscriptionId: string | null
-  stripeCustomerId: string | null
   wisePaymentReference: string | null
   wiseConfirmedAt: Date | null
-  automationStartedAt: Date | null
-  automationCompletedAt: Date | null
-  automationErrors: string[]
   purchasedAt: Date
   cancelledAt: Date | null
   refundedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
   _count: ServicePurchaseCountAggregateOutputType | null
   _avg: ServicePurchaseAvgAggregateOutputType | null
   _sum: ServicePurchaseSumAggregateOutputType | null
@@ -379,68 +411,78 @@ export type ServicePurchaseWhereInput = {
   id?: Prisma.StringFilter<"ServicePurchase"> | string
   workspaceId?: Prisma.StringFilter<"ServicePurchase"> | string
   serviceId?: Prisma.StringFilter<"ServicePurchase"> | string
-  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFilter<"ServicePurchase"> | $Enums.PaymentProvider
+  packageId?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerName?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerEmail?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerCompany?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   companyId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
-  clientId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  contactId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   projectId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   retainerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
+  provider?: Prisma.EnumPaymentProviderNullableFilter<"ServicePurchase"> | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonFilter<"ServicePurchase">
+  packageSnapshot?: Prisma.JsonFilter<"ServicePurchase">
   baseAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"ServicePurchase"> | string
+  stripeCustomerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   stripePaymentIntentId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   stripeSubscriptionId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
-  stripeCustomerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   wisePaymentReference?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   wiseConfirmedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationStartedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationCompletedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationErrors?: Prisma.StringNullableListFilter<"ServicePurchase">
   purchasedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
   cancelledAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  item?: Prisma.XOR<Prisma.ServicePackageScalarRelationFilter, Prisma.ServicePackageWhereInput>
-  addOns?: Prisma.ServicePurchaseAddOnListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
+  service?: Prisma.XOR<Prisma.ServiceScalarRelationFilter, Prisma.ServiceWhereInput>
+  package?: Prisma.XOR<Prisma.ServicePackageScalarRelationFilter, Prisma.ServicePackageWhereInput>
+  addOns?: Prisma.ServicePurchaseAddOnListRelationFilter
 }
 
 export type ServicePurchaseOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
+  packageId?: Prisma.SortOrder
   buyerName?: Prisma.SortOrder
   buyerEmail?: Prisma.SortOrder
   buyerCompany?: Prisma.SortOrderInput | Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
-  clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactId?: Prisma.SortOrderInput | Prisma.SortOrder
   projectId?: Prisma.SortOrderInput | Prisma.SortOrder
   retainerId?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceId?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
+  provider?: Prisma.SortOrderInput | Prisma.SortOrder
+  serviceSnapshot?: Prisma.SortOrder
+  packageSnapshot?: Prisma.SortOrder
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripePaymentIntentId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
-  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   wisePaymentReference?: Prisma.SortOrderInput | Prisma.SortOrder
   wiseConfirmedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationStartedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationCompletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationErrors?: Prisma.SortOrder
   purchasedAt?: Prisma.SortOrder
   cancelledAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refundedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  item?: Prisma.ServicePackageOrderByWithRelationInput
-  addOns?: Prisma.ServicePurchaseAddOnOrderByRelationAggregateInput
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   workspace?: Prisma.WorkspaceOrderByWithRelationInput
+  service?: Prisma.ServiceOrderByWithRelationInput
+  package?: Prisma.ServicePackageOrderByWithRelationInput
+  addOns?: Prisma.ServicePurchaseAddOnOrderByRelationAggregateInput
 }
 
 export type ServicePurchaseWhereUniqueInput = Prisma.AtLeast<{
@@ -453,62 +495,71 @@ export type ServicePurchaseWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ServicePurchaseWhereInput | Prisma.ServicePurchaseWhereInput[]
   workspaceId?: Prisma.StringFilter<"ServicePurchase"> | string
   serviceId?: Prisma.StringFilter<"ServicePurchase"> | string
-  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFilter<"ServicePurchase"> | $Enums.PaymentProvider
+  packageId?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerName?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerEmail?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerCompany?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   companyId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
-  clientId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  contactId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   projectId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   retainerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
+  provider?: Prisma.EnumPaymentProviderNullableFilter<"ServicePurchase"> | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonFilter<"ServicePurchase">
+  packageSnapshot?: Prisma.JsonFilter<"ServicePurchase">
   baseAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"ServicePurchase"> | string
   stripeCustomerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   wiseConfirmedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationStartedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationCompletedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationErrors?: Prisma.StringNullableListFilter<"ServicePurchase">
   purchasedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
   cancelledAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  item?: Prisma.XOR<Prisma.ServicePackageScalarRelationFilter, Prisma.ServicePackageWhereInput>
-  addOns?: Prisma.ServicePurchaseAddOnListRelationFilter
+  createdAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
   workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
+  service?: Prisma.XOR<Prisma.ServiceScalarRelationFilter, Prisma.ServiceWhereInput>
+  package?: Prisma.XOR<Prisma.ServicePackageScalarRelationFilter, Prisma.ServicePackageWhereInput>
+  addOns?: Prisma.ServicePurchaseAddOnListRelationFilter
 }, "id" | "stripePaymentIntentId" | "stripeSubscriptionId" | "wisePaymentReference">
 
 export type ServicePurchaseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
+  packageId?: Prisma.SortOrder
   buyerName?: Prisma.SortOrder
   buyerEmail?: Prisma.SortOrder
   buyerCompany?: Prisma.SortOrderInput | Prisma.SortOrder
   companyId?: Prisma.SortOrderInput | Prisma.SortOrder
-  clientId?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactId?: Prisma.SortOrderInput | Prisma.SortOrder
   projectId?: Prisma.SortOrderInput | Prisma.SortOrder
   retainerId?: Prisma.SortOrderInput | Prisma.SortOrder
   invoiceId?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
+  provider?: Prisma.SortOrderInput | Prisma.SortOrder
+  serviceSnapshot?: Prisma.SortOrder
+  packageSnapshot?: Prisma.SortOrder
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripePaymentIntentId?: Prisma.SortOrderInput | Prisma.SortOrder
   stripeSubscriptionId?: Prisma.SortOrderInput | Prisma.SortOrder
-  stripeCustomerId?: Prisma.SortOrderInput | Prisma.SortOrder
   wisePaymentReference?: Prisma.SortOrderInput | Prisma.SortOrder
   wiseConfirmedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationStartedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationCompletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
-  automationErrors?: Prisma.SortOrder
   purchasedAt?: Prisma.SortOrder
   cancelledAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refundedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.ServicePurchaseCountOrderByAggregateInput
   _avg?: Prisma.ServicePurchaseAvgOrderByAggregateInput
   _max?: Prisma.ServicePurchaseMaxOrderByAggregateInput
@@ -523,158 +574,178 @@ export type ServicePurchaseScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
   workspaceId?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
   serviceId?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
-  status?: Prisma.EnumPurchaseStatusWithAggregatesFilter<"ServicePurchase"> | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderWithAggregatesFilter<"ServicePurchase"> | $Enums.PaymentProvider
+  packageId?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
   buyerName?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
   buyerEmail?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
   buyerCompany?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   companyId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
-  clientId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
+  contactId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   projectId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   retainerId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   invoiceId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
+  status?: Prisma.EnumPurchaseStatusWithAggregatesFilter<"ServicePurchase"> | $Enums.PurchaseStatus
+  provider?: Prisma.EnumPaymentProviderNullableWithAggregatesFilter<"ServicePurchase"> | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonWithAggregatesFilter<"ServicePurchase">
+  packageSnapshot?: Prisma.JsonWithAggregatesFilter<"ServicePurchase">
   baseAmount?: Prisma.DecimalWithAggregatesFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalWithAggregatesFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalWithAggregatesFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalWithAggregatesFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalWithAggregatesFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringWithAggregatesFilter<"ServicePurchase"> | string
+  stripeCustomerId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   stripePaymentIntentId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   stripeSubscriptionId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
-  stripeCustomerId?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   wisePaymentReference?: Prisma.StringNullableWithAggregatesFilter<"ServicePurchase"> | string | null
   wiseConfirmedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePurchase"> | Date | string | null
-  automationStartedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePurchase"> | Date | string | null
-  automationCompletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePurchase"> | Date | string | null
-  automationErrors?: Prisma.StringNullableListFilter<"ServicePurchase">
   purchasedAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePurchase"> | Date | string
   cancelledAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePurchase"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePurchase"> | Date | string | null
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePurchase"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePurchase"> | Date | string
 }
 
 export type ServicePurchaseCreateInput = {
   id?: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
-  item: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
-  addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutServicePurchasesInput
+  service: Prisma.ServiceCreateNestedOneWithoutPurchasesInput
+  package: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
+  addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
 }
 
 export type ServicePurchaseUncheckedCreateInput = {
   id?: string
   workspaceId: string
   serviceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedCreateNestedManyWithoutPurchaseInput
 }
 
 export type ServicePurchaseUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  item?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
-  addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicePurchasesNestedInput
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPurchasesNestedInput
+  package?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
+  addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
 }
 
 export type ServicePurchaseUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseNestedInput
 }
 
@@ -682,91 +753,102 @@ export type ServicePurchaseCreateManyInput = {
   id?: string
   workspaceId: string
   serviceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ServicePurchaseUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePurchaseUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePurchaseListRelationFilter = {
@@ -779,48 +861,46 @@ export type ServicePurchaseOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type StringNullableListFilter<$PrismaModel = never> = {
-  equals?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel> | null
-  has?: string | Prisma.StringFieldRefInput<$PrismaModel> | null
-  hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
-  isEmpty?: boolean
-}
-
 export type ServicePurchaseCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
+  packageId?: Prisma.SortOrder
   buyerName?: Prisma.SortOrder
   buyerEmail?: Prisma.SortOrder
   buyerCompany?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  clientId?: Prisma.SortOrder
+  contactId?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   retainerId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  provider?: Prisma.SortOrder
+  serviceSnapshot?: Prisma.SortOrder
+  packageSnapshot?: Prisma.SortOrder
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   stripePaymentIntentId?: Prisma.SortOrder
   stripeSubscriptionId?: Prisma.SortOrder
-  stripeCustomerId?: Prisma.SortOrder
   wisePaymentReference?: Prisma.SortOrder
   wiseConfirmedAt?: Prisma.SortOrder
-  automationStartedAt?: Prisma.SortOrder
-  automationCompletedAt?: Prisma.SortOrder
-  automationErrors?: Prisma.SortOrder
   purchasedAt?: Prisma.SortOrder
   cancelledAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ServicePurchaseAvgOrderByAggregateInput = {
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
 }
 
@@ -828,65 +908,73 @@ export type ServicePurchaseMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
+  packageId?: Prisma.SortOrder
   buyerName?: Prisma.SortOrder
   buyerEmail?: Prisma.SortOrder
   buyerCompany?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  clientId?: Prisma.SortOrder
+  contactId?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   retainerId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  provider?: Prisma.SortOrder
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   stripePaymentIntentId?: Prisma.SortOrder
   stripeSubscriptionId?: Prisma.SortOrder
-  stripeCustomerId?: Prisma.SortOrder
   wisePaymentReference?: Prisma.SortOrder
   wiseConfirmedAt?: Prisma.SortOrder
-  automationStartedAt?: Prisma.SortOrder
-  automationCompletedAt?: Prisma.SortOrder
   purchasedAt?: Prisma.SortOrder
   cancelledAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ServicePurchaseMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   workspaceId?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  provider?: Prisma.SortOrder
+  packageId?: Prisma.SortOrder
   buyerName?: Prisma.SortOrder
   buyerEmail?: Prisma.SortOrder
   buyerCompany?: Prisma.SortOrder
   companyId?: Prisma.SortOrder
-  clientId?: Prisma.SortOrder
+  contactId?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   retainerId?: Prisma.SortOrder
   invoiceId?: Prisma.SortOrder
+  status?: Prisma.SortOrder
+  provider?: Prisma.SortOrder
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  stripeCustomerId?: Prisma.SortOrder
   stripePaymentIntentId?: Prisma.SortOrder
   stripeSubscriptionId?: Prisma.SortOrder
-  stripeCustomerId?: Prisma.SortOrder
   wisePaymentReference?: Prisma.SortOrder
   wiseConfirmedAt?: Prisma.SortOrder
-  automationStartedAt?: Prisma.SortOrder
-  automationCompletedAt?: Prisma.SortOrder
   purchasedAt?: Prisma.SortOrder
   cancelledAt?: Prisma.SortOrder
   refundedAt?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ServicePurchaseSumOrderByAggregateInput = {
   baseAmount?: Prisma.SortOrder
   addOnsAmount?: Prisma.SortOrder
+  discountAmount?: Prisma.SortOrder
+  taxAmount?: Prisma.SortOrder
   totalAmount?: Prisma.SortOrder
 }
 
@@ -895,63 +983,96 @@ export type ServicePurchaseScalarRelationFilter = {
   isNot?: Prisma.ServicePurchaseWhereInput
 }
 
-export type ServicePurchaseCreateNestedManyWithoutItemInput = {
-  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput> | Prisma.ServicePurchaseCreateWithoutItemInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutItemInput[]
-  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutItemInput | Prisma.ServicePurchaseCreateOrConnectWithoutItemInput[]
-  createMany?: Prisma.ServicePurchaseCreateManyItemInputEnvelope
+export type ServicePurchaseCreateNestedManyWithoutServiceInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput> | Prisma.ServicePurchaseCreateWithoutServiceInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput | Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyServiceInputEnvelope
   connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
 }
 
-export type ServicePurchaseUncheckedCreateNestedManyWithoutItemInput = {
-  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput> | Prisma.ServicePurchaseCreateWithoutItemInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutItemInput[]
-  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutItemInput | Prisma.ServicePurchaseCreateOrConnectWithoutItemInput[]
-  createMany?: Prisma.ServicePurchaseCreateManyItemInputEnvelope
+export type ServicePurchaseUncheckedCreateNestedManyWithoutServiceInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput> | Prisma.ServicePurchaseCreateWithoutServiceInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput | Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyServiceInputEnvelope
   connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
 }
 
-export type ServicePurchaseUpdateManyWithoutItemNestedInput = {
-  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput> | Prisma.ServicePurchaseCreateWithoutItemInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutItemInput[]
-  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutItemInput | Prisma.ServicePurchaseCreateOrConnectWithoutItemInput[]
-  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutItemInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutItemInput[]
-  createMany?: Prisma.ServicePurchaseCreateManyItemInputEnvelope
+export type ServicePurchaseUpdateManyWithoutServiceNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput> | Prisma.ServicePurchaseCreateWithoutServiceInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput | Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput[]
+  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutServiceInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutServiceInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyServiceInputEnvelope
   set?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   disconnect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   delete?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
-  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutItemInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutItemInput[]
-  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutItemInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutItemInput[]
+  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutServiceInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutServiceInput[]
+  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutServiceInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutServiceInput[]
   deleteMany?: Prisma.ServicePurchaseScalarWhereInput | Prisma.ServicePurchaseScalarWhereInput[]
 }
 
-export type ServicePurchaseUncheckedUpdateManyWithoutItemNestedInput = {
-  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput> | Prisma.ServicePurchaseCreateWithoutItemInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutItemInput[]
-  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutItemInput | Prisma.ServicePurchaseCreateOrConnectWithoutItemInput[]
-  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutItemInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutItemInput[]
-  createMany?: Prisma.ServicePurchaseCreateManyItemInputEnvelope
+export type ServicePurchaseUncheckedUpdateManyWithoutServiceNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput> | Prisma.ServicePurchaseCreateWithoutServiceInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput | Prisma.ServicePurchaseCreateOrConnectWithoutServiceInput[]
+  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutServiceInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutServiceInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyServiceInputEnvelope
   set?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   disconnect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   delete?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
   connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
-  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutItemInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutItemInput[]
-  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutItemInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutItemInput[]
+  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutServiceInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutServiceInput[]
+  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutServiceInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutServiceInput[]
   deleteMany?: Prisma.ServicePurchaseScalarWhereInput | Prisma.ServicePurchaseScalarWhereInput[]
 }
 
-export type ServicePurchaseCreateautomationErrorsInput = {
-  set: string[]
+export type ServicePurchaseCreateNestedManyWithoutPackageInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput> | Prisma.ServicePurchaseCreateWithoutPackageInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput | Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyPackageInputEnvelope
+  connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+}
+
+export type ServicePurchaseUncheckedCreateNestedManyWithoutPackageInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput> | Prisma.ServicePurchaseCreateWithoutPackageInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput | Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyPackageInputEnvelope
+  connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+}
+
+export type ServicePurchaseUpdateManyWithoutPackageNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput> | Prisma.ServicePurchaseCreateWithoutPackageInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput | Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput[]
+  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutPackageInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutPackageInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyPackageInputEnvelope
+  set?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  disconnect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  delete?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutPackageInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutPackageInput[]
+  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutPackageInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutPackageInput[]
+  deleteMany?: Prisma.ServicePurchaseScalarWhereInput | Prisma.ServicePurchaseScalarWhereInput[]
+}
+
+export type ServicePurchaseUncheckedUpdateManyWithoutPackageNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput> | Prisma.ServicePurchaseCreateWithoutPackageInput[] | Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput[]
+  connectOrCreate?: Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput | Prisma.ServicePurchaseCreateOrConnectWithoutPackageInput[]
+  upsert?: Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutPackageInput | Prisma.ServicePurchaseUpsertWithWhereUniqueWithoutPackageInput[]
+  createMany?: Prisma.ServicePurchaseCreateManyPackageInputEnvelope
+  set?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  disconnect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  delete?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  connect?: Prisma.ServicePurchaseWhereUniqueInput | Prisma.ServicePurchaseWhereUniqueInput[]
+  update?: Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutPackageInput | Prisma.ServicePurchaseUpdateWithWhereUniqueWithoutPackageInput[]
+  updateMany?: Prisma.ServicePurchaseUpdateManyWithWhereWithoutPackageInput | Prisma.ServicePurchaseUpdateManyWithWhereWithoutPackageInput[]
+  deleteMany?: Prisma.ServicePurchaseScalarWhereInput | Prisma.ServicePurchaseScalarWhereInput[]
 }
 
 export type EnumPurchaseStatusFieldUpdateOperationsInput = {
   set?: $Enums.PurchaseStatus
 }
 
-export type EnumPaymentProviderFieldUpdateOperationsInput = {
-  set?: $Enums.PaymentProvider
-}
-
-export type ServicePurchaseUpdateautomationErrorsInput = {
-  set?: string[]
-  push?: string | string[]
+export type NullableEnumPaymentProviderFieldUpdateOperationsInput = {
+  set?: $Enums.PaymentProvider | null
 }
 
 export type ServicePurchaseCreateNestedOneWithoutAddOnsInput = {
@@ -1010,92 +1131,100 @@ export type ServicePurchaseUncheckedUpdateManyWithoutWorkspaceNestedInput = {
   deleteMany?: Prisma.ServicePurchaseScalarWhereInput | Prisma.ServicePurchaseScalarWhereInput[]
 }
 
-export type ServicePurchaseCreateWithoutItemInput = {
+export type ServicePurchaseCreateWithoutServiceInput = {
   id?: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
-  addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutServicePurchasesInput
+  package: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
+  addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
 }
 
-export type ServicePurchaseUncheckedCreateWithoutItemInput = {
+export type ServicePurchaseUncheckedCreateWithoutServiceInput = {
   id?: string
   workspaceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedCreateNestedManyWithoutPurchaseInput
 }
 
-export type ServicePurchaseCreateOrConnectWithoutItemInput = {
+export type ServicePurchaseCreateOrConnectWithoutServiceInput = {
   where: Prisma.ServicePurchaseWhereUniqueInput
-  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput>
+  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput>
 }
 
-export type ServicePurchaseCreateManyItemInputEnvelope = {
-  data: Prisma.ServicePurchaseCreateManyItemInput | Prisma.ServicePurchaseCreateManyItemInput[]
+export type ServicePurchaseCreateManyServiceInputEnvelope = {
+  data: Prisma.ServicePurchaseCreateManyServiceInput | Prisma.ServicePurchaseCreateManyServiceInput[]
   skipDuplicates?: boolean
 }
 
-export type ServicePurchaseUpsertWithWhereUniqueWithoutItemInput = {
+export type ServicePurchaseUpsertWithWhereUniqueWithoutServiceInput = {
   where: Prisma.ServicePurchaseWhereUniqueInput
-  update: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutItemInput, Prisma.ServicePurchaseUncheckedUpdateWithoutItemInput>
-  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutItemInput, Prisma.ServicePurchaseUncheckedCreateWithoutItemInput>
+  update: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutServiceInput, Prisma.ServicePurchaseUncheckedUpdateWithoutServiceInput>
+  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutServiceInput, Prisma.ServicePurchaseUncheckedCreateWithoutServiceInput>
 }
 
-export type ServicePurchaseUpdateWithWhereUniqueWithoutItemInput = {
+export type ServicePurchaseUpdateWithWhereUniqueWithoutServiceInput = {
   where: Prisma.ServicePurchaseWhereUniqueInput
-  data: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutItemInput, Prisma.ServicePurchaseUncheckedUpdateWithoutItemInput>
+  data: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutServiceInput, Prisma.ServicePurchaseUncheckedUpdateWithoutServiceInput>
 }
 
-export type ServicePurchaseUpdateManyWithWhereWithoutItemInput = {
+export type ServicePurchaseUpdateManyWithWhereWithoutServiceInput = {
   where: Prisma.ServicePurchaseScalarWhereInput
-  data: Prisma.XOR<Prisma.ServicePurchaseUpdateManyMutationInput, Prisma.ServicePurchaseUncheckedUpdateManyWithoutItemInput>
+  data: Prisma.XOR<Prisma.ServicePurchaseUpdateManyMutationInput, Prisma.ServicePurchaseUncheckedUpdateManyWithoutServiceInput>
 }
 
 export type ServicePurchaseScalarWhereInput = {
@@ -1105,93 +1234,201 @@ export type ServicePurchaseScalarWhereInput = {
   id?: Prisma.StringFilter<"ServicePurchase"> | string
   workspaceId?: Prisma.StringFilter<"ServicePurchase"> | string
   serviceId?: Prisma.StringFilter<"ServicePurchase"> | string
-  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFilter<"ServicePurchase"> | $Enums.PaymentProvider
+  packageId?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerName?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerEmail?: Prisma.StringFilter<"ServicePurchase"> | string
   buyerCompany?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   companyId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
-  clientId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  contactId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   projectId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   retainerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   invoiceId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
+  status?: Prisma.EnumPurchaseStatusFilter<"ServicePurchase"> | $Enums.PurchaseStatus
+  provider?: Prisma.EnumPaymentProviderNullableFilter<"ServicePurchase"> | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonFilter<"ServicePurchase">
+  packageSnapshot?: Prisma.JsonFilter<"ServicePurchase">
   baseAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFilter<"ServicePurchase"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"ServicePurchase"> | string
+  stripeCustomerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   stripePaymentIntentId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   stripeSubscriptionId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
-  stripeCustomerId?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   wisePaymentReference?: Prisma.StringNullableFilter<"ServicePurchase"> | string | null
   wiseConfirmedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationStartedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationCompletedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
-  automationErrors?: Prisma.StringNullableListFilter<"ServicePurchase">
   purchasedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
   cancelledAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
   refundedAt?: Prisma.DateTimeNullableFilter<"ServicePurchase"> | Date | string | null
+  createdAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ServicePurchase"> | Date | string
 }
 
-export type ServicePurchaseCreateWithoutAddOnsInput = {
+export type ServicePurchaseCreateWithoutPackageInput = {
   id?: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
-  item: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
   workspace: Prisma.WorkspaceCreateNestedOneWithoutServicePurchasesInput
+  service: Prisma.ServiceCreateNestedOneWithoutPurchasesInput
+  addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
+}
+
+export type ServicePurchaseUncheckedCreateWithoutPackageInput = {
+  id?: string
+  workspaceId: string
+  serviceId: string
+  buyerName: string
+  buyerEmail: string
+  buyerCompany?: string | null
+  companyId?: string | null
+  contactId?: string | null
+  projectId?: string | null
+  retainerId?: string | null
+  invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: string
+  stripeCustomerId?: string | null
+  stripePaymentIntentId?: string | null
+  stripeSubscriptionId?: string | null
+  wisePaymentReference?: string | null
+  wiseConfirmedAt?: Date | string | null
+  purchasedAt?: Date | string
+  cancelledAt?: Date | string | null
+  refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  addOns?: Prisma.ServicePurchaseAddOnUncheckedCreateNestedManyWithoutPurchaseInput
+}
+
+export type ServicePurchaseCreateOrConnectWithoutPackageInput = {
+  where: Prisma.ServicePurchaseWhereUniqueInput
+  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput>
+}
+
+export type ServicePurchaseCreateManyPackageInputEnvelope = {
+  data: Prisma.ServicePurchaseCreateManyPackageInput | Prisma.ServicePurchaseCreateManyPackageInput[]
+  skipDuplicates?: boolean
+}
+
+export type ServicePurchaseUpsertWithWhereUniqueWithoutPackageInput = {
+  where: Prisma.ServicePurchaseWhereUniqueInput
+  update: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutPackageInput, Prisma.ServicePurchaseUncheckedUpdateWithoutPackageInput>
+  create: Prisma.XOR<Prisma.ServicePurchaseCreateWithoutPackageInput, Prisma.ServicePurchaseUncheckedCreateWithoutPackageInput>
+}
+
+export type ServicePurchaseUpdateWithWhereUniqueWithoutPackageInput = {
+  where: Prisma.ServicePurchaseWhereUniqueInput
+  data: Prisma.XOR<Prisma.ServicePurchaseUpdateWithoutPackageInput, Prisma.ServicePurchaseUncheckedUpdateWithoutPackageInput>
+}
+
+export type ServicePurchaseUpdateManyWithWhereWithoutPackageInput = {
+  where: Prisma.ServicePurchaseScalarWhereInput
+  data: Prisma.XOR<Prisma.ServicePurchaseUpdateManyMutationInput, Prisma.ServicePurchaseUncheckedUpdateManyWithoutPackageInput>
+}
+
+export type ServicePurchaseCreateWithoutAddOnsInput = {
+  id?: string
+  buyerName: string
+  buyerEmail: string
+  buyerCompany?: string | null
+  companyId?: string | null
+  contactId?: string | null
+  projectId?: string | null
+  retainerId?: string | null
+  invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: string
+  stripeCustomerId?: string | null
+  stripePaymentIntentId?: string | null
+  stripeSubscriptionId?: string | null
+  wisePaymentReference?: string | null
+  wiseConfirmedAt?: Date | string | null
+  purchasedAt?: Date | string
+  cancelledAt?: Date | string | null
+  refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  workspace: Prisma.WorkspaceCreateNestedOneWithoutServicePurchasesInput
+  service: Prisma.ServiceCreateNestedOneWithoutPurchasesInput
+  package: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
 }
 
 export type ServicePurchaseUncheckedCreateWithoutAddOnsInput = {
   id?: string
   workspaceId: string
   serviceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ServicePurchaseCreateOrConnectWithoutAddOnsInput = {
@@ -1212,125 +1449,141 @@ export type ServicePurchaseUpdateToOneWithWhereWithoutAddOnsInput = {
 
 export type ServicePurchaseUpdateWithoutAddOnsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  item?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicePurchasesNestedInput
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPurchasesNestedInput
+  package?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
 }
 
 export type ServicePurchaseUncheckedUpdateWithoutAddOnsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePurchaseCreateWithoutWorkspaceInput = {
   id?: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
-  item: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  service: Prisma.ServiceCreateNestedOneWithoutPurchasesInput
+  package: Prisma.ServicePackageCreateNestedOneWithoutPurchasesInput
   addOns?: Prisma.ServicePurchaseAddOnCreateNestedManyWithoutPurchaseInput
 }
 
 export type ServicePurchaseUncheckedCreateWithoutWorkspaceInput = {
   id?: string
   serviceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedCreateNestedManyWithoutPurchaseInput
 }
 
@@ -1360,248 +1613,418 @@ export type ServicePurchaseUpdateManyWithWhereWithoutWorkspaceInput = {
   data: Prisma.XOR<Prisma.ServicePurchaseUpdateManyMutationInput, Prisma.ServicePurchaseUncheckedUpdateManyWithoutWorkspaceInput>
 }
 
-export type ServicePurchaseCreateManyItemInput = {
+export type ServicePurchaseCreateManyServiceInput = {
   id?: string
   workspaceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type ServicePurchaseUpdateWithoutItemInput = {
+export type ServicePurchaseUpdateWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicePurchasesNestedInput
+  package?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
+  addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
 }
 
-export type ServicePurchaseUncheckedUpdateWithoutItemInput = {
+export type ServicePurchaseUncheckedUpdateWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseNestedInput
 }
 
-export type ServicePurchaseUncheckedUpdateManyWithoutItemInput = {
+export type ServicePurchaseUncheckedUpdateManyWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ServicePurchaseCreateManyPackageInput = {
+  id?: string
+  workspaceId: string
+  serviceId: string
+  buyerName: string
+  buyerEmail: string
+  buyerCompany?: string | null
+  companyId?: string | null
+  contactId?: string | null
+  projectId?: string | null
+  retainerId?: string | null
+  invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: string
+  stripeCustomerId?: string | null
+  stripePaymentIntentId?: string | null
+  stripeSubscriptionId?: string | null
+  wisePaymentReference?: string | null
+  wiseConfirmedAt?: Date | string | null
+  purchasedAt?: Date | string
+  cancelledAt?: Date | string | null
+  refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ServicePurchaseUpdateWithoutPackageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerName?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicePurchasesNestedInput
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPurchasesNestedInput
+  addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
+}
+
+export type ServicePurchaseUncheckedUpdateWithoutPackageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerName?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  addOns?: Prisma.ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseNestedInput
+}
+
+export type ServicePurchaseUncheckedUpdateManyWithoutPackageInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerName?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
+  buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePurchaseCreateManyWorkspaceInput = {
   id?: string
   serviceId: string
-  status?: $Enums.PurchaseStatus
-  provider: $Enums.PaymentProvider
+  packageId: string
   buyerName: string
   buyerEmail: string
   buyerCompany?: string | null
   companyId?: string | null
-  clientId?: string | null
+  contactId?: string | null
   projectId?: string | null
   retainerId?: string | null
   invoiceId?: string | null
+  status?: $Enums.PurchaseStatus
+  provider?: $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency: string
+  currency?: string
+  stripeCustomerId?: string | null
   stripePaymentIntentId?: string | null
   stripeSubscriptionId?: string | null
-  stripeCustomerId?: string | null
   wisePaymentReference?: string | null
   wiseConfirmedAt?: Date | string | null
-  automationStartedAt?: Date | string | null
-  automationCompletedAt?: Date | string | null
-  automationErrors?: Prisma.ServicePurchaseCreateautomationErrorsInput | string[]
   purchasedAt?: Date | string
   cancelledAt?: Date | string | null
   refundedAt?: Date | string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ServicePurchaseUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  item?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPurchasesNestedInput
+  package?: Prisma.ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput
   addOns?: Prisma.ServicePurchaseAddOnUpdateManyWithoutPurchaseNestedInput
 }
 
 export type ServicePurchaseUncheckedUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   addOns?: Prisma.ServicePurchaseAddOnUncheckedUpdateManyWithoutPurchaseNestedInput
 }
 
 export type ServicePurchaseUncheckedUpdateManyWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
-  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
-  provider?: Prisma.EnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider
+  packageId?: Prisma.StringFieldUpdateOperationsInput | string
   buyerName?: Prisma.StringFieldUpdateOperationsInput | string
   buyerEmail?: Prisma.StringFieldUpdateOperationsInput | string
   buyerCompany?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   companyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  clientId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   projectId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   retainerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   invoiceId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.EnumPurchaseStatusFieldUpdateOperationsInput | $Enums.PurchaseStatus
+  provider?: Prisma.NullableEnumPaymentProviderFieldUpdateOperationsInput | $Enums.PaymentProvider | null
+  serviceSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  packageSnapshot?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   baseAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   addOnsAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  discountAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  taxAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   totalAmount?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripePaymentIntentId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   stripeSubscriptionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  stripeCustomerId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wisePaymentReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   wiseConfirmedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationStartedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationCompletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  automationErrors?: Prisma.ServicePurchaseUpdateautomationErrorsInput | string[]
   purchasedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   cancelledAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refundedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 
@@ -1639,34 +2062,39 @@ export type ServicePurchaseSelect<ExtArgs extends runtime.Types.Extensions.Inter
   id?: boolean
   workspaceId?: boolean
   serviceId?: boolean
-  status?: boolean
-  provider?: boolean
+  packageId?: boolean
   buyerName?: boolean
   buyerEmail?: boolean
   buyerCompany?: boolean
   companyId?: boolean
-  clientId?: boolean
+  contactId?: boolean
   projectId?: boolean
   retainerId?: boolean
   invoiceId?: boolean
+  status?: boolean
+  provider?: boolean
+  serviceSnapshot?: boolean
+  packageSnapshot?: boolean
   baseAmount?: boolean
   addOnsAmount?: boolean
+  discountAmount?: boolean
+  taxAmount?: boolean
   totalAmount?: boolean
   currency?: boolean
+  stripeCustomerId?: boolean
   stripePaymentIntentId?: boolean
   stripeSubscriptionId?: boolean
-  stripeCustomerId?: boolean
   wisePaymentReference?: boolean
   wiseConfirmedAt?: boolean
-  automationStartedAt?: boolean
-  automationCompletedAt?: boolean
-  automationErrors?: boolean
   purchasedAt?: boolean
   cancelledAt?: boolean
   refundedAt?: boolean
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
-  addOns?: boolean | Prisma.ServicePurchase$addOnsArgs<ExtArgs>
+  createdAt?: boolean
+  updatedAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
+  addOns?: boolean | Prisma.ServicePurchase$addOnsArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePurchaseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchase"]>
 
@@ -1674,151 +2102,173 @@ export type ServicePurchaseSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   id?: boolean
   workspaceId?: boolean
   serviceId?: boolean
-  status?: boolean
-  provider?: boolean
+  packageId?: boolean
   buyerName?: boolean
   buyerEmail?: boolean
   buyerCompany?: boolean
   companyId?: boolean
-  clientId?: boolean
+  contactId?: boolean
   projectId?: boolean
   retainerId?: boolean
   invoiceId?: boolean
+  status?: boolean
+  provider?: boolean
+  serviceSnapshot?: boolean
+  packageSnapshot?: boolean
   baseAmount?: boolean
   addOnsAmount?: boolean
+  discountAmount?: boolean
+  taxAmount?: boolean
   totalAmount?: boolean
   currency?: boolean
+  stripeCustomerId?: boolean
   stripePaymentIntentId?: boolean
   stripeSubscriptionId?: boolean
-  stripeCustomerId?: boolean
   wisePaymentReference?: boolean
   wiseConfirmedAt?: boolean
-  automationStartedAt?: boolean
-  automationCompletedAt?: boolean
-  automationErrors?: boolean
   purchasedAt?: boolean
   cancelledAt?: boolean
   refundedAt?: boolean
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
+  createdAt?: boolean
+  updatedAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchase"]>
 
 export type ServicePurchaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   workspaceId?: boolean
   serviceId?: boolean
-  status?: boolean
-  provider?: boolean
+  packageId?: boolean
   buyerName?: boolean
   buyerEmail?: boolean
   buyerCompany?: boolean
   companyId?: boolean
-  clientId?: boolean
+  contactId?: boolean
   projectId?: boolean
   retainerId?: boolean
   invoiceId?: boolean
+  status?: boolean
+  provider?: boolean
+  serviceSnapshot?: boolean
+  packageSnapshot?: boolean
   baseAmount?: boolean
   addOnsAmount?: boolean
+  discountAmount?: boolean
+  taxAmount?: boolean
   totalAmount?: boolean
   currency?: boolean
+  stripeCustomerId?: boolean
   stripePaymentIntentId?: boolean
   stripeSubscriptionId?: boolean
-  stripeCustomerId?: boolean
   wisePaymentReference?: boolean
   wiseConfirmedAt?: boolean
-  automationStartedAt?: boolean
-  automationCompletedAt?: boolean
-  automationErrors?: boolean
   purchasedAt?: boolean
   cancelledAt?: boolean
   refundedAt?: boolean
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
+  createdAt?: boolean
+  updatedAt?: boolean
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePurchase"]>
 
 export type ServicePurchaseSelectScalar = {
   id?: boolean
   workspaceId?: boolean
   serviceId?: boolean
-  status?: boolean
-  provider?: boolean
+  packageId?: boolean
   buyerName?: boolean
   buyerEmail?: boolean
   buyerCompany?: boolean
   companyId?: boolean
-  clientId?: boolean
+  contactId?: boolean
   projectId?: boolean
   retainerId?: boolean
   invoiceId?: boolean
+  status?: boolean
+  provider?: boolean
+  serviceSnapshot?: boolean
+  packageSnapshot?: boolean
   baseAmount?: boolean
   addOnsAmount?: boolean
+  discountAmount?: boolean
+  taxAmount?: boolean
   totalAmount?: boolean
   currency?: boolean
+  stripeCustomerId?: boolean
   stripePaymentIntentId?: boolean
   stripeSubscriptionId?: boolean
-  stripeCustomerId?: boolean
   wisePaymentReference?: boolean
   wiseConfirmedAt?: boolean
-  automationStartedAt?: boolean
-  automationCompletedAt?: boolean
-  automationErrors?: boolean
   purchasedAt?: boolean
   cancelledAt?: boolean
   refundedAt?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type ServicePurchaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "serviceId" | "status" | "provider" | "buyerName" | "buyerEmail" | "buyerCompany" | "companyId" | "clientId" | "projectId" | "retainerId" | "invoiceId" | "baseAmount" | "addOnsAmount" | "totalAmount" | "currency" | "stripePaymentIntentId" | "stripeSubscriptionId" | "stripeCustomerId" | "wisePaymentReference" | "wiseConfirmedAt" | "automationStartedAt" | "automationCompletedAt" | "automationErrors" | "purchasedAt" | "cancelledAt" | "refundedAt", ExtArgs["result"]["servicePurchase"]>
+export type ServicePurchaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "serviceId" | "packageId" | "buyerName" | "buyerEmail" | "buyerCompany" | "companyId" | "contactId" | "projectId" | "retainerId" | "invoiceId" | "status" | "provider" | "serviceSnapshot" | "packageSnapshot" | "baseAmount" | "addOnsAmount" | "discountAmount" | "taxAmount" | "totalAmount" | "currency" | "stripeCustomerId" | "stripePaymentIntentId" | "stripeSubscriptionId" | "wisePaymentReference" | "wiseConfirmedAt" | "purchasedAt" | "cancelledAt" | "refundedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["servicePurchase"]>
 export type ServicePurchaseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
-  addOns?: boolean | Prisma.ServicePurchase$addOnsArgs<ExtArgs>
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
+  addOns?: boolean | Prisma.ServicePurchase$addOnsArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePurchaseCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ServicePurchaseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
 }
 export type ServicePurchaseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  item?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
+  package?: boolean | Prisma.ServicePackageDefaultArgs<ExtArgs>
 }
 
 export type $ServicePurchasePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ServicePurchase"
   objects: {
-    item: Prisma.$ServicePackagePayload<ExtArgs>
-    addOns: Prisma.$ServicePurchaseAddOnPayload<ExtArgs>[]
     workspace: Prisma.$WorkspacePayload<ExtArgs>
+    service: Prisma.$ServicePayload<ExtArgs>
+    package: Prisma.$ServicePackagePayload<ExtArgs>
+    addOns: Prisma.$ServicePurchaseAddOnPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     workspaceId: string
     serviceId: string
-    status: $Enums.PurchaseStatus
-    provider: $Enums.PaymentProvider
+    packageId: string
     buyerName: string
     buyerEmail: string
     buyerCompany: string | null
     companyId: string | null
-    clientId: string | null
+    contactId: string | null
     projectId: string | null
     retainerId: string | null
     invoiceId: string | null
+    status: $Enums.PurchaseStatus
+    provider: $Enums.PaymentProvider | null
+    serviceSnapshot: runtime.JsonValue
+    packageSnapshot: runtime.JsonValue
     baseAmount: runtime.Decimal
     addOnsAmount: runtime.Decimal
+    discountAmount: runtime.Decimal
+    taxAmount: runtime.Decimal
     totalAmount: runtime.Decimal
     currency: string
+    stripeCustomerId: string | null
     stripePaymentIntentId: string | null
     stripeSubscriptionId: string | null
-    stripeCustomerId: string | null
     wisePaymentReference: string | null
     wiseConfirmedAt: Date | null
-    automationStartedAt: Date | null
-    automationCompletedAt: Date | null
-    automationErrors: string[]
     purchasedAt: Date
     cancelledAt: Date | null
     refundedAt: Date | null
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["servicePurchase"]>
   composites: {}
 }
@@ -2213,9 +2663,10 @@ readonly fields: ServicePurchaseFieldRefs;
  */
 export interface Prisma__ServicePurchaseClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  item<T extends Prisma.ServicePackageDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePackageDefaultArgs<ExtArgs>>): Prisma.Prisma__ServicePackageClient<runtime.Types.Result.GetResult<Prisma.$ServicePackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  addOns<T extends Prisma.ServicePurchase$addOnsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePurchase$addOnsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePurchaseAddOnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   workspace<T extends Prisma.WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkspaceDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkspaceClient<runtime.Types.Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  service<T extends Prisma.ServiceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServiceDefaultArgs<ExtArgs>>): Prisma.Prisma__ServiceClient<runtime.Types.Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  package<T extends Prisma.ServicePackageDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePackageDefaultArgs<ExtArgs>>): Prisma.Prisma__ServicePackageClient<runtime.Types.Result.GetResult<Prisma.$ServicePackagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  addOns<T extends Prisma.ServicePurchase$addOnsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePurchase$addOnsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePurchaseAddOnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2248,31 +2699,35 @@ export interface ServicePurchaseFieldRefs {
   readonly id: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly workspaceId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly serviceId: Prisma.FieldRef<"ServicePurchase", 'String'>
-  readonly status: Prisma.FieldRef<"ServicePurchase", 'PurchaseStatus'>
-  readonly provider: Prisma.FieldRef<"ServicePurchase", 'PaymentProvider'>
+  readonly packageId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly buyerName: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly buyerEmail: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly buyerCompany: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly companyId: Prisma.FieldRef<"ServicePurchase", 'String'>
-  readonly clientId: Prisma.FieldRef<"ServicePurchase", 'String'>
+  readonly contactId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly projectId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly retainerId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly invoiceId: Prisma.FieldRef<"ServicePurchase", 'String'>
+  readonly status: Prisma.FieldRef<"ServicePurchase", 'PurchaseStatus'>
+  readonly provider: Prisma.FieldRef<"ServicePurchase", 'PaymentProvider'>
+  readonly serviceSnapshot: Prisma.FieldRef<"ServicePurchase", 'Json'>
+  readonly packageSnapshot: Prisma.FieldRef<"ServicePurchase", 'Json'>
   readonly baseAmount: Prisma.FieldRef<"ServicePurchase", 'Decimal'>
   readonly addOnsAmount: Prisma.FieldRef<"ServicePurchase", 'Decimal'>
+  readonly discountAmount: Prisma.FieldRef<"ServicePurchase", 'Decimal'>
+  readonly taxAmount: Prisma.FieldRef<"ServicePurchase", 'Decimal'>
   readonly totalAmount: Prisma.FieldRef<"ServicePurchase", 'Decimal'>
   readonly currency: Prisma.FieldRef<"ServicePurchase", 'String'>
+  readonly stripeCustomerId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly stripePaymentIntentId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly stripeSubscriptionId: Prisma.FieldRef<"ServicePurchase", 'String'>
-  readonly stripeCustomerId: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly wisePaymentReference: Prisma.FieldRef<"ServicePurchase", 'String'>
   readonly wiseConfirmedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
-  readonly automationStartedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
-  readonly automationCompletedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
-  readonly automationErrors: Prisma.FieldRef<"ServicePurchase", 'String[]'>
   readonly purchasedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
   readonly cancelledAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
   readonly refundedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
+  readonly createdAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"ServicePurchase", 'DateTime'>
 }
     
 

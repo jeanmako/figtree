@@ -49,8 +49,7 @@ export type ServiceStatus = (typeof ServiceStatus)[keyof typeof ServiceStatus]
 export const ServiceVisibility = {
   public: 'public',
   portal_only: 'portal_only',
-  link_only: 'link_only',
-  draft: 'draft'
+  link_only: 'link_only'
 } as const
 
 export type ServiceVisibility = (typeof ServiceVisibility)[keyof typeof ServiceVisibility]
@@ -72,7 +71,7 @@ export type PurchaseStatus = (typeof PurchaseStatus)[keyof typeof PurchaseStatus
 export const PaymentProvider = {
   stripe: 'stripe',
   wise: 'wise',
-  bank_transfer: 'bank_transfer'
+  manual: 'manual'
 } as const
 
 export type PaymentProvider = (typeof PaymentProvider)[keyof typeof PaymentProvider]

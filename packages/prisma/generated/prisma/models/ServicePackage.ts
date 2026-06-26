@@ -28,40 +28,30 @@ export type AggregateServicePackage = {
 
 export type ServicePackageAvgAggregateOutputType = {
   price: runtime.Decimal | null
-  intervalCount: number | null
-  turnaroundValue: number | null
   sortOrder: number | null
+  intervalCount: number | null
 }
 
 export type ServicePackageSumAggregateOutputType = {
   price: runtime.Decimal | null
-  intervalCount: number | null
-  turnaroundValue: number | null
   sortOrder: number | null
+  intervalCount: number | null
 }
 
 export type ServicePackageMinAggregateOutputType = {
   id: string | null
-  workspaceId: string | null
+  serviceId: string | null
   name: string | null
   slug: string | null
-  tagline: string | null
   description: string | null
-  category: string | null
-  icon: string | null
-  avatar: string | null
-  type: $Enums.PricingType | null
   price: runtime.Decimal | null
   currency: string | null
+  pricingType: $Enums.PricingType | null
+  sortOrder: number | null
   interval: $Enums.BillingCadence | null
   intervalCount: number | null
-  turnaroundValue: number | null
-  turnaroundUnit: string | null
-  isPublishedToStore: boolean | null
-  status: $Enums.ServiceStatus | null
-  visibility: $Enums.ServiceVisibility | null
   featured: boolean | null
-  sortOrder: number | null
+  active: boolean | null
   autoCreateProject: boolean | null
   autoCreateCompany: boolean | null
   autoSendBriefForm: boolean | null
@@ -72,30 +62,23 @@ export type ServicePackageMinAggregateOutputType = {
   autoApplyLegalClauses: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type ServicePackageMaxAggregateOutputType = {
   id: string | null
-  workspaceId: string | null
+  serviceId: string | null
   name: string | null
   slug: string | null
-  tagline: string | null
   description: string | null
-  category: string | null
-  icon: string | null
-  avatar: string | null
-  type: $Enums.PricingType | null
   price: runtime.Decimal | null
   currency: string | null
+  pricingType: $Enums.PricingType | null
+  sortOrder: number | null
   interval: $Enums.BillingCadence | null
   intervalCount: number | null
-  turnaroundValue: number | null
-  turnaroundUnit: string | null
-  isPublishedToStore: boolean | null
-  status: $Enums.ServiceStatus | null
-  visibility: $Enums.ServiceVisibility | null
   featured: boolean | null
-  sortOrder: number | null
+  active: boolean | null
   autoCreateProject: boolean | null
   autoCreateCompany: boolean | null
   autoSendBriefForm: boolean | null
@@ -106,87 +89,71 @@ export type ServicePackageMaxAggregateOutputType = {
   autoApplyLegalClauses: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
+  deletedAt: Date | null
 }
 
 export type ServicePackageCountAggregateOutputType = {
   id: number
-  workspaceId: number
+  serviceId: number
   name: number
   slug: number
-  tagline: number
   description: number
-  category: number
-  icon: number
-  avatar: number
-  type: number
   price: number
   currency: number
+  pricingType: number
+  sortOrder: number
   interval: number
   intervalCount: number
-  turnaroundValue: number
-  turnaroundUnit: number
-  isPublishedToStore: number
-  status: number
-  visibility: number
   featured: number
-  sortOrder: number
-  autoCreateProject: number
-  autoCreateCompany: number
-  autoSendBriefForm: number
-  autoSendPortalInvite: number
-  briefFormId: number
-  paymentPreferences: number
+  active: number
   lineItems: number
   deliverables: number
   timeline: number
   paymentSchedule: number
   legalClauses: number
   revisionPolicy: number
+  paymentPreferences: number
+  autoCreateProject: number
+  autoCreateCompany: number
+  autoSendBriefForm: number
+  autoSendPortalInvite: number
+  briefFormId: number
   autoApplyRevisionPolicy: number
   autoApplyPaymentSchedule: number
   autoApplyLegalClauses: number
   createdAt: number
   updatedAt: number
+  deletedAt: number
   _all: number
 }
 
 
 export type ServicePackageAvgAggregateInputType = {
   price?: true
-  intervalCount?: true
-  turnaroundValue?: true
   sortOrder?: true
+  intervalCount?: true
 }
 
 export type ServicePackageSumAggregateInputType = {
   price?: true
-  intervalCount?: true
-  turnaroundValue?: true
   sortOrder?: true
+  intervalCount?: true
 }
 
 export type ServicePackageMinAggregateInputType = {
   id?: true
-  workspaceId?: true
+  serviceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  icon?: true
-  avatar?: true
-  type?: true
   price?: true
   currency?: true
+  pricingType?: true
+  sortOrder?: true
   interval?: true
   intervalCount?: true
-  turnaroundValue?: true
-  turnaroundUnit?: true
-  isPublishedToStore?: true
-  status?: true
-  visibility?: true
   featured?: true
-  sortOrder?: true
+  active?: true
   autoCreateProject?: true
   autoCreateCompany?: true
   autoSendBriefForm?: true
@@ -197,30 +164,23 @@ export type ServicePackageMinAggregateInputType = {
   autoApplyLegalClauses?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type ServicePackageMaxAggregateInputType = {
   id?: true
-  workspaceId?: true
+  serviceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  icon?: true
-  avatar?: true
-  type?: true
   price?: true
   currency?: true
+  pricingType?: true
+  sortOrder?: true
   interval?: true
   intervalCount?: true
-  turnaroundValue?: true
-  turnaroundUnit?: true
-  isPublishedToStore?: true
-  status?: true
-  visibility?: true
   featured?: true
-  sortOrder?: true
+  active?: true
   autoCreateProject?: true
   autoCreateCompany?: true
   autoSendBriefForm?: true
@@ -231,47 +191,41 @@ export type ServicePackageMaxAggregateInputType = {
   autoApplyLegalClauses?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
 }
 
 export type ServicePackageCountAggregateInputType = {
   id?: true
-  workspaceId?: true
+  serviceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  icon?: true
-  avatar?: true
-  type?: true
   price?: true
   currency?: true
+  pricingType?: true
+  sortOrder?: true
   interval?: true
   intervalCount?: true
-  turnaroundValue?: true
-  turnaroundUnit?: true
-  isPublishedToStore?: true
-  status?: true
-  visibility?: true
   featured?: true
-  sortOrder?: true
-  autoCreateProject?: true
-  autoCreateCompany?: true
-  autoSendBriefForm?: true
-  autoSendPortalInvite?: true
-  briefFormId?: true
-  paymentPreferences?: true
+  active?: true
   lineItems?: true
   deliverables?: true
   timeline?: true
   paymentSchedule?: true
   legalClauses?: true
   revisionPolicy?: true
+  paymentPreferences?: true
+  autoCreateProject?: true
+  autoCreateCompany?: true
+  autoSendBriefForm?: true
+  autoSendPortalInvite?: true
+  briefFormId?: true
   autoApplyRevisionPolicy?: true
   autoApplyPaymentSchedule?: true
   autoApplyLegalClauses?: true
   createdAt?: true
   updatedAt?: true
+  deletedAt?: true
   _all?: true
 }
 
@@ -363,43 +317,36 @@ export type ServicePackageGroupByArgs<ExtArgs extends runtime.Types.Extensions.I
 
 export type ServicePackageGroupByOutputType = {
   id: string
-  workspaceId: string
+  serviceId: string
   name: string
   slug: string
-  tagline: string | null
   description: string | null
-  category: string | null
-  icon: string | null
-  avatar: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal
+  price: runtime.Decimal | null
   currency: string
+  pricingType: $Enums.PricingType
+  sortOrder: number
   interval: $Enums.BillingCadence | null
   intervalCount: number | null
-  turnaroundValue: number | null
-  turnaroundUnit: string | null
-  isPublishedToStore: boolean
-  status: $Enums.ServiceStatus
-  visibility: $Enums.ServiceVisibility
   featured: boolean
-  sortOrder: number
-  autoCreateProject: boolean
-  autoCreateCompany: boolean
-  autoSendBriefForm: boolean
-  autoSendPortalInvite: boolean
-  briefFormId: string | null
-  paymentPreferences: runtime.JsonValue | null
+  active: boolean
   lineItems: runtime.JsonValue | null
   deliverables: runtime.JsonValue | null
   timeline: runtime.JsonValue | null
   paymentSchedule: runtime.JsonValue | null
   legalClauses: runtime.JsonValue | null
   revisionPolicy: runtime.JsonValue | null
+  paymentPreferences: runtime.JsonValue | null
+  autoCreateProject: boolean
+  autoCreateCompany: boolean
+  autoSendBriefForm: boolean
+  autoSendPortalInvite: boolean
+  briefFormId: string | null
   autoApplyRevisionPolicy: boolean
   autoApplyPaymentSchedule: boolean
   autoApplyLegalClauses: boolean
   createdAt: Date
   updatedAt: Date
+  deletedAt: Date | null
   _count: ServicePackageCountAggregateOutputType | null
   _avg: ServicePackageAvgAggregateOutputType | null
   _sum: ServicePackageSumAggregateOutputType | null
@@ -427,180 +374,151 @@ export type ServicePackageWhereInput = {
   OR?: Prisma.ServicePackageWhereInput[]
   NOT?: Prisma.ServicePackageWhereInput | Prisma.ServicePackageWhereInput[]
   id?: Prisma.StringFilter<"ServicePackage"> | string
-  workspaceId?: Prisma.StringFilter<"ServicePackage"> | string
+  serviceId?: Prisma.StringFilter<"ServicePackage"> | string
   name?: Prisma.StringFilter<"ServicePackage"> | string
   slug?: Prisma.StringFilter<"ServicePackage"> | string
-  tagline?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
   description?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  category?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  icon?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  avatar?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  type?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
-  price?: Prisma.DecimalFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.DecimalNullableFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFilter<"ServicePackage"> | string
+  pricingType?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
+  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
   interval?: Prisma.EnumBillingCadenceNullableFilter<"ServicePackage"> | $Enums.BillingCadence | null
   intervalCount?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundValue?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundUnit?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  isPublishedToStore?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  status?: Prisma.EnumServiceStatusFilter<"ServicePackage"> | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFilter<"ServicePackage"> | $Enums.ServiceVisibility
   featured?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
-  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
+  active?: Prisma.BoolFilter<"ServicePackage"> | boolean
   lineItems?: Prisma.JsonNullableFilter<"ServicePackage">
   deliverables?: Prisma.JsonNullableFilter<"ServicePackage">
   timeline?: Prisma.JsonNullableFilter<"ServicePackage">
   paymentSchedule?: Prisma.JsonNullableFilter<"ServicePackage">
   legalClauses?: Prisma.JsonNullableFilter<"ServicePackage">
   revisionPolicy?: Prisma.JsonNullableFilter<"ServicePackage">
+  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
+  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFilter<"ServicePackage"> | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFilter<"ServicePackage"> | boolean
   autoApplyLegalClauses?: Prisma.BoolFilter<"ServicePackage"> | boolean
   createdAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
-  addOns?: Prisma.ServiceAddOnListRelationFilter
+  deletedAt?: Prisma.DateTimeNullableFilter<"ServicePackage"> | Date | string | null
+  service?: Prisma.XOR<Prisma.ServiceScalarRelationFilter, Prisma.ServiceWhereInput>
   purchases?: Prisma.ServicePurchaseListRelationFilter
-  workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
+  addOns?: Prisma.ServicePackageAddOnListRelationFilter
 }
 
 export type ServicePackageOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  workspaceId?: Prisma.SortOrder
+  serviceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  category?: Prisma.SortOrderInput | Prisma.SortOrder
-  icon?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
-  type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  price?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrder
+  pricingType?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
   interval?: Prisma.SortOrderInput | Prisma.SortOrder
   intervalCount?: Prisma.SortOrderInput | Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrderInput | Prisma.SortOrder
-  turnaroundUnit?: Prisma.SortOrderInput | Prisma.SortOrder
-  isPublishedToStore?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   featured?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-  autoCreateProject?: Prisma.SortOrder
-  autoCreateCompany?: Prisma.SortOrder
-  autoSendBriefForm?: Prisma.SortOrder
-  autoSendPortalInvite?: Prisma.SortOrder
-  briefFormId?: Prisma.SortOrderInput | Prisma.SortOrder
-  paymentPreferences?: Prisma.SortOrderInput | Prisma.SortOrder
+  active?: Prisma.SortOrder
   lineItems?: Prisma.SortOrderInput | Prisma.SortOrder
   deliverables?: Prisma.SortOrderInput | Prisma.SortOrder
   timeline?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentSchedule?: Prisma.SortOrderInput | Prisma.SortOrder
   legalClauses?: Prisma.SortOrderInput | Prisma.SortOrder
   revisionPolicy?: Prisma.SortOrderInput | Prisma.SortOrder
+  paymentPreferences?: Prisma.SortOrderInput | Prisma.SortOrder
+  autoCreateProject?: Prisma.SortOrder
+  autoCreateCompany?: Prisma.SortOrder
+  autoSendBriefForm?: Prisma.SortOrder
+  autoSendPortalInvite?: Prisma.SortOrder
+  briefFormId?: Prisma.SortOrderInput | Prisma.SortOrder
   autoApplyRevisionPolicy?: Prisma.SortOrder
   autoApplyPaymentSchedule?: Prisma.SortOrder
   autoApplyLegalClauses?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
-  addOns?: Prisma.ServiceAddOnOrderByRelationAggregateInput
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  service?: Prisma.ServiceOrderByWithRelationInput
   purchases?: Prisma.ServicePurchaseOrderByRelationAggregateInput
-  workspace?: Prisma.WorkspaceOrderByWithRelationInput
+  addOns?: Prisma.ServicePackageAddOnOrderByRelationAggregateInput
 }
 
 export type ServicePackageWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  slug?: string
-  workspaceId_slug?: Prisma.ServicePackageWorkspaceIdSlugCompoundUniqueInput
-  workspaceId_sortOrder?: Prisma.ServicePackageWorkspaceIdSortOrderCompoundUniqueInput
+  serviceId_slug?: Prisma.ServicePackageServiceIdSlugCompoundUniqueInput
   AND?: Prisma.ServicePackageWhereInput | Prisma.ServicePackageWhereInput[]
   OR?: Prisma.ServicePackageWhereInput[]
   NOT?: Prisma.ServicePackageWhereInput | Prisma.ServicePackageWhereInput[]
-  workspaceId?: Prisma.StringFilter<"ServicePackage"> | string
+  serviceId?: Prisma.StringFilter<"ServicePackage"> | string
   name?: Prisma.StringFilter<"ServicePackage"> | string
-  tagline?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
+  slug?: Prisma.StringFilter<"ServicePackage"> | string
   description?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  category?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  icon?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  avatar?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  type?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
-  price?: Prisma.DecimalFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.DecimalNullableFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFilter<"ServicePackage"> | string
+  pricingType?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
+  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
   interval?: Prisma.EnumBillingCadenceNullableFilter<"ServicePackage"> | $Enums.BillingCadence | null
   intervalCount?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundValue?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundUnit?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  isPublishedToStore?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  status?: Prisma.EnumServiceStatusFilter<"ServicePackage"> | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFilter<"ServicePackage"> | $Enums.ServiceVisibility
   featured?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
-  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
+  active?: Prisma.BoolFilter<"ServicePackage"> | boolean
   lineItems?: Prisma.JsonNullableFilter<"ServicePackage">
   deliverables?: Prisma.JsonNullableFilter<"ServicePackage">
   timeline?: Prisma.JsonNullableFilter<"ServicePackage">
   paymentSchedule?: Prisma.JsonNullableFilter<"ServicePackage">
   legalClauses?: Prisma.JsonNullableFilter<"ServicePackage">
   revisionPolicy?: Prisma.JsonNullableFilter<"ServicePackage">
+  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
+  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFilter<"ServicePackage"> | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFilter<"ServicePackage"> | boolean
   autoApplyLegalClauses?: Prisma.BoolFilter<"ServicePackage"> | boolean
   createdAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
-  addOns?: Prisma.ServiceAddOnListRelationFilter
+  deletedAt?: Prisma.DateTimeNullableFilter<"ServicePackage"> | Date | string | null
+  service?: Prisma.XOR<Prisma.ServiceScalarRelationFilter, Prisma.ServiceWhereInput>
   purchases?: Prisma.ServicePurchaseListRelationFilter
-  workspace?: Prisma.XOR<Prisma.WorkspaceScalarRelationFilter, Prisma.WorkspaceWhereInput>
-}, "id" | "slug" | "workspaceId_slug" | "workspaceId_sortOrder">
+  addOns?: Prisma.ServicePackageAddOnListRelationFilter
+}, "id" | "serviceId_slug">
 
 export type ServicePackageOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  workspaceId?: Prisma.SortOrder
+  serviceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  category?: Prisma.SortOrderInput | Prisma.SortOrder
-  icon?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
-  type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
+  price?: Prisma.SortOrderInput | Prisma.SortOrder
   currency?: Prisma.SortOrder
+  pricingType?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
   interval?: Prisma.SortOrderInput | Prisma.SortOrder
   intervalCount?: Prisma.SortOrderInput | Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrderInput | Prisma.SortOrder
-  turnaroundUnit?: Prisma.SortOrderInput | Prisma.SortOrder
-  isPublishedToStore?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
   featured?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-  autoCreateProject?: Prisma.SortOrder
-  autoCreateCompany?: Prisma.SortOrder
-  autoSendBriefForm?: Prisma.SortOrder
-  autoSendPortalInvite?: Prisma.SortOrder
-  briefFormId?: Prisma.SortOrderInput | Prisma.SortOrder
-  paymentPreferences?: Prisma.SortOrderInput | Prisma.SortOrder
+  active?: Prisma.SortOrder
   lineItems?: Prisma.SortOrderInput | Prisma.SortOrder
   deliverables?: Prisma.SortOrderInput | Prisma.SortOrder
   timeline?: Prisma.SortOrderInput | Prisma.SortOrder
   paymentSchedule?: Prisma.SortOrderInput | Prisma.SortOrder
   legalClauses?: Prisma.SortOrderInput | Prisma.SortOrder
   revisionPolicy?: Prisma.SortOrderInput | Prisma.SortOrder
+  paymentPreferences?: Prisma.SortOrderInput | Prisma.SortOrder
+  autoCreateProject?: Prisma.SortOrder
+  autoCreateCompany?: Prisma.SortOrder
+  autoSendBriefForm?: Prisma.SortOrder
+  autoSendPortalInvite?: Prisma.SortOrder
+  briefFormId?: Prisma.SortOrderInput | Prisma.SortOrder
   autoApplyRevisionPolicy?: Prisma.SortOrder
   autoApplyPaymentSchedule?: Prisma.SortOrder
   autoApplyLegalClauses?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ServicePackageCountOrderByAggregateInput
   _avg?: Prisma.ServicePackageAvgOrderByAggregateInput
   _max?: Prisma.ServicePackageMaxOrderByAggregateInput
@@ -613,475 +531,281 @@ export type ServicePackageScalarWhereWithAggregatesInput = {
   OR?: Prisma.ServicePackageScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ServicePackageScalarWhereWithAggregatesInput | Prisma.ServicePackageScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
-  workspaceId?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
+  serviceId?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
   name?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
   slug?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
-  tagline?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  category?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  icon?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  avatar?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  type?: Prisma.EnumPricingTypeWithAggregatesFilter<"ServicePackage"> | $Enums.PricingType
-  price?: Prisma.DecimalWithAggregatesFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.DecimalNullableWithAggregatesFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringWithAggregatesFilter<"ServicePackage"> | string
+  pricingType?: Prisma.EnumPricingTypeWithAggregatesFilter<"ServicePackage"> | $Enums.PricingType
+  sortOrder?: Prisma.IntWithAggregatesFilter<"ServicePackage"> | number
   interval?: Prisma.EnumBillingCadenceNullableWithAggregatesFilter<"ServicePackage"> | $Enums.BillingCadence | null
   intervalCount?: Prisma.IntNullableWithAggregatesFilter<"ServicePackage"> | number | null
-  turnaroundValue?: Prisma.IntNullableWithAggregatesFilter<"ServicePackage"> | number | null
-  turnaroundUnit?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  isPublishedToStore?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  status?: Prisma.EnumServiceStatusWithAggregatesFilter<"ServicePackage"> | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityWithAggregatesFilter<"ServicePackage"> | $Enums.ServiceVisibility
   featured?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  sortOrder?: Prisma.IntWithAggregatesFilter<"ServicePackage"> | number
-  autoCreateProject?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  autoCreateCompany?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  autoSendBriefForm?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  autoSendPortalInvite?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
-  briefFormId?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
-  paymentPreferences?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
+  active?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
   lineItems?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
   deliverables?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
   timeline?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
   paymentSchedule?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
   legalClauses?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
   revisionPolicy?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
+  paymentPreferences?: Prisma.JsonNullableWithAggregatesFilter<"ServicePackage">
+  autoCreateProject?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
+  autoCreateCompany?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
+  autoSendBriefForm?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
+  autoSendPortalInvite?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
+  briefFormId?: Prisma.StringNullableWithAggregatesFilter<"ServicePackage"> | string | null
   autoApplyRevisionPolicy?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
   autoApplyPaymentSchedule?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
   autoApplyLegalClauses?: Prisma.BoolWithAggregatesFilter<"ServicePackage"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePackage"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePackage"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"ServicePackage"> | Date | string | null
 }
 
 export type ServicePackageCreateInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnCreateNestedManyWithoutServicePackageInput
-  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutItemInput
-  workspace: Prisma.WorkspaceCreateNestedOneWithoutServicesInput
+  deletedAt?: Date | string | null
+  service: Prisma.ServiceCreateNestedOneWithoutPackagesInput
+  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutPackageInput
+  addOns?: Prisma.ServicePackageAddOnCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageUncheckedCreateInput = {
   id?: string
-  workspaceId: string
+  serviceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedCreateNestedManyWithoutServicePackageInput
-  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutItemInput
+  deletedAt?: Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutPackageInput
+  addOns?: Prisma.ServicePackageAddOnUncheckedCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUpdateManyWithoutServicePackageNestedInput
-  purchases?: Prisma.ServicePurchaseUpdateManyWithoutItemNestedInput
-  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicesNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPackagesNestedInput
+  purchases?: Prisma.ServicePurchaseUpdateManyWithoutPackageNestedInput
+  addOns?: Prisma.ServicePackageAddOnUpdateManyWithoutPackageNestedInput
 }
 
 export type ServicePackageUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedUpdateManyWithoutServicePackageNestedInput
-  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutItemNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutPackageNestedInput
+  addOns?: Prisma.ServicePackageAddOnUncheckedUpdateManyWithoutPackageNestedInput
 }
 
 export type ServicePackageCreateManyInput = {
   id?: string
-  workspaceId: string
+  serviceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
+  active?: boolean
+  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoCreateProject?: boolean
   autoCreateCompany?: boolean
   autoSendBriefForm?: boolean
   autoSendPortalInvite?: boolean
   briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  deletedAt?: Date | string | null
 }
 
 export type ServicePackageUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type ServicePackageUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type ServicePackageWorkspaceIdSlugCompoundUniqueInput = {
-  workspaceId: string
-  slug: string
-}
-
-export type ServicePackageWorkspaceIdSortOrderCompoundUniqueInput = {
-  workspaceId: string
-  sortOrder: number
-}
-
-export type ServicePackageCountOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  workspaceId?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  currency?: Prisma.SortOrder
-  interval?: Prisma.SortOrder
-  intervalCount?: Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrder
-  turnaroundUnit?: Prisma.SortOrder
-  isPublishedToStore?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
-  featured?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-  autoCreateProject?: Prisma.SortOrder
-  autoCreateCompany?: Prisma.SortOrder
-  autoSendBriefForm?: Prisma.SortOrder
-  autoSendPortalInvite?: Prisma.SortOrder
-  briefFormId?: Prisma.SortOrder
-  paymentPreferences?: Prisma.SortOrder
-  lineItems?: Prisma.SortOrder
-  deliverables?: Prisma.SortOrder
-  timeline?: Prisma.SortOrder
-  paymentSchedule?: Prisma.SortOrder
-  legalClauses?: Prisma.SortOrder
-  revisionPolicy?: Prisma.SortOrder
-  autoApplyRevisionPolicy?: Prisma.SortOrder
-  autoApplyPaymentSchedule?: Prisma.SortOrder
-  autoApplyLegalClauses?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
-
-export type ServicePackageAvgOrderByAggregateInput = {
-  price?: Prisma.SortOrder
-  intervalCount?: Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-}
-
-export type ServicePackageMaxOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  workspaceId?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  currency?: Prisma.SortOrder
-  interval?: Prisma.SortOrder
-  intervalCount?: Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrder
-  turnaroundUnit?: Prisma.SortOrder
-  isPublishedToStore?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
-  featured?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-  autoCreateProject?: Prisma.SortOrder
-  autoCreateCompany?: Prisma.SortOrder
-  autoSendBriefForm?: Prisma.SortOrder
-  autoSendPortalInvite?: Prisma.SortOrder
-  briefFormId?: Prisma.SortOrder
-  autoApplyRevisionPolicy?: Prisma.SortOrder
-  autoApplyPaymentSchedule?: Prisma.SortOrder
-  autoApplyLegalClauses?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
-
-export type ServicePackageMinOrderByAggregateInput = {
-  id?: Prisma.SortOrder
-  workspaceId?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
-  description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  icon?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  type?: Prisma.SortOrder
-  price?: Prisma.SortOrder
-  currency?: Prisma.SortOrder
-  interval?: Prisma.SortOrder
-  intervalCount?: Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrder
-  turnaroundUnit?: Prisma.SortOrder
-  isPublishedToStore?: Prisma.SortOrder
-  status?: Prisma.SortOrder
-  visibility?: Prisma.SortOrder
-  featured?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-  autoCreateProject?: Prisma.SortOrder
-  autoCreateCompany?: Prisma.SortOrder
-  autoSendBriefForm?: Prisma.SortOrder
-  autoSendPortalInvite?: Prisma.SortOrder
-  briefFormId?: Prisma.SortOrder
-  autoApplyRevisionPolicy?: Prisma.SortOrder
-  autoApplyPaymentSchedule?: Prisma.SortOrder
-  autoApplyLegalClauses?: Prisma.SortOrder
-  createdAt?: Prisma.SortOrder
-  updatedAt?: Prisma.SortOrder
-}
-
-export type ServicePackageSumOrderByAggregateInput = {
-  price?: Prisma.SortOrder
-  intervalCount?: Prisma.SortOrder
-  turnaroundValue?: Prisma.SortOrder
-  sortOrder?: Prisma.SortOrder
-}
-
-export type ServicePackageScalarRelationFilter = {
-  is?: Prisma.ServicePackageWhereInput
-  isNot?: Prisma.ServicePackageWhereInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type ServicePackageListRelationFilter = {
@@ -1094,16 +818,168 @@ export type ServicePackageOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type EnumPricingTypeFieldUpdateOperationsInput = {
-  set?: $Enums.PricingType
+export type ServicePackageServiceIdSlugCompoundUniqueInput = {
+  serviceId: string
+  slug: string
 }
 
-export type DecimalFieldUpdateOperationsInput = {
-  set?: runtime.Decimal | runtime.DecimalJsLike | number | string
+export type ServicePackageCountOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  serviceId?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  slug?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  pricingType?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+  interval?: Prisma.SortOrder
+  intervalCount?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  lineItems?: Prisma.SortOrder
+  deliverables?: Prisma.SortOrder
+  timeline?: Prisma.SortOrder
+  paymentSchedule?: Prisma.SortOrder
+  legalClauses?: Prisma.SortOrder
+  revisionPolicy?: Prisma.SortOrder
+  paymentPreferences?: Prisma.SortOrder
+  autoCreateProject?: Prisma.SortOrder
+  autoCreateCompany?: Prisma.SortOrder
+  autoSendBriefForm?: Prisma.SortOrder
+  autoSendPortalInvite?: Prisma.SortOrder
+  briefFormId?: Prisma.SortOrder
+  autoApplyRevisionPolicy?: Prisma.SortOrder
+  autoApplyPaymentSchedule?: Prisma.SortOrder
+  autoApplyLegalClauses?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type ServicePackageAvgOrderByAggregateInput = {
+  price?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+  intervalCount?: Prisma.SortOrder
+}
+
+export type ServicePackageMaxOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  serviceId?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  slug?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  pricingType?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+  interval?: Prisma.SortOrder
+  intervalCount?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  autoCreateProject?: Prisma.SortOrder
+  autoCreateCompany?: Prisma.SortOrder
+  autoSendBriefForm?: Prisma.SortOrder
+  autoSendPortalInvite?: Prisma.SortOrder
+  briefFormId?: Prisma.SortOrder
+  autoApplyRevisionPolicy?: Prisma.SortOrder
+  autoApplyPaymentSchedule?: Prisma.SortOrder
+  autoApplyLegalClauses?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type ServicePackageMinOrderByAggregateInput = {
+  id?: Prisma.SortOrder
+  serviceId?: Prisma.SortOrder
+  name?: Prisma.SortOrder
+  slug?: Prisma.SortOrder
+  description?: Prisma.SortOrder
+  price?: Prisma.SortOrder
+  currency?: Prisma.SortOrder
+  pricingType?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+  interval?: Prisma.SortOrder
+  intervalCount?: Prisma.SortOrder
+  featured?: Prisma.SortOrder
+  active?: Prisma.SortOrder
+  autoCreateProject?: Prisma.SortOrder
+  autoCreateCompany?: Prisma.SortOrder
+  autoSendBriefForm?: Prisma.SortOrder
+  autoSendPortalInvite?: Prisma.SortOrder
+  briefFormId?: Prisma.SortOrder
+  autoApplyRevisionPolicy?: Prisma.SortOrder
+  autoApplyPaymentSchedule?: Prisma.SortOrder
+  autoApplyLegalClauses?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
+}
+
+export type ServicePackageSumOrderByAggregateInput = {
+  price?: Prisma.SortOrder
+  sortOrder?: Prisma.SortOrder
+  intervalCount?: Prisma.SortOrder
+}
+
+export type ServicePackageScalarRelationFilter = {
+  is?: Prisma.ServicePackageWhereInput
+  isNot?: Prisma.ServicePackageWhereInput
+}
+
+export type ServicePackageCreateNestedManyWithoutServiceInput = {
+  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput> | Prisma.ServicePackageCreateWithoutServiceInput[] | Prisma.ServicePackageUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutServiceInput | Prisma.ServicePackageCreateOrConnectWithoutServiceInput[]
+  createMany?: Prisma.ServicePackageCreateManyServiceInputEnvelope
+  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+}
+
+export type ServicePackageUncheckedCreateNestedManyWithoutServiceInput = {
+  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput> | Prisma.ServicePackageCreateWithoutServiceInput[] | Prisma.ServicePackageUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutServiceInput | Prisma.ServicePackageCreateOrConnectWithoutServiceInput[]
+  createMany?: Prisma.ServicePackageCreateManyServiceInputEnvelope
+  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+}
+
+export type ServicePackageUpdateManyWithoutServiceNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput> | Prisma.ServicePackageCreateWithoutServiceInput[] | Prisma.ServicePackageUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutServiceInput | Prisma.ServicePackageCreateOrConnectWithoutServiceInput[]
+  upsert?: Prisma.ServicePackageUpsertWithWhereUniqueWithoutServiceInput | Prisma.ServicePackageUpsertWithWhereUniqueWithoutServiceInput[]
+  createMany?: Prisma.ServicePackageCreateManyServiceInputEnvelope
+  set?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  disconnect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  delete?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  update?: Prisma.ServicePackageUpdateWithWhereUniqueWithoutServiceInput | Prisma.ServicePackageUpdateWithWhereUniqueWithoutServiceInput[]
+  updateMany?: Prisma.ServicePackageUpdateManyWithWhereWithoutServiceInput | Prisma.ServicePackageUpdateManyWithWhereWithoutServiceInput[]
+  deleteMany?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+}
+
+export type ServicePackageUncheckedUpdateManyWithoutServiceNestedInput = {
+  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput> | Prisma.ServicePackageCreateWithoutServiceInput[] | Prisma.ServicePackageUncheckedCreateWithoutServiceInput[]
+  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutServiceInput | Prisma.ServicePackageCreateOrConnectWithoutServiceInput[]
+  upsert?: Prisma.ServicePackageUpsertWithWhereUniqueWithoutServiceInput | Prisma.ServicePackageUpsertWithWhereUniqueWithoutServiceInput[]
+  createMany?: Prisma.ServicePackageCreateManyServiceInputEnvelope
+  set?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  disconnect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  delete?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+  update?: Prisma.ServicePackageUpdateWithWhereUniqueWithoutServiceInput | Prisma.ServicePackageUpdateWithWhereUniqueWithoutServiceInput[]
+  updateMany?: Prisma.ServicePackageUpdateManyWithWhereWithoutServiceInput | Prisma.ServicePackageUpdateManyWithWhereWithoutServiceInput[]
+  deleteMany?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+}
+
+export type NullableDecimalFieldUpdateOperationsInput = {
+  set?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
   decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
   multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type EnumPricingTypeFieldUpdateOperationsInput = {
+  set?: $Enums.PricingType
 }
 
 export type NullableEnumBillingCadenceFieldUpdateOperationsInput = {
@@ -1116,14 +992,6 @@ export type NullableIntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
-}
-
-export type EnumServiceStatusFieldUpdateOperationsInput = {
-  set?: $Enums.ServiceStatus
-}
-
-export type EnumServiceVisibilityFieldUpdateOperationsInput = {
-  set?: $Enums.ServiceVisibility
 }
 
 export type ServicePackageCreateNestedOneWithoutAddOnsInput = {
@@ -1154,130 +1022,207 @@ export type ServicePackageUpdateOneRequiredWithoutPurchasesNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ServicePackageUpdateToOneWithWhereWithoutPurchasesInput, Prisma.ServicePackageUpdateWithoutPurchasesInput>, Prisma.ServicePackageUncheckedUpdateWithoutPurchasesInput>
 }
 
-export type ServicePackageCreateNestedManyWithoutWorkspaceInput = {
-  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput> | Prisma.ServicePackageCreateWithoutWorkspaceInput[] | Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput[]
-  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput | Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput[]
-  createMany?: Prisma.ServicePackageCreateManyWorkspaceInputEnvelope
-  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+export type ServicePackageCreateWithoutServiceInput = {
+  id?: string
+  name: string
+  slug: string
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
+  interval?: $Enums.BillingCadence | null
+  intervalCount?: number | null
+  featured?: boolean
+  active?: boolean
+  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
+  autoApplyRevisionPolicy?: boolean
+  autoApplyPaymentSchedule?: boolean
+  autoApplyLegalClauses?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutPackageInput
+  addOns?: Prisma.ServicePackageAddOnCreateNestedManyWithoutPackageInput
 }
 
-export type ServicePackageUncheckedCreateNestedManyWithoutWorkspaceInput = {
-  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput> | Prisma.ServicePackageCreateWithoutWorkspaceInput[] | Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput[]
-  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput | Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput[]
-  createMany?: Prisma.ServicePackageCreateManyWorkspaceInputEnvelope
-  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
+export type ServicePackageUncheckedCreateWithoutServiceInput = {
+  id?: string
+  name: string
+  slug: string
+  description?: string | null
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
+  interval?: $Enums.BillingCadence | null
+  intervalCount?: number | null
+  featured?: boolean
+  active?: boolean
+  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
+  autoApplyRevisionPolicy?: boolean
+  autoApplyPaymentSchedule?: boolean
+  autoApplyLegalClauses?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutPackageInput
+  addOns?: Prisma.ServicePackageAddOnUncheckedCreateNestedManyWithoutPackageInput
 }
 
-export type ServicePackageUpdateManyWithoutWorkspaceNestedInput = {
-  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput> | Prisma.ServicePackageCreateWithoutWorkspaceInput[] | Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput[]
-  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput | Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput[]
-  upsert?: Prisma.ServicePackageUpsertWithWhereUniqueWithoutWorkspaceInput | Prisma.ServicePackageUpsertWithWhereUniqueWithoutWorkspaceInput[]
-  createMany?: Prisma.ServicePackageCreateManyWorkspaceInputEnvelope
-  set?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  disconnect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  delete?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  update?: Prisma.ServicePackageUpdateWithWhereUniqueWithoutWorkspaceInput | Prisma.ServicePackageUpdateWithWhereUniqueWithoutWorkspaceInput[]
-  updateMany?: Prisma.ServicePackageUpdateManyWithWhereWithoutWorkspaceInput | Prisma.ServicePackageUpdateManyWithWhereWithoutWorkspaceInput[]
-  deleteMany?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+export type ServicePackageCreateOrConnectWithoutServiceInput = {
+  where: Prisma.ServicePackageWhereUniqueInput
+  create: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput>
 }
 
-export type ServicePackageUncheckedUpdateManyWithoutWorkspaceNestedInput = {
-  create?: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput> | Prisma.ServicePackageCreateWithoutWorkspaceInput[] | Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput[]
-  connectOrCreate?: Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput | Prisma.ServicePackageCreateOrConnectWithoutWorkspaceInput[]
-  upsert?: Prisma.ServicePackageUpsertWithWhereUniqueWithoutWorkspaceInput | Prisma.ServicePackageUpsertWithWhereUniqueWithoutWorkspaceInput[]
-  createMany?: Prisma.ServicePackageCreateManyWorkspaceInputEnvelope
-  set?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  disconnect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  delete?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  connect?: Prisma.ServicePackageWhereUniqueInput | Prisma.ServicePackageWhereUniqueInput[]
-  update?: Prisma.ServicePackageUpdateWithWhereUniqueWithoutWorkspaceInput | Prisma.ServicePackageUpdateWithWhereUniqueWithoutWorkspaceInput[]
-  updateMany?: Prisma.ServicePackageUpdateManyWithWhereWithoutWorkspaceInput | Prisma.ServicePackageUpdateManyWithWhereWithoutWorkspaceInput[]
-  deleteMany?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+export type ServicePackageCreateManyServiceInputEnvelope = {
+  data: Prisma.ServicePackageCreateManyServiceInput | Prisma.ServicePackageCreateManyServiceInput[]
+  skipDuplicates?: boolean
+}
+
+export type ServicePackageUpsertWithWhereUniqueWithoutServiceInput = {
+  where: Prisma.ServicePackageWhereUniqueInput
+  update: Prisma.XOR<Prisma.ServicePackageUpdateWithoutServiceInput, Prisma.ServicePackageUncheckedUpdateWithoutServiceInput>
+  create: Prisma.XOR<Prisma.ServicePackageCreateWithoutServiceInput, Prisma.ServicePackageUncheckedCreateWithoutServiceInput>
+}
+
+export type ServicePackageUpdateWithWhereUniqueWithoutServiceInput = {
+  where: Prisma.ServicePackageWhereUniqueInput
+  data: Prisma.XOR<Prisma.ServicePackageUpdateWithoutServiceInput, Prisma.ServicePackageUncheckedUpdateWithoutServiceInput>
+}
+
+export type ServicePackageUpdateManyWithWhereWithoutServiceInput = {
+  where: Prisma.ServicePackageScalarWhereInput
+  data: Prisma.XOR<Prisma.ServicePackageUpdateManyMutationInput, Prisma.ServicePackageUncheckedUpdateManyWithoutServiceInput>
+}
+
+export type ServicePackageScalarWhereInput = {
+  AND?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+  OR?: Prisma.ServicePackageScalarWhereInput[]
+  NOT?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
+  id?: Prisma.StringFilter<"ServicePackage"> | string
+  serviceId?: Prisma.StringFilter<"ServicePackage"> | string
+  name?: Prisma.StringFilter<"ServicePackage"> | string
+  slug?: Prisma.StringFilter<"ServicePackage"> | string
+  description?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
+  price?: Prisma.DecimalNullableFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: Prisma.StringFilter<"ServicePackage"> | string
+  pricingType?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
+  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
+  interval?: Prisma.EnumBillingCadenceNullableFilter<"ServicePackage"> | $Enums.BillingCadence | null
+  intervalCount?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
+  featured?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  active?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  lineItems?: Prisma.JsonNullableFilter<"ServicePackage">
+  deliverables?: Prisma.JsonNullableFilter<"ServicePackage">
+  timeline?: Prisma.JsonNullableFilter<"ServicePackage">
+  paymentSchedule?: Prisma.JsonNullableFilter<"ServicePackage">
+  legalClauses?: Prisma.JsonNullableFilter<"ServicePackage">
+  revisionPolicy?: Prisma.JsonNullableFilter<"ServicePackage">
+  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
+  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
+  autoApplyRevisionPolicy?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoApplyPaymentSchedule?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  autoApplyLegalClauses?: Prisma.BoolFilter<"ServicePackage"> | boolean
+  createdAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
+  deletedAt?: Prisma.DateTimeNullableFilter<"ServicePackage"> | Date | string | null
 }
 
 export type ServicePackageCreateWithoutAddOnsInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutItemInput
-  workspace: Prisma.WorkspaceCreateNestedOneWithoutServicesInput
+  deletedAt?: Date | string | null
+  service: Prisma.ServiceCreateNestedOneWithoutPackagesInput
+  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageUncheckedCreateWithoutAddOnsInput = {
   id?: string
-  workspaceId: string
+  serviceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutItemInput
+  deletedAt?: Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageCreateOrConnectWithoutAddOnsInput = {
@@ -1300,168 +1245,140 @@ export type ServicePackageUpdateWithoutAddOnsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  purchases?: Prisma.ServicePurchaseUpdateManyWithoutItemNestedInput
-  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicesNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPackagesNestedInput
+  purchases?: Prisma.ServicePurchaseUpdateManyWithoutPackageNestedInput
 }
 
 export type ServicePackageUncheckedUpdateWithoutAddOnsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutItemNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutPackageNestedInput
 }
 
 export type ServicePackageCreateWithoutPurchasesInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnCreateNestedManyWithoutServicePackageInput
-  workspace: Prisma.WorkspaceCreateNestedOneWithoutServicesInput
+  deletedAt?: Date | string | null
+  service: Prisma.ServiceCreateNestedOneWithoutPackagesInput
+  addOns?: Prisma.ServicePackageAddOnCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageUncheckedCreateWithoutPurchasesInput = {
   id?: string
-  workspaceId: string
+  serviceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: string | null
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedCreateNestedManyWithoutServicePackageInput
+  deletedAt?: Date | string | null
+  addOns?: Prisma.ServicePackageAddOnUncheckedCreateNestedManyWithoutPackageInput
 }
 
 export type ServicePackageCreateOrConnectWithoutPurchasesInput = {
@@ -1484,402 +1401,206 @@ export type ServicePackageUpdateWithoutPurchasesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUpdateManyWithoutServicePackageNestedInput
-  workspace?: Prisma.WorkspaceUpdateOneRequiredWithoutServicesNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  service?: Prisma.ServiceUpdateOneRequiredWithoutPackagesNestedInput
+  addOns?: Prisma.ServicePackageAddOnUpdateManyWithoutPackageNestedInput
 }
 
 export type ServicePackageUncheckedUpdateWithoutPurchasesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
+  serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
-  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedUpdateManyWithoutServicePackageNestedInput
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  addOns?: Prisma.ServicePackageAddOnUncheckedUpdateManyWithoutPackageNestedInput
 }
 
-export type ServicePackageCreateWithoutWorkspaceInput = {
+export type ServicePackageCreateManyServiceInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: string
+  pricingType?: $Enums.PricingType
+  sortOrder?: number
   interval?: $Enums.BillingCadence | null
   intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
   featured?: boolean
-  sortOrder?: number
+  active?: boolean
+  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoCreateProject?: boolean
   autoCreateCompany?: boolean
   autoSendBriefForm?: boolean
   autoSendPortalInvite?: boolean
   briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnCreateNestedManyWithoutServicePackageInput
-  purchases?: Prisma.ServicePurchaseCreateNestedManyWithoutItemInput
+  deletedAt?: Date | string | null
 }
 
-export type ServicePackageUncheckedCreateWithoutWorkspaceInput = {
-  id?: string
-  name: string
-  slug: string
-  tagline?: string | null
-  description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency?: string
-  interval?: $Enums.BillingCadence | null
-  intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
-  featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  autoApplyRevisionPolicy?: boolean
-  autoApplyPaymentSchedule?: boolean
-  autoApplyLegalClauses?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedCreateNestedManyWithoutServicePackageInput
-  purchases?: Prisma.ServicePurchaseUncheckedCreateNestedManyWithoutItemInput
-}
-
-export type ServicePackageCreateOrConnectWithoutWorkspaceInput = {
-  where: Prisma.ServicePackageWhereUniqueInput
-  create: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput>
-}
-
-export type ServicePackageCreateManyWorkspaceInputEnvelope = {
-  data: Prisma.ServicePackageCreateManyWorkspaceInput | Prisma.ServicePackageCreateManyWorkspaceInput[]
-  skipDuplicates?: boolean
-}
-
-export type ServicePackageUpsertWithWhereUniqueWithoutWorkspaceInput = {
-  where: Prisma.ServicePackageWhereUniqueInput
-  update: Prisma.XOR<Prisma.ServicePackageUpdateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedUpdateWithoutWorkspaceInput>
-  create: Prisma.XOR<Prisma.ServicePackageCreateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedCreateWithoutWorkspaceInput>
-}
-
-export type ServicePackageUpdateWithWhereUniqueWithoutWorkspaceInput = {
-  where: Prisma.ServicePackageWhereUniqueInput
-  data: Prisma.XOR<Prisma.ServicePackageUpdateWithoutWorkspaceInput, Prisma.ServicePackageUncheckedUpdateWithoutWorkspaceInput>
-}
-
-export type ServicePackageUpdateManyWithWhereWithoutWorkspaceInput = {
-  where: Prisma.ServicePackageScalarWhereInput
-  data: Prisma.XOR<Prisma.ServicePackageUpdateManyMutationInput, Prisma.ServicePackageUncheckedUpdateManyWithoutWorkspaceInput>
-}
-
-export type ServicePackageScalarWhereInput = {
-  AND?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
-  OR?: Prisma.ServicePackageScalarWhereInput[]
-  NOT?: Prisma.ServicePackageScalarWhereInput | Prisma.ServicePackageScalarWhereInput[]
-  id?: Prisma.StringFilter<"ServicePackage"> | string
-  workspaceId?: Prisma.StringFilter<"ServicePackage"> | string
-  name?: Prisma.StringFilter<"ServicePackage"> | string
-  slug?: Prisma.StringFilter<"ServicePackage"> | string
-  tagline?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  description?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  category?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  icon?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  avatar?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  type?: Prisma.EnumPricingTypeFilter<"ServicePackage"> | $Enums.PricingType
-  price?: Prisma.DecimalFilter<"ServicePackage"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency?: Prisma.StringFilter<"ServicePackage"> | string
-  interval?: Prisma.EnumBillingCadenceNullableFilter<"ServicePackage"> | $Enums.BillingCadence | null
-  intervalCount?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundValue?: Prisma.IntNullableFilter<"ServicePackage"> | number | null
-  turnaroundUnit?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  isPublishedToStore?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  status?: Prisma.EnumServiceStatusFilter<"ServicePackage"> | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFilter<"ServicePackage"> | $Enums.ServiceVisibility
-  featured?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  sortOrder?: Prisma.IntFilter<"ServicePackage"> | number
-  autoCreateProject?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoCreateCompany?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendBriefForm?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoSendPortalInvite?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  briefFormId?: Prisma.StringNullableFilter<"ServicePackage"> | string | null
-  paymentPreferences?: Prisma.JsonNullableFilter<"ServicePackage">
-  lineItems?: Prisma.JsonNullableFilter<"ServicePackage">
-  deliverables?: Prisma.JsonNullableFilter<"ServicePackage">
-  timeline?: Prisma.JsonNullableFilter<"ServicePackage">
-  paymentSchedule?: Prisma.JsonNullableFilter<"ServicePackage">
-  legalClauses?: Prisma.JsonNullableFilter<"ServicePackage">
-  revisionPolicy?: Prisma.JsonNullableFilter<"ServicePackage">
-  autoApplyRevisionPolicy?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoApplyPaymentSchedule?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  autoApplyLegalClauses?: Prisma.BoolFilter<"ServicePackage"> | boolean
-  createdAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
-  updatedAt?: Prisma.DateTimeFilter<"ServicePackage"> | Date | string
-}
-
-export type ServicePackageCreateManyWorkspaceInput = {
-  id?: string
-  name: string
-  slug: string
-  tagline?: string | null
-  description?: string | null
-  category?: string | null
-  icon?: string | null
-  avatar?: string | null
-  type: $Enums.PricingType
-  price: runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency?: string
-  interval?: $Enums.BillingCadence | null
-  intervalCount?: number | null
-  turnaroundValue?: number | null
-  turnaroundUnit?: string | null
-  isPublishedToStore?: boolean
-  status?: $Enums.ServiceStatus
-  visibility?: $Enums.ServiceVisibility
-  featured?: boolean
-  sortOrder?: number
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  autoApplyRevisionPolicy?: boolean
-  autoApplyPaymentSchedule?: boolean
-  autoApplyLegalClauses?: boolean
-  createdAt?: Date | string
-  updatedAt?: Date | string
-}
-
-export type ServicePackageUpdateWithoutWorkspaceInput = {
+export type ServicePackageUpdateWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
   interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
   intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchases?: Prisma.ServicePurchaseUpdateManyWithoutPackageNestedInput
+  addOns?: Prisma.ServicePackageAddOnUpdateManyWithoutPackageNestedInput
+}
+
+export type ServicePackageUncheckedUpdateWithoutServiceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
+  intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUpdateManyWithoutServicePackageNestedInput
-  purchases?: Prisma.ServicePurchaseUpdateManyWithoutItemNestedInput
-}
-
-export type ServicePackageUncheckedUpdateWithoutWorkspaceInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency?: Prisma.StringFieldUpdateOperationsInput | string
-  interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
-  intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
+  autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutPackageNestedInput
+  addOns?: Prisma.ServicePackageAddOnUncheckedUpdateManyWithoutPackageNestedInput
+}
+
+export type ServicePackageUncheckedUpdateManyWithoutServiceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  price?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  currency?: Prisma.StringFieldUpdateOperationsInput | string
+  pricingType?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
+  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
+  intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  addOns?: Prisma.ServiceAddOnUncheckedUpdateManyWithoutServicePackageNestedInput
-  purchases?: Prisma.ServicePurchaseUncheckedUpdateManyWithoutItemNestedInput
-}
-
-export type ServicePackageUncheckedUpdateManyWithoutWorkspaceInput = {
-  id?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  icon?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  type?: Prisma.EnumPricingTypeFieldUpdateOperationsInput | $Enums.PricingType
-  price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  currency?: Prisma.StringFieldUpdateOperationsInput | string
-  interval?: Prisma.NullableEnumBillingCadenceFieldUpdateOperationsInput | $Enums.BillingCadence | null
-  intervalCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundValue?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  turnaroundUnit?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  isPublishedToStore?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
-  visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  sortOrder?: Prisma.IntFieldUpdateOperationsInput | number
+  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoCreateProject?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoCreateCompany?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendBriefForm?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoSendPortalInvite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   briefFormId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  paymentPreferences?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  lineItems?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  deliverables?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  timeline?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  paymentSchedule?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  legalClauses?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
-  revisionPolicy?: Prisma.NullableJsonNullValueInput | runtime.InputJsonValue
   autoApplyRevisionPolicy?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyPaymentSchedule?: Prisma.BoolFieldUpdateOperationsInput | boolean
   autoApplyLegalClauses?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -1888,13 +1609,13 @@ export type ServicePackageUncheckedUpdateManyWithoutWorkspaceInput = {
  */
 
 export type ServicePackageCountOutputType = {
-  addOns: number
   purchases: number
+  addOns: number
 }
 
 export type ServicePackageCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  addOns?: boolean | ServicePackageCountOutputTypeCountAddOnsArgs
   purchases?: boolean | ServicePackageCountOutputTypeCountPurchasesArgs
+  addOns?: boolean | ServicePackageCountOutputTypeCountAddOnsArgs
 }
 
 /**
@@ -1910,262 +1631,213 @@ export type ServicePackageCountOutputTypeDefaultArgs<ExtArgs extends runtime.Typ
 /**
  * ServicePackageCountOutputType without action
  */
-export type ServicePackageCountOutputTypeCountAddOnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ServiceAddOnWhereInput
+export type ServicePackageCountOutputTypeCountPurchasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServicePurchaseWhereInput
 }
 
 /**
  * ServicePackageCountOutputType without action
  */
-export type ServicePackageCountOutputTypeCountPurchasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.ServicePurchaseWhereInput
+export type ServicePackageCountOutputTypeCountAddOnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ServicePackageAddOnWhereInput
 }
 
 
 export type ServicePackageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workspaceId?: boolean
+  serviceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  icon?: boolean
-  avatar?: boolean
-  type?: boolean
   price?: boolean
   currency?: boolean
+  pricingType?: boolean
+  sortOrder?: boolean
   interval?: boolean
   intervalCount?: boolean
-  turnaroundValue?: boolean
-  turnaroundUnit?: boolean
-  isPublishedToStore?: boolean
-  status?: boolean
-  visibility?: boolean
   featured?: boolean
-  sortOrder?: boolean
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: boolean
-  paymentPreferences?: boolean
+  active?: boolean
   lineItems?: boolean
   deliverables?: boolean
   timeline?: boolean
   paymentSchedule?: boolean
   legalClauses?: boolean
   revisionPolicy?: boolean
+  paymentPreferences?: boolean
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: boolean
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  addOns?: boolean | Prisma.ServicePackage$addOnsArgs<ExtArgs>
+  deletedAt?: boolean
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
   purchases?: boolean | Prisma.ServicePackage$purchasesArgs<ExtArgs>
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  addOns?: boolean | Prisma.ServicePackage$addOnsArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePackageCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePackage"]>
 
 export type ServicePackageSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workspaceId?: boolean
+  serviceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  icon?: boolean
-  avatar?: boolean
-  type?: boolean
   price?: boolean
   currency?: boolean
+  pricingType?: boolean
+  sortOrder?: boolean
   interval?: boolean
   intervalCount?: boolean
-  turnaroundValue?: boolean
-  turnaroundUnit?: boolean
-  isPublishedToStore?: boolean
-  status?: boolean
-  visibility?: boolean
   featured?: boolean
-  sortOrder?: boolean
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: boolean
-  paymentPreferences?: boolean
+  active?: boolean
   lineItems?: boolean
   deliverables?: boolean
   timeline?: boolean
   paymentSchedule?: boolean
   legalClauses?: boolean
   revisionPolicy?: boolean
+  paymentPreferences?: boolean
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: boolean
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  deletedAt?: boolean
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePackage"]>
 
 export type ServicePackageSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  workspaceId?: boolean
+  serviceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  icon?: boolean
-  avatar?: boolean
-  type?: boolean
   price?: boolean
   currency?: boolean
+  pricingType?: boolean
+  sortOrder?: boolean
   interval?: boolean
   intervalCount?: boolean
-  turnaroundValue?: boolean
-  turnaroundUnit?: boolean
-  isPublishedToStore?: boolean
-  status?: boolean
-  visibility?: boolean
   featured?: boolean
-  sortOrder?: boolean
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: boolean
-  paymentPreferences?: boolean
+  active?: boolean
   lineItems?: boolean
   deliverables?: boolean
   timeline?: boolean
   paymentSchedule?: boolean
   legalClauses?: boolean
   revisionPolicy?: boolean
+  paymentPreferences?: boolean
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: boolean
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: boolean
   updatedAt?: boolean
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  deletedAt?: boolean
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["servicePackage"]>
 
 export type ServicePackageSelectScalar = {
   id?: boolean
-  workspaceId?: boolean
+  serviceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  icon?: boolean
-  avatar?: boolean
-  type?: boolean
   price?: boolean
   currency?: boolean
+  pricingType?: boolean
+  sortOrder?: boolean
   interval?: boolean
   intervalCount?: boolean
-  turnaroundValue?: boolean
-  turnaroundUnit?: boolean
-  isPublishedToStore?: boolean
-  status?: boolean
-  visibility?: boolean
   featured?: boolean
-  sortOrder?: boolean
-  autoCreateProject?: boolean
-  autoCreateCompany?: boolean
-  autoSendBriefForm?: boolean
-  autoSendPortalInvite?: boolean
-  briefFormId?: boolean
-  paymentPreferences?: boolean
+  active?: boolean
   lineItems?: boolean
   deliverables?: boolean
   timeline?: boolean
   paymentSchedule?: boolean
   legalClauses?: boolean
   revisionPolicy?: boolean
+  paymentPreferences?: boolean
+  autoCreateProject?: boolean
+  autoCreateCompany?: boolean
+  autoSendBriefForm?: boolean
+  autoSendPortalInvite?: boolean
+  briefFormId?: boolean
   autoApplyRevisionPolicy?: boolean
   autoApplyPaymentSchedule?: boolean
   autoApplyLegalClauses?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  deletedAt?: boolean
 }
 
-export type ServicePackageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "name" | "slug" | "tagline" | "description" | "category" | "icon" | "avatar" | "type" | "price" | "currency" | "interval" | "intervalCount" | "turnaroundValue" | "turnaroundUnit" | "isPublishedToStore" | "status" | "visibility" | "featured" | "sortOrder" | "autoCreateProject" | "autoCreateCompany" | "autoSendBriefForm" | "autoSendPortalInvite" | "briefFormId" | "paymentPreferences" | "lineItems" | "deliverables" | "timeline" | "paymentSchedule" | "legalClauses" | "revisionPolicy" | "autoApplyRevisionPolicy" | "autoApplyPaymentSchedule" | "autoApplyLegalClauses" | "createdAt" | "updatedAt", ExtArgs["result"]["servicePackage"]>
+export type ServicePackageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "serviceId" | "name" | "slug" | "description" | "price" | "currency" | "pricingType" | "sortOrder" | "interval" | "intervalCount" | "featured" | "active" | "lineItems" | "deliverables" | "timeline" | "paymentSchedule" | "legalClauses" | "revisionPolicy" | "paymentPreferences" | "autoCreateProject" | "autoCreateCompany" | "autoSendBriefForm" | "autoSendPortalInvite" | "briefFormId" | "autoApplyRevisionPolicy" | "autoApplyPaymentSchedule" | "autoApplyLegalClauses" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["servicePackage"]>
 export type ServicePackageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  addOns?: boolean | Prisma.ServicePackage$addOnsArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
   purchases?: boolean | Prisma.ServicePackage$purchasesArgs<ExtArgs>
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  addOns?: boolean | Prisma.ServicePackage$addOnsArgs<ExtArgs>
   _count?: boolean | Prisma.ServicePackageCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type ServicePackageIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
 }
 export type ServicePackageIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
+  service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
 }
 
 export type $ServicePackagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "ServicePackage"
   objects: {
-    addOns: Prisma.$ServiceAddOnPayload<ExtArgs>[]
+    service: Prisma.$ServicePayload<ExtArgs>
     purchases: Prisma.$ServicePurchasePayload<ExtArgs>[]
-    workspace: Prisma.$WorkspacePayload<ExtArgs>
+    addOns: Prisma.$ServicePackageAddOnPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    workspaceId: string
+    serviceId: string
     name: string
     slug: string
-    tagline: string | null
     description: string | null
-    category: string | null
-    icon: string | null
-    avatar: string | null
-    type: $Enums.PricingType
-    price: runtime.Decimal
+    price: runtime.Decimal | null
     currency: string
+    pricingType: $Enums.PricingType
+    sortOrder: number
     interval: $Enums.BillingCadence | null
     intervalCount: number | null
-    turnaroundValue: number | null
-    turnaroundUnit: string | null
-    isPublishedToStore: boolean
-    status: $Enums.ServiceStatus
-    visibility: $Enums.ServiceVisibility
     featured: boolean
-    sortOrder: number
+    active: boolean
+    lineItems: runtime.JsonValue | null
+    deliverables: runtime.JsonValue | null
+    timeline: runtime.JsonValue | null
+    paymentSchedule: runtime.JsonValue | null
+    legalClauses: runtime.JsonValue | null
+    revisionPolicy: runtime.JsonValue | null
+    paymentPreferences: runtime.JsonValue | null
     autoCreateProject: boolean
     autoCreateCompany: boolean
     autoSendBriefForm: boolean
     autoSendPortalInvite: boolean
     briefFormId: string | null
-    paymentPreferences: runtime.JsonValue | null
-    /**
-     * Structured breakdown of deliverables for invoicing and scope clarity.
-     *   Maps to the Proposal Pricing node.
-     *   Format: [{label, type, quantity, unitAmount, unit, amount}]
-     */
-    lineItems: runtime.JsonValue | null
-    /**
-     * Deliverables Matrix: A structured representation of what's in vs. out of scope, 
-     *   used for both client clarity and internal fulfillment guidance.
-     *   Format:[{}]
-     */
-    deliverables: runtime.JsonValue | null
-    /**
-     * Timeline Blueprint: A phased execution roadmap that can trigger automated billing milestones.
-     * Format: [{phaseName, description, paymentPercentage, invoiceTrigger}]
-     */
-    timeline: runtime.JsonValue | null
-    paymentSchedule: runtime.JsonValue | null
-    legalClauses: runtime.JsonValue | null
-    revisionPolicy: runtime.JsonValue | null
     autoApplyRevisionPolicy: boolean
     autoApplyPaymentSchedule: boolean
     autoApplyLegalClauses: boolean
     createdAt: Date
     updatedAt: Date
+    deletedAt: Date | null
   }, ExtArgs["result"]["servicePackage"]>
   composites: {}
 }
@@ -2560,9 +2232,9 @@ readonly fields: ServicePackageFieldRefs;
  */
 export interface Prisma__ServicePackageClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  addOns<T extends Prisma.ServicePackage$addOnsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePackage$addOnsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServiceAddOnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  service<T extends Prisma.ServiceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServiceDefaultArgs<ExtArgs>>): Prisma.Prisma__ServiceClient<runtime.Types.Result.GetResult<Prisma.$ServicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   purchases<T extends Prisma.ServicePackage$purchasesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePackage$purchasesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePurchasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  workspace<T extends Prisma.WorkspaceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.WorkspaceDefaultArgs<ExtArgs>>): Prisma.Prisma__WorkspaceClient<runtime.Types.Result.GetResult<Prisma.$WorkspacePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  addOns<T extends Prisma.ServicePackage$addOnsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ServicePackage$addOnsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ServicePackageAddOnPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2593,43 +2265,36 @@ export interface Prisma__ServicePackageClient<T, Null = never, ExtArgs extends r
  */
 export interface ServicePackageFieldRefs {
   readonly id: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly workspaceId: Prisma.FieldRef<"ServicePackage", 'String'>
+  readonly serviceId: Prisma.FieldRef<"ServicePackage", 'String'>
   readonly name: Prisma.FieldRef<"ServicePackage", 'String'>
   readonly slug: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly tagline: Prisma.FieldRef<"ServicePackage", 'String'>
   readonly description: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly category: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly icon: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly avatar: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly type: Prisma.FieldRef<"ServicePackage", 'PricingType'>
   readonly price: Prisma.FieldRef<"ServicePackage", 'Decimal'>
   readonly currency: Prisma.FieldRef<"ServicePackage", 'String'>
+  readonly pricingType: Prisma.FieldRef<"ServicePackage", 'PricingType'>
+  readonly sortOrder: Prisma.FieldRef<"ServicePackage", 'Int'>
   readonly interval: Prisma.FieldRef<"ServicePackage", 'BillingCadence'>
   readonly intervalCount: Prisma.FieldRef<"ServicePackage", 'Int'>
-  readonly turnaroundValue: Prisma.FieldRef<"ServicePackage", 'Int'>
-  readonly turnaroundUnit: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly isPublishedToStore: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly status: Prisma.FieldRef<"ServicePackage", 'ServiceStatus'>
-  readonly visibility: Prisma.FieldRef<"ServicePackage", 'ServiceVisibility'>
   readonly featured: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly sortOrder: Prisma.FieldRef<"ServicePackage", 'Int'>
-  readonly autoCreateProject: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly autoCreateCompany: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly autoSendBriefForm: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly autoSendPortalInvite: Prisma.FieldRef<"ServicePackage", 'Boolean'>
-  readonly briefFormId: Prisma.FieldRef<"ServicePackage", 'String'>
-  readonly paymentPreferences: Prisma.FieldRef<"ServicePackage", 'Json'>
+  readonly active: Prisma.FieldRef<"ServicePackage", 'Boolean'>
   readonly lineItems: Prisma.FieldRef<"ServicePackage", 'Json'>
   readonly deliverables: Prisma.FieldRef<"ServicePackage", 'Json'>
   readonly timeline: Prisma.FieldRef<"ServicePackage", 'Json'>
   readonly paymentSchedule: Prisma.FieldRef<"ServicePackage", 'Json'>
   readonly legalClauses: Prisma.FieldRef<"ServicePackage", 'Json'>
   readonly revisionPolicy: Prisma.FieldRef<"ServicePackage", 'Json'>
+  readonly paymentPreferences: Prisma.FieldRef<"ServicePackage", 'Json'>
+  readonly autoCreateProject: Prisma.FieldRef<"ServicePackage", 'Boolean'>
+  readonly autoCreateCompany: Prisma.FieldRef<"ServicePackage", 'Boolean'>
+  readonly autoSendBriefForm: Prisma.FieldRef<"ServicePackage", 'Boolean'>
+  readonly autoSendPortalInvite: Prisma.FieldRef<"ServicePackage", 'Boolean'>
+  readonly briefFormId: Prisma.FieldRef<"ServicePackage", 'String'>
   readonly autoApplyRevisionPolicy: Prisma.FieldRef<"ServicePackage", 'Boolean'>
   readonly autoApplyPaymentSchedule: Prisma.FieldRef<"ServicePackage", 'Boolean'>
   readonly autoApplyLegalClauses: Prisma.FieldRef<"ServicePackage", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"ServicePackage", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"ServicePackage", 'DateTime'>
+  readonly deletedAt: Prisma.FieldRef<"ServicePackage", 'DateTime'>
 }
     
 
@@ -3031,30 +2696,6 @@ export type ServicePackageDeleteManyArgs<ExtArgs extends runtime.Types.Extension
 }
 
 /**
- * ServicePackage.addOns
- */
-export type ServicePackage$addOnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ServiceAddOn
-   */
-  select?: Prisma.ServiceAddOnSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the ServiceAddOn
-   */
-  omit?: Prisma.ServiceAddOnOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.ServiceAddOnInclude<ExtArgs> | null
-  where?: Prisma.ServiceAddOnWhereInput
-  orderBy?: Prisma.ServiceAddOnOrderByWithRelationInput | Prisma.ServiceAddOnOrderByWithRelationInput[]
-  cursor?: Prisma.ServiceAddOnWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.ServiceAddOnScalarFieldEnum | Prisma.ServiceAddOnScalarFieldEnum[]
-}
-
-/**
  * ServicePackage.purchases
  */
 export type ServicePackage$purchasesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -3076,6 +2717,30 @@ export type ServicePackage$purchasesArgs<ExtArgs extends runtime.Types.Extension
   take?: number
   skip?: number
   distinct?: Prisma.ServicePurchaseScalarFieldEnum | Prisma.ServicePurchaseScalarFieldEnum[]
+}
+
+/**
+ * ServicePackage.addOns
+ */
+export type ServicePackage$addOnsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ServicePackageAddOn
+   */
+  select?: Prisma.ServicePackageAddOnSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ServicePackageAddOn
+   */
+  omit?: Prisma.ServicePackageAddOnOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ServicePackageAddOnInclude<ExtArgs> | null
+  where?: Prisma.ServicePackageAddOnWhereInput
+  orderBy?: Prisma.ServicePackageAddOnOrderByWithRelationInput | Prisma.ServicePackageAddOnOrderByWithRelationInput[]
+  cursor?: Prisma.ServicePackageAddOnWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ServicePackageAddOnScalarFieldEnum | Prisma.ServicePackageAddOnScalarFieldEnum[]
 }
 
 /**
