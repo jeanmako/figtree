@@ -1,5 +1,6 @@
 import z from "zod"
 import {
+  CreateServiceResponseSchema,
   createServiceSchema,
   ServicePackageSchema,
   ServiceSchema,
@@ -53,4 +54,5 @@ export type completionAction = (typeof completionActionEnum)[number]
 
 export type ServiceResponse = z.infer<typeof ServiceSchema>
 export type ServicePackageResponse = z.infer<typeof ServicePackageSchema>
+export type CreateServiceResponse = z.infer<typeof CreateServiceResponseSchema>
 export type CreateServicePayload = z.infer<typeof createServiceSchema>

@@ -7,9 +7,14 @@ import {
 } from "@figtree/shared/schemas/services"
 import { visibility } from "@/modules/services/lib/misc"
 import slugify from "@sindresorhus/slugify"
+import { useServiceCreateMutation } from "@/modules/services/hooks/service-create-mutation"
+import { useServiceParams } from "@/modules/services/hooks/use-service-params"
 
 export const ServiceCreateForm = () => {
   const id = "service-create-form"
+  const { mutateAsync: createService, isPending: loading } =
+    useServiceCreateMutation()
+  const { setParams: setServiceParams } = useServiceParams()
   const form = useAppForm({
     defaultValues: {
       name: "",
@@ -20,6 +25,13 @@ export const ServiceCreateForm = () => {
     } satisfies CreateServicePayload as CreateServicePayload,
     validators: {
       onSubmit: createServiceSchema,
+    },
+    onSubmit: async ({ value: payload }) => {
+      await createService(payload, {
+        onSuccess: () => {
+          setServiceParams(null)
+        },
+      })
     },
   })
   return (
@@ -46,6 +58,7 @@ export const ServiceCreateForm = () => {
               htmlFor={`${id}-${field.name}`}
               label="Name"
               placeholder="Website Design"
+              disabled={loading}
             />
           )}
         </form.AppField>
@@ -57,6 +70,7 @@ export const ServiceCreateForm = () => {
               htmlFor={`${id}-${field.name}`}
               label="Slug"
               placeholder="website-design"
+              disabled={loading}
             />
           )}
         </form.AppField>
@@ -67,6 +81,7 @@ export const ServiceCreateForm = () => {
               htmlFor={`${id}-${field.name}`}
               label="Description"
               placeholder="Custom marketing website"
+              disabled={loading}
             />
           )}
         </form.AppField>
@@ -79,6 +94,7 @@ export const ServiceCreateForm = () => {
               label="Visibility"
               size="sm"
               variant="secondary"
+              disabled={loading}
             />
           )}
         </form.AppField>

@@ -38,7 +38,7 @@ export const WorkspaceService = (
     // TODO: add additional guards for workspace limits, etc
 
     const workspace = await repo.create(foundProfile.id, {
-      id: createId(),
+      id: createId({ prefix: "ws_" }),
       name: payload.name,
       slug,
       currency: payload.currency,
