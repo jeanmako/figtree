@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes"
+import { NuqsAdapter } from "nuqs/adapters/next/app"
 import { ToastProvider } from "@figtree/ui/components/toast"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { FetchError } from "@figtree/lib/fetcher"
@@ -40,11 +41,13 @@ export function Providers({
       {...props}
     >
       <ThemeHotkey />
-      <ToastProvider>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
-      </ToastProvider>
+      <NuqsAdapter>
+        <ToastProvider>
+          <QueryClientProvider client={queryClient}>
+            {children}
+          </QueryClientProvider>
+        </ToastProvider>
+      </NuqsAdapter>
     </NextThemesProvider>
   )
 }

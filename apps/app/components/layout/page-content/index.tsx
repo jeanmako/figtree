@@ -23,7 +23,7 @@ export function PageContent({
   return (
     <div
       className={cn(
-        "@container/page flex max-w-full flex-[1_1_auto] flex-col items-stretch justify-start py-4",
+        "@container/page flex h-max max-w-full flex-[1_1_auto] flex-col items-stretch justify-start py-4",
         className
       )}
     >

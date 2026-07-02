@@ -12,7 +12,7 @@ import {
 } from "./utils/route-config"
 
 export async function AppMiddleware(req: NextRequest): Promise<NextResponse> {
-  const { pathname, fullPath, searchParams, searchParamsString } = parse(req)
+  const { pathname, searchParams, searchParamsString } = parse(req)
 
   if (isPublicRoute(pathname)) {
     return NextResponse.next()
@@ -23,16 +23,16 @@ export async function AppMiddleware(req: NextRequest): Promise<NextResponse> {
   })
 
   if (!session) {
-    const next =
+    const safeNext =
       pathname !== "/"
         ? getValidInternalRedirectPath({
-            redirectPath: fullPath,
+            redirectPath: pathname,
             currentUrl: req.url,
           })
         : null
 
     const loginUrl = new URL("/login", req.url)
-    if (next) loginUrl.searchParams.set("next", next)
+    if (safeNext) loginUrl.searchParams.set("next", safeNext)
     return NextResponse.redirect(loginUrl)
   }
 

@@ -1,11 +1,5 @@
 import z from "zod"
-import {
-  headcount,
-  plans,
-  workspaceRolesEnum,
-  industry,
-  clientType,
-} from "./types"
+import { headcount, plans, workspaceRolesEnum, industry } from "./types"
 import slugify from "@sindresorhus/slugify"
 import { ClientTypeSchema, validSlugRegex } from "../misc"
 import { countryCodes } from "@figtree/utils/constants/countries"
