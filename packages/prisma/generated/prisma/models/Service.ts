@@ -29,14 +29,9 @@ export type ServiceMinAggregateOutputType = {
   workspaceId: string | null
   name: string | null
   slug: string | null
-  tagline: string | null
   description: string | null
-  category: string | null
-  avatar: string | null
-  coverImage: string | null
   status: $Enums.ServiceStatus | null
   visibility: $Enums.ServiceVisibility | null
-  active: boolean | null
   featured: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -48,14 +43,9 @@ export type ServiceMaxAggregateOutputType = {
   workspaceId: string | null
   name: string | null
   slug: string | null
-  tagline: string | null
   description: string | null
-  category: string | null
-  avatar: string | null
-  coverImage: string | null
   status: $Enums.ServiceStatus | null
   visibility: $Enums.ServiceVisibility | null
-  active: boolean | null
   featured: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -67,14 +57,9 @@ export type ServiceCountAggregateOutputType = {
   workspaceId: number
   name: number
   slug: number
-  tagline: number
   description: number
-  category: number
-  avatar: number
-  coverImage: number
   status: number
   visibility: number
-  active: number
   featured: number
   createdAt: number
   updatedAt: number
@@ -88,14 +73,9 @@ export type ServiceMinAggregateInputType = {
   workspaceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  avatar?: true
-  coverImage?: true
   status?: true
   visibility?: true
-  active?: true
   featured?: true
   createdAt?: true
   updatedAt?: true
@@ -107,14 +87,9 @@ export type ServiceMaxAggregateInputType = {
   workspaceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  avatar?: true
-  coverImage?: true
   status?: true
   visibility?: true
-  active?: true
   featured?: true
   createdAt?: true
   updatedAt?: true
@@ -126,14 +101,9 @@ export type ServiceCountAggregateInputType = {
   workspaceId?: true
   name?: true
   slug?: true
-  tagline?: true
   description?: true
-  category?: true
-  avatar?: true
-  coverImage?: true
   status?: true
   visibility?: true
-  active?: true
   featured?: true
   createdAt?: true
   updatedAt?: true
@@ -218,14 +188,9 @@ export type ServiceGroupByOutputType = {
   workspaceId: string
   name: string
   slug: string
-  tagline: string | null
   description: string | null
-  category: string | null
-  avatar: string | null
-  coverImage: string | null
   status: $Enums.ServiceStatus
   visibility: $Enums.ServiceVisibility
-  active: boolean
   featured: boolean
   createdAt: Date
   updatedAt: Date
@@ -258,14 +223,9 @@ export type ServiceWhereInput = {
   workspaceId?: Prisma.StringFilter<"Service"> | string
   name?: Prisma.StringFilter<"Service"> | string
   slug?: Prisma.StringFilter<"Service"> | string
-  tagline?: Prisma.StringNullableFilter<"Service"> | string | null
   description?: Prisma.StringNullableFilter<"Service"> | string | null
-  category?: Prisma.StringNullableFilter<"Service"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Service"> | string | null
-  coverImage?: Prisma.StringNullableFilter<"Service"> | string | null
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFilter<"Service"> | $Enums.ServiceVisibility
-  active?: Prisma.BoolFilter<"Service"> | boolean
   featured?: Prisma.BoolFilter<"Service"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -281,14 +241,9 @@ export type ServiceOrderByWithRelationInput = {
   workspaceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  category?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
-  coverImage?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
-  active?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -308,14 +263,9 @@ export type ServiceWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ServiceWhereInput | Prisma.ServiceWhereInput[]
   workspaceId?: Prisma.StringFilter<"Service"> | string
   name?: Prisma.StringFilter<"Service"> | string
-  tagline?: Prisma.StringNullableFilter<"Service"> | string | null
   description?: Prisma.StringNullableFilter<"Service"> | string | null
-  category?: Prisma.StringNullableFilter<"Service"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Service"> | string | null
-  coverImage?: Prisma.StringNullableFilter<"Service"> | string | null
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFilter<"Service"> | $Enums.ServiceVisibility
-  active?: Prisma.BoolFilter<"Service"> | boolean
   featured?: Prisma.BoolFilter<"Service"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -331,14 +281,9 @@ export type ServiceOrderByWithAggregationInput = {
   workspaceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrderInput | Prisma.SortOrder
   description?: Prisma.SortOrderInput | Prisma.SortOrder
-  category?: Prisma.SortOrderInput | Prisma.SortOrder
-  avatar?: Prisma.SortOrderInput | Prisma.SortOrder
-  coverImage?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
-  active?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -356,14 +301,9 @@ export type ServiceScalarWhereWithAggregatesInput = {
   workspaceId?: Prisma.StringWithAggregatesFilter<"Service"> | string
   name?: Prisma.StringWithAggregatesFilter<"Service"> | string
   slug?: Prisma.StringWithAggregatesFilter<"Service"> | string
-  tagline?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
   description?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
-  category?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
-  avatar?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
-  coverImage?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
   status?: Prisma.EnumServiceStatusWithAggregatesFilter<"Service"> | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityWithAggregatesFilter<"Service"> | $Enums.ServiceVisibility
-  active?: Prisma.BoolWithAggregatesFilter<"Service"> | boolean
   featured?: Prisma.BoolWithAggregatesFilter<"Service"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Service"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Service"> | Date | string
@@ -374,14 +314,9 @@ export type ServiceCreateInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -397,14 +332,9 @@ export type ServiceUncheckedCreateInput = {
   workspaceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -418,14 +348,9 @@ export type ServiceUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -441,14 +366,9 @@ export type ServiceUncheckedUpdateInput = {
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -463,14 +383,9 @@ export type ServiceCreateManyInput = {
   workspaceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -481,14 +396,9 @@ export type ServiceUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -500,14 +410,9 @@ export type ServiceUncheckedUpdateManyInput = {
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -524,14 +429,9 @@ export type ServiceCountOrderByAggregateInput = {
   workspaceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  coverImage?: Prisma.SortOrder
   status?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
-  active?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -543,14 +443,9 @@ export type ServiceMaxOrderByAggregateInput = {
   workspaceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  coverImage?: Prisma.SortOrder
   status?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
-  active?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -562,14 +457,9 @@ export type ServiceMinOrderByAggregateInput = {
   workspaceId?: Prisma.SortOrder
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
-  tagline?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  category?: Prisma.SortOrder
-  avatar?: Prisma.SortOrder
-  coverImage?: Prisma.SortOrder
   status?: Prisma.SortOrder
   visibility?: Prisma.SortOrder
-  active?: Prisma.SortOrder
   featured?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -687,14 +577,9 @@ export type ServiceCreateWithoutPackagesInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -709,14 +594,9 @@ export type ServiceUncheckedCreateWithoutPackagesInput = {
   workspaceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -745,14 +625,9 @@ export type ServiceUpdateWithoutPackagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -767,14 +642,9 @@ export type ServiceUncheckedUpdateWithoutPackagesInput = {
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -787,14 +657,9 @@ export type ServiceCreateWithoutAddOnsInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -809,14 +674,9 @@ export type ServiceUncheckedCreateWithoutAddOnsInput = {
   workspaceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -845,14 +705,9 @@ export type ServiceUpdateWithoutAddOnsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -867,14 +722,9 @@ export type ServiceUncheckedUpdateWithoutAddOnsInput = {
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -887,14 +737,9 @@ export type ServiceCreateWithoutPurchasesInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -909,14 +754,9 @@ export type ServiceUncheckedCreateWithoutPurchasesInput = {
   workspaceId: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -945,14 +785,9 @@ export type ServiceUpdateWithoutPurchasesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -967,14 +802,9 @@ export type ServiceUncheckedUpdateWithoutPurchasesInput = {
   workspaceId?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -987,14 +817,9 @@ export type ServiceCreateWithoutWorkspaceInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1008,14 +833,9 @@ export type ServiceUncheckedCreateWithoutWorkspaceInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1059,14 +879,9 @@ export type ServiceScalarWhereInput = {
   workspaceId?: Prisma.StringFilter<"Service"> | string
   name?: Prisma.StringFilter<"Service"> | string
   slug?: Prisma.StringFilter<"Service"> | string
-  tagline?: Prisma.StringNullableFilter<"Service"> | string | null
   description?: Prisma.StringNullableFilter<"Service"> | string | null
-  category?: Prisma.StringNullableFilter<"Service"> | string | null
-  avatar?: Prisma.StringNullableFilter<"Service"> | string | null
-  coverImage?: Prisma.StringNullableFilter<"Service"> | string | null
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFilter<"Service"> | $Enums.ServiceVisibility
-  active?: Prisma.BoolFilter<"Service"> | boolean
   featured?: Prisma.BoolFilter<"Service"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -1077,14 +892,9 @@ export type ServiceCreateManyWorkspaceInput = {
   id?: string
   name: string
   slug: string
-  tagline?: string | null
   description?: string | null
-  category?: string | null
-  avatar?: string | null
-  coverImage?: string | null
   status?: $Enums.ServiceStatus
   visibility?: $Enums.ServiceVisibility
-  active?: boolean
   featured?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1095,14 +905,9 @@ export type ServiceUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1116,14 +921,9 @@ export type ServiceUncheckedUpdateWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1137,14 +937,9 @@ export type ServiceUncheckedUpdateManyWithoutWorkspaceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
-  tagline?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  category?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  avatar?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  coverImage?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
   visibility?: Prisma.EnumServiceVisibilityFieldUpdateOperationsInput | $Enums.ServiceVisibility
-  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   featured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1205,14 +1000,9 @@ export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   workspaceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  avatar?: boolean
-  coverImage?: boolean
   status?: boolean
   visibility?: boolean
-  active?: boolean
   featured?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1229,14 +1019,9 @@ export type ServiceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   workspaceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  avatar?: boolean
-  coverImage?: boolean
   status?: boolean
   visibility?: boolean
-  active?: boolean
   featured?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1249,14 +1034,9 @@ export type ServiceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   workspaceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  avatar?: boolean
-  coverImage?: boolean
   status?: boolean
   visibility?: boolean
-  active?: boolean
   featured?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1269,21 +1049,16 @@ export type ServiceSelectScalar = {
   workspaceId?: boolean
   name?: boolean
   slug?: boolean
-  tagline?: boolean
   description?: boolean
-  category?: boolean
-  avatar?: boolean
-  coverImage?: boolean
   status?: boolean
   visibility?: boolean
-  active?: boolean
   featured?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   deletedAt?: boolean
 }
 
-export type ServiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "name" | "slug" | "tagline" | "description" | "category" | "avatar" | "coverImage" | "status" | "visibility" | "active" | "featured" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["service"]>
+export type ServiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "workspaceId" | "name" | "slug" | "description" | "status" | "visibility" | "featured" | "createdAt" | "updatedAt" | "deletedAt", ExtArgs["result"]["service"]>
 export type ServiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   workspace?: boolean | Prisma.WorkspaceDefaultArgs<ExtArgs>
   packages?: boolean | Prisma.Service$packagesArgs<ExtArgs>
@@ -1311,14 +1086,9 @@ export type $ServicePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     workspaceId: string
     name: string
     slug: string
-    tagline: string | null
     description: string | null
-    category: string | null
-    avatar: string | null
-    coverImage: string | null
     status: $Enums.ServiceStatus
     visibility: $Enums.ServiceVisibility
-    active: boolean
     featured: boolean
     createdAt: Date
     updatedAt: Date
@@ -1754,14 +1524,9 @@ export interface ServiceFieldRefs {
   readonly workspaceId: Prisma.FieldRef<"Service", 'String'>
   readonly name: Prisma.FieldRef<"Service", 'String'>
   readonly slug: Prisma.FieldRef<"Service", 'String'>
-  readonly tagline: Prisma.FieldRef<"Service", 'String'>
   readonly description: Prisma.FieldRef<"Service", 'String'>
-  readonly category: Prisma.FieldRef<"Service", 'String'>
-  readonly avatar: Prisma.FieldRef<"Service", 'String'>
-  readonly coverImage: Prisma.FieldRef<"Service", 'String'>
   readonly status: Prisma.FieldRef<"Service", 'ServiceStatus'>
   readonly visibility: Prisma.FieldRef<"Service", 'ServiceVisibility'>
-  readonly active: Prisma.FieldRef<"Service", 'Boolean'>
   readonly featured: Prisma.FieldRef<"Service", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Service", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Service", 'DateTime'>

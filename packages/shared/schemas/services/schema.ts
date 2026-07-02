@@ -105,15 +105,10 @@ export const ServiceSchema = z.object({
   workspaceId: z.string(),
   name: z.string(),
   slug: z.string(),
-  tagline: z.string().nullable(),
   description: z.string().nullable(),
-  category: z.string().nullable(),
-  coverImage: z.string().nullish(),
-  avatar: z.string().nullish(),
   status: z.enum(serviceStatusEnum),
   visibility: z.enum(serviceVisibilityEnum),
   featured: z.boolean(),
-  active: z.boolean().default(true).nonoptional(),
   createdAt: z.date(),
   updatedAt: z.date(),
 })
@@ -149,6 +144,16 @@ export const ServicePackageSchema = z.object({
   // autoApplyLegalClauses: z.boolean(),
   // createdAt: z.date(),
   // updatedAt: z.date(),
+})
+
+export const CreateServiceResponseSchema = ServiceSchema.pick({
+  id: true,
+  slug: true,
+  name: true,
+  description: true,
+  status: true,
+  visibility: true,
+  featured: true,
 })
 
 export const createServiceSchema = z.object({

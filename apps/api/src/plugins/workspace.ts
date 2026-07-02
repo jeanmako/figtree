@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import fp from "fastify-plugin"
 import { FigtreeApiError } from "@figtree/lib/errors"
 import type { FastifyRequest, FastifyReply } from "fastify"

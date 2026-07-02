@@ -18,6 +18,7 @@
   },
   "exports": {
     "./workspace": "./workspace/index.ts",
-    "./identity/profile": "./identity/profile/index.ts"
+    "./identity/profile": "./identity/profile/index.ts",
+    "./service": "./services/index.ts"
   }
 }

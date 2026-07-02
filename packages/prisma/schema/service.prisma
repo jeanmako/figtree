@@ -44,21 +44,14 @@ enum BillingCadence {
 model Service {
   id                                     String                                 @id @default(cuid())
   workspaceId                            String                                 @map("workspace_id")
-  
-  // 1. IDENTITY & MERCHANDISING
+
   name                                   String
-  slug                                   String                                 @unique  // Generate from name automatically.            
-  tagline                                String?
+  slug                                   String                                 @unique
   description                            String?                                @db.Text
-  category                               String?
-  avatar                                 String?
-  coverImage                             String?                                @map("cover_image")
   status                                 ServiceStatus                          @default(draft)
   visibility                             ServiceVisibility                      @default(public)
 
-  active                                 Boolean                                @default(true)
   featured                               Boolean                                @default(false)
-
 
   createdAt                              DateTime                               @default(now()) @map("created_at")
   updatedAt                              DateTime                               @updatedAt @map("updated_at")
