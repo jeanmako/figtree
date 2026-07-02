@@ -15,16 +15,18 @@ import {
   FormCurrencySelector,
   FormTimezoneSelector,
   FormMultiSelect,
+  FormSwitch,
 } from "@figtree/ui/components/shared/form"
 
 const { fieldContext, formContext, useFieldContext, useFormContext } =
   createFormHookContexts()
 
-const { useAppForm } = createFormHook({
+const { useAppForm, withForm } = createFormHook({
   fieldComponents: {
     Input: FormInput,
     Textarea: FormTextarea,
     Select: FormSelect,
+    Switch: FormSwitch,
     MultiSelect: FormMultiSelect,
     Checkbox: FormCheckbox,
     Password: FormPasswordInput,
@@ -41,4 +43,4 @@ const { useAppForm } = createFormHook({
   formContext,
 })
 
-export { useAppForm, useFieldContext, useFormContext }
+export { useAppForm, withForm, useFieldContext, useFormContext }

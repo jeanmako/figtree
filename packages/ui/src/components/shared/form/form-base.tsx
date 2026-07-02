@@ -9,7 +9,8 @@ import {
   FieldLabel,
 } from "@figtree/ui/components/field"
 
-import { toastManager } from "../../toast"
+import { toastManager } from "@figtree/ui/components/toast"
+import { cn } from "@figtree/ui/lib/utils"
 
 export type FormControlProps = {
   label?: string
@@ -27,6 +28,7 @@ type FormBaseProps = FormControlProps & {
   children: ReactNode
   horizontal?: boolean
   controlFirst?: boolean
+  reversed?: boolean
 }
 
 export function FormBase({
@@ -34,6 +36,7 @@ export function FormBase({
   label,
   description,
   controlFirst,
+  reversed = false,
   horizontal,
   htmlFor,
   withToastError = false,
@@ -115,25 +118,25 @@ export function FormBase({
     <Field
       data-invalid={isInvalid}
       orientation={horizontal ? "horizontal" : "vertical"}
+      className={cn(
+        reversed && horizontal && "flex-row-reverse justify-between"
+      )}
     >
       {controlFirst ? (
         <>
           {children}
-
-          <div>
+          <div className={cn(reversed && "w-full")}>
             {labelElement}
+            {description && descriptionElement}
             {errorElem}
           </div>
         </>
       ) : (
         <>
           {label && labelElement}
-
           {children}
-
-          {errorElem}
-
           {description && descriptionElement}
+          {errorElem}
         </>
       )}
     </Field>

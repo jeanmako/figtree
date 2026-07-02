@@ -4,6 +4,7 @@ import { Select as SelectPrimitive } from "@base-ui/react/select"
 
 import { cn } from "@figtree/ui/lib/utils"
 import { Icons } from "@figtree/ui/components/icons"
+import { buttonVariants } from "@figtree/ui/components/button"
 
 const Select = SelectPrimitive.Root
 
@@ -18,7 +19,8 @@ function SelectTrigger({
   return (
     <SelectPrimitive.Trigger
       className={cn(
-        "relative inline-flex min-h-8 w-full min-w-36 items-center justify-between gap-2.5 rounded-md bg-quietest bg-clip-padding px-2 text-left text-sm font-medium text-secondary-foreground shadow-xs ring-ring/24 transition-all duration-300 outline-none select-none hover:bg-secondary/80 focus-visible:border-ring focus-visible:ring-1 aria-invalid:border-destructive/36 focus-visible:aria-invalid:border-destructive/64 focus-visible:aria-invalid:ring-destructive/16 data-disabled:pointer-events-none data-disabled:opacity-64 data-pressed:bg-secondary/80 dark:not-in-data-[slot=group]:bg-clip-border dark:aria-invalid:ring-destructive/24 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='opacity-'])]:opacity-80 [&_svg:not([class*='size-'])]:size-4.5 sm:[&_svg:not([class*='size-'])]:size-4 [[data-disabled],:focus-visible,[aria-invalid],[data-pressed]]:shadow-none",
+        buttonVariants({ size: size, variant: "outline" }),
+        "min-h-8 min-w-36 justify-between text-left",
         size === "sm" && "min-h-7.5 gap-1.5 px-2",
         size === "lg" && "min-h-9",
         className

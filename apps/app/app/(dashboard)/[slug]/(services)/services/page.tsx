@@ -1,4 +1,4 @@
-import { ServicesPageClient } from "@/modules/services/services/page-client"
+import { ServicesPageClient } from "@/modules/services/page-client"
 
 const ServicesPage = () => {
   return <ServicesPageClient />

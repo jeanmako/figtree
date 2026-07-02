@@ -27,6 +27,7 @@
     "./env/server": "./env/server.ts",
     "./schemas/auth": "./schemas/auth/index.ts",
     "./schemas/workspace": "./schemas/workspace/index.ts",
-    "./schemas/profile": "./schemas/profile/index.ts"
+    "./schemas/profile": "./schemas/profile/index.ts",
+    "./schemas/services": "./schemas/services/index.ts"
   }
 }
